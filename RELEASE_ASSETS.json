@@ -29,8 +29,6 @@
     "xlam_zip_and_policy_signature": "PASS",
     "installer_windows_compile_and_embedded_package": "PASS",
     "local_defender": "PASS",
-    "authenticode_signed": false,
-    "native_excel_rerun": "NOT_RUN",
-    "installed_acceptance": "NOT_RUN"
+    "authenticode_signed": false
   }
 }
