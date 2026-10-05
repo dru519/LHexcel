@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "reference": {
+    "product": "Kutools for Excel",
+    "version": "36.00.34",
+    "windows_scale_percent": 200,
+    "excel_viewport": {
+      "width": 1082,
+      "height": 609
+    },
+    "scale_matrix_required": false,
+    "enforce_geometry": false,
+    "role": "layout reference only; user workflow and actual working-area fit take precedence"
+  },
+  "native_200_projection": {
+    "points_to_pixels": 2.6666666666666665,
+    "window_width_overhead_pixels": 118,
+    "window_height_overhead_pixels": 128,
+    "excel_client_width_pixels": 2160,
+    "excel_client_height_pixels": 1214,
+    "source": "ProductUi native DPI 192 worst-case window chrome measurement"
+  },
+  "classes": {
+    "direct": {
+      "popup_allowed": false
+    },
+    "compact": {
+      "max_width_ratio": 0.45,
+      "max_height_ratio": 0.55,
+      "max_client_width_points": 320,
+      "max_client_height_points": 202
+    },
+    "medium": {
+      "max_width_ratio": 0.65,
+      "max_height_ratio": 0.72,
+      "max_client_width_points": 480,
+      "max_client_height_points": 276
+    },
+    "guided": {
+      "max_width_ratio": 0.8,
+      "max_height_ratio": 0.92,
+      "max_client_width_points": 580,
+      "max_client_height_points": 350
+    }
+  },
+  "guided_feature_ids": [
+    "NX-FILE-CONSOLIDATE",
+    "NX-FILE-BATCH-RENAME",
+    "NX-FILE-SHEET-BATCH-RENAME"
+  ],
+  "active_form_surfaces": {
+    "FNxAi": "medium",
+    "FNxCalculator": "medium",
+    "FNxAgeCalculator": "medium",
+    "FNxDataAnalyze": "compact",
+    "FNxDataNormalize": "medium",
+    "FNxFocusOverlay": "compact",
+    "FNxFocusSettings": "medium",
+    "FNxDrawTable": "compact",
+    "FNxModelMerge": "compact",
+    "FNxPictureInsert": "medium",
+    "FNxRoleStyle": "guided",
+    "FNxFileConsolidate": "guided",
+    "FNxFileOutput": "compact",
+    "FNxCopySaveResult": "compact",
+    "FNxFolderCreate": "medium",
+    "FNxWorkbookCompare": "medium",
+    "FNxBatchRename": "guided",
+    "FNxPdf": "medium",
+    "FNxSymbols": "medium",
+    "FNxShortcutManager": "medium",
+    "FNxFavoritesManager": "medium",
+    "FNxExecutionPlan": "guided",
+    "FNxExecutionResult": "medium",
+    "FNxDocument": "medium",
+    "FNxNumberFormat": "compact",
+    "FNxResize": "medium",
+    "FNxAbout": "compact",
+    "FNxHangulSettings": "medium",
+    "FNxNavigator": "medium",
+    "FNxDocumentNavigator": "guided",
+    "FNxDataSpecial": "medium",
+    "FNxTemplateManager": "medium",
+    "FNxRenameRuleEditor": "medium",
+    "FNxTemplateRegister": "compact",
+    "FNxTemplateAction": "compact",
+    "FNxViewPresets": "medium",
+    "FNxDataCompare": "medium"
+  },
+  "native_200_sample_forms": [
+    "FNxFocusSettings",
+    "FNxAi",
+    "FNxDataAnalyze",
+    "FNxDataNormalize",
+    "FNxDrawTable",
+    "FNxRoleStyle",
+    "FNxFolderCreate",
+    "FNxFileConsolidate",
+    "FNxCalculator",
+    "FNxSymbols"
+  ],
+  "excluded_feature_ids": [
+    "NX-AI-IMAGE"
+  ],
+  "normal_path_retired_forms": [
+    "FNxStart",
+    "FNxAllFunctions",
+    "FNxData",
+    "FNxDraw",
+    "FNxFile",
+    "FNxTemplate",
+    "FNxFocusPalette"
+  ],
+  "forbidden_user_text_patterns": [
+    "NX-",
+    "focus-palette",
+    "dialogVariant",
+    "route",
+    "risk token"
+  ]
+}

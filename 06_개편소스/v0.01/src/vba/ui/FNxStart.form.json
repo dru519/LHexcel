@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "name": "FNxStart",
+  "caption": "내엑셀 - 작업 시작",
+  "width": 620,
+  "height": 420,
+  "client_width": 620,
+  "client_height": 420,
+  "start_up_position": 1,
+  "code_path": "src/vba/ui/FNxStart.vba",
+  "default_control": "cmdOpen",
+  "cancel_control": "cmdClose",
+  "controls": [
+    {"type":"Label","name":"lblState","left":18,"top":16,"width":562,"height":24,"tab_index":0,"tab_stop":false,"enabled":true,"caption":"작업 시작"},
+    {"type":"Label","name":"lblWorkbook","left":18,"top":50,"width":562,"height":18,"tab_index":0,"tab_stop":false,"enabled":true,"caption":"통합문서: 확인 중"},
+    {"type":"Label","name":"lblSelection","left":18,"top":72,"width":562,"height":18,"tab_index":0,"tab_stop":false,"enabled":true,"caption":"선택 범위: 확인 중"},
+    {"type":"ListBox","name":"lstWorkbenches","left":18,"top":108,"width":562,"height":220,"tab_index":1,"tab_stop":true,"enabled":true,"column_count":2,"column_widths":"180 pt;382 pt"},
+    {"type":"Label","name":"lblSafety","left":18,"top":338,"width":562,"height":24,"tab_index":0,"tab_stop":false,"enabled":true,"caption":"유효한 작업대를 선택해야 열 수 있습니다. 여기서는 기능을 직접 실행하지 않습니다."},
+    {"type":"CommandButton","name":"cmdOpen","left":404,"top":374,"width":86,"height":28,"tab_index":2,"tab_stop":true,"enabled":false,"caption":"열기"},
+    {"type":"CommandButton","name":"cmdClose","left":500,"top":374,"width":80,"height":28,"tab_index":0,"tab_stop":true,"enabled":true,"caption":"닫기"}
+  ]
+}

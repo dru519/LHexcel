@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "outcomes": ["success", "cancelled", "input_error", "environment_error", "partial_failure"],
+  "required_fields": ["feature_id", "outcome", "stage", "target", "completed", "source_changed", "recovery", "message_key"]
+}

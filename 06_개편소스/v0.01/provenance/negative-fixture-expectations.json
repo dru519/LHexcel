@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "fixture": "synthetic-exact-clone",
+  "detector_status": "PASS",
+  "detected_axes": ["code", "workbook", "ui_wording", "assets"],
+  "required_axes": ["code", "workbook", "ui_wording", "assets"],
+  "real_reference_access": false
+}

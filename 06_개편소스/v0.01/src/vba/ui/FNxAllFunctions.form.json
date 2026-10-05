@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "name": "FNxAllFunctions",
+  "caption": "내엑셀 - 전체기능",
+  "width": 620,
+  "height": 440,
+  "client_width": 620,
+  "client_height": 440,
+  "start_up_position": 1,
+  "code_path": "src/vba/ui/FNxAllFunctions.vba",
+  "default_control": "cmdExecute",
+  "cancel_control": "cmdClose",
+  "controls": [
+    {"type":"Label","name":"lblSearch","left":18,"top":18,"width":80,"height":18,"tab_index":0,"tab_stop":false,"enabled":true,"caption":"기능 검색"},
+    {"type":"TextBox","name":"txtSearch","left":104,"top":14,"width":476,"height":24,"tab_index":1,"tab_stop":true,"enabled":true,"text":""},
+    {"type":"ListBox","name":"lstFeatures","left":18,"top":52,"width":562,"height":282,"tab_index":2,"tab_stop":true,"enabled":true,"column_count":2,"column_widths":"190 pt;350 pt"},
+    {"type":"Label","name":"lblStatus","left":18,"top":346,"width":562,"height":32,"tab_index":0,"tab_stop":false,"enabled":true,"caption":"활성 기능을 검색하고 선택하세요."},
+    {"type":"CommandButton","name":"cmdExecute","left":314,"top":386,"width":86,"height":28,"tab_index":3,"tab_stop":true,"enabled":true,"caption":"실행"},
+    {"type":"CommandButton","name":"cmdCopyDiagnostic","left":408,"top":386,"width":86,"height":28,"tab_index":4,"tab_stop":true,"enabled":false,"caption":"진단 복사"},
+    {"type":"CommandButton","name":"cmdClose","left":500,"top":386,"width":80,"height":28,"tab_index":0,"tab_stop":true,"enabled":true,"caption":"닫기"}
+  ]
+}

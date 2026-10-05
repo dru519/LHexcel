@@ -1,0 +1,14 @@
+{
+  "schema_version": 2,
+  "inspection_triggers": ["ai_processing", "network_transfer"],
+  "sensitive_output_alone_triggers_inspection": false,
+  "statuses": ["safe", "caution", "blocked", "incomplete"],
+  "blocked_rules": ["rrn_candidate", "luhn_card", "account_with_keyword", "password_or_api_key"],
+  "caution_rules": ["email", "phone", "address_with_region_token"],
+  "on_scan_error": "block",
+  "blocked_default": "mask_or_cancel",
+  "ai_blocked_override": "second_confirmation_without_persistence",
+  "data_blocked_override": "not_allowed",
+  "logs_may_store": ["rule_id", "cell_address", "count", "decision"],
+  "logs_must_not_store": ["raw_value", "masked_source_value", "prompt"]
+}

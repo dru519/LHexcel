@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "name": "FNxExecutionResult",
+  "caption": "내엑셀 - 실행결과",
+  "width": 480,
+  "height": 276,
+  "client_width": 480,
+  "client_height": 276,
+  "start_up_position": 1,
+  "code_path": "src/vba/frame/ui/FNxExecutionResult.vba",
+  "default_control": "cmdClose",
+  "cancel_control": null,
+  "controls": [
+    {"type":"Label","font_name":"맑은 고딕","font_size":9,"name":"lblOutcome","left":16,"top":10,"width":250,"height":20,"tab_index":0,"tab_stop":false,"enabled":true,"caption":"실행결과"},
+    {"type":"TextBox","font_name":"맑은 고딕","font_size":9,"name":"txtCompleted","left":16,"top":38,"width":216,"height":40,"tab_index":0,"tab_stop":false,"enabled":true,"value":"","locked":true,"multi_line":true},
+    {"type":"TextBox","font_name":"맑은 고딕","font_size":9,"name":"txtIncomplete","left":248,"top":38,"width":216,"height":40,"tab_index":0,"tab_stop":false,"enabled":true,"value":"","locked":true,"multi_line":true},
+    {"type":"Label","font_name":"맑은 고딕","font_size":9,"name":"lblSourceChanged","left":16,"top":84,"width":448,"height":18,"tab_index":0,"tab_stop":false,"enabled":true,"caption":"원본 변경 여부"},
+    {"type":"TextBox","font_name":"맑은 고딕","font_size":9,"name":"txtRecovery","left":16,"top":108,"width":448,"height":42,"tab_index":0,"tab_stop":false,"enabled":true,"value":"","locked":true,"multi_line":true},
+    {"type":"TextBox","font_name":"맑은 고딕","font_size":9,"name":"txtResultPath","left":16,"top":158,"width":448,"height":34,"tab_index":0,"tab_stop":false,"enabled":true,"value":"","locked":true,"multi_line":true},
+    {"type":"TextBox","font_name":"맑은 고딕","font_size":9,"name":"txtNextAction","left":16,"top":200,"width":448,"height":42,"tab_index":0,"tab_stop":false,"enabled":true,"value":"","locked":true,"multi_line":true},
+    {"type":"CommandButton","font_name":"맑은 고딕","font_size":9,"name":"cmdCopyPath","left":248,"top":244,"width":68,"height":24,"tab_index":0,"tab_stop":true,"enabled":true,"caption":"경로 복사"},
+    {"type":"CommandButton","font_name":"맑은 고딕","font_size":9,"name":"cmdOpenResult","left":322,"top":244,"width":68,"height":24,"tab_index":1,"tab_stop":true,"enabled":true,"caption":"결과 열기"},
+    {"type":"CommandButton","font_name":"맑은 고딕","font_size":9,"name":"cmdClose","left":396,"top":244,"width":68,"height":24,"tab_index":2,"tab_stop":true,"enabled":true,"caption":"닫기"}
+  ]
+}

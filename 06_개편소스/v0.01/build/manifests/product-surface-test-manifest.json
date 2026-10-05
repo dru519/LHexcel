@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "contract": "contracts/ribbon-shell-contract.json",
+  "feature_contract": "contracts/feature-contract.json",
+  "surfaces": {
+    "home": {
+      "idMso": "TabHome",
+      "group_count": 1,
+      "control_count": 4
+    },
+    "product": {
+      "id": "NX-TAB",
+      "group_count": 12,
+      "control_count": 20
+    }
+  },
+  "product_group_ids": [
+    "NX-GRP-MYEXCEL",
+    "NX-GRP-SAVE",
+    "NX-GRP-PRINT",
+    "NX-GRP-COPY",
+    "NX-GRP-INSERT",
+    "NX-GRP-FILE",
+    "NX-GRP-DATA",
+    "NX-GRP-TEMPLATE",
+    "NX-GRP-WORKSHEET-TOOLS",
+    "NX-GRP-STYLE",
+    "NX-GRP-UTIL",
+    "NX-GRP-INFO"
+  ],
+  "expected_feature_count": 49,
+  "lineage_feature_count": 31,
+  "static_feature_target_count": 36,
+  "ai_workbench_entry_count": 1,
+  "dynamic_menu_count": 8,
+  "required_control_types": [
+    1,
+    2,
+    4
+  ],
+  "vertical_save_box": {
+    "id": "NX-SAVE-VERTICAL",
+    "box_style": "vertical",
+    "child_count": 3
+  },
+  "excluded_labels": [
+    "추천 기능",
+    "최근 실행",
+    "외부 URL",
+    "네트워크"
+  ],
+  "command_group_count": 14,
+  "expected_command_count": 89,
+  "static_command_target_count": 60
+}

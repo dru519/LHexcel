@@ -1,0 +1,222 @@
+{
+  "schema_version": 2,
+  "reference_identity": "내엑셀-v3.4",
+  "target_identity": "내엑셀-v0.01-r46",
+  "data_special_strategy": "clean-room-behavioral-reimplementation",
+  "records": [
+    {
+      "source": "06_개편소스/v3.4/candidate/src/mdShortcutCatalog.bas",
+      "sha256": "1b4a3e08313c1516da7196e10c17e9e10590c9e322c2bc58c044484fa70c16f4",
+      "evidence_scope": "feature labels, Korean descriptions, shortcut aliases",
+      "targets": [
+        "NX-DATA-AGE",
+        "NX-DATA-KOREAN-MONEY",
+        "NX-DATA-PRIVACY-MASK",
+        "NX-DATA-PRIVACY-SCAN"
+      ],
+      "adaptation": "Clean-room implementation using selected-range sessions, guarded typed commands and rollback journals."
+    },
+    {
+      "source": "06_개편소스/v3.4/candidate/src/mdLHeMenuCatalog.bas",
+      "sha256": "cda180bff823f0c1f480b51c14491de4124411cd272d902902ab39f1e96f8594",
+      "evidence_scope": "data and add-in category placement",
+      "targets": [
+        "NX-DATA-AGE",
+        "NX-DATA-KOREAN-MONEY",
+        "NX-DATA-PRIVACY-MASK",
+        "NX-DATA-PRIVACY-SCAN"
+      ],
+      "adaptation": "Moved into the r46 Data group; roster features remain retired and Focus Cell stays in Utilities."
+    },
+    {
+      "source": "06_개편소스/v3.4/candidate/src/frmLHeDrawTableOptions.frm",
+      "sha256": "6da141200dbd1f6a85c1f6bccfed0f14365c5b4648f55083443f21dc3f038771",
+      "evidence_scope": "table option semantics and range-pick interaction",
+      "targets": [
+        "NX-DRAW-TITLE-TABLE",
+        "NX-DRAW-BUSINESS-TABLE"
+      ],
+      "adaptation": "Mapped display mode, table style, header rows, font sizes and alignments into a compact v0.01 modeless form."
+    },
+    {
+      "source": "06_개편소스/v3.4/candidate/src/mdLHeStyleSystem.bas",
+      "sha256": "f77b0a85c1f86e61c1e17b31c49dd624a27cbf9adebaec1a727f6c2f7eb81738",
+      "evidence_scope": "MONO and COLOR style tokens, open and closed table border semantics",
+      "targets": [
+        "NX-DRAW-TITLE-TABLE",
+        "NX-DRAW-BUSINESS-TABLE",
+        "NX-DRAW-ROLE-STYLE"
+      ],
+      "adaptation": "Authorized first-party lineage adapted to the v0.01 request, approval and cell-journal boundary."
+    },
+    {
+      "source": "06_개편소스/v3.4/candidate/src/mdLHeWorkbookCompare.bas",
+      "sha256": "b9ed8d19b2af8335a1312ecbdca70d9ea40b76e062046a8e285b2441ab635092",
+      "evidence_scope": "read-only workbook opening, value and formula comparison, report workflow",
+      "targets": [
+        "NX-FILE-WORKBOOK-COMPARE"
+      ],
+      "adaptation": "Authorized first-party behavior adapted to a compact dialog, merge and optional format comparison, bounded cells and atomic xlsx report publication."
+    },
+    {
+      "source": "06_개편소스/v3.4/candidate/src/mdLHeBatchRenameController.bas",
+      "sha256": "68da127c43d47e227f9eb6f8ff1ebb760c76b57a41d2620189f788f5c3c686b8",
+      "evidence_scope": "batch rename preview and execution workflow",
+      "targets": [
+        "NX-FILE-BATCH-RENAME"
+      ],
+      "adaptation": "Authorized first-party workflow adapted to a v0.01 preview-first two-phase rename engine with collision detection and rollback journal."
+    },
+    {
+      "source": "06_개편소스/v3.4/candidate/src/frmLHeBatchRename.frm",
+      "sha256": "4b7a70f2301ea68dc6e9b4f66645e4e3d6761a9427534ea85e18cfb352b4e675",
+      "evidence_scope": "find, replace, prefix, suffix and preview controls",
+      "targets": [
+        "NX-FILE-BATCH-RENAME",
+        "NX-FILE-SHEET-BATCH-RENAME"
+      ],
+      "adaptation": "Control intent retained while the target uses a compact 600 by 390 guided form and shared preview model."
+    }
+  ],
+  "per_target_records": [
+    {
+      "source_path": "../v3.4/candidate/src/mdShortcutCatalog.bas",
+      "source_sha256": "826d856ad02cd3a7d350f6c23f8d786ab90df409df4ab6ed2727ac3ef2cf3b8d",
+      "target_id": "NX-DATA-AGE",
+      "target_files": [
+        "src/vba/ui/NxGeneratedCommandRegistry.bas"
+      ],
+      "source_family": "v3.4"
+    },
+    {
+      "source_path": "../v3.4/candidate/src/mdLHeMenuCatalog.bas",
+      "source_sha256": "24a9a59b2087598b0a46f6c82c803ea8e9c1e0d1a615351264662964caeffd6d",
+      "target_id": "NX-DATA-AGE",
+      "target_files": [
+        "src/vba/ui/NxGeneratedCommandRegistry.bas"
+      ],
+      "source_family": "v3.4"
+    },
+    {
+      "source_path": "../v3.4/candidate/src/frmLHeDrawTableOptions.frm",
+      "source_sha256": "ac935914c46e6dcab1b5f46ec007efe8258b5b97989e1232e6e341c536f50ac6",
+      "target_id": "NX-DRAW-TITLE-TABLE",
+      "target_files": [
+        "src/vba/ui/NxGeneratedCommandRegistry.bas"
+      ],
+      "source_family": "v3.4"
+    },
+    {
+      "source_path": "../v3.4/candidate/src/mdLHeStyleSystem.bas",
+      "source_sha256": "bbc7126442c63610f1d67dfd6acd83907af0d68091a482d56488b27243fcc81f",
+      "target_id": "NX-DRAW-ROLE-STYLE",
+      "target_files": [
+        "src/vba/ui/NxGeneratedCommandRegistry.bas"
+      ],
+      "source_family": "v3.4"
+    },
+    {
+      "source_path": "../v3.4/candidate/src/mdLHeWorkbookCompare.bas",
+      "source_sha256": "7dc495ab04a40433a8881acaf7c37507918559467e3ba2471cbcc6d32dbf9c98",
+      "target_id": "NX-FILE-WORKBOOK-COMPARE",
+      "target_files": [
+        "src/vba/ui/NxGeneratedCommandRegistry.bas"
+      ],
+      "source_family": "v3.4"
+    },
+    {
+      "source_path": "../v3.4/candidate/src/mdLHeBatchRenameController.bas",
+      "source_sha256": "c6f3e6ab9798d04fd06bfc24cc80ea37bbcc1c3c92a07679aaa62065f23909df",
+      "target_id": "NX-FILE-BATCH-RENAME",
+      "target_files": [
+        "src/vba/ui/NxGeneratedCommandRegistry.bas"
+      ],
+      "source_family": "v3.4"
+    },
+    {
+      "source_path": "../v3.4/candidate/src/frmLHeBatchRename.frm",
+      "source_sha256": "e379b80139f35f7e6152a7566ee7078f2dd9e6b827c2ce0f2f1222635e74c915",
+      "target_id": "NX-FILE-SHEET-BATCH-RENAME",
+      "target_files": [
+        "src/vba/ui/NxGeneratedCommandRegistry.bas"
+      ],
+      "source_family": "v3.4"
+    }
+  ],
+  "target_lineage": [
+    {
+      "source_path": "../v3.4/candidate/src/mdShortcutCatalog.bas",
+      "source_sha256": "826d856ad02cd3a7d350f6c23f8d786ab90df409df4ab6ed2727ac3ef2cf3b8d",
+      "target_id": "NX-DATA-AGE",
+      "target_files": [
+        "src/vba/ui/NxGeneratedCommandRegistry.bas"
+      ],
+      "source_family": "v3.4"
+    },
+    {
+      "source_path": "../v3.4/candidate/src/mdLHeMenuCatalog.bas",
+      "source_sha256": "24a9a59b2087598b0a46f6c82c803ea8e9c1e0d1a615351264662964caeffd6d",
+      "target_id": "NX-DATA-AGE",
+      "target_files": [
+        "src/vba/ui/NxGeneratedCommandRegistry.bas"
+      ],
+      "source_family": "v3.4"
+    },
+    {
+      "source_path": "../v3.4/candidate/src/frmLHeDrawTableOptions.frm",
+      "source_sha256": "ac935914c46e6dcab1b5f46ec007efe8258b5b97989e1232e6e341c536f50ac6",
+      "target_id": "NX-DRAW-TITLE-TABLE",
+      "target_files": [
+        "src/vba/ui/NxGeneratedCommandRegistry.bas"
+      ],
+      "source_family": "v3.4"
+    },
+    {
+      "source_path": "../v3.4/candidate/src/mdLHeStyleSystem.bas",
+      "source_sha256": "bbc7126442c63610f1d67dfd6acd83907af0d68091a482d56488b27243fcc81f",
+      "target_id": "NX-DRAW-ROLE-STYLE",
+      "target_files": [
+        "src/vba/ui/NxGeneratedCommandRegistry.bas"
+      ],
+      "source_family": "v3.4"
+    },
+    {
+      "source_path": "../v3.4/candidate/src/mdLHeWorkbookCompare.bas",
+      "source_sha256": "7dc495ab04a40433a8881acaf7c37507918559467e3ba2471cbcc6d32dbf9c98",
+      "target_id": "NX-FILE-WORKBOOK-COMPARE",
+      "target_files": [
+        "src/vba/ui/NxGeneratedCommandRegistry.bas"
+      ],
+      "source_family": "v3.4"
+    },
+    {
+      "source_path": "../v3.4/candidate/src/mdLHeBatchRenameController.bas",
+      "source_sha256": "c6f3e6ab9798d04fd06bfc24cc80ea37bbcc1c3c92a07679aaa62065f23909df",
+      "target_id": "NX-FILE-BATCH-RENAME",
+      "target_files": [
+        "src/vba/ui/NxGeneratedCommandRegistry.bas"
+      ],
+      "source_family": "v3.4"
+    },
+    {
+      "source_path": "../v3.4/candidate/src/frmLHeBatchRename.frm",
+      "source_sha256": "e379b80139f35f7e6152a7566ee7078f2dd9e6b827c2ce0f2f1222635e74c915",
+      "target_id": "NX-FILE-SHEET-BATCH-RENAME",
+      "target_files": [
+        "src/vba/ui/NxGeneratedCommandRegistry.bas"
+      ],
+      "source_family": "v3.4"
+    }
+  ],
+  "missing_expected_sources": [
+    {
+      "planned_name": "PDF implementation module"
+    },
+    {
+      "planned_name": "sheet batch rename implementation module"
+    }
+  ],
+  "lineage_policy": "approved-first-party-v3.4-lineage",
+  "independence_policy": "clean-room-behavioral-reimplementation",
+  "origins_policy": "clean-room"
+}

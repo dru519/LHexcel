@@ -1,0 +1,26 @@
+{
+  "schema_version": 2,
+  "name": "FNxHangulSettings",
+  "caption": "내엑셀 - 아래한글 표 설정",
+  "width": 420,
+  "height": 270,
+  "client_width": 420,
+  "client_height": 270,
+  "start_up_position": 1,
+  "code_path": "src/vba/features/hangul/ui/FNxHangulSettings.vba",
+  "default_control": "cmdApply",
+  "cancel_control": "cmdCancel",
+  "controls": [
+    {"type":"Label","name":"lblFont","left":16,"top":18,"width":92,"height":18,"tab_index":0,"tab_stop":false,"enabled":true,"caption":"글꼴"},
+    {"type":"ComboBox","name":"cboFont","left":116,"top":14,"width":180,"height":22,"tab_index":0,"tab_stop":true,"enabled":true,"items":["중고딕","함초롬돋움","맑은 고딕","굴림"],"selected_index":0,"style":"drop_down_list","match_required":true},
+    {"type":"Label","name":"lblSize","left":16,"top":52,"width":92,"height":18,"tab_index":0,"tab_stop":false,"enabled":true,"caption":"글자 크기"},
+    {"type":"ComboBox","name":"cboSize","left":116,"top":48,"width":140,"height":22,"tab_index":1,"tab_stop":true,"enabled":true,"items":["10","11","12","13","14","16","18"],"selected_index":3,"style":"drop_down_list","match_required":true},
+    {"type":"Label","name":"lblStyle","left":16,"top":86,"width":92,"height":18,"tab_index":0,"tab_stop":false,"enabled":true,"caption":"표 모양"},
+    {"type":"ComboBox","name":"cboStyle","left":116,"top":82,"width":140,"height":22,"tab_index":2,"tab_stop":true,"enabled":true,"items":["공문형","간결형"],"selected_index":0,"style":"drop_down_list","match_required":true},
+    {"type":"CheckBox","name":"chkTitleRow","left":16,"top":122,"width":240,"height":20,"tab_index":3,"tab_stop":true,"enabled":true,"caption":"첫 행을 제목행으로 표시","value":true},
+    {"type":"CheckBox","name":"chkIncludeHidden","left":16,"top":148,"width":240,"height":20,"tab_index":4,"tab_stop":true,"enabled":true,"caption":"숨김 행·열 포함","value":true},
+    {"type":"Label","name":"lblNote","left":16,"top":184,"width":388,"height":36,"tab_index":0,"tab_stop":false,"enabled":true,"caption":"기본값은 중고딕/HFT/13pt이며, 선택한 표 모양과 제목행 설정을 다음 전송부터 적용합니다."},
+    {"type":"CommandButton","name":"cmdApply","left":244,"top":242,"width":76,"height":24,"tab_index":5,"tab_stop":true,"enabled":true,"caption":"저장"},
+    {"type":"CommandButton","name":"cmdCancel","left":328,"top":242,"width":76,"height":24,"tab_index":6,"tab_stop":true,"enabled":true,"caption":"취소"}
+  ]
+}

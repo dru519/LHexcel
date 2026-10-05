@@ -1,0 +1,14 @@
+{
+  "schema_version": "nxhost-v1",
+  "target_framework": ".NETFramework,Version=v4.8",
+  "com_identities": {
+    "addin": {"class_id": "4A4B4F02-76A6-4F22-BD4B-85E0308EC91D", "prog_id": "LH.NxHost.Connect"},
+    "bridge": {"class_id": "9A90294C-81C8-4AEE-A2D8-14B078A61CD2", "prog_id": "LH.NxHost.BridgeService"},
+    "navigator_pane": {"class_id": "A13D5ED6-B0F2-43C0-9499-E53E6CE38DC0", "prog_id": "LH.NxHost.NavigatorPane"},
+    "hwpx_export": {"class_id": "1434C649-18AA-4435-B0D2-2BD81B548A01", "prog_id": "LH.NxHost.HwpxExportService"},
+    "picture_preview": {"class_id": "C812F023-E912-49AA-98B7-75DC86501902", "prog_id": "LH.NxHost.PicturePreviewService"},
+    "workbook_compare": {"class_id": "C812F023-E912-49AA-98B7-75DC86501904", "prog_id": "LH.NxHost.WorkbookCompareService"},
+    "workbook_compare_results": {"class_id": "C812F023-E912-49AA-98B7-75DC86501906", "prog_id": "LH.NxHost.WorkbookCompareResultsService"}
+  },
+  "registration": {"scope": "HKCU", "opt_in": true, "preserve_existing": true}
+}

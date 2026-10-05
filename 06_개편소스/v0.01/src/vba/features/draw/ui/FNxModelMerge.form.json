@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "name": "FNxModelMerge",
+  "caption": "내엑셀 - 모형병합 (가운데 선택 영역 / 오른쪽 셀 정렬)",
+  "width": 320,
+  "height": 136,
+  "client_width": 320,
+  "client_height": 136,
+  "start_up_position": 1,
+  "default_control": "cmdApply",
+  "cancel_control": "cmdClose",
+  "code_path": "src/vba/features/draw/ui/FNxModelMerge.vba",
+  "controls": [
+    {"type":"TextBox","name":"txtRange","value":"","locked":false,"multi_line":false,"left":12,"top":12,"width":216,"height":22,"tab_index":0,"tab_stop":true,"enabled":true},
+    {"type":"CommandButton","name":"cmdPickRange","caption":"범위 선택","left":234,"top":12,"width":74,"height":22,"tab_index":1,"tab_stop":true,"enabled":true},
+    {"type":"ComboBox","name":"cboAlignment","items":["왼쪽","가운데","오른쪽"],"selected_index":1,"style":"drop_down_list","match_required":true,"left":12,"top":44,"width":112,"height":22,"tab_index":2,"tab_stop":true,"enabled":true},
+    {"type":"CheckBox","name":"chkFillAdjacent","caption":"옆 셀에도 같은 값 입력","value":false,"left":132,"top":44,"width":176,"height":22,"tab_index":3,"tab_stop":true,"enabled":true},
+    {"type":"CommandButton","name":"cmdApply","caption":"적용","left":72,"top":98,"width":72,"height":26,"tab_index":4,"tab_stop":true,"enabled":true},
+    {"type":"CommandButton","name":"cmdRestore","caption":"원상복구","left":150,"top":98,"width":72,"height":26,"tab_index":5,"tab_stop":true,"enabled":false},
+    {"type":"CommandButton","name":"cmdClose","caption":"닫기","left":228,"top":98,"width":80,"height":26,"tab_index":6,"tab_stop":true,"enabled":true}
+  ]
+}

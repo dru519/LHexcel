@@ -1,0 +1,4833 @@
+{
+  "schema_version": 2,
+  "required_fields": [
+    "id",
+    "label_ko",
+    "aliases_ko",
+    "description_ko",
+    "image_mso",
+    "search_terms_ko",
+    "category_id",
+    "group_id",
+    "group_order",
+    "sort_order",
+    "input_context",
+    "active_when",
+    "mutates_document",
+    "recovery_policy",
+    "ribbon_visible",
+    "taskpane_visible",
+    "favorite_eligible",
+    "shortcut_eligible",
+    "handler",
+    "args",
+    "legacy_ids",
+    "legacy_entrypoints",
+    "navigation"
+  ],
+  "allowed_handlers": [
+    "NxCmdClipboard",
+    "NxCmdPrint",
+    "NxCmdStyle",
+    "NxCmdNumberFormat",
+    "NxCmdSelection",
+    "NxCmdRowsColumns",
+    "NxCmdAlignment",
+    "NxCmdInsertDelete",
+    "NxCmdFilterSort",
+    "NxCmdFormula",
+    "NxCmdSheet",
+    "NxCmdView",
+    "NxCmdInfo",
+    "NxCmdPivot"
+  ],
+  "raw_command_count": 95,
+  "normalized_command_count": 89,
+  "groups": [
+    {
+      "id": "NX-CMD-GRP-CLIPBOARD",
+      "key": "clipboard",
+      "label_ko": "복붙",
+      "order": 1,
+      "category_id": "NX-CAT-DATA",
+      "handler": "NxCmdClipboard",
+      "raw_count": 7,
+      "ribbon_group_id": "NX-GRP-COPY",
+      "navigation_mode": "flat"
+    },
+    {
+      "id": "NX-CMD-GRP-PRINT",
+      "key": "print",
+      "label_ko": "인쇄",
+      "order": 2,
+      "category_id": "NX-CAT-FILE",
+      "handler": "NxCmdPrint",
+      "raw_count": 7,
+      "ribbon_group_id": "NX-GRP-PRINT",
+      "navigation_mode": "flat"
+    },
+    {
+      "id": "NX-CMD-GRP-STYLE",
+      "key": "style",
+      "label_ko": "스타일 조정",
+      "order": 3,
+      "category_id": "NX-CAT-DRAW",
+      "handler": "NxCmdStyle",
+      "raw_count": 26,
+      "ribbon_group_id": "NX-GRP-STYLE"
+    },
+    {
+      "id": "NX-CMD-GRP-NUMBER-FORMAT",
+      "key": "number_format",
+      "label_ko": "표시 형식",
+      "order": 4,
+      "category_id": "NX-CAT-DRAW",
+      "handler": "NxCmdNumberFormat",
+      "raw_count": 6,
+      "ribbon_group_id": "NX-GRP-STYLE"
+    },
+    {
+      "id": "NX-CMD-GRP-SELECTION-MOVE",
+      "key": "selection_move",
+      "label_ko": "선택·이동",
+      "order": 6,
+      "category_id": "NX-CAT-DATA",
+      "handler": "NxCmdSelection",
+      "raw_count": 10,
+      "ribbon_group_id": "NX-GRP-DATA"
+    },
+    {
+      "id": "NX-CMD-GRP-ROW-COLUMN",
+      "key": "row_column",
+      "label_ko": "행·열 크기",
+      "order": 7,
+      "category_id": "NX-CAT-DATA",
+      "handler": "NxCmdRowsColumns",
+      "raw_count": 1,
+      "ribbon_group_id": "NX-GRP-CELL-FIT",
+      "navigation_mode": "flat"
+    },
+    {
+      "id": "NX-CMD-GRP-ALIGNMENT-MERGE",
+      "key": "alignment_merge",
+      "label_ko": "정렬·병합",
+      "order": 8,
+      "category_id": "NX-CAT-DRAW",
+      "handler": "NxCmdAlignment",
+      "raw_count": 1,
+      "ribbon_group_id": "NX-GRP-STYLE"
+    },
+    {
+      "id": "NX-CMD-GRP-INSERT-DELETE-HIDE",
+      "key": "insert_delete_hide",
+      "label_ko": "삽입·삭제·숨기기",
+      "order": 9,
+      "category_id": "NX-CAT-DATA",
+      "handler": "NxCmdInsertDelete",
+      "raw_count": 1,
+      "ribbon_group_id": "NX-GRP-INSERT",
+      "navigation_mode": "flat"
+    },
+    {
+      "id": "NX-CMD-GRP-FILTER-SORT",
+      "key": "filter_sort",
+      "label_ko": "필터·정렬",
+      "order": 10,
+      "category_id": "NX-CAT-DATA",
+      "handler": "NxCmdFilterSort",
+      "raw_count": 11,
+      "ribbon_group_id": "NX-GRP-DATA"
+    },
+    {
+      "id": "NX-CMD-GRP-FORMULA-REFERENCE",
+      "key": "formula_reference",
+      "label_ko": "수식·참조",
+      "order": 11,
+      "category_id": "NX-CAT-DATA",
+      "handler": "NxCmdFormula",
+      "raw_count": 4,
+      "ribbon_group_id": "NX-GRP-FORMULA",
+      "navigation_mode": "flat"
+    },
+    {
+      "id": "NX-CMD-GRP-SHEET",
+      "key": "sheet",
+      "label_ko": "시트",
+      "order": 12,
+      "category_id": "NX-CAT-FILE",
+      "handler": "NxCmdSheet",
+      "raw_count": 3,
+      "ribbon_group_id": "NX-GRP-SHEET",
+      "navigation_mode": "flat"
+    },
+    {
+      "id": "NX-CMD-GRP-VIEW-WINDOW",
+      "key": "view_window",
+      "label_ko": "화면 프리셋",
+      "order": 13,
+      "category_id": "NX-CAT-FILE",
+      "handler": "NxCmdView",
+      "raw_count": 11,
+      "ribbon_group_id": "NX-GRP-SHEET",
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-GRP-INFO-DIAGNOSTICS",
+      "key": "info_diagnostics",
+      "label_ko": "정보·진단",
+      "order": 14,
+      "category_id": "NX-CAT-FILE",
+      "handler": "NxCmdInfo",
+      "raw_count": 5,
+      "ribbon_group_id": "NX-GRP-INFO",
+      "navigation_mode": "flat"
+    },
+    {
+      "id": "NX-CMD-GRP-PIVOT",
+      "key": "pivot",
+      "label_ko": "피벗",
+      "order": 15,
+      "category_id": "NX-CAT-DATA",
+      "handler": "NxCmdPivot",
+      "raw_count": 2,
+      "ribbon_group_id": "NX-GRP-DATA"
+    }
+  ],
+  "commands": [
+    {
+      "id": "NX-CMD-STYLE-FONT-SIZE-9",
+      "label_ko": "글자 크기 9",
+      "aliases_ko": [],
+      "description_ko": "선택한 셀의 글자 크기만 9pt로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다.",
+      "image_mso": "FontSize",
+      "search_terms_ko": [
+        "빠른 서식",
+        "글자 크기 9"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 300,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": true,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "NX_STYLE_FONT_SIZE_9"
+      ],
+      "legacy_ids": [],
+      "legacy_entrypoints": [],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "글자 크기 9"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-FONT-SIZE-10",
+      "label_ko": "글자 크기 10",
+      "aliases_ko": [],
+      "description_ko": "선택한 셀의 글자 크기만 10pt로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다.",
+      "image_mso": "FontSize",
+      "search_terms_ko": [
+        "빠른 서식",
+        "글자 크기 10"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 301,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": true,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "NX_STYLE_FONT_SIZE_10"
+      ],
+      "legacy_ids": [],
+      "legacy_entrypoints": [],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "글자 크기 10"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-FONT-SIZE-12",
+      "label_ko": "글자 크기 12",
+      "aliases_ko": [],
+      "description_ko": "선택한 셀의 글자 크기만 12pt로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다.",
+      "image_mso": "FontSize",
+      "search_terms_ko": [
+        "빠른 서식",
+        "글자 크기 12"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 302,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": true,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "NX_STYLE_FONT_SIZE_12"
+      ],
+      "legacy_ids": [],
+      "legacy_entrypoints": [],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "글자 크기 12"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-FONT-SIZE-15",
+      "label_ko": "글자 크기 15",
+      "aliases_ko": [],
+      "description_ko": "선택한 셀의 글자 크기만 15pt로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다.",
+      "image_mso": "FontSize",
+      "search_terms_ko": [
+        "빠른 서식",
+        "글자 크기 15"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 303,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": true,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "NX_STYLE_FONT_SIZE_15"
+      ],
+      "legacy_ids": [],
+      "legacy_entrypoints": [],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "글자 크기 15"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-FONT-COLOR-BLACK",
+      "label_ko": "글자색 검정",
+      "aliases_ko": [],
+      "description_ko": "선택한 셀의 글자색만 검정으로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다.",
+      "image_mso": "FontColorPicker",
+      "search_terms_ko": [
+        "빠른 서식",
+        "글자색 검정"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 304,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": true,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "NX_STYLE_FONT_COLOR_BLACK"
+      ],
+      "legacy_ids": [],
+      "legacy_entrypoints": [],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "글자색 검정"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-FONT-COLOR-RED",
+      "label_ko": "글자색 빨강",
+      "aliases_ko": [],
+      "description_ko": "선택한 셀의 글자색만 빨강으로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다.",
+      "image_mso": "FontColorPicker",
+      "search_terms_ko": [
+        "빠른 서식",
+        "글자색 빨강"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 305,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": true,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "NX_STYLE_FONT_COLOR_RED"
+      ],
+      "legacy_ids": [],
+      "legacy_entrypoints": [],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "글자색 빨강"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-FONT-COLOR-BLUE",
+      "label_ko": "글자색 파랑",
+      "aliases_ko": [],
+      "description_ko": "선택한 셀의 글자색만 파랑으로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다.",
+      "image_mso": "FontColorPicker",
+      "search_terms_ko": [
+        "빠른 서식",
+        "글자색 파랑"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 306,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": true,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "NX_STYLE_FONT_COLOR_BLUE"
+      ],
+      "legacy_ids": [],
+      "legacy_entrypoints": [],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "글자색 파랑"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-FONT-COLOR-GREEN",
+      "label_ko": "글자색 초록",
+      "aliases_ko": [],
+      "description_ko": "선택한 셀의 글자색만 초록으로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다.",
+      "image_mso": "FontColorPicker",
+      "search_terms_ko": [
+        "빠른 서식",
+        "글자색 초록"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 307,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": true,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "NX_STYLE_FONT_COLOR_GREEN"
+      ],
+      "legacy_ids": [],
+      "legacy_entrypoints": [],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "글자색 초록"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-FILL-GRAY",
+      "label_ko": "채우기 회색",
+      "aliases_ko": [],
+      "description_ko": "선택한 셀의 채우기색만 회색으로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다.",
+      "image_mso": "CellFillColorPicker",
+      "search_terms_ko": [
+        "빠른 서식",
+        "채우기 회색"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 308,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": true,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "NX_STYLE_FILL_GRAY"
+      ],
+      "legacy_ids": [],
+      "legacy_entrypoints": [],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "채우기 회색"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-FILL-LIGHT-RED",
+      "label_ko": "채우기 연한 빨강",
+      "aliases_ko": [],
+      "description_ko": "선택한 셀의 채우기색만 연한 빨강으로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다.",
+      "image_mso": "CellFillColorPicker",
+      "search_terms_ko": [
+        "빠른 서식",
+        "채우기 연한 빨강"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 309,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": true,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "NX_STYLE_FILL_LIGHT_RED"
+      ],
+      "legacy_ids": [],
+      "legacy_entrypoints": [],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "채우기 연한 빨강"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-FILL-LIGHT-YELLOW",
+      "label_ko": "채우기 연한 노랑",
+      "aliases_ko": [],
+      "description_ko": "선택한 셀의 채우기색만 연한 노랑으로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다.",
+      "image_mso": "CellFillColorPicker",
+      "search_terms_ko": [
+        "빠른 서식",
+        "채우기 연한 노랑"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 310,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": true,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "NX_STYLE_FILL_LIGHT_YELLOW"
+      ],
+      "legacy_ids": [],
+      "legacy_entrypoints": [],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "채우기 연한 노랑"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-FILL-LIGHT-GREEN",
+      "label_ko": "채우기 연한 초록",
+      "aliases_ko": [],
+      "description_ko": "선택한 셀의 채우기색만 연한 초록으로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다.",
+      "image_mso": "CellFillColorPicker",
+      "search_terms_ko": [
+        "빠른 서식",
+        "채우기 연한 초록"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 311,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": true,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "NX_STYLE_FILL_LIGHT_GREEN"
+      ],
+      "legacy_ids": [],
+      "legacy_entrypoints": [],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "채우기 연한 초록"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-CLIPBOARD-RB-CLIPBOARD-COPY-BYFORMULA",
+      "label_ko": "첫 셀 수식 복사",
+      "aliases_ko": [],
+      "description_ko": "선택 범위의 첫 셀에서 수식을 텍스트로 가져옵니다. 첫 셀에 수식이 있어야 합니다.",
+      "image_mso": "Copy",
+      "search_terms_ko": [
+        "첫",
+        "셀",
+        "수식",
+        "복사"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-CLIPBOARD",
+      "group_order": 1,
+      "sort_order": 28,
+      "input_context": "selection_or_clipboard",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdClipboard",
+      "args": [
+        "RB_CLIPBOARD_COPY_BYFORMULA"
+      ],
+      "legacy_ids": [
+        "LHeCmd_009"
+      ],
+      "legacy_entrypoints": [
+        "Rb_ClipBoard_Copy_ByFormula"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-COPY",
+        "object_scope": [
+          "selection",
+          "clipboard"
+        ],
+        "purpose_tags": [
+          "첫 셀 수식 복사"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "optional",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-CLIPBOARD-RB-CLIPBOARD-COPY-BYREFERENCE",
+      "label_ko": "첫 셀 주소 복사",
+      "aliases_ko": [],
+      "description_ko": "선택 범위의 첫 셀 주소를 문서·시트 이름과 함께 클립보드에 담습니다.",
+      "image_mso": "NameDefine",
+      "search_terms_ko": [
+        "첫",
+        "셀",
+        "주소",
+        "복사"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-CLIPBOARD",
+      "group_order": 1,
+      "sort_order": 29,
+      "input_context": "selection_or_clipboard",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdClipboard",
+      "args": [
+        "RB_CLIPBOARD_COPY_BYREFERENCE"
+      ],
+      "legacy_ids": [
+        "LHeCmd_008"
+      ],
+      "legacy_entrypoints": [
+        "Rb_ClipBoard_Copy_ByReference",
+        "Rb_ClipBoard_Copy_ByReference_b"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-COPY",
+        "object_scope": [
+          "selection",
+          "clipboard"
+        ],
+        "purpose_tags": [
+          "첫 셀 주소 복사"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "optional",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-CLIPBOARD-RB-CLIPBOARD-COPY-BYTEXT",
+      "label_ko": "보이는 값 복사",
+      "aliases_ko": [],
+      "description_ko": "화면에 표시되는 셀 내용을 탭으로 구분한 텍스트로 가져옵니다. 수식 자체는 포함하지 않습니다.",
+      "image_mso": "Copy",
+      "search_terms_ko": [
+        "보이는",
+        "값",
+        "복사"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-CLIPBOARD",
+      "group_order": 1,
+      "sort_order": 30,
+      "input_context": "selection_or_clipboard",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdClipboard",
+      "args": [
+        "RB_CLIPBOARD_COPY_BYTEXT"
+      ],
+      "legacy_ids": [
+        "LHeCmd_007"
+      ],
+      "legacy_entrypoints": [
+        "Rb_ClipBoard_Copy_ByText",
+        "Rb_ClipBoard_Copy_ByText_b"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-COPY",
+        "object_scope": [
+          "selection",
+          "clipboard"
+        ],
+        "purpose_tags": [
+          "보이는 값 복사"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "optional",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-CLIPBOARD-RB-LHECLIPBOARD-COPYVISIBLE",
+      "label_ko": "보이는 셀만 복사",
+      "aliases_ko": [],
+      "description_ko": "필터와 숨김 행·열을 제외한 표시 셀만 복사합니다.",
+      "image_mso": "Copy",
+      "search_terms_ko": [
+        "보이는",
+        "복붙",
+        "복사",
+        "붙여넣기",
+        "셀만"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-CLIPBOARD",
+      "group_order": 1,
+      "sort_order": 34,
+      "input_context": "selection_or_clipboard",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdClipboard",
+      "args": [
+        "RB_LHECLIPBOARD_COPYVISIBLE"
+      ],
+      "legacy_ids": [
+        "Rb_LHeClipboard_CopyVisible"
+      ],
+      "legacy_entrypoints": [
+        "Rb_LHeClipboard_CopyVisible_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-COPY",
+        "object_scope": [
+          "selection",
+          "clipboard"
+        ],
+        "purpose_tags": [
+          "보이는 셀만 복사"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "optional",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-CLIPBOARD-RB-LHECLIPBOARD-PASTEVISIBLEVALUES",
+      "label_ko": "보이는 셀에 값 붙여넣기",
+      "aliases_ko": [],
+      "description_ko": "클립보드 값을 보이는 셀에만 입력합니다.",
+      "image_mso": "PasteValues",
+      "search_terms_ko": [
+        "보이는",
+        "복붙",
+        "복사",
+        "붙여넣기",
+        "셀에"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-CLIPBOARD",
+      "group_order": 1,
+      "sort_order": 35,
+      "input_context": "selection_or_clipboard",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdClipboard",
+      "args": [
+        "RB_LHECLIPBOARD_PASTEVISIBLEVALUES"
+      ],
+      "legacy_ids": [
+        "Rb_LHeClipboard_PasteVisibleValues"
+      ],
+      "legacy_entrypoints": [
+        "Rb_LHeClipboard_PasteVisibleValues_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-COPY",
+        "object_scope": [
+          "selection",
+          "clipboard"
+        ],
+        "purpose_tags": [
+          "보이는 셀에 값 붙여넣기"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "optional",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-CLIPBOARD-RB-LHECLIPBOARD-PASTEVISIBLEFORMULAS",
+      "label_ko": "보이는 셀에 수식 붙여넣기",
+      "aliases_ko": [],
+      "description_ko": "대상에서 숨겨지지 않은 셀만 골라 Excel 클립보드의 수식을 넣습니다. 복사 범위와 대상 구성을 확인하세요.",
+      "image_mso": "PasteFormulas",
+      "search_terms_ko": [
+        "보이는",
+        "셀에",
+        "수식",
+        "붙여넣기"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-CLIPBOARD",
+      "group_order": 1,
+      "sort_order": 36,
+      "input_context": "selection_or_clipboard",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdClipboard",
+      "args": [
+        "RB_LHECLIPBOARD_PASTEVISIBLEFORMULAS"
+      ],
+      "legacy_ids": [
+        "Rb_LHeClipboard_PasteVisibleFormulas"
+      ],
+      "legacy_entrypoints": [
+        "Rb_LHeClipboard_PasteVisibleFormulas_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-COPY",
+        "object_scope": [
+          "selection",
+          "clipboard"
+        ],
+        "purpose_tags": [
+          "보이는 셀에 수식 붙여넣기"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "optional",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-CLIPBOARD-RB-LHECLIPBOARD-PASTEVISIBLEFORMATS",
+      "label_ko": "보이는 셀에 서식 붙여넣기",
+      "aliases_ko": [],
+      "description_ko": "대상에서 숨겨지지 않은 셀에만 복사한 서식을 적용합니다. 숨김 셀의 서식은 바꾸지 않습니다.",
+      "image_mso": "PasteFormatting",
+      "search_terms_ko": [
+        "보이는",
+        "셀에",
+        "서식",
+        "붙여넣기"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-CLIPBOARD",
+      "group_order": 1,
+      "sort_order": 37,
+      "input_context": "selection_or_clipboard",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdClipboard",
+      "args": [
+        "RB_LHECLIPBOARD_PASTEVISIBLEFORMATS"
+      ],
+      "legacy_ids": [
+        "Rb_LHeClipboard_PasteVisibleFormats"
+      ],
+      "legacy_entrypoints": [
+        "Rb_LHeClipboard_PasteVisibleFormats_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-COPY",
+        "object_scope": [
+          "selection",
+          "clipboard"
+        ],
+        "purpose_tags": [
+          "보이는 셀에 서식 붙여넣기"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "optional",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-PRINT-RB-PRINT-SETUP-QUICK",
+      "label_ko": "선택 범위 인쇄 미리보기",
+      "aliases_ko": [],
+      "description_ko": "선택 범위를 인쇄 대상으로 지정하고 세로 방향·너비 한 쪽으로 미리 봅니다. 이 단계에서 프린터로 출력하지 않습니다.",
+      "image_mso": "PrintPreviewAndPrint",
+      "search_terms_ko": [
+        "선택",
+        "범위",
+        "인쇄",
+        "미리보기"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-PRINT",
+      "group_order": 2,
+      "sort_order": 176,
+      "input_context": "active_worksheet",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdPrint",
+      "args": [
+        "RB_PRINT_SETUP_QUICK"
+      ],
+      "legacy_ids": [
+        "LHeCmd_147"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Print_Setup_Quick",
+        "Rb_Print_Setup_Quick_b"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-PRINT",
+        "object_scope": [
+          "worksheet"
+        ],
+        "purpose_tags": [
+          "선택 범위 인쇄 미리보기"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "optional",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-PRINT-RB-PRINT-SETUP-QUICK-PORTRAIT",
+      "label_ko": "세로 방향 · 너비 1쪽",
+      "aliases_ko": [],
+      "description_ko": "선택 범위를 세로 방향으로 배치합니다. 가로는 한 쪽에 맞추고 세로는 내용 길이에 따라 나눕니다.",
+      "image_mso": "PrintPreviewAndPrint",
+      "search_terms_ko": [
+        "세로",
+        "방향",
+        "너비",
+        "1쪽"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-PRINT",
+      "group_order": 2,
+      "sort_order": 177,
+      "input_context": "active_worksheet",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdPrint",
+      "args": [
+        "RB_PRINT_SETUP_QUICK_PORTRAIT"
+      ],
+      "legacy_ids": [
+        "LHeCmd_148"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Print_Setup_Quick_Portrait"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-PRINT",
+        "object_scope": [
+          "worksheet"
+        ],
+        "purpose_tags": [
+          "세로 방향 · 너비 1쪽"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "optional",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-PRINT-RB-PRINT-SETUP-QUICK-LANDSCAPE",
+      "label_ko": "가로 방향 · 너비 1쪽",
+      "aliases_ko": [],
+      "description_ko": "선택 범위를 가로 방향으로 배치합니다. 가로는 한 쪽에 맞추고 세로는 내용 길이에 따라 나눕니다.",
+      "image_mso": "PrintPreviewAndPrint",
+      "search_terms_ko": [
+        "가로",
+        "방향",
+        "너비",
+        "1쪽"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-PRINT",
+      "group_order": 2,
+      "sort_order": 178,
+      "input_context": "active_worksheet",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdPrint",
+      "args": [
+        "RB_PRINT_SETUP_QUICK_LANDSCAPE"
+      ],
+      "legacy_ids": [
+        "LHeCmd_149"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Print_Setup_Quick_Landscape"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-PRINT",
+        "object_scope": [
+          "worksheet"
+        ],
+        "purpose_tags": [
+          "가로 방향 · 너비 1쪽"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "optional",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-PRINT-RB-PRINT-SETUP-QUICK-PORTRAIT-1BY1",
+      "label_ko": "세로 방향 · 한 장에 맞춤",
+      "aliases_ko": [],
+      "description_ko": "선택 범위 전체가 세로 방향 용지 한 장에 들어가도록 인쇄 배율을 설정합니다. 범위가 크면 글자가 작아질 수 있습니다.",
+      "image_mso": "PrintPreviewAndPrint",
+      "search_terms_ko": [
+        "세로",
+        "방향",
+        "한",
+        "장에",
+        "맞춤"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-PRINT",
+      "group_order": 2,
+      "sort_order": 179,
+      "input_context": "active_worksheet",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdPrint",
+      "args": [
+        "RB_PRINT_SETUP_QUICK_PORTRAIT_1BY1"
+      ],
+      "legacy_ids": [
+        "LHeCmd_150"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Print_Setup_Quick_Portrait_1by1"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-PRINT",
+        "object_scope": [
+          "worksheet"
+        ],
+        "purpose_tags": [
+          "세로 방향 · 한 장에 맞춤"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "optional",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-PRINT-RB-PRINT-SETUP-QUICK-LANDSCAPE-1BY1",
+      "label_ko": "가로 방향 · 한 장에 맞춤",
+      "aliases_ko": [],
+      "description_ko": "선택 범위 전체가 가로 방향 용지 한 장에 들어가도록 인쇄 배율을 설정합니다. 범위가 크면 글자가 작아질 수 있습니다.",
+      "image_mso": "PrintPreviewAndPrint",
+      "search_terms_ko": [
+        "가로",
+        "방향",
+        "한",
+        "장에",
+        "맞춤"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-PRINT",
+      "group_order": 2,
+      "sort_order": 180,
+      "input_context": "active_worksheet",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdPrint",
+      "args": [
+        "RB_PRINT_SETUP_QUICK_LANDSCAPE_1BY1"
+      ],
+      "legacy_ids": [
+        "LHeCmd_151"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Print_Setup_Quick_Landscape_1by1"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-PRINT",
+        "object_scope": [
+          "worksheet"
+        ],
+        "purpose_tags": [
+          "가로 방향 · 한 장에 맞춤"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "optional",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-PRINT-RB-PRINT-SETUP-REPEAT",
+      "label_ko": "선택 행을 인쇄 제목으로",
+      "aliases_ko": [],
+      "description_ko": "선택한 셀이 속한 행을 각 인쇄 페이지의 위쪽에 반복할 제목 행으로 지정합니다.",
+      "image_mso": "PrintTitles",
+      "search_terms_ko": [
+        "선택",
+        "행을",
+        "인쇄",
+        "제목으로"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-PRINT",
+      "group_order": 2,
+      "sort_order": 181,
+      "input_context": "active_worksheet",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdPrint",
+      "args": [
+        "RB_PRINT_SETUP_REPEAT"
+      ],
+      "legacy_ids": [
+        "LHeCmd_152"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Print_Setup_Repeat"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-PRINT",
+        "object_scope": [
+          "worksheet"
+        ],
+        "purpose_tags": [
+          "선택 행을 인쇄 제목으로"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "optional",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-PRINT-RB-LHEPRINT-ADD1MMSPACER",
+      "label_ko": "인쇄용 1mm 여백 추가",
+      "aliases_ko": [],
+      "description_ko": "선택 범위 둘레에 약 1mm 행과 열을 삽입합니다.",
+      "image_mso": "DefinePrintStyles",
+      "search_terms_ko": [
+        "1mm",
+        "여백",
+        "인쇄",
+        "인쇄용",
+        "추가",
+        "출력",
+        "페이지 설정"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-PRINT",
+      "group_order": 2,
+      "sort_order": 182,
+      "input_context": "active_worksheet",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdPrint",
+      "args": [
+        "RB_LHEPRINT_ADD1MMSPACER"
+      ],
+      "legacy_ids": [
+        "Rb_LHePrint_Add1mmSpacer"
+      ],
+      "legacy_entrypoints": [
+        "Rb_LHePrint_Add1mmSpacer_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-PRINT",
+        "object_scope": [
+          "worksheet"
+        ],
+        "purpose_tags": [
+          "인쇄용 1mm 여백 추가"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "optional",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-STYLE-RB-LHESTYLE-RESETWORKBOOKSTYLES",
+      "label_ko": "사용자 스타일 정리",
+      "aliases_ko": [],
+      "description_ko": "현재 문서의 사용자 지정 셀 스타일을 삭제합니다. Excel 기본 스타일은 남으며, 적용 중인 사용자 스타일도 정리 대상입니다.",
+      "image_mso": "DataFormDeleteRecord",
+      "search_terms_ko": [
+        "사용자",
+        "스타일",
+        "정리"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 44,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "RB_LHESTYLE_RESETWORKBOOKSTYLES"
+      ],
+      "legacy_ids": [
+        "Rb_LHeStyle_ResetWorkbookStyles"
+      ],
+      "legacy_entrypoints": [
+        "Rb_LHeStyle_ResetWorkbookStyles_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "사용자 스타일 정리"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-RB-LHESTYLE-OPENOPTIONS",
+      "label_ko": "내엑셀 스타일",
+      "aliases_ko": [],
+      "description_ko": "내엑셀 서식 옵션 창을 열어 선택 범위의 기본 서식을 설정합니다.",
+      "image_mso": "CellStylesGallery",
+      "search_terms_ko": [
+        "내엑셀",
+        "서식",
+        "스타일",
+        "표 서식"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 45,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "RB_LHESTYLE_OPENOPTIONS"
+      ],
+      "legacy_ids": [
+        "Rb_LHeStyle_OpenOptions"
+      ],
+      "legacy_entrypoints": [
+        "Rb_LHeStyle_OpenOptions_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "내엑셀 스타일"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-RB-LHESTYLE-MONO-TITLE",
+      "label_ko": "흑백 · 제목",
+      "aliases_ko": [],
+      "description_ko": "선택 범위에 흑백 계열의 문서의 큰 제목에 맞는 글자와 채우기 서식을 적용합니다. 값과 수식은 유지합니다.",
+      "image_mso": "FontColorPicker",
+      "search_terms_ko": [
+        "흑백",
+        "제목"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 46,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "RB_LHESTYLE_MONO_TITLE"
+      ],
+      "legacy_ids": [
+        "Rb_LHeStyle_Mono_Title"
+      ],
+      "legacy_entrypoints": [
+        "Rb_LHeStyle_Mono_Title_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "흑백 · 제목"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-RB-LHESTYLE-MONO-SUBTITLE",
+      "label_ko": "흑백 · 소제목",
+      "aliases_ko": [],
+      "description_ko": "선택 범위에 흑백 계열의 제목 아래의 구분 문구에 맞는 글자와 채우기 서식을 적용합니다. 값과 수식은 유지합니다.",
+      "image_mso": "BorderBottom",
+      "search_terms_ko": [
+        "흑백",
+        "소제목"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 47,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "RB_LHESTYLE_MONO_SUBTITLE"
+      ],
+      "legacy_ids": [
+        "Rb_LHeStyle_Mono_Subtitle"
+      ],
+      "legacy_entrypoints": [
+        "Rb_LHeStyle_Mono_Subtitle_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "흑백 · 소제목"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-RB-LHESTYLE-MONO-TABLEHEADER",
+      "label_ko": "흑백 · 표 머리글",
+      "aliases_ko": [],
+      "description_ko": "선택 범위에 흑백 계열의 표의 열 제목을 구분하는 글자·채우기·테두리 서식을 적용합니다. 값과 수식은 유지합니다.",
+      "image_mso": "TableInsert",
+      "search_terms_ko": [
+        "흑백",
+        "표",
+        "머리글"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 48,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "RB_LHESTYLE_MONO_TABLEHEADER"
+      ],
+      "legacy_ids": [
+        "Rb_LHeStyle_Mono_TableHeader"
+      ],
+      "legacy_entrypoints": [
+        "Rb_LHeStyle_Mono_TableHeader_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "흑백 · 표 머리글"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-RB-LHESTYLE-MONO-TABLEBODY",
+      "label_ko": "흑백 · 표 본문",
+      "aliases_ko": [],
+      "description_ko": "선택 범위에 흑백 계열의 표의 일반 내용 영역에 맞는 기본 서식을 적용합니다. 값과 수식은 유지합니다.",
+      "image_mso": "TableAutoFormat",
+      "search_terms_ko": [
+        "흑백",
+        "표",
+        "본문"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 49,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "RB_LHESTYLE_MONO_TABLEBODY"
+      ],
+      "legacy_ids": [
+        "Rb_LHeStyle_Mono_TableBody"
+      ],
+      "legacy_entrypoints": [
+        "Rb_LHeStyle_Mono_TableBody_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "흑백 · 표 본문"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-RB-LHESTYLE-MONO-EMPHASISCELL",
+      "label_ko": "흑백 · 강조 셀",
+      "aliases_ko": [],
+      "description_ko": "선택 범위에 흑백 계열의 눈에 띄게 표시할 셀의 글자와 채우기 서식을 적용합니다. 값과 수식은 유지합니다.",
+      "image_mso": "CellFillColorPicker",
+      "search_terms_ko": [
+        "흑백",
+        "강조",
+        "셀"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 50,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "RB_LHESTYLE_MONO_EMPHASISCELL"
+      ],
+      "legacy_ids": [
+        "Rb_LHeStyle_Mono_EmphasisCell"
+      ],
+      "legacy_entrypoints": [
+        "Rb_LHeStyle_Mono_EmphasisCell_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "흑백 · 강조 셀"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-RB-LHESTYLE-MONO-TOTALROW",
+      "label_ko": "흑백 · 합계 행",
+      "aliases_ko": [],
+      "description_ko": "선택 범위에 흑백 계열의 합계 영역을 구분하는 글자·채우기·테두리 서식을 적용합니다. 값과 수식은 유지합니다.",
+      "image_mso": "AutoSum",
+      "search_terms_ko": [
+        "흑백",
+        "합계",
+        "행"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 51,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "RB_LHESTYLE_MONO_TOTALROW"
+      ],
+      "legacy_ids": [
+        "Rb_LHeStyle_Mono_TotalRow"
+      ],
+      "legacy_entrypoints": [
+        "Rb_LHeStyle_Mono_TotalRow_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "흑백 · 합계 행"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-RB-LHESTYLE-COLOR-TITLE",
+      "label_ko": "컬러 · 제목",
+      "aliases_ko": [],
+      "description_ko": "선택 범위에 컬러 계열의 문서의 큰 제목에 맞는 글자와 채우기 서식을 적용합니다. 값과 수식은 유지합니다.",
+      "image_mso": "FontColorPicker",
+      "search_terms_ko": [
+        "컬러",
+        "제목"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 52,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "RB_LHESTYLE_COLOR_TITLE"
+      ],
+      "legacy_ids": [
+        "Rb_LHeStyle_Color_Title"
+      ],
+      "legacy_entrypoints": [
+        "Rb_LHeStyle_Color_Title_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "컬러 · 제목"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-RB-LHESTYLE-COLOR-SUBTITLE",
+      "label_ko": "컬러 · 소제목",
+      "aliases_ko": [],
+      "description_ko": "선택 범위에 컬러 계열의 제목 아래의 구분 문구에 맞는 글자와 채우기 서식을 적용합니다. 값과 수식은 유지합니다.",
+      "image_mso": "BorderBottom",
+      "search_terms_ko": [
+        "컬러",
+        "소제목"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 53,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "RB_LHESTYLE_COLOR_SUBTITLE"
+      ],
+      "legacy_ids": [
+        "Rb_LHeStyle_Color_Subtitle"
+      ],
+      "legacy_entrypoints": [
+        "Rb_LHeStyle_Color_Subtitle_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "컬러 · 소제목"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-RB-LHESTYLE-COLOR-TABLEHEADER",
+      "label_ko": "컬러 · 표 머리글",
+      "aliases_ko": [],
+      "description_ko": "선택 범위에 컬러 계열의 표의 열 제목을 구분하는 글자·채우기·테두리 서식을 적용합니다. 값과 수식은 유지합니다.",
+      "image_mso": "TableInsert",
+      "search_terms_ko": [
+        "컬러",
+        "표",
+        "머리글"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 54,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "RB_LHESTYLE_COLOR_TABLEHEADER"
+      ],
+      "legacy_ids": [
+        "Rb_LHeStyle_Color_TableHeader"
+      ],
+      "legacy_entrypoints": [
+        "Rb_LHeStyle_Color_TableHeader_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "컬러 · 표 머리글"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-RB-LHESTYLE-COLOR-TABLEBODY",
+      "label_ko": "컬러 · 표 본문",
+      "aliases_ko": [],
+      "description_ko": "선택 범위에 컬러 계열의 표의 일반 내용 영역에 맞는 기본 서식을 적용합니다. 값과 수식은 유지합니다.",
+      "image_mso": "TableAutoFormat",
+      "search_terms_ko": [
+        "컬러",
+        "표",
+        "본문"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 55,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "RB_LHESTYLE_COLOR_TABLEBODY"
+      ],
+      "legacy_ids": [
+        "Rb_LHeStyle_Color_TableBody"
+      ],
+      "legacy_entrypoints": [
+        "Rb_LHeStyle_Color_TableBody_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "컬러 · 표 본문"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-RB-EDIT-MEMO-ADD-LHEXCELFORMULA",
+      "label_ko": "셀수식 메모 기록",
+      "aliases_ko": [],
+      "description_ko": "기존 메모를 유지하고 수식을 추가하거나 덮어씁니다. 메모 표시 여부를 선택하고 마지막 기록을 되돌릴 수 있습니다.",
+      "image_mso": "ReviewShowAllComments",
+      "search_terms_ko": [
+        "수식을",
+        "셀",
+        "메모로",
+        "기록"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-FORMULA-REFERENCE",
+      "group_order": 11,
+      "sort_order": 56,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "RB_EDIT_MEMO_ADD_LHEXCELFORMULA"
+      ],
+      "legacy_ids": [
+        "LHeCmd_027"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Edit_Memo_Add_LHExcelFormula"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-FORMULA",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "셀수식 메모 기록"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-STYLE-RB-LHESTYLE-COLOR-EMPHASISCELL",
+      "label_ko": "컬러 · 강조 셀",
+      "aliases_ko": [],
+      "description_ko": "선택 범위에 컬러 계열의 눈에 띄게 표시할 셀의 글자와 채우기 서식을 적용합니다. 값과 수식은 유지합니다.",
+      "image_mso": "CellFillColorPicker",
+      "search_terms_ko": [
+        "컬러",
+        "강조",
+        "셀"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 197,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "RB_LHESTYLE_COLOR_EMPHASISCELL"
+      ],
+      "legacy_ids": [
+        "Rb_LHeStyle_Color_EmphasisCell"
+      ],
+      "legacy_entrypoints": [
+        "Rb_LHeStyle_Color_EmphasisCell_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "컬러 · 강조 셀"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-STYLE-RB-LHESTYLE-COLOR-TOTALROW",
+      "label_ko": "컬러 · 합계 행",
+      "aliases_ko": [],
+      "description_ko": "선택 범위에 컬러 계열의 합계 영역을 구분하는 글자·채우기·테두리 서식을 적용합니다. 값과 수식은 유지합니다.",
+      "image_mso": "AutoSum",
+      "search_terms_ko": [
+        "컬러",
+        "합계",
+        "행"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-STYLE",
+      "group_order": 3,
+      "sort_order": 200,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdStyle",
+      "args": [
+        "RB_LHESTYLE_COLOR_TOTALROW"
+      ],
+      "legacy_ids": [
+        "Rb_LHeStyle_Color_TotalRow"
+      ],
+      "legacy_entrypoints": [
+        "Rb_LHeStyle_Color_TotalRow_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "컬러 · 합계 행"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "nested"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-NUMBER",
+      "label_ko": "천 단위 구분 · 정수",
+      "aliases_ko": [],
+      "description_ko": "숫자에 천 단위 구분 기호를 넣고 소수 부분은 표시하지 않습니다. 저장된 값은 그대로 유지합니다.",
+      "image_mso": "NumberingGallery",
+      "search_terms_ko": [
+        "천",
+        "단위",
+        "구분",
+        "정수"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-NUMBER-FORMAT",
+      "group_order": 4,
+      "sort_order": 63,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": true,
+      "handler": "NxCmdNumberFormat",
+      "args": [
+        "RB_EDIT_NUMBERFORMAT_NUMBER"
+      ],
+      "legacy_ids": [
+        "LHeCmd_034",
+        "LHeCmd_035"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Edit_Numberformat_Number",
+        "Rb_Edit_Numberformat_Number_CantUNDO"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "천 단위 구분 · 정수"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-PERCENTAGE",
+      "label_ko": "백분율 표시 · 자릿수 선택",
+      "aliases_ko": [],
+      "description_ko": "선택한 숫자를 백분율로 표시합니다. 소수 자릿수를 0~15자리로 선택하며 실제 셀 값은 유지합니다.",
+      "image_mso": "AccountingFormat",
+      "search_terms_ko": [
+        "백분율",
+        "소수",
+        "1자리"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-NUMBER-FORMAT",
+      "group_order": 4,
+      "sort_order": 65,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdNumberFormat",
+      "args": [
+        "RB_EDIT_NUMBERFORMAT_PERCENTAGE"
+      ],
+      "legacy_ids": [
+        "LHeCmd_036",
+        "LHeCmd_037"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Edit_Numberformat_Percentage",
+        "Rb_Edit_Numberformat_Percentage_CantUNDO"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "백분율 표시 · 자릿수 선택"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-DECIMAL",
+      "label_ko": "숫자 표시 · 소수 자릿수 선택",
+      "aliases_ko": [],
+      "description_ko": "천 단위 구분과 소수 자릿수를 지정합니다. 0~15자리를 선택하며 실제 셀 값은 유지합니다.",
+      "image_mso": "NumberingGallery",
+      "search_terms_ko": [
+        "천",
+        "단위",
+        "구분",
+        "소수",
+        "2자리"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-NUMBER-FORMAT",
+      "group_order": 4,
+      "sort_order": 76,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdNumberFormat",
+      "args": [
+        "RB_EDIT_NUMBERFORMAT_DECIMAL"
+      ],
+      "legacy_ids": [
+        "LHeCmd_047"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Edit_NumberFormat_Decimal"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "숫자 표시 · 소수 자릿수 선택"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-SELECTION-RB-APP-OPTION-EDITDIRECTION-CHANGE",
+      "label_ko": "Enter 이동 방향 변경",
+      "aliases_ko": [],
+      "description_ko": "셀 입력 후 Enter를 눌렀을 때 이동할 방향을 아래쪽, 오른쪽 등으로 순환 변경합니다.",
+      "image_mso": "TextDirectionLeftToRight",
+      "search_terms_ko": [
+        "Enter",
+        "방향",
+        "범위",
+        "변경",
+        "선택",
+        "이동"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-SELECTION-MOVE",
+      "group_order": 6,
+      "sort_order": 93,
+      "input_context": "active_worksheet",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdSelection",
+      "args": [
+        "RB_APP_OPTION_EDITDIRECTION_CHANGE"
+      ],
+      "legacy_ids": [
+        "LHeCmd_064"
+      ],
+      "legacy_entrypoints": [
+        "Rb_App_Option_EditDirection_Change"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "worksheet",
+          "selection"
+        ],
+        "purpose_tags": [
+          "Enter 이동 방향 변경"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "optional",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-SELECTION-RB-SELECTION-CELL-USEDRANGE",
+      "label_ko": "내용이 있는 셀 모두 선택",
+      "aliases_ko": [],
+      "description_ko": "현재 시트의 사용중인 셀들을 모두 선택합니다. Ctrl+Home한뒤 Shift+Ctrl+End한것과 같습니다(틀고정시는 다릅니다)",
+      "image_mso": "SelectAll",
+      "search_terms_ko": [
+        "내용이",
+        "모두",
+        "범위",
+        "선택",
+        "이동",
+        "있는"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-SELECTION-MOVE",
+      "group_order": 6,
+      "sort_order": 94,
+      "input_context": "active_worksheet",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdSelection",
+      "args": [
+        "RB_SELECTION_CELL_USEDRANGE"
+      ],
+      "legacy_ids": [
+        "LHeCmd_065"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Selection_Cell_UsedRange",
+        "Rb_Selection_Cell_UsedRange_b"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "worksheet",
+          "selection"
+        ],
+        "purpose_tags": [
+          "내용이 있는 셀 모두 선택"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "optional",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-SELECTION-RB-SELECTION-CELL-TEXT-SPECIFIC",
+      "label_ko": "특정 문자가 포함된 모든셀 선택",
+      "aliases_ko": [],
+      "description_ko": "입력창에 입력한 문자가 포함된 셀을 모두 선택합니다.",
+      "image_mso": "SelectAll",
+      "search_terms_ko": [
+        "모든셀",
+        "문자가",
+        "범위",
+        "선택",
+        "이동",
+        "특정",
+        "포함된"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-SELECTION-MOVE",
+      "group_order": 6,
+      "sort_order": 95,
+      "input_context": "active_worksheet",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdSelection",
+      "args": [
+        "RB_SELECTION_CELL_TEXT_SPECIFIC"
+      ],
+      "legacy_ids": [
+        "LHeCmd_066"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Selection_Cell_Text_Specific",
+        "Rb_Selection_Cell_Text_Specific_b"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "worksheet",
+          "selection"
+        ],
+        "purpose_tags": [
+          "특정 문자가 포함된 모든셀 선택"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "optional",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-SELECTION-RB-SELECTION-CELL-MOVE-LEFT",
+      "label_ko": "여러셀 선택시 선택범위 ←이동",
+      "aliases_ko": [],
+      "description_ko": "여러 셀을 선택 후 실행하면, 선택범위 자체가 이동됩니다. 1개셀만 선택시 실행하면 연속된 데이터 범위의 끝으로 이동합니다.",
+      "image_mso": "ShapeLeftArrow",
+      "search_terms_ko": [
+        "←이동",
+        "범위",
+        "선택",
+        "선택범위",
+        "선택시",
+        "여러셀",
+        "이동"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-SELECTION-MOVE",
+      "group_order": 6,
+      "sort_order": 96,
+      "input_context": "active_worksheet",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdSelection",
+      "args": [
+        "RB_SELECTION_CELL_MOVE_LEFT"
+      ],
+      "legacy_ids": [
+        "LHeCmd_067"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Selection_Cell_Move_Left",
+        "Rb_Selection_Cell_Move_Left_b"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "worksheet",
+          "selection"
+        ],
+        "purpose_tags": [
+          "여러셀 선택시 선택범위 ←이동"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "optional",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-SELECTION-RB-SELECTION-CELL-MOVE-RIGHT",
+      "label_ko": "여러셀 선택시 선택범위 →이동",
+      "aliases_ko": [],
+      "description_ko": "여러 셀을 선택 후 실행하면, 선택범위 자체가 이동됩니다. 1개셀만 선택시 실행하면 연속된 데이터 범위의 끝으로 이동합니다.",
+      "image_mso": "ShapeRightArrow",
+      "search_terms_ko": [
+        "→이동",
+        "범위",
+        "선택",
+        "선택범위",
+        "선택시",
+        "여러셀",
+        "이동"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-SELECTION-MOVE",
+      "group_order": 6,
+      "sort_order": 97,
+      "input_context": "active_worksheet",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdSelection",
+      "args": [
+        "RB_SELECTION_CELL_MOVE_RIGHT"
+      ],
+      "legacy_ids": [
+        "LHeCmd_068"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Selection_Cell_Move_Right",
+        "Rb_Selection_Cell_Move_Right_b"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "worksheet",
+          "selection"
+        ],
+        "purpose_tags": [
+          "여러셀 선택시 선택범위 →이동"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "optional",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-SELECTION-RB-SELECTION-CELL-MOVE-DOWN",
+      "label_ko": "여러셀 선택시 선택범위 ↓이동",
+      "aliases_ko": [],
+      "description_ko": "여러 셀을 선택 후 실행하면, 선택범위 자체가 이동됩니다. 1개셀만 선택시 실행하면 연속된 데이터 범위의 끝으로 이동합니다.",
+      "image_mso": "ShapeDownArrow",
+      "search_terms_ko": [
+        "↓이동",
+        "범위",
+        "선택",
+        "선택범위",
+        "선택시",
+        "여러셀",
+        "이동"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-SELECTION-MOVE",
+      "group_order": 6,
+      "sort_order": 98,
+      "input_context": "active_worksheet",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdSelection",
+      "args": [
+        "RB_SELECTION_CELL_MOVE_DOWN"
+      ],
+      "legacy_ids": [
+        "LHeCmd_069"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Selection_Cell_Move_Down"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "worksheet",
+          "selection"
+        ],
+        "purpose_tags": [
+          "여러셀 선택시 선택범위 ↓이동"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "optional",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-SELECTION-RB-SELECTION-CELL-MOVE-UP",
+      "label_ko": "여러셀 선택시 선택범위 ↑이동",
+      "aliases_ko": [],
+      "description_ko": "여러 셀을 선택 후 실행하면, 선택범위 자체가 이동됩니다. 1개셀만 선택시 실행하면 연속된 데이터 범위의 끝으로 이동합니다.",
+      "image_mso": "ShapeUpArrow",
+      "search_terms_ko": [
+        "↑이동",
+        "범위",
+        "선택",
+        "선택범위",
+        "선택시",
+        "여러셀",
+        "이동"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-SELECTION-MOVE",
+      "group_order": 6,
+      "sort_order": 99,
+      "input_context": "active_worksheet",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdSelection",
+      "args": [
+        "RB_SELECTION_CELL_MOVE_UP"
+      ],
+      "legacy_ids": [
+        "LHeCmd_070"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Selection_Cell_Move_Up"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "worksheet",
+          "selection"
+        ],
+        "purpose_tags": [
+          "여러셀 선택시 선택범위 ↑이동"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "optional",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-SELECTION-RB-SELECTION-CELL-EXPAND-COL",
+      "label_ko": "(떨어진)셀들의 전체 열 선택",
+      "aliases_ko": [],
+      "description_ko": "떨어진 영역의 셀들을 선택했을때도 각각의 열 전체를 선택합니다.",
+      "image_mso": "SelectAll",
+      "search_terms_ko": [
+        "떨어진",
+        "범위",
+        "선택",
+        "셀들의",
+        "이동",
+        "전체"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-SELECTION-MOVE",
+      "group_order": 6,
+      "sort_order": 100,
+      "input_context": "active_worksheet",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdSelection",
+      "args": [
+        "RB_SELECTION_CELL_EXPAND_COL"
+      ],
+      "legacy_ids": [
+        "LHeCmd_071"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Selection_Cell_Expand_Col"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "worksheet",
+          "selection"
+        ],
+        "purpose_tags": [
+          "(떨어진)셀들의 전체 열 선택"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "optional",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-SELECTION-RB-SELECTION-CELL-EXPAND-ROW",
+      "label_ko": "(떨어진)셀들의 전체 행 선택",
+      "aliases_ko": [],
+      "description_ko": "떨어진 영역의 셀들을 선택했을때도 각각의 행 전체를 선택합니다.",
+      "image_mso": "SelectAll",
+      "search_terms_ko": [
+        "떨어진",
+        "범위",
+        "선택",
+        "셀들의",
+        "이동",
+        "전체"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-SELECTION-MOVE",
+      "group_order": 6,
+      "sort_order": 101,
+      "input_context": "active_worksheet",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdSelection",
+      "args": [
+        "RB_SELECTION_CELL_EXPAND_ROW"
+      ],
+      "legacy_ids": [
+        "LHeCmd_072"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Selection_Cell_Expand_Row"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "worksheet",
+          "selection"
+        ],
+        "purpose_tags": [
+          "(떨어진)셀들의 전체 행 선택"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "optional",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-SIZE-RB-EDIT-CELL-RESIZE",
+      "label_ko": "셀·글자·도형 크기 조정",
+      "aliases_ko": [],
+      "description_ko": "열 너비·행 높이·글자 크기·범위 안 도형 배율 중 필요한 항목을 선택해 조정합니다. 셀 값은 유지하며 오류 시 이전 크기로 복원합니다.",
+      "image_mso": "PropertySheet",
+      "search_terms_ko": [
+        "셀",
+        "글자",
+        "도형",
+        "크기",
+        "조정"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-ROW-COLUMN",
+      "group_order": 7,
+      "sort_order": 103,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdRowsColumns",
+      "args": [
+        "RB_EDIT_CELL_RESIZE"
+      ],
+      "legacy_ids": [
+        "LHeCmd_074"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Edit_Cell_Resize",
+        "Rb_Edit_Cell_Resize_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-CELL-FIT",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "셀·글자·도형 크기 조정"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-ALIGN-RB-EDIT-ALIGN-CENTER-OVERCELLS",
+      "label_ko": "모형병합 실행/취소",
+      "aliases_ko": [],
+      "description_ko": "셀을 실제로 합치지 않고 하나의 영역처럼 보이게 정렬합니다. 범위와 표시 방식을 선택하며 값 이동 여부를 확인한 뒤 적용합니다.",
+      "image_mso": "AlignCenter",
+      "search_terms_ko": [
+        "모형병합",
+        "실행/취소"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-ALIGNMENT-MERGE",
+      "group_order": 8,
+      "sort_order": 115,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdAlignment",
+      "args": [
+        "RB_EDIT_ALIGN_CENTER_OVERCELLS"
+      ],
+      "legacy_ids": [
+        "LHeCmd_086"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Edit_Align_Center_OverCells",
+        "Rb_Edit_Align_Center_OverCells_b"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "모형병합 실행/취소"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-STRUCTURE-RB-EDIT-CELL-MAKEGROUP-HIDDEN-ROWCOLUMN",
+      "label_ko": "선택 행·열 그룹 만들기",
+      "aliases_ko": [],
+      "description_ko": "가로로 넓은 선택은 열 그룹, 세로로 긴 선택은 행 그룹으로 묶습니다. 숨겨진 항목을 자동 탐색하는 기능은 아닙니다.",
+      "image_mso": "PropertySheet",
+      "search_terms_ko": [
+        "선택",
+        "행",
+        "열",
+        "그룹",
+        "만들기"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-INSERT-DELETE-HIDE",
+      "group_order": 9,
+      "sort_order": 121,
+      "input_context": "active_worksheet",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdInsertDelete",
+      "args": [
+        "RB_EDIT_CELL_MAKEGROUP_HIDDEN_ROWCOLUMN"
+      ],
+      "legacy_ids": [
+        "LHeCmd_092"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Edit_Cell_MakeGroup_Hidden_RowColumn",
+        "Rb_Edit_Cell_MakeGroup_Hidden_RowColumn_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-INSERT",
+        "object_scope": [
+          "worksheet",
+          "selection"
+        ],
+        "purpose_tags": [
+          "선택 행·열 그룹 만들기"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "optional",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-FILTER-RB-DATA-SORT-ASCENDING",
+      "label_ko": "오름차순으로 정렬",
+      "aliases_ko": [],
+      "description_ko": "활성된 셀의 열을 기준으로 오름차순으로 정렬합니다.",
+      "image_mso": "ShapeUpArrow",
+      "search_terms_ko": [
+        "내림차순",
+        "오름차순",
+        "오름차순으로",
+        "정렬",
+        "필터"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-FILTER-SORT",
+      "group_order": 10,
+      "sort_order": 128,
+      "input_context": "active_data_region",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdFilterSort",
+      "args": [
+        "RB_DATA_SORT_ASCENDING"
+      ],
+      "legacy_ids": [
+        "LHeCmd_099"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Data_Sort_Ascending"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "data_region"
+        ],
+        "purpose_tags": [
+          "오름차순으로 정렬"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-FILTER-RB-DATA-SORT-DESCENDING",
+      "label_ko": "내림차순으로 정렬",
+      "aliases_ko": [],
+      "description_ko": "활성된 셀의 열을 기준으로 내림차순으로 정렬합니다.",
+      "image_mso": "ShapeDownArrow",
+      "search_terms_ko": [
+        "내림차순",
+        "내림차순으로",
+        "오름차순",
+        "정렬",
+        "필터"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-FILTER-SORT",
+      "group_order": 10,
+      "sort_order": 129,
+      "input_context": "active_data_region",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdFilterSort",
+      "args": [
+        "RB_DATA_SORT_DESCENDING"
+      ],
+      "legacy_ids": [
+        "LHeCmd_100"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Data_Sort_Descending"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "data_region"
+        ],
+        "purpose_tags": [
+          "내림차순으로 정렬"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-FILTER-RB-FILTER-AUTOFILTER-CANCEL",
+      "label_ko": "자동필터 > 선택열만 필터 취소",
+      "aliases_ko": [],
+      "description_ko": "현재 데이터 범위에서 자동필터 > 선택열만 필터 취소 작업을 실행해 정리와 필터링을 돕습니다.",
+      "image_mso": "RefreshAll",
+      "search_terms_ko": [
+        "내림차순",
+        "선택열만",
+        "오름차순",
+        "자동필터",
+        "정렬",
+        "취소",
+        "필터"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-FILTER-SORT",
+      "group_order": 10,
+      "sort_order": 130,
+      "input_context": "active_data_region",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdFilterSort",
+      "args": [
+        "RB_FILTER_AUTOFILTER_CANCEL"
+      ],
+      "legacy_ids": [
+        "LHeCmd_101",
+        "LHeCmd_102"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Filter_AutoFilter_Cancel_CantUNDO",
+        "Rb_Filter_AutoFilter_Cancel_byKey"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "data_region"
+        ],
+        "purpose_tags": [
+          "자동필터 > 선택열만 필터 취소"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-FILTER-RB-FILTER-AUTOFILTER-FILTERING",
+      "label_ko": "자동필터 > 선택값으로 필터링",
+      "aliases_ko": [],
+      "description_ko": "현재 데이터 범위에서 자동필터 > 선택값으로 필터링 작업을 실행해 정리와 필터링을 돕습니다.",
+      "image_mso": "Filter",
+      "search_terms_ko": [
+        "내림차순",
+        "선택값으로",
+        "오름차순",
+        "자동필터",
+        "정렬",
+        "필터",
+        "필터링"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-FILTER-SORT",
+      "group_order": 10,
+      "sort_order": 132,
+      "input_context": "active_data_region",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdFilterSort",
+      "args": [
+        "RB_FILTER_AUTOFILTER_FILTERING"
+      ],
+      "legacy_ids": [
+        "LHeCmd_103",
+        "LHeCmd_104"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Filter_AutoFilter_Filtering_CantUNDO",
+        "Rb_Filter_AutoFilter_Filtering_byKey"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "data_region"
+        ],
+        "purpose_tags": [
+          "자동필터 > 선택값으로 필터링"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-FILTER-RB-FILTER-AUTOFILTER-FILTERING-OPTIONAL",
+      "label_ko": "자동필터 > 입력 값으로 필터링",
+      "aliases_ko": [],
+      "description_ko": "현재 데이터 범위에서 자동필터 > 입력 값으로 필터링 작업을 실행해 정리와 필터링을 돕습니다.",
+      "image_mso": "Filter",
+      "search_terms_ko": [
+        "값으로",
+        "내림차순",
+        "오름차순",
+        "입력",
+        "자동필터",
+        "정렬",
+        "필터",
+        "필터링"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-FILTER-SORT",
+      "group_order": 10,
+      "sort_order": 134,
+      "input_context": "active_data_region",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdFilterSort",
+      "args": [
+        "RB_FILTER_AUTOFILTER_FILTERING_OPTIONAL"
+      ],
+      "legacy_ids": [
+        "LHeCmd_105",
+        "LHeCmd_106"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Filter_AutoFilter_Filtering_Optional_CantUNDO",
+        "Rb_Filter_AutoFilter_Filtering_Optional_byKey"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "data_region"
+        ],
+        "purpose_tags": [
+          "자동필터 > 입력 값으로 필터링"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-FILTER-RB-FILTER-AUTOFILTER-SHOWALL",
+      "label_ko": "자동필터 > 모든데이터보기",
+      "aliases_ko": [],
+      "description_ko": "현재 데이터 범위에서 자동필터 > 모든데이터보기 작업을 실행해 정리와 필터링을 돕습니다.",
+      "image_mso": "Filter",
+      "search_terms_ko": [
+        "내림차순",
+        "모든데이터보기",
+        "오름차순",
+        "자동필터",
+        "정렬",
+        "필터"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-FILTER-SORT",
+      "group_order": 10,
+      "sort_order": 136,
+      "input_context": "active_data_region",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdFilterSort",
+      "args": [
+        "RB_FILTER_AUTOFILTER_SHOWALL"
+      ],
+      "legacy_ids": [
+        "LHeCmd_107",
+        "LHeCmd_108"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Filter_AutoFilter_ShowAll_CantUNDO",
+        "Rb_Filter_AutoFilter_ShowAll_byKey"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "data_region"
+        ],
+        "purpose_tags": [
+          "자동필터 > 모든데이터보기"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-FILTER-RB-DATA-SHOW-SOURCE",
+      "label_ko": "피벗테이블 원본 데이터 필터링",
+      "aliases_ko": [],
+      "description_ko": "피벗테이블에서 숫자를 선택하고 단축키를 누르면 해당 숫자가 나오게된 근거를 원본데이터에서 필터링해서 표시합니다.",
+      "image_mso": "PivotTableInsert",
+      "search_terms_ko": [
+        "내림차순",
+        "데이터",
+        "오름차순",
+        "원본",
+        "정렬",
+        "피벗테이블",
+        "필터",
+        "필터링"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-FILTER-SORT",
+      "group_order": 10,
+      "sort_order": 138,
+      "input_context": "active_data_region",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdFilterSort",
+      "args": [
+        "RB_DATA_SHOW_SOURCE"
+      ],
+      "legacy_ids": [
+        "LHeCmd_109"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Data_Show_Source"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "data_region"
+        ],
+        "purpose_tags": [
+          "피벗테이블 원본 데이터 필터링"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-FORMULA-RB-FORMULA-PRECEDENTS-LIST",
+      "label_ko": "수식 참조표 만들기",
+      "aliases_ko": [],
+      "description_ko": "선택한 수식의 참조 위치와 값을 한글 표로 정리합니다. 새 시트 또는 새 통합문서를 선택하며, 확인하지 못한 참조는 확인 상태에 표시합니다.",
+      "image_mso": "NameDefine",
+      "search_terms_ko": [
+        "수식",
+        "참조",
+        "목록",
+        "만들기"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-FORMULA-REFERENCE",
+      "group_order": 11,
+      "sort_order": 140,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdFormula",
+      "args": [
+        "RB_FORMULA_PRECEDENTS_LIST"
+      ],
+      "legacy_ids": [
+        "LHeCmd_111"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Formula_Precedents_List",
+        "Rb_Formula_Precedents_List_b"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-FORMULA",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "수식 참조 목록 만들기"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-SHEET-RB-SHEET-SAVE-TO-FILE",
+      "label_ko": "선택 시트들 파일로 저장",
+      "aliases_ko": [],
+      "description_ko": "현재 시트 또는 선택된 시트들을 파일로 각각 또는 합쳐서 파일로 저장합니다.",
+      "image_mso": "FileSaveAs",
+      "search_terms_ko": [
+        "선택",
+        "시트",
+        "시트들",
+        "워크시트",
+        "저장",
+        "탭",
+        "파일로"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-SHEET",
+      "group_order": 12,
+      "sort_order": 156,
+      "input_context": "active_workbook",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdSheet",
+      "args": [
+        "RB_SHEET_SAVE_TO_FILE"
+      ],
+      "legacy_ids": [
+        "LHeCmd_127"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Sheet_Save_to_File"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SHEET",
+        "object_scope": [
+          "workbook",
+          "worksheet"
+        ],
+        "purpose_tags": [
+          "선택 시트들 파일로 저장"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "none",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-SHEET-RB-SHEET-SELECT-END",
+      "label_ko": "마지막 시트로 이동",
+      "aliases_ko": [],
+      "description_ko": "문서의 마지막 워크시트를 활성화합니다. 시트 탭 순서를 변경하는 명령과 구별하세요.",
+      "image_mso": "SelectAll",
+      "search_terms_ko": [
+        "마지막",
+        "시트로",
+        "이동"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-SHEET",
+      "group_order": 12,
+      "sort_order": 2,
+      "input_context": "active_workbook",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdSheet",
+      "args": [
+        "RB_SHEET_SELECT_END"
+      ],
+      "legacy_ids": [
+        "LHeCmd_128"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Sheet_Select_End"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SHEET",
+        "object_scope": [
+          "workbook",
+          "worksheet"
+        ],
+        "purpose_tags": [
+          "마지막 시트로 이동"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "none",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-SHEET-RB-SHEET-SELECT-HOME",
+      "label_ko": "첫번째 시트로 이동",
+      "aliases_ko": [],
+      "description_ko": "문서의 첫 워크시트를 활성화합니다. 시트 탭 순서를 변경하는 명령과 구별하세요.",
+      "image_mso": "SelectAll",
+      "search_terms_ko": [
+        "첫번째",
+        "시트로",
+        "이동"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-SHEET",
+      "group_order": 12,
+      "sort_order": 1,
+      "input_context": "active_workbook",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdSheet",
+      "args": [
+        "RB_SHEET_SELECT_HOME"
+      ],
+      "legacy_ids": [
+        "LHeCmd_129"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Sheet_Select_Home"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SHEET",
+        "object_scope": [
+          "workbook",
+          "worksheet"
+        ],
+        "purpose_tags": [
+          "첫번째 시트로 이동"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "none",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-VIEW-RB-WINDOWS-VIEW-FULLSCREEN",
+      "label_ko": "전체 화면 켜기/끄기",
+      "aliases_ko": [],
+      "description_ko": "Excel의 전체 화면 표시를 전환합니다. 화면 표시만 바꾸며 문서 내용과 인쇄 설정은 유지합니다.",
+      "image_mso": "ViewFullScreenView",
+      "search_terms_ko": [
+        "전체",
+        "화면",
+        "켜기/끄기"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-VIEW-WINDOW",
+      "group_order": 13,
+      "sort_order": 161,
+      "input_context": "active_window",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdView",
+      "args": [
+        "RB_WINDOWS_VIEW_FULLSCREEN"
+      ],
+      "legacy_ids": [
+        "LHeCmd_132"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Windows_View_FullScreen",
+        "Rb_Windows_View_FullScreen_b"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SHEET",
+        "object_scope": [
+          "window"
+        ],
+        "purpose_tags": [
+          "전체 화면 켜기/끄기"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "none",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "flat"
+    },
+    {
+      "id": "NX-CMD-VIEW-RB-WINDOWS-VIEW-SCROLL-DOWN",
+      "label_ko": "화면 아래쪽으로 스크롤",
+      "aliases_ko": [],
+      "description_ko": "셀을 선택을 하지 않고 화면만 아래쪽으로 스크롤합니다",
+      "image_mso": "ShapeDownArrow",
+      "search_terms_ko": [
+        "배율",
+        "보기",
+        "스크롤",
+        "아래쪽으로",
+        "창",
+        "화면"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-VIEW-WINDOW",
+      "group_order": 13,
+      "sort_order": 167,
+      "input_context": "active_window",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdView",
+      "args": [
+        "RB_WINDOWS_VIEW_SCROLL_DOWN"
+      ],
+      "legacy_ids": [
+        "LHeCmd_138"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Windows_View_Scroll_Down"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SHEET",
+        "object_scope": [
+          "window"
+        ],
+        "purpose_tags": [
+          "화면 아래쪽으로 스크롤"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "none",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-VIEW-RB-WINDOWS-VIEW-SCROLL-LEFT",
+      "label_ko": "화면 왼쪽으로 스크롤",
+      "aliases_ko": [],
+      "description_ko": "셀을 선택을 하지 않고 화면만 왼쪽으로 스크롤합니다",
+      "image_mso": "ShapeLeftArrow",
+      "search_terms_ko": [
+        "배율",
+        "보기",
+        "스크롤",
+        "왼쪽으로",
+        "창",
+        "화면"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-VIEW-WINDOW",
+      "group_order": 13,
+      "sort_order": 168,
+      "input_context": "active_window",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdView",
+      "args": [
+        "RB_WINDOWS_VIEW_SCROLL_LEFT"
+      ],
+      "legacy_ids": [
+        "LHeCmd_139"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Windows_View_Scroll_Left"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SHEET",
+        "object_scope": [
+          "window"
+        ],
+        "purpose_tags": [
+          "화면 왼쪽으로 스크롤"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "none",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-VIEW-RB-WINDOWS-VIEW-SCROLL-RIGHT",
+      "label_ko": "화면 오른쪽으로 스크롤",
+      "aliases_ko": [],
+      "description_ko": "셀을 선택을 하지 않고 화면만 오른쪽으로 스크롤합니다",
+      "image_mso": "ShapeRightArrow",
+      "search_terms_ko": [
+        "배율",
+        "보기",
+        "스크롤",
+        "오른쪽으로",
+        "창",
+        "화면"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-VIEW-WINDOW",
+      "group_order": 13,
+      "sort_order": 169,
+      "input_context": "active_window",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdView",
+      "args": [
+        "RB_WINDOWS_VIEW_SCROLL_RIGHT"
+      ],
+      "legacy_ids": [
+        "LHeCmd_140"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Windows_View_Scroll_Right"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SHEET",
+        "object_scope": [
+          "window"
+        ],
+        "purpose_tags": [
+          "화면 오른쪽으로 스크롤"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "none",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-VIEW-RB-WINDOWS-VIEW-SCROLL-UP",
+      "label_ko": "화면 위쪽으로 스크롤",
+      "aliases_ko": [],
+      "description_ko": "셀을 선택을 하지 않고 화면만 위쪽으로 스크롤합니다",
+      "image_mso": "ShapeUpArrow",
+      "search_terms_ko": [
+        "배율",
+        "보기",
+        "스크롤",
+        "위쪽으로",
+        "창",
+        "화면"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-VIEW-WINDOW",
+      "group_order": 13,
+      "sort_order": 170,
+      "input_context": "active_window",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdView",
+      "args": [
+        "RB_WINDOWS_VIEW_SCROLL_UP"
+      ],
+      "legacy_ids": [
+        "LHeCmd_141"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Windows_View_Scroll_Up"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SHEET",
+        "object_scope": [
+          "window"
+        ],
+        "purpose_tags": [
+          "화면 위쪽으로 스크롤"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "none",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-INFO-RB-APP-NAMEUNHIDE",
+      "label_ko": "숨김 이름 정의 표시",
+      "aliases_ko": [],
+      "description_ko": "현재 문서의 숨겨진 이름 정의를 이름 관리자에서 볼 수 있게 바꿉니다. 이름을 삭제하거나 참조식을 바꾸지는 않습니다.",
+      "image_mso": "NameDefine",
+      "search_terms_ko": [
+        "숨김",
+        "이름",
+        "정의",
+        "표시"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-INFO-DIAGNOSTICS",
+      "group_order": 14,
+      "sort_order": 185,
+      "input_context": "active_workbook",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdInfo",
+      "args": [
+        "RB_APP_NAMEUNHIDE"
+      ],
+      "legacy_ids": [
+        "LHeCmd_155"
+      ],
+      "legacy_entrypoints": [
+        "Rb_App_NameUnHide",
+        "Rb_App_NameUnHide_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-INFO",
+        "object_scope": [
+          "workbook"
+        ],
+        "purpose_tags": [
+          "숨김 이름 정의 표시"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "none",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-INFO-RB-INFO-MEMO-LIST",
+      "label_ko": "문서 메모 목록 만들기",
+      "aliases_ko": [],
+      "description_ko": "현재 문서의 셀 메모 위치와 내용을 새 보고서 시트에 모읍니다. 원래 셀의 메모는 유지합니다.",
+      "image_mso": "ReviewShowAllComments",
+      "search_terms_ko": [
+        "문서",
+        "메모",
+        "목록",
+        "만들기"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-INFO-DIAGNOSTICS",
+      "group_order": 14,
+      "sort_order": 186,
+      "input_context": "active_workbook",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdInfo",
+      "args": [
+        "RB_INFO_MEMO_LIST"
+      ],
+      "legacy_ids": [
+        "LHeCmd_156"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Info_Memo_List",
+        "Rb_Info_Memo_List_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-INFO",
+        "object_scope": [
+          "workbook"
+        ],
+        "purpose_tags": [
+          "문서 메모 목록 만들기"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "none",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-INFO-RB-INFO-SHEET-LIST",
+      "label_ko": "문서 시트 목록 만들기",
+      "aliases_ko": [],
+      "description_ko": "현재 문서의 워크시트 이름과 표시·숨김 상태를 새 시트에 정리합니다. 탐색창과 달리 문서에 결과 시트가 추가됩니다.",
+      "image_mso": "CellsInsertDialog",
+      "search_terms_ko": [
+        "문서",
+        "시트",
+        "목록",
+        "만들기"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-INFO-DIAGNOSTICS",
+      "group_order": 14,
+      "sort_order": 187,
+      "input_context": "active_workbook",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdInfo",
+      "args": [
+        "RB_INFO_SHEET_LIST"
+      ],
+      "legacy_ids": [
+        "LHeCmd_157"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Info_Sheet_List"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-INFO",
+        "object_scope": [
+          "workbook"
+        ],
+        "purpose_tags": [
+          "문서 시트 목록 만들기"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "none",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-INFO-RB-WORKBOOK-INFOMATION",
+      "label_ko": "내엑셀 버전 정보",
+      "aliases_ko": [
+        "현재 파일 정보 보기",
+        "내엑셀 정보"
+      ],
+      "description_ko": "현재 설치된 내엑셀의 버전, 완성본 프로필, 기능·명령 수와 빌드 ID를 확인합니다.",
+      "image_mso": "FileProperties",
+      "search_terms_ko": [
+        "내엑셀",
+        "버전",
+        "빌드",
+        "정보",
+        "프로필"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-INFO-DIAGNOSTICS",
+      "group_order": 14,
+      "sort_order": 188,
+      "input_context": "active_workbook",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdInfo",
+      "args": [
+        "RB_WORKBOOK_INFOMATION"
+      ],
+      "legacy_ids": [
+        "LHeCmd_158"
+      ],
+      "legacy_entrypoints": [
+        "Rb_workbook_infomation_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-INFO",
+        "object_scope": [
+          "workbook"
+        ],
+        "purpose_tags": [
+          "내엑셀 버전 정보"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "none",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-INFO-RB-SHOW-WORKSHEET-LIST",
+      "label_ko": "현재 파일의 워크시트 목록창",
+      "aliases_ko": [],
+      "description_ko": "현재 통합문서 또는 Excel 환경의 정보를 현재 파일의 워크시트 목록창 방식으로 확인합니다.",
+      "image_mso": "CellsInsertDialog",
+      "search_terms_ko": [
+        "목록",
+        "목록창",
+        "워크시트",
+        "점검",
+        "정보",
+        "진단",
+        "파일의",
+        "현재"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-INFO-DIAGNOSTICS",
+      "group_order": 14,
+      "sort_order": 190,
+      "input_context": "active_workbook",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdInfo",
+      "args": [
+        "RB_SHOW_WORKSHEET_LIST"
+      ],
+      "legacy_ids": [
+        "LHeCmd_160"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Show_Worksheet_list"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-INFO",
+        "object_scope": [
+          "workbook"
+        ],
+        "purpose_tags": [
+          "현재 파일의 워크시트 목록창"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "none",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-PIVOT-RB-PIVOTLISTOFWB",
+      "label_ko": "피벗테이블 목록 생성",
+      "aliases_ko": [],
+      "description_ko": "현재 통합문서의 피벗테이블과 피벗 캐시 정보를 목록으로 생성합니다.",
+      "image_mso": "PivotTableInsert",
+      "search_terms_ko": [
+        "목록",
+        "생성",
+        "요약",
+        "피벗",
+        "피벗테이블"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-PIVOT",
+      "group_order": 15,
+      "sort_order": 183,
+      "input_context": "active_workbook",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdPivot",
+      "args": [
+        "RB_PIVOTLISTOFWB"
+      ],
+      "legacy_ids": [
+        "LHeCmd_153"
+      ],
+      "legacy_entrypoints": [
+        "Rb_pivotListOfWB",
+        "Rb_pivotListOfWB_all"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "workbook",
+          "data_region"
+        ],
+        "purpose_tags": [
+          "피벗테이블 목록 생성"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "none",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-PIVOT-RB-PIVOT-BUILDUP",
+      "label_ko": "피벗테이블 관리창 실행",
+      "aliases_ko": [],
+      "description_ko": "피벗테이블 관리창을 팝업합니다. 데이터를 선택하고 실행하면 피벗테이블을 만들어 주고, 이미 있으면 관리창을 팝업합니다.",
+      "image_mso": "PivotTableInsert",
+      "search_terms_ko": [
+        "관리창",
+        "실행",
+        "요약",
+        "피벗",
+        "피벗테이블"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-PIVOT",
+      "group_order": 15,
+      "sort_order": 184,
+      "input_context": "active_workbook",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": false,
+      "favorite_eligible": false,
+      "shortcut_eligible": false,
+      "handler": "NxCmdPivot",
+      "args": [
+        "RB_PIVOT_BUILDUP"
+      ],
+      "legacy_ids": [
+        "LHeCmd_154"
+      ],
+      "legacy_entrypoints": [
+        "Rb_Pivot_BuildUp"
+      ],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "workbook",
+          "data_region"
+        ],
+        "purpose_tags": [
+          "피벗테이블 관리창 실행"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "none",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-DATA-DATE-CONVERT",
+      "label_ko": "날짜 변환",
+      "aliases_ko": [],
+      "description_ko": "240617, 20240617, 점·하이픈 날짜, 주민번호형 생년월일을 날짜로 변환합니다. 표시 형식과 결과 위치를 선택하세요.",
+      "image_mso": "DateAndTimeInsert",
+      "search_terms_ko": [
+        "날짜",
+        "생년월일",
+        "주민번호",
+        "yymmdd",
+        "yyyymmdd"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-SELECTION-MOVE",
+      "group_order": 6,
+      "sort_order": 102,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": true,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdSelection",
+      "args": [
+        "NX_DATA_DATE_CONVERT"
+      ],
+      "legacy_ids": [],
+      "legacy_entrypoints": [],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "worksheet",
+          "selection"
+        ],
+        "purpose_tags": [
+          "날짜 변환"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "none",
+        "selection_mode": "required",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "navigation_mode": "flat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-EMPHASIS",
+      "label_ko": "숫자 강조(▲▼)",
+      "aliases_ko": [],
+      "description_ko": "양수는 빨간색 ▲, 음수는 파란색 ▼로 표시합니다. 소수 자릿수와 백분율 표시를 선택하며 원래 값과 수식은 유지합니다.",
+      "image_mso": "ConditionalFormattingHighlightCellsMenu",
+      "search_terms_ko": [
+        "숫자 강조",
+        "양수",
+        "음수",
+        "증감"
+      ],
+      "category_id": "NX-CAT-DRAW",
+      "group_id": "NX-CMD-GRP-NUMBER-FORMAT",
+      "group_order": 4,
+      "sort_order": 999,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdNumberFormat",
+      "args": [
+        "NX_NUMBER_EMPHASIS"
+      ],
+      "legacy_ids": [],
+      "legacy_entrypoints": [],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "숫자 강조(▲▼)"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-VIEW-PRESET-1",
+      "label_ko": "화면 프리셋 1",
+      "aliases_ko": [],
+      "description_ko": "저장한 화면 배율을 적용합니다. 같은 프리셋을 다시 실행하면 이전 배율로 돌아갑니다.",
+      "image_mso": "ViewNormalViewExcel",
+      "search_terms_ko": [
+        "화면",
+        "배율",
+        "프리셋"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-VIEW-WINDOW",
+      "group_order": 13,
+      "sort_order": 1001,
+      "input_context": "active_window",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdView",
+      "args": [
+        "NX_VIEW_PRESET_1"
+      ],
+      "legacy_ids": [],
+      "legacy_entrypoints": [],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SHEET",
+        "object_scope": [
+          "window"
+        ],
+        "purpose_tags": [
+          "화면 프리셋 1"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "none",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-VIEW-PRESET-2",
+      "label_ko": "화면 프리셋 2",
+      "aliases_ko": [],
+      "description_ko": "저장한 화면 배율을 적용합니다. 같은 프리셋을 다시 실행하면 이전 배율로 돌아갑니다.",
+      "image_mso": "ViewNormalViewExcel",
+      "search_terms_ko": [
+        "화면",
+        "배율",
+        "프리셋"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-VIEW-WINDOW",
+      "group_order": 13,
+      "sort_order": 1002,
+      "input_context": "active_window",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdView",
+      "args": [
+        "NX_VIEW_PRESET_2"
+      ],
+      "legacy_ids": [],
+      "legacy_entrypoints": [],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SHEET",
+        "object_scope": [
+          "window"
+        ],
+        "purpose_tags": [
+          "화면 프리셋 2"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "none",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-VIEW-PRESET-3",
+      "label_ko": "화면 프리셋 3",
+      "aliases_ko": [],
+      "description_ko": "저장한 화면 배율을 적용합니다. 같은 프리셋을 다시 실행하면 이전 배율로 돌아갑니다.",
+      "image_mso": "ViewNormalViewExcel",
+      "search_terms_ko": [
+        "화면",
+        "배율",
+        "프리셋"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-VIEW-WINDOW",
+      "group_order": 13,
+      "sort_order": 1003,
+      "input_context": "active_window",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdView",
+      "args": [
+        "NX_VIEW_PRESET_3"
+      ],
+      "legacy_ids": [],
+      "legacy_entrypoints": [],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SHEET",
+        "object_scope": [
+          "window"
+        ],
+        "purpose_tags": [
+          "화면 프리셋 3"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "none",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-VIEW-PRESET-4",
+      "label_ko": "화면 프리셋 4",
+      "aliases_ko": [],
+      "description_ko": "저장한 화면 배율을 적용합니다. 같은 프리셋을 다시 실행하면 이전 배율로 돌아갑니다.",
+      "image_mso": "ViewNormalViewExcel",
+      "search_terms_ko": [
+        "화면",
+        "배율",
+        "프리셋"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-VIEW-WINDOW",
+      "group_order": 13,
+      "sort_order": 1004,
+      "input_context": "active_window",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdView",
+      "args": [
+        "NX_VIEW_PRESET_4"
+      ],
+      "legacy_ids": [],
+      "legacy_entrypoints": [],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SHEET",
+        "object_scope": [
+          "window"
+        ],
+        "purpose_tags": [
+          "화면 프리셋 4"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "none",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-VIEW-PRESET-5",
+      "label_ko": "화면 프리셋 5",
+      "aliases_ko": [],
+      "description_ko": "저장한 화면 배율을 적용합니다. 같은 프리셋을 다시 실행하면 이전 배율로 돌아갑니다.",
+      "image_mso": "ViewNormalViewExcel",
+      "search_terms_ko": [
+        "화면",
+        "배율",
+        "프리셋"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-VIEW-WINDOW",
+      "group_order": 13,
+      "sort_order": 1005,
+      "input_context": "active_window",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdView",
+      "args": [
+        "NX_VIEW_PRESET_5"
+      ],
+      "legacy_ids": [],
+      "legacy_entrypoints": [],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SHEET",
+        "object_scope": [
+          "window"
+        ],
+        "purpose_tags": [
+          "화면 프리셋 5"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "none",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-VIEW-PRESET-SETTINGS",
+      "label_ko": "화면 프리셋 설정",
+      "aliases_ko": [],
+      "description_ko": "화면 프리셋 1~5의 배율을 10~400%로 지정하고 저장합니다.",
+      "image_mso": "ViewNormalViewExcel",
+      "search_terms_ko": [
+        "화면",
+        "배율",
+        "프리셋"
+      ],
+      "category_id": "NX-CAT-FILE",
+      "group_id": "NX-CMD-GRP-VIEW-WINDOW",
+      "group_order": 13,
+      "sort_order": 1006,
+      "input_context": "active_window",
+      "active_when": "excel_ready",
+      "mutates_document": false,
+      "recovery_policy": "none",
+      "ribbon_visible": false,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdView",
+      "args": [
+        "NX_VIEW_PRESET_SETTINGS"
+      ],
+      "legacy_ids": [],
+      "legacy_entrypoints": [],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SHEET",
+        "object_scope": [
+          "window"
+        ],
+        "purpose_tags": [
+          "화면 프리셋 설정"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "none",
+        "selection_mode": "none",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-FUNCTION-ROUND",
+      "label_ko": "ROUND 감싸기",
+      "aliases_ko": [],
+      "description_ko": "기존 값과 수식을 ROUND·ROUNDUP·ROUNDDOWN으로 감쌉니다. 오류는 그대로 유지합니다.",
+      "image_mso": "FunctionWizard",
+      "search_terms_ko": [
+        "ROUND",
+        "함수",
+        "감싸기"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-FORMULA-REFERENCE",
+      "group_order": 11,
+      "sort_order": 1100,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": true,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdFormula",
+      "args": [
+        "NX_FUNCTION_ROUND"
+      ],
+      "legacy_ids": [],
+      "legacy_entrypoints": [],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-FORMULA",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "ROUND 감싸기"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    },
+    {
+      "id": "NX-CMD-FUNCTION-IFERROR",
+      "label_ko": "IFERROR 감싸기",
+      "aliases_ko": [],
+      "description_ko": "기존 수식이나 숫자를 IFERROR로 감싸 오류일 때 공란·숫자·문자를 반환합니다.",
+      "image_mso": "FunctionWizard",
+      "search_terms_ko": [
+        "IFERROR",
+        "함수",
+        "감싸기"
+      ],
+      "category_id": "NX-CAT-DATA",
+      "group_id": "NX-CMD-GRP-FORMULA-REFERENCE",
+      "group_order": 11,
+      "sort_order": 1101,
+      "input_context": "range_selection",
+      "active_when": "excel_ready",
+      "mutates_document": true,
+      "recovery_policy": "command_scoped_guard",
+      "ribbon_visible": true,
+      "taskpane_visible": true,
+      "favorite_eligible": true,
+      "shortcut_eligible": true,
+      "handler": "NxCmdFormula",
+      "args": [
+        "NX_FUNCTION_IFERROR"
+      ],
+      "legacy_ids": [],
+      "legacy_entrypoints": [],
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-FORMULA",
+        "object_scope": [
+          "selection"
+        ],
+        "purpose_tags": [
+          "IFERROR 감싸기"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NaeExcel v0.01 release evidence",
+  "type": "object",
+  "required": [
+    "frozen_source_commit",
+    "source_tree_sha256",
+    "artifact_sha256",
+    "product_files",
+    "product_bundle_sha256",
+    "windows",
+    "product_ui",
+    "independence"
+  ],
+  "dependentRequired": {
+    "approved_lineage_policy_sha256": ["approved_lineage_source"],
+    "approved_lineage_source": ["approved_lineage_policy_sha256"]
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "productFile": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+"
+        },
+        "sha256": {"$ref": "#/$defs/sha256"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "properties": {
+    "frozen_source_commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "source_tree_sha256": {"$ref": "#/$defs/sha256"},
+    "artifact_sha256": {"$ref": "#/$defs/sha256"},
+    "product_bundle_sha256": {"$ref": "#/$defs/sha256"},
+    "product_files": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {"$ref": "#/$defs/productFile"}
+    },
+    "approved_lineage_policy_sha256": {"$ref": "#/$defs/sha256"},
+    "approved_lineage_source": {
+      "type": "object",
+      "required": [
+        "status",
+        "reference_identity",
+        "inventory_sha256",
+        "scope",
+        "style_authority",
+        "integration_requirements"
+      ],
+      "properties": {
+        "status": {"const": "PASS"},
+        "reference_identity": {"const": "v3x"},
+        "inventory_sha256": {"$ref": "#/$defs/sha256"},
+        "scope": {"const": "all-functions"},
+        "style_authority": {"const": "내엑셀 v0.01"},
+        "integration_requirements": {
+          "const": [
+            "v0.01-ribbon-and-registry",
+            "v0.01-risk-and-recovery",
+            "v0.01-native-verification"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidence_sources": {
+      "type": "object",
+      "properties": {
+        "lineage_policy_sha256": {"$ref": "#/$defs/sha256"}
+      },
+      "additionalProperties": true
+    },
+    "windows": {
+      "type": "object",
+      "required": [
+        "status",
+        "frozen_source_commit",
+        "source_tree_sha256",
+        "artifact_sha256",
+        "snapshot_sha256",
+        "office_version",
+        "compatibility_baseline",
+        "architecture",
+        "product_files",
+        "product_bundle_sha256",
+        "compatibility"
+      ],
+      "properties": {
+        "status": {"const": "PASS"},
+        "frozen_source_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "source_tree_sha256": {"$ref": "#/$defs/sha256"},
+        "artifact_sha256": {"$ref": "#/$defs/sha256"},
+        "snapshot_sha256": {"$ref": "#/$defs/sha256"},
+        "office_version": {"enum": ["Office 2024", "Microsoft 365"]},
+        "compatibility_baseline": {"const": "Office 2024"},
+        "architecture": {"enum": ["x64", "amd64"]},
+        "product_bundle_sha256": {"$ref": "#/$defs/sha256"},
+        "product_files": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "items": {"$ref": "#/$defs/productFile"}
+        },
+        "compatibility": {
+          "type": "object",
+          "required": ["status", "baseline", "supported_bitness", "native_validated_bitness"],
+          "properties": {
+            "status": {"const": "PASS"},
+            "baseline": {"const": "Office 2024"},
+            "supported_bitness": {"type": "array", "contains": {"const": "32"}, "minItems": 2},
+            "native_validated_bitness": {"type": "array", "contains": {"const": "64"}}
+          }
+        }
+      }
+    },
+    "product_ui": {
+      "type": "object",
+      "required": [
+        "status",
+        "frozen_source_commit",
+        "source_tree_sha256",
+        "artifact_sha256",
+        "snapshot_sha256",
+        "product_files",
+        "product_bundle_sha256",
+        "evidence_files",
+        "evidence_sha256"
+      ],
+      "properties": {
+        "status": {"const": "PASS"},
+        "frozen_source_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "source_tree_sha256": {"$ref": "#/$defs/sha256"},
+        "artifact_sha256": {"$ref": "#/$defs/sha256"},
+        "snapshot_sha256": {"$ref": "#/$defs/sha256"},
+        "product_bundle_sha256": {"$ref": "#/$defs/sha256"},
+        "product_files": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "items": {"$ref": "#/$defs/productFile"}
+        },
+        "evidence_files": {"const": ["ProductUi.Current200.json", "ProductUi.UserForms.json"]},
+        "evidence_sha256": {
+          "type": "object",
+          "required": ["ProductUi.Current200.json", "ProductUi.UserForms.json"],
+          "properties": {
+            "ProductUi.Current200.json": {"$ref": "#/$defs/sha256"},
+            "ProductUi.UserForms.json": {"$ref": "#/$defs/sha256"}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "independence": {
+      "type": "object",
+      "required": ["code", "workbook", "ui_wording", "assets", "provenance"]
+    }
+  },
+  "additionalProperties": true
+}

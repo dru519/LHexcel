@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "policy": "clean-room",
+  "rules": [
+    {"pattern": "README.md", "origin": "project-original", "spec_ids": ["P01"], "license": "Proprietary"},
+    {"pattern": "VERSION", "origin": "project-original", "spec_ids": ["P01"], "license": "Proprietary"},
+    {"pattern": ".gitattributes", "origin": "project-original", "spec_ids": ["P01"], "license": "Proprietary"},
+    {"pattern": "contracts/**", "origin": "project-original", "spec_ids": ["P01"], "license": "Proprietary"},
+    {"pattern": "src/**", "origin": "project-original", "spec_ids": ["P01"], "license": "Proprietary"},
+    {"pattern": "build/**", "origin": "project-original", "spec_ids": ["P01"], "license": "Proprietary"},
+    {"pattern": "docs/**", "origin": "project-original", "spec_ids": ["P01"], "license": "Proprietary"},
+    {"pattern": "tools/**", "origin": "project-original", "spec_ids": ["P01"], "license": "Proprietary"},
+    {"pattern": "templates/**", "origin": "project-original", "spec_ids": ["P01"], "license": "Proprietary"},
+    {"pattern": "tests/**", "origin": "project-original", "spec_ids": ["P01"], "license": "Proprietary"},
+    {"pattern": "reports/**", "origin": "project-original", "spec_ids": ["P01"], "license": "Proprietary"},
+    {"pattern": "tmp/**", "origin": "project-original", "spec_ids": ["P01"], "license": "Proprietary"},
+    {"pattern": "provenance/schemas/**", "origin": "project-original", "spec_ids": ["P01", "P09"], "license": "Proprietary"},
+    {"pattern": "provenance/forbidden-inputs.json", "origin": "project-original", "spec_ids": ["P01"], "license": "Proprietary"},
+    {"pattern": "provenance/independence-allowlist.json", "origin": "project-original", "spec_ids": ["P01", "P09"], "license": "Proprietary"},
+    {"pattern": "provenance/approved-lineage-policy.json", "origin": "user-approved-v3x-lineage", "spec_ids": ["P01", "P09"], "license": "Proprietary"},
+    {"pattern": "provenance/v34-r46-mapping.json", "origin": "project-original", "spec_ids": ["P01", "P09"], "license": "Proprietary"},
+    {"pattern": "provenance/negative-fixture-expectations.json", "origin": "project-original", "spec_ids": ["P09"], "license": "Proprietary"}
+  ],
+  "hash_policy": "computed-by-source-manifest-freeze"
+}

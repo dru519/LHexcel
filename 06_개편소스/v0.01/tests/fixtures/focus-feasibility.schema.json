@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "status": ["PASS", "HOLD"],
+  "required_gates": [
+    "saved_state_preserved",
+    "undo_preserved",
+    "exact_two_rules_after_500_moves",
+    "normal_p95_within_50ms",
+    "stress_p95_within_150ms",
+    "cleanup_zero_assets",
+    "user_rules_unchanged",
+    "paste_has_no_duplicates",
+    "cancel_paths_consistent",
+    "multi_document_isolated"
+  ],
+  "selected_strategy": "addin_owned_name_cache",
+  "move_count": 500,
+  "warmup_count": 20
+}

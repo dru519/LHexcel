@@ -1,0 +1,24 @@
+{
+  "schema_version": 2,
+  "ordered_grades": ["fast", "guarded", "planned"],
+  "wire_values": {"fast": 0, "guarded": 1, "planned": 2},
+  "upward_only": true,
+  "planned_cell_threshold": 10000,
+  "cell_count_source": "actual_unique_cells",
+  "threshold_operator": "strictly_greater_than",
+  "result_sheet_policy": {
+    "guarded": {"sheet_count": 1, "unique_cells": {"max": 10000}, "overwrite": false, "file_creation": false},
+    "planned": {"sheet_count": {"greater_than": 1}, "unique_cells": {"greater_than": 10000}, "overwrite": true, "file_creation": true}
+  },
+  "guarded_triggers": ["ai_processing", "external_data_transfer"],
+  "planned_triggers": [
+    "file_mutation",
+    "external_document_mutation",
+    "bulk_mutation",
+    "irreversible_or_manual_recovery",
+    "image_insertion",
+    "risky_formula"
+  ],
+  "fast_allowed": ["local_read", "limited_reversible_mutation"],
+  "missing_registry_grade": "contract_error"
+}

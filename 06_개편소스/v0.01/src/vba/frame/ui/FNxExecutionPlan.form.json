@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "name": "FNxExecutionPlan",
+  "caption": "내엑셀 - 실행계획",
+  "width": 580,
+  "height": 350,
+  "client_width": 580,
+  "client_height": 350,
+  "start_up_position": 1,
+  "code_path": "src/vba/frame/ui/FNxExecutionPlan.vba",
+  "default_control": "cmdExecutePlan",
+  "cancel_control": "cmdCancel",
+  "controls": [
+    {"type":"Label","font_name":"맑은 고딕","font_size":9,"name":"lblCategoryPath","left":16,"top":10,"width":260,"height":16,"tab_index":0,"tab_stop":false,"enabled":true,"caption":"기능 분류"},
+    {"type":"Label","font_name":"맑은 고딕","font_size":9,"name":"lblFeatureName","left":16,"top":30,"width":390,"height":18,"tab_index":0,"tab_stop":false,"enabled":true,"caption":"기능 이름"},
+    {"type":"Label","font_name":"맑은 고딕","font_size":9,"name":"lblRisk","left":450,"top":30,"width":114,"height":16,"tab_index":0,"tab_stop":false,"enabled":true,"caption":"위험도"},
+    {"type":"Label","font_name":"맑은 고딕","font_size":9,"name":"lblStepInput","left":16,"top":56,"width":70,"height":16,"tab_index":0,"tab_stop":false,"enabled":true,"caption":"1 입력"},
+    {"type":"Label","font_name":"맑은 고딕","font_size":9,"name":"lblStepPlan","left":94,"top":56,"width":86,"height":16,"tab_index":0,"tab_stop":false,"enabled":true,"caption":"2 실행계획"},
+    {"type":"Label","font_name":"맑은 고딕","font_size":9,"name":"lblStepResult","left":188,"top":56,"width":70,"height":16,"tab_index":0,"tab_stop":false,"enabled":true,"caption":"3 결과"},
+    {"type":"TextBox","font_name":"맑은 고딕","font_size":9,"name":"txtTarget","left":16,"top":78,"width":268,"height":36,"tab_index":0,"tab_stop":false,"enabled":true,"value":"","locked":true,"multi_line":true},
+    {"type":"TextBox","font_name":"맑은 고딕","font_size":9,"name":"txtAction","left":296,"top":78,"width":268,"height":36,"tab_index":0,"tab_stop":false,"enabled":true,"value":"","locked":true,"multi_line":true},
+    {"type":"TextBox","font_name":"맑은 고딕","font_size":9,"name":"txtResult","left":16,"top":120,"width":268,"height":36,"tab_index":0,"tab_stop":false,"enabled":true,"value":"","locked":true,"multi_line":true},
+    {"type":"TextBox","font_name":"맑은 고딕","font_size":9,"name":"txtScale","left":296,"top":120,"width":268,"height":36,"tab_index":0,"tab_stop":false,"enabled":true,"value":"","locked":true,"multi_line":true},
+    {"type":"TextBox","font_name":"맑은 고딕","font_size":9,"name":"txtPrivacy","left":16,"top":162,"width":268,"height":36,"tab_index":0,"tab_stop":false,"enabled":true,"value":"","locked":true,"multi_line":true},
+    {"type":"TextBox","font_name":"맑은 고딕","font_size":9,"name":"txtConflict","left":296,"top":162,"width":268,"height":36,"tab_index":0,"tab_stop":false,"enabled":true,"value":"","locked":true,"multi_line":true},
+    {"type":"TextBox","font_name":"맑은 고딕","font_size":9,"name":"txtRecovery","left":16,"top":204,"width":548,"height":46,"tab_index":0,"tab_stop":false,"enabled":true,"value":"","locked":true,"multi_line":true},
+    {"type":"Label","font_name":"맑은 고딕","font_size":9,"name":"lblBlockReason","left":16,"top":256,"width":548,"height":42,"tab_index":0,"tab_stop":false,"enabled":true,"caption":""},
+    {"type":"CommandButton","font_name":"맑은 고딕","font_size":9,"name":"cmdBack","left":306,"top":306,"width":74,"height":26,"tab_index":0,"tab_stop":true,"enabled":true,"caption":"뒤로"},
+    {"type":"CommandButton","font_name":"맑은 고딕","font_size":9,"name":"cmdCancel","left":390,"top":306,"width":74,"height":26,"tab_index":1,"tab_stop":true,"enabled":true,"caption":"취소"},
+    {"type":"CommandButton","font_name":"맑은 고딕","font_size":9,"name":"cmdExecutePlan","left":474,"top":306,"width":90,"height":26,"tab_index":2,"tab_stop":true,"enabled":true,"caption":"계획대로 실행"}
+  ]
+}

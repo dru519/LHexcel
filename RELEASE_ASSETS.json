@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "version": "v0.01_r105",
+  "tag": "v0.01-r105-public1",
+  "expiry": "2027-12-31",
+  "release_url": "https://github.com/dru519/LHexcel/releases/tag/v0.01-r105-public1",
+  "files": [
+    {
+      "name": "LHexcel_v0.01_r105_Setup.exe",
+      "format": "exe",
+      "bytes": 2451968,
+      "sha256": "14eba1dc1e11465aa03ad0f0edd7dbc445cc2d2287d18708302ee14767096c89",
+      "url": "https://github.com/dru519/LHexcel/releases/download/v0.01-r105-public1/LHexcel_v0.01_r105_Setup.exe"
+    },
+    {
+      "name": "LHexcel_v0.01_r105.xlam",
+      "format": "xlam",
+      "bytes": 2266412,
+      "sha256": "b630f13375dbdd5b50f32aac4fda911449977d7b89eb456413b7ef446b9f5f36",
+      "url": "https://github.com/dru519/LHexcel/releases/download/v0.01-r105-public1/LHexcel_v0.01_r105.xlam"
+    }
+  ],
+  "verification": {
+    "source_python_tests": {
+      "run": 90,
+      "passed": 84,
+      "skipped": 6
+    },
+    "xlam_zip_and_policy_signature": "PASS",
+    "installer_windows_compile_and_embedded_package": "PASS",
+    "local_defender": "PASS",
+    "authenticode_signed": false,
+    "native_excel_rerun": "NOT_RUN",
+    "installed_acceptance": "NOT_RUN"
+  }
+}

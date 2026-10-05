@@ -1,0 +1,2517 @@
+{
+  "schema_version": 1,
+  "release_id": "r101",
+  "feature_count": 49,
+  "command_count": 89,
+  "route_count": 138,
+  "cases": [
+    {
+      "route_id": "NX-CMD-ALIGN-RB-EDIT-ALIGN-CENTER-OVERCELLS",
+      "kind": "command",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 모형병합 실행/취소"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "범위 선택",
+          "적용",
+          "원상복구"
+        ],
+        "required_controls_all": [
+          "가운데"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-CMD-CLIPBOARD-RB-CLIPBOARD-COPY-BYFORMULA",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "clipboard.text",
+        "operator": "equals",
+        "expected": "=B2*2"
+      }
+    },
+    {
+      "route_id": "NX-CMD-CLIPBOARD-RB-CLIPBOARD-COPY-BYREFERENCE",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "clipboard.text",
+        "operator": "fixture-reference",
+        "expected": "B2"
+      }
+    },
+    {
+      "route_id": "NX-CMD-CLIPBOARD-RB-CLIPBOARD-COPY-BYTEXT",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "clipboard.text",
+        "operator": "equals",
+        "expected": "alpha\tbeta\talpha\tgamma"
+      }
+    },
+    {
+      "route_id": "NX-CMD-CLIPBOARD-RB-LHECLIPBOARD-COPYVISIBLE",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "clipboard.text",
+        "operator": "fixture-visible-text",
+        "expected": "A1:J6"
+      }
+    },
+    {
+      "route_id": "NX-CMD-CLIPBOARD-RB-LHECLIPBOARD-PASTEVISIBLEFORMATS",
+      "kind": "command",
+      "mode": "destructive",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-CLIPBOARD-RB-LHECLIPBOARD-PASTEVISIBLEFORMULAS",
+      "kind": "command",
+      "mode": "destructive",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-CLIPBOARD-RB-LHECLIPBOARD-PASTEVISIBLEVALUES",
+      "kind": "command",
+      "mode": "destructive",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-DATA-DATE-CONVERT",
+      "kind": "command",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 날짜/생년월일 변환"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "실행",
+          "취소"
+        ],
+        "required_controls_all": [
+          "결과 위치",
+          "날짜 표시 형식"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-CMD-FILTER-RB-DATA-SHOW-SOURCE",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-FILTER-RB-DATA-SORT-ASCENDING",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-FILTER-RB-DATA-SORT-DESCENDING",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-FILTER-RB-FILTER-AUTOFILTER-CANCEL",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "worksheet.filter_mode",
+        "operator": "equals",
+        "expected": false
+      }
+    },
+    {
+      "route_id": "NX-CMD-FILTER-RB-FILTER-AUTOFILTER-FILTERING",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-FILTER-RB-FILTER-AUTOFILTER-FILTERING-OPTIONAL",
+      "kind": "command",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-FILTER-RB-FILTER-AUTOFILTER-SHOWALL",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "worksheet.filter_mode",
+        "operator": "equals",
+        "expected": false
+      }
+    },
+    {
+      "route_id": "NX-CMD-FORMULA-RB-FORMULA-PRECEDENTS-LIST",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "formula",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-FUNCTION-IFERROR",
+      "kind": "command",
+      "mode": "popup",
+      "fixture": "formula",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 함수 감싸기"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "적용",
+          "취소"
+        ],
+        "required_controls_all": [],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-CMD-FUNCTION-ROUND",
+      "kind": "command",
+      "mode": "popup",
+      "fixture": "formula",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 함수 감싸기"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "적용",
+          "취소"
+        ],
+        "required_controls_all": [
+          "자릿수"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-CMD-INFO-RB-APP-NAMEUNHIDE",
+      "kind": "command",
+      "mode": "destructive",
+      "fixture": "sheets",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-INFO-RB-INFO-MEMO-LIST",
+      "kind": "command",
+      "mode": "destructive",
+      "fixture": "sheets",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-INFO-RB-INFO-SHEET-LIST",
+      "kind": "command",
+      "mode": "destructive",
+      "fixture": "sheets",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-INFO-RB-SHOW-WORKSHEET-LIST",
+      "kind": "command",
+      "mode": "destructive",
+      "fixture": "sheets",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-INFO-RB-WORKBOOK-INFOMATION",
+      "kind": "command",
+      "mode": "popup",
+      "fixture": "sheets",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 버전"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "내엑셀",
+          "닫기"
+        ],
+        "required_controls_all": [],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-CMD-NUMBER-EMPHASIS",
+      "kind": "command",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 숫자 강조(▲▼)"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "적용",
+          "취소"
+        ],
+        "required_controls_all": [
+          "백분율로 표시"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-DECIMAL",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-NUMBER",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-PERCENTAGE",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-PIVOT-RB-PIVOT-BUILDUP",
+      "kind": "command",
+      "mode": "destructive",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-PIVOT-RB-PIVOTLISTOFWB",
+      "kind": "command",
+      "mode": "destructive",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-PRINT-RB-LHEPRINT-ADD1MMSPACER",
+      "kind": "command",
+      "mode": "destructive",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "worksheet.left_margin_points",
+        "operator": "equals",
+        "expected": 74.88
+      }
+    },
+    {
+      "route_id": "NX-CMD-PRINT-RB-PRINT-SETUP-QUICK",
+      "kind": "command",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-PRINT-RB-PRINT-SETUP-QUICK-LANDSCAPE",
+      "kind": "command",
+      "mode": "destructive",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-PRINT-RB-PRINT-SETUP-QUICK-LANDSCAPE-1BY1",
+      "kind": "command",
+      "mode": "destructive",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-PRINT-RB-PRINT-SETUP-QUICK-PORTRAIT",
+      "kind": "command",
+      "mode": "destructive",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-PRINT-RB-PRINT-SETUP-QUICK-PORTRAIT-1BY1",
+      "kind": "command",
+      "mode": "destructive",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-PRINT-RB-PRINT-SETUP-REPEAT",
+      "kind": "command",
+      "mode": "destructive",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "worksheet.print_title_rows",
+        "operator": "equals",
+        "expected": "$2:$4"
+      }
+    },
+    {
+      "route_id": "NX-CMD-SELECTION-RB-APP-OPTION-EDITDIRECTION-CHANGE",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "application.move_after_return_direction",
+        "operator": "equals",
+        "expected": -4161
+      }
+    },
+    {
+      "route_id": "NX-CMD-SELECTION-RB-SELECTION-CELL-EXPAND-COL",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "selection.address",
+        "operator": "equals",
+        "expected": "$B:$D"
+      }
+    },
+    {
+      "route_id": "NX-CMD-SELECTION-RB-SELECTION-CELL-EXPAND-ROW",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "selection.address",
+        "operator": "equals",
+        "expected": "$2:$4"
+      }
+    },
+    {
+      "route_id": "NX-CMD-SELECTION-RB-SELECTION-CELL-MOVE-DOWN",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "selection.address",
+        "operator": "equals",
+        "expected": "$B$5"
+      }
+    },
+    {
+      "route_id": "NX-CMD-SELECTION-RB-SELECTION-CELL-MOVE-LEFT",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "selection.address",
+        "operator": "equals",
+        "expected": "$A$4"
+      }
+    },
+    {
+      "route_id": "NX-CMD-SELECTION-RB-SELECTION-CELL-MOVE-RIGHT",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "selection.address",
+        "operator": "equals",
+        "expected": "$E$4"
+      }
+    },
+    {
+      "route_id": "NX-CMD-SELECTION-RB-SELECTION-CELL-MOVE-UP",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "selection.address",
+        "operator": "equals",
+        "expected": "$B$1"
+      }
+    },
+    {
+      "route_id": "NX-CMD-SELECTION-RB-SELECTION-CELL-TEXT-SPECIFIC",
+      "kind": "command",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "LHexcel"
+        ],
+        "expected_classes": [
+          "#32770",
+          "bosa_sdm"
+        ],
+        "required_controls_any": [
+          "Text to find",
+          "Edit",
+          "OK",
+          "Cancel"
+        ],
+        "required_controls_all": [],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-CMD-SELECTION-RB-SELECTION-CELL-USEDRANGE",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "selection.address",
+        "operator": "equals",
+        "expected": "$A$1:$Z$20"
+      }
+    },
+    {
+      "route_id": "NX-CMD-SHEET-RB-SHEET-SAVE-TO-FILE",
+      "kind": "command",
+      "mode": "destructive",
+      "fixture": "sheets",
+      "expected": "file-output",
+      "timeout_ms": 30000,
+      "oracle": {
+        "type": "file-output",
+        "format": "xlsx",
+        "expected_files": 1
+      }
+    },
+    {
+      "route_id": "NX-CMD-SHEET-RB-SHEET-SELECT-END",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "sheets",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "active_sheet.name",
+        "operator": "equals",
+        "expected": "Last"
+      }
+    },
+    {
+      "route_id": "NX-CMD-SHEET-RB-SHEET-SELECT-HOME",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "sheets",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "active_sheet.name",
+        "operator": "equals",
+        "expected": "Data"
+      }
+    },
+    {
+      "route_id": "NX-CMD-SIZE-RB-EDIT-CELL-RESIZE",
+      "kind": "command",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-STRUCTURE-RB-EDIT-CELL-MAKEGROUP-HIDDEN-ROWCOLUMN",
+      "kind": "command",
+      "mode": "destructive",
+      "fixture": "sheets",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "selection.first_column_outline_level",
+        "operator": "equals",
+        "expected": 2
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-FILL-GRAY",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "selection.fill_color",
+        "operator": "equals",
+        "expected": 14277081
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-FILL-LIGHT-GREEN",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "selection.fill_color",
+        "operator": "equals",
+        "expected": 13561798
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-FILL-LIGHT-RED",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "selection.fill_color",
+        "operator": "equals",
+        "expected": 13551615
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-FILL-LIGHT-YELLOW",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "selection.fill_color",
+        "operator": "equals",
+        "expected": 10284031
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-FONT-COLOR-BLACK",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "selection.font_color",
+        "operator": "equals",
+        "expected": 0
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-FONT-COLOR-BLUE",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "selection.font_color",
+        "operator": "equals",
+        "expected": 16711680
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-FONT-COLOR-GREEN",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "selection.font_color",
+        "operator": "equals",
+        "expected": 32768
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-FONT-COLOR-RED",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "selection.font_color",
+        "operator": "equals",
+        "expected": 255
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-FONT-SIZE-10",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "selection.font_size",
+        "operator": "equals",
+        "expected": 10
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-FONT-SIZE-12",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "selection.font_size",
+        "operator": "equals",
+        "expected": 12
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-FONT-SIZE-15",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "selection.font_size",
+        "operator": "equals",
+        "expected": 15
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-FONT-SIZE-9",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "selection.font_size",
+        "operator": "equals",
+        "expected": 9
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-RB-EDIT-MEMO-ADD-LHEXCELFORMULA",
+      "kind": "command",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 셀수식 메모 기록"
+        ],
+        "expected_classes": [
+          "#32770"
+        ],
+        "required_controls_any": [
+          "예",
+          "아니요",
+          "취소"
+        ],
+        "required_controls_all": [],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-RB-LHESTYLE-COLOR-EMPHASISCELL",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-RB-LHESTYLE-COLOR-SUBTITLE",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-RB-LHESTYLE-COLOR-TABLEBODY",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-RB-LHESTYLE-COLOR-TABLEHEADER",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-RB-LHESTYLE-COLOR-TITLE",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-RB-LHESTYLE-COLOR-TOTALROW",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-RB-LHESTYLE-MONO-EMPHASISCELL",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-RB-LHESTYLE-MONO-SUBTITLE",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-RB-LHESTYLE-MONO-TABLEBODY",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-RB-LHESTYLE-MONO-TABLEHEADER",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-RB-LHESTYLE-MONO-TITLE",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-RB-LHESTYLE-MONO-TOTALROW",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-RB-LHESTYLE-OPENOPTIONS",
+      "kind": "command",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "셀스타일"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "범위 다시 선택",
+          "적용",
+          "취소"
+        ],
+        "required_controls_all": [
+          "제목",
+          "단색"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-CMD-STYLE-RB-LHESTYLE-RESETWORKBOOKSTYLES",
+      "kind": "command",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-CMD-VIEW-PRESET-1",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "sheets",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "window.zoom",
+        "operator": "equals",
+        "expected": 75
+      }
+    },
+    {
+      "route_id": "NX-CMD-VIEW-PRESET-2",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "sheets",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "window.zoom",
+        "operator": "equals",
+        "expected": 100
+      }
+    },
+    {
+      "route_id": "NX-CMD-VIEW-PRESET-3",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "sheets",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "window.zoom",
+        "operator": "equals",
+        "expected": 125
+      }
+    },
+    {
+      "route_id": "NX-CMD-VIEW-PRESET-4",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "sheets",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "window.zoom",
+        "operator": "equals",
+        "expected": 150
+      }
+    },
+    {
+      "route_id": "NX-CMD-VIEW-PRESET-5",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "sheets",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "window.zoom",
+        "operator": "equals",
+        "expected": 200
+      }
+    },
+    {
+      "route_id": "NX-CMD-VIEW-PRESET-SETTINGS",
+      "kind": "command",
+      "mode": "popup",
+      "fixture": "sheets",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 화면 프리셋 설정"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "저장",
+          "취소"
+        ],
+        "required_controls_all": [
+          "화면 프리셋 1",
+          "화면 프리셋 5"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-CMD-VIEW-RB-WINDOWS-VIEW-FULLSCREEN",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "sheets",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "application.fullscreen",
+        "operator": "equals",
+        "expected": true
+      }
+    },
+    {
+      "route_id": "NX-CMD-VIEW-RB-WINDOWS-VIEW-SCROLL-DOWN",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "sheets",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "window.scroll_row",
+        "operator": "equals",
+        "expected": 11
+      }
+    },
+    {
+      "route_id": "NX-CMD-VIEW-RB-WINDOWS-VIEW-SCROLL-LEFT",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "sheets",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "window.scroll_column",
+        "operator": "equals",
+        "expected": 5
+      }
+    },
+    {
+      "route_id": "NX-CMD-VIEW-RB-WINDOWS-VIEW-SCROLL-RIGHT",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "sheets",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "window.scroll_column",
+        "operator": "equals",
+        "expected": 6
+      }
+    },
+    {
+      "route_id": "NX-CMD-VIEW-RB-WINDOWS-VIEW-SCROLL-UP",
+      "kind": "command",
+      "mode": "direct",
+      "fixture": "sheets",
+      "expected": "oracle",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "property",
+        "property": "window.scroll_row",
+        "operator": "equals",
+        "expected": 10
+      }
+    },
+    {
+      "route_id": "NX-AI-CLEAN",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - AI 모드"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "복사 후 AI 열기",
+          "취소"
+        ],
+        "required_controls_all": [
+          "데이터 정리"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-AI-FORMULA",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - AI 모드"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "복사 후 AI 열기",
+          "취소"
+        ],
+        "required_controls_all": [
+          "수식"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-AI-IMAGE",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "drawing",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - AI 모드"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "복사 후 AI 열기",
+          "취소"
+        ],
+        "required_controls_all": [
+          "이미지"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-AI-SUMMARY",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - AI 모드"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "복사 후 AI 열기",
+          "취소"
+        ],
+        "required_controls_all": [
+          "요약/분석"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-AI-WRITE",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - AI 모드"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "복사 후 AI 열기",
+          "취소"
+        ],
+        "required_controls_all": [
+          "텍스트"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-DATA-AGE",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 만나이 계산"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "미리보기",
+          "실행",
+          "취소"
+        ],
+        "required_controls_all": [
+          "생년월일·YYMMDD·주민번호형 입력을 기준일의 만 나이로 계산합니다."
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-DATA-COPY-VISIBLE",
+      "kind": "feature",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-DATA-DUPLICATE-LIST",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 중복 목록"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "미리보기",
+          "실행",
+          "취소"
+        ],
+        "required_controls_all": [
+          "중복 목록 · 기준 목록과 대조 목록 비교"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-DATA-FOCUS-CELL",
+      "kind": "feature",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-DATA-KOREAN-MONEY",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 한글 금액 변환"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "미리보기",
+          "실행",
+          "취소"
+        ],
+        "required_controls_all": [
+          "정수 금액을 한글로 변환합니다. 음수·소수·인식 실패 값은 error로 표시합니다."
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-DATA-NORMALIZE",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 데이터 정규화"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "범위 다시 선택",
+          "실행",
+          "취소"
+        ],
+        "required_controls_all": [
+          "기본 정리"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-DATA-PASTE-VISIBLE-VALUES",
+      "kind": "feature",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-DATA-PRIVACY-MASK",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 개인정보 마스킹"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "미리보기",
+          "실행",
+          "취소"
+        ],
+        "required_controls_all": [
+          "종류별로 값을 가립니다. 인식 실패는 error. 개인정보 유출 점검과 별도 기능입니다."
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-DATA-PRIVACY-SCAN",
+      "kind": "feature",
+      "mode": "range",
+      "fixture": "table",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-DATA-UNIQUE-COUNT",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 고유값 개수"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "미리보기",
+          "실행",
+          "취소"
+        ],
+        "required_controls_all": [
+          "고유값 개수 · 값 또는 행/열 조합별 빈도 집계"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-DRAW-BUSINESS-TABLE",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "drawing",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 표 그리기"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "범위 선택",
+          "적용",
+          "취소"
+        ],
+        "required_controls_all": [
+          "스타일: 닫힌 표"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-DRAW-CLEAR-INNER",
+      "kind": "feature",
+      "mode": "range",
+      "fixture": "drawing",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-DRAW-FIT-PICTURE",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "drawing",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 그림 삽입"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "범위 선택",
+          "미리보기",
+          "취소"
+        ],
+        "required_controls_all": [
+          "선택 그림 가져오기",
+          "그림 맞춤"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-DRAW-INSERT-PICTURE",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "drawing",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 그림 삽입"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "찾아보기",
+          "미리보기",
+          "취소"
+        ],
+        "required_controls_all": [
+          "그림 삽입 / 선택 그림 맞춤",
+          "그림 삽입"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-DRAW-ROLE-STYLE",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "drawing",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "셀스타일"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "범위 다시 선택",
+          "적용",
+          "취소"
+        ],
+        "required_controls_all": [
+          "제목",
+          "단색"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-DRAW-TITLE-TABLE",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "drawing",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 표 그리기"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "범위 선택",
+          "적용",
+          "취소"
+        ],
+        "required_controls_all": [
+          "스타일: 제목"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-FILE-BATCH-RENAME",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "file",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 파일 이름 변경 작업대"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "파일 추가",
+          "미리보기",
+          "취소"
+        ],
+        "required_controls_all": [],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-FILE-CHART-PNG",
+      "kind": "feature",
+      "mode": "destructive",
+      "fixture": "file",
+      "expected": "file-output",
+      "timeout_ms": 30000,
+      "oracle": {
+        "type": "file-output",
+        "format": "png",
+        "expected_files": 1
+      }
+    },
+    {
+      "route_id": "NX-FILE-CONSOLIDATE",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "file",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 파일 통합"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "파일 추가",
+          "통합",
+          "취소"
+        ],
+        "required_controls_all": [
+          "결과 위치"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-FILE-FILE-COMPARE",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "file",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 파일 비교"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "찾아보기",
+          "시트 목록",
+          "비교",
+          "취소"
+        ],
+        "required_controls_all": [
+          "기준 파일",
+          "비교 파일",
+          "결과 위치"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-FILE-FOLDER-CREATE",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "file",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 폴더 일괄 생성"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "찾아보기",
+          "생성",
+          "취소"
+        ],
+        "required_controls_all": [
+          "생성할 하위 폴더(한 줄에 하나)"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-FILE-MANNER-SAVE",
+      "kind": "feature",
+      "mode": "range",
+      "fixture": "file",
+      "expected": "state-delta",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "state-delta"
+      }
+    },
+    {
+      "route_id": "NX-FILE-PDF-ALL-COMBINED",
+      "kind": "feature",
+      "mode": "destructive",
+      "fixture": "file",
+      "expected": "file-output",
+      "timeout_ms": 30000,
+      "oracle": {
+        "type": "file-output",
+        "format": "pdf",
+        "expected_files": 1
+      }
+    },
+    {
+      "route_id": "NX-FILE-PDF-CURRENT-SHEET",
+      "kind": "feature",
+      "mode": "destructive",
+      "fixture": "file",
+      "expected": "file-output",
+      "timeout_ms": 30000,
+      "oracle": {
+        "type": "file-output",
+        "format": "pdf",
+        "expected_files": 1
+      }
+    },
+    {
+      "route_id": "NX-FILE-PDF-EACH-SHEET",
+      "kind": "feature",
+      "mode": "destructive",
+      "fixture": "file",
+      "expected": "file-output",
+      "timeout_ms": 30000,
+      "oracle": {
+        "type": "file-output",
+        "format": "pdf",
+        "expected_files": 3
+      }
+    },
+    {
+      "route_id": "NX-FILE-PDF-SELECTED-COMBINED",
+      "kind": "feature",
+      "mode": "destructive",
+      "fixture": "file",
+      "expected": "file-output",
+      "timeout_ms": 30000,
+      "oracle": {
+        "type": "file-output",
+        "format": "pdf",
+        "expected_files": 1
+      }
+    },
+    {
+      "route_id": "NX-FILE-PDF-SETTINGS",
+      "kind": "feature",
+      "mode": "destructive",
+      "fixture": "file",
+      "expected": "file-output",
+      "timeout_ms": 30000,
+      "oracle": {
+        "type": "file-output",
+        "format": "settings",
+        "expected_files": 1
+      }
+    },
+    {
+      "route_id": "NX-FILE-RANGE-COPY-SAVE",
+      "kind": "feature",
+      "mode": "destructive",
+      "fixture": "file",
+      "expected": "file-output",
+      "timeout_ms": 30000,
+      "oracle": {
+        "type": "file-output",
+        "format": "xlsx",
+        "expected_files": 1
+      }
+    },
+    {
+      "route_id": "NX-FILE-RANGE-PNG",
+      "kind": "feature",
+      "mode": "destructive",
+      "fixture": "file",
+      "expected": "file-output",
+      "timeout_ms": 30000,
+      "oracle": {
+        "type": "file-output",
+        "format": "png",
+        "expected_files": 1
+      }
+    },
+    {
+      "route_id": "NX-FILE-SHEET-BATCH-RENAME",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "file",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 시트 이름 변경 작업대"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "미리보기",
+          "취소"
+        ],
+        "required_controls_all": [],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-FILE-SHEET-COMPARE",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "file",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 시트 비교"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "파일 열기",
+          "비교 실행",
+          "취소"
+        ],
+        "required_controls_all": [],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-FILE-SHEET-COPY-SAVE",
+      "kind": "feature",
+      "mode": "destructive",
+      "fixture": "file",
+      "expected": "file-output",
+      "timeout_ms": 30000,
+      "oracle": {
+        "type": "file-output",
+        "format": "xlsx",
+        "expected_files": 1
+      }
+    },
+    {
+      "route_id": "NX-FILE-WORKBOOK-COMPARE",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "file",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 범위 비교"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "범위 선택",
+          "비교 실행",
+          "취소"
+        ],
+        "required_controls_all": [],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-HANGUL-PICTURE-SEND",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 아래한글 그림 전송"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "그림 파일 선택",
+          "전송",
+          "취소"
+        ],
+        "required_controls_all": [
+          "그림 셀 크기 (가로 × 세로, cm)",
+          "그림 아래 제목행 추가 (파일명)"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-HANGUL-TABLE-SEND",
+      "kind": "feature",
+      "mode": "external",
+      "fixture": "table",
+      "expected": "external-open",
+      "timeout_ms": 30000,
+      "oracle": {
+        "type": "external-open"
+      }
+    },
+    {
+      "route_id": "NX-TPL-DELETE",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 템플릿 제거"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "격리 보관",
+          "취소"
+        ],
+        "required_controls_all": [
+          "격리 보관할 템플릿을 선택하세요."
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-TPL-LIST",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 템플릿 관리"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "닫기"
+        ],
+        "required_controls_all": [
+          "보관된 템플릿",
+          "현재시트 등록",
+          "특정파일 등록"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-TPL-LOAD",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 템플릿 사용"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "불러오기",
+          "취소"
+        ],
+        "required_controls_all": [
+          "새 시트로 불러올 템플릿을 선택하세요."
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-TPL-REGISTER-SHEET",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 현재시트 등록"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "미리보기",
+          "등록",
+          "취소"
+        ],
+        "required_controls_all": [
+          "등록할 원본을 확인하고 템플릿 이름을 입력하세요."
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-TPL-RENAME",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "table",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 템플릿 이름·설명 변경"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "이름 변경",
+          "취소"
+        ],
+        "required_controls_all": [
+          "이름을 바꿀 템플릿을 선택하세요."
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-UTIL-CALCULATOR",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "formula",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 계산기"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "=",
+          "계산결과 복사",
+          "계산결과 붙여넣기"
+        ],
+        "required_controls_all": [
+          "선택 셀값 불러오기"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-UTIL-DOCUMENT-NAVIGATOR",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "blank",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 문서·시트 탐색"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "새로고침",
+          "이동",
+          "닫기"
+        ],
+        "required_controls_all": [
+          "열린 문서",
+          "시트"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-UTIL-NAVIGATOR",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "blank",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 Navigator"
+        ],
+        "expected_classes": [
+          "WindowsForms10",
+          "CustomTaskPane",
+          "NetUIHWND"
+        ],
+        "required_controls_any": [
+          "검색",
+          "TextBox",
+          "ListBox"
+        ],
+        "required_controls_all": [
+          "전체"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel",
+          "내엑셀 - 탐색창"
+        ]
+      }
+    },
+    {
+      "route_id": "NX-UTIL-SYMBOLS",
+      "kind": "feature",
+      "mode": "popup",
+      "fixture": "blank",
+      "expected": "window-open",
+      "timeout_ms": 15000,
+      "oracle": {
+        "type": "owned-window",
+        "expected_titles": [
+          "내엑셀 - 기호표"
+        ],
+        "expected_classes": [
+          "Thunder"
+        ],
+        "required_controls_any": [
+          "복사",
+          "셀에 입력",
+          "닫기"
+        ],
+        "required_controls_all": [
+          "실무 기호",
+          "유니코드",
+          "최근 사용"
+        ],
+        "forbidden_titles": [
+          "오류",
+          "Error",
+          "Microsoft Visual Basic",
+          "Microsoft Excel"
+        ]
+      }
+    }
+  ]
+}

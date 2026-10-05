@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "name": "FNxNavigator",
+  "caption": "내엑셀 - 탐색창",
+  "width": 390,
+  "height": 276,
+  "client_width": 390,
+  "client_height": 276,
+  "start_up_position": 0,
+  "code_path": "src/vba/features/navigator/ui/FNxNavigator.vba",
+  "default_control": "cmdRun",
+  "cancel_control": "cmdClose",
+  "controls": [
+    {"type":"TextBox","name":"txtSearch","left":10,"top":10,"width":238,"height":22,"tab_index":0,"tab_stop":true,"enabled":true,"value":"","locked":false,"multi_line":false,"font_name":"맑은 고딕","font_size":9,"control_tip_text":"기능명, 분류명 또는 ID로 찾습니다."},
+    {"type":"ComboBox","name":"cboCategory","left":254,"top":10,"width":126,"height":22,"tab_index":1,"tab_stop":true,"enabled":true,"items":["전체"],"selected_index":0,"style":"drop_down_list","match_required":true,"column_count":2,"column_widths":"126 pt;0 pt","font_name":"맑은 고딕","font_size":9},
+    {"type":"ListBox","name":"lstResults","left":10,"top":38,"width":370,"height":126,"tab_index":2,"tab_stop":true,"enabled":true,"column_count":3,"column_widths":"0 pt;250 pt;100 pt","font_name":"맑은 고딕","font_size":9},
+    {"type":"Label","name":"lblDescription","left":10,"top":170,"width":370,"height":30,"tab_index":-1,"tab_stop":false,"enabled":true,"caption":"기능을 선택하면 설명이 표시됩니다.","font_name":"맑은 고딕","font_size":9,"word_wrap":true},
+    {"type":"Label","name":"lblRequirements","left":10,"top":204,"width":370,"height":18,"tab_index":-1,"tab_stop":false,"enabled":true,"caption":"요구 입력: -","font_name":"맑은 고딕","font_size":9},
+    {"type":"Label","name":"lblAvailability","left":10,"top":226,"width":220,"height":36,"tab_index":-1,"tab_stop":false,"enabled":true,"caption":"188개 항목","font_name":"맑은 고딕","font_size":9,"word_wrap":true},
+    {"type":"CommandButton","name":"cmdRun","left":238,"top":232,"width":66,"height":28,"tab_index":3,"tab_stop":true,"enabled":false,"caption":"실행","font_name":"맑은 고딕","font_size":9},
+    {"type":"CommandButton","name":"cmdClose","left":312,"top":232,"width":68,"height":28,"tab_index":4,"tab_stop":true,"enabled":true,"caption":"닫기","font_name":"맑은 고딕","font_size":9}
+  ]
+}

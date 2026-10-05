@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "categories": [
+    {"id": "NX-CAT-AI", "parent_id": "NX-ENTRY-AI", "label": "AI 모드", "sort_order": 10, "lifecycle": "active"},
+    {"id": "NX-CAT-TEMPLATE", "parent_id": "NX-ENTRY-TEMPLATE", "label": "내엑셀 템플릿", "sort_order": 20, "lifecycle": "active"},
+    {"id": "NX-CAT-DATA", "parent_id": "NX-ENTRY-ALL", "label": "데이터/추가기능", "sort_order": 30, "lifecycle": "active"},
+    {"id": "NX-CAT-DRAW", "parent_id": "NX-ENTRY-ALL", "label": "표/그리기", "sort_order": 50, "lifecycle": "active"},
+    {"id": "NX-CAT-FILE", "parent_id": "NX-ENTRY-ALL", "label": "파일관리", "sort_order": 60, "lifecycle": "active"},
+    {"id": "NX-CAT-SYMBOLS", "parent_id": "NX-ENTRY-ALL", "label": "기호표", "sort_order": 70, "lifecycle": "active"},
+    {"id": "NX-CAT-CALCULATOR", "parent_id": "NX-ENTRY-ALL", "label": "계산기", "sort_order": 80, "lifecycle": "active"},
+    {"id": "NX-CAT-UTIL", "parent_id": "NX-ENTRY-ALL", "label": "추가기능", "sort_order": 90, "lifecycle": "active"}
+  ]
+}

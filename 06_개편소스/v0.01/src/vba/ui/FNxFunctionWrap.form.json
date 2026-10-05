@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "name": "FNxFunctionWrap",
+  "caption": "내엑셀 - 함수 감싸기",
+  "width": 400, "height": 318, "client_width": 400, "client_height": 318,
+  "start_up_position": 1, "code_path": "src/vba/ui/FNxFunctionWrap.vba",
+  "default_control": "cmdExecute", "cancel_control": "cmdCancel",
+  "controls": [
+    {"type":"Label","name":"lblRange","left":14,"top":12,"width":372,"height":24,"caption":"선택 범위","enabled":true,"tab_index":-1,"tab_stop":false,"font_name":"맑은 고딕","font_size":9},
+    {"type":"ComboBox","name":"cboMode","left":14,"top":42,"width":180,"height":24,"enabled":true,"tab_index":0,"tab_stop":true,"font_name":"맑은 고딕","font_size":9,"style":"drop_down_list","match_required":true,"items":[],"selected_index":-1},
+    {"type":"Label","name":"lblArgument","left":204,"top":46,"width":62,"height":20,"caption":"자릿수","enabled":true,"tab_index":-1,"tab_stop":false,"font_name":"맑은 고딕","font_size":9},
+    {"type":"TextBox","name":"txtArgument","left":268,"top":42,"width":118,"height":24,"value":"2","enabled":true,"tab_index":2,"tab_stop":true,"font_name":"맑은 고딕","font_size":9},
+    {"type":"ComboBox","name":"cboPrecision","left":14,"top":74,"width":180,"height":24,"enabled":true,"tab_index":1,"tab_stop":true,"font_name":"맑은 고딕","font_size":9,"style":"drop_down_list","match_required":true,"items":[],"selected_index":-1},
+    {"type":"CheckBox","name":"chkHidden","left":204,"top":76,"width":182,"height":20,"caption":"숨겨진 행·열도 포함","value":false,"enabled":true,"tab_index":3,"tab_stop":true,"font_name":"맑은 고딕","font_size":9},
+    {"type":"Label","name":"lblGuide","left":14,"top":108,"width":372,"height":64,"caption":"","enabled":true,"tab_index":-1,"tab_stop":false,"font_name":"맑은 고딕","font_size":9},
+    {"type":"Label","name":"lblSample","left":14,"top":179,"width":372,"height":80,"caption":"","back_color":16777215,"enabled":true,"tab_index":-1,"tab_stop":false,"font_name":"맑은 고딕","font_size":9},
+    {"type":"CommandButton","name":"cmdExecute","left":234,"top":278,"width":72,"height":26,"caption":"적용","enabled":true,"tab_index":4,"tab_stop":true,"font_name":"맑은 고딕","font_size":9},
+    {"type":"CommandButton","name":"cmdCancel","left":314,"top":278,"width":72,"height":26,"caption":"취소","enabled":true,"tab_index":5,"tab_stop":true,"font_name":"맑은 고딕","font_size":9}
+  ]
+}

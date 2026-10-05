@@ -1,0 +1,217 @@
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="NxRibbonOnLoad">
+  <ribbon>
+    <tabs>
+      <tab idMso="TabHome">
+        <group id="NX-HOME-GRP-MYEXCEL" label="내엑셀" imageMso="ControlProperties" insertBeforeMso="GroupClipboard">
+          <dynamicMenu id="NX-HOME-MANAGEMENT" label="내엑셀" keytip="N" image="NxBrand_product_32" size="large" getContent="NxRibbonGetManagementContent" />
+          <dynamicMenu id="NX-HOME-FAVORITES" label="즐겨찾기" keytip="F" image="NxBrand_favorites_16" getContent="NxRibbonGetFavoritesContent" />
+          <dynamicMenu id="NX-HOME-FOCUS" label="포커스셀" keytip="O" image="NxBrand_focus_16" getContent="NxRibbonGetFocusContent" />
+          <dynamicMenu id="NX-HOME-ALL" label="전체기능" keytip="L" image="NxBrand_all_16" getContent="NxRibbonGetAllFunctionsContent" />
+        </group>
+      </tab>
+      <tab id="NX-TAB" label="내엑셀">
+        <group id="NX-GRP-MYEXCEL" label="내엑셀" imageMso="ControlProperties">
+          <dynamicMenu id="NX-PROD-MANAGEMENT" label="내엑셀" keytip="N" image="NxBrand_product_32" size="large" getContent="NxRibbonGetManagementContent" />
+          <dynamicMenu id="NX-PROD-FAVORITES" label="즐겨찾기" keytip="F" image="NxBrand_favorites_16" getContent="NxRibbonGetFavoritesContent" />
+          <dynamicMenu id="NX-PROD-FOCUS" label="포커스셀" keytip="O" image="NxBrand_focus_16" getContent="NxRibbonGetFocusContent" />
+          <dynamicMenu id="NX-PROD-ALL" label="전체기능" keytip="L" image="NxBrand_all_16" getContent="NxRibbonGetAllFunctionsContent" />
+        </group>
+        <group id="NX-GRP-SAVE" label="저장" imageMso="FileSave">
+          <menu id="NX-SAVE-MENU" label="저장" keytip="S" image="NxBrand_save_32" size="large">
+            <button id="NX-SAVE-MENU-NX-FILE-MANNER-SAVE" label="매너 저장" tag="nx1|feature|NX-FILE-MANNER-SAVE" getEnabled="NxRibbonGetEnabled" image="NxBrand_save_16" screentip="매너 저장" supertip="모든 시트의 커서를 A1로 이동하고 첫 번째 시트의 A1을 선택한 상태로 저장합니다. 파일을 다시 열면 첫 번째 시트의 A1에서 시작합니다." onAction="NxRibbonExecute" />
+            <button id="NX-SAVE-MENU-NX-FILE-SHEET-COPY-SAVE" label="현재 시트 사본 저장" tag="nx1|feature|NX-FILE-SHEET-COPY-SAVE" getEnabled="NxRibbonGetEnabled" image="NxBrand_save_sheet_16" screentip="현재 시트 사본 저장" supertip="현재 워크시트를 별도 Excel 파일로 저장합니다. 결과 경로를 확인하며 원본 문서를 덮어쓰지 않습니다." onAction="NxRibbonExecute" />
+            <button id="NX-SAVE-MENU-NX-FILE-RANGE-COPY-SAVE" label="선택 범위 사본 저장" tag="nx1|feature|NX-FILE-RANGE-COPY-SAVE" getEnabled="NxRibbonGetEnabled" image="NxBrand_save_range_16" screentip="선택 범위 사본 저장" supertip="선택한 셀 영역으로 별도 Excel 파일을 만듭니다. 전체 시트 저장과 달리 지정한 범위가 결과 대상입니다." onAction="NxRibbonExecute" />
+            <button id="NX-SAVE-PDF-CURRENT-SHEET" label="현재 시트 PDF 저장" tag="nx1|feature|NX-FILE-PDF-CURRENT-SHEET" getEnabled="NxRibbonGetEnabled" image="NxBrand_save_pdf_16" screentip="현재 시트 PDF 저장" supertip="현재 워크시트를 한 PDF 파일로 저장합니다. 인쇄영역과 페이지 설정을 확인한 뒤 결과 위치를 선택하세요." onAction="NxRibbonExecute" />
+            <button id="NX-SAVE-PDF-ALL-COMBINED" label="문서 PDF 저장" tag="nx1|feature|NX-FILE-PDF-ALL-COMBINED" getEnabled="NxRibbonGetEnabled" image="NxBrand_save_pdf_all_16" screentip="문서 PDF 저장" supertip="통합문서의 출력 대상 시트를 순서대로 한 PDF에 담습니다. 숨김 시트 등 제외 조건은 저장 화면에서 확인하세요." onAction="NxRibbonExecute" />
+            <button id="NX-SAVE-MENU-NX-FILE-RANGE-PNG" label="선택 범위 그림 저장" tag="nx1|feature|NX-FILE-RANGE-PNG" getEnabled="NxRibbonGetEnabled" image="NxBrand_save_image_16" screentip="선택 범위 그림 저장" supertip="선택 범위를 문서 폴더에 PNG로 바로 저장합니다. 미저장 문서는 Excel 기본 저장 폴더를 사용하며 같은 이름은 새 번호로 구분합니다. 오류가 있을 때만 알립니다." onAction="NxRibbonExecute" />
+            <button id="NX-SAVE-MENU-NX-FILE-CHART-PNG" label="차트 그림 저장" tag="nx1|feature|NX-FILE-CHART-PNG" getEnabled="NxRibbonGetEnabled" image="NxBrand_save_chart_16" screentip="차트 그림 저장" supertip="선택한 차트를 그림 파일로 내보냅니다. 저장 형식과 위치를 선택하며 문서 안의 차트는 그대로 둡니다." onAction="NxRibbonExecute" />
+          </menu>
+          <box id="NX-SAVE-VERTICAL" boxStyle="vertical">
+            <button id="NX-SAVE-MANNER-ICON" label="매너 저장" tag="nx1|feature|NX-FILE-MANNER-SAVE" getEnabled="NxRibbonGetEnabled" image="NxBrand_save_16" screentip="매너 저장" supertip="모든 시트의 커서를 A1로 이동하고 첫 번째 시트의 A1을 선택한 상태로 저장합니다. 파일을 다시 열면 첫 번째 시트의 A1에서 시작합니다." onAction="NxRibbonExecute" />
+            <button id="NX-SAVE-SHEET-ICON" label="현시트 사본저장" tag="nx1|feature|NX-FILE-SHEET-COPY-SAVE" getEnabled="NxRibbonGetEnabled" image="NxBrand_save_sheet_16" screentip="현시트 사본저장" supertip="현재 시트만 새 통합문서로 사본 저장합니다." onAction="NxRibbonExecute" />
+            <button id="NX-SAVE-RANGE-ICON" label="선택범위 사본저장" tag="nx1|feature|NX-FILE-RANGE-COPY-SAVE" getEnabled="NxRibbonGetEnabled" image="NxBrand_save_range_16" screentip="선택범위 사본저장" supertip="선택한 범위만 새 통합문서로 사본 저장합니다." onAction="NxRibbonExecute" />
+          </box>
+        </group>
+        <group id="NX-GRP-PRINT" label="인쇄" imageMso="PrintPreviewAndPrint">
+          <menu id="NX-PRINT-MENU" label="인쇄" keytip="P" image="NxBrand_print_32" size="large">
+            <button id="NX-RIBBON-NX-CMD-PRINT-RB-PRINT-SETUP-QUICK" label="선택 범위 인쇄 미리보기" tag="nx1|command|NX-CMD-PRINT-RB-PRINT-SETUP-QUICK" getEnabled="NxRibbonGetEnabled" image="NxBrand_print_16" screentip="선택 범위 인쇄 미리보기" supertip="선택 범위를 인쇄 대상으로 지정하고 세로 방향·너비 한 쪽으로 미리 봅니다. 이 단계에서 프린터로 출력하지 않습니다." onAction="NxRibbonExecute" />
+            <button id="NX-RIBBON-NX-CMD-PRINT-RB-PRINT-SETUP-QUICK-PORTRAIT" label="세로 방향 · 너비 1쪽" tag="nx1|command|NX-CMD-PRINT-RB-PRINT-SETUP-QUICK-PORTRAIT" getEnabled="NxRibbonGetEnabled" image="NxBrand_portrait_16" screentip="세로 방향 · 너비 1쪽" supertip="선택 범위를 세로 방향으로 배치합니다. 가로는 한 쪽에 맞추고 세로는 내용 길이에 따라 나눕니다." onAction="NxRibbonExecute" />
+            <button id="NX-RIBBON-NX-CMD-PRINT-RB-PRINT-SETUP-QUICK-LANDSCAPE" label="가로 방향 · 너비 1쪽" tag="nx1|command|NX-CMD-PRINT-RB-PRINT-SETUP-QUICK-LANDSCAPE" getEnabled="NxRibbonGetEnabled" image="NxBrand_landscape_16" screentip="가로 방향 · 너비 1쪽" supertip="선택 범위를 가로 방향으로 배치합니다. 가로는 한 쪽에 맞추고 세로는 내용 길이에 따라 나눕니다." onAction="NxRibbonExecute" />
+            <button id="NX-RIBBON-NX-CMD-PRINT-RB-PRINT-SETUP-QUICK-PORTRAIT-1BY1" label="세로 방향 · 한 장에 맞춤" tag="nx1|command|NX-CMD-PRINT-RB-PRINT-SETUP-QUICK-PORTRAIT-1BY1" getEnabled="NxRibbonGetEnabled" image="NxBrand_fit_page_16" screentip="세로 방향 · 한 장에 맞춤" supertip="선택 범위 전체가 세로 방향 용지 한 장에 들어가도록 인쇄 배율을 설정합니다. 범위가 크면 글자가 작아질 수 있습니다." onAction="NxRibbonExecute" />
+            <button id="NX-RIBBON-NX-CMD-PRINT-RB-PRINT-SETUP-QUICK-LANDSCAPE-1BY1" label="가로 방향 · 한 장에 맞춤" tag="nx1|command|NX-CMD-PRINT-RB-PRINT-SETUP-QUICK-LANDSCAPE-1BY1" getEnabled="NxRibbonGetEnabled" image="NxBrand_fit_page_16" screentip="가로 방향 · 한 장에 맞춤" supertip="선택 범위 전체가 가로 방향 용지 한 장에 들어가도록 인쇄 배율을 설정합니다. 범위가 크면 글자가 작아질 수 있습니다." onAction="NxRibbonExecute" />
+            <button id="NX-RIBBON-NX-CMD-PRINT-RB-PRINT-SETUP-REPEAT" label="선택 행을 인쇄 제목으로" tag="nx1|command|NX-CMD-PRINT-RB-PRINT-SETUP-REPEAT" getEnabled="NxRibbonGetEnabled" image="NxBrand_print_title_16" screentip="선택 행을 인쇄 제목으로" supertip="선택한 셀이 속한 행을 각 인쇄 페이지의 위쪽에 반복할 제목 행으로 지정합니다." onAction="NxRibbonExecute" />
+            <button idMso="PrintPreviewAndPrint" />
+            <button idMso="FilePrintQuick" />
+          </menu>
+        </group>
+        <group id="NX-GRP-COPY" label="복붙" imageMso="Copy">
+          <menu id="NX-COPY-MENU" label="복붙" keytip="C" image="NxBrand_copy_32" size="large">
+            <button id="NX-COPY-VISIBLE" label="보이는 셀만 복사" tag="nx1|feature|NX-DATA-COPY-VISIBLE" getEnabled="NxRibbonGetEnabled" image="NxBrand_copy_visible_16" screentip="보이는 셀만 복사" supertip="숨김·필터로 가려진 셀을 제외하고 보이는 셀의 값을 복사합니다. 붙여넣을 범위 크기를 함께 확인하세요." onAction="NxRibbonExecute" />
+            <button id="NX-PASTE-VISIBLE-VALUES" label="보이는 셀에 값 붙여넣기" tag="nx1|feature|NX-DATA-PASTE-VISIBLE-VALUES" getEnabled="NxRibbonGetEnabled" image="NxBrand_paste_values_16" screentip="보이는 셀에 값 붙여넣기" supertip="복사한 값을 대상의 보이는 셀에 입력합니다. 숨김 셀은 건너뛰며 대상 크기가 맞는지 실행 전에 확인합니다." onAction="NxRibbonExecute" />
+            <button id="NX-RIBBON-NX-CMD-CLIPBOARD-RB-CLIPBOARD-COPY-BYFORMULA" label="첫 셀 수식 복사" tag="nx1|command|NX-CMD-CLIPBOARD-RB-CLIPBOARD-COPY-BYFORMULA" getEnabled="NxRibbonGetEnabled" image="NxBrand_copy_formula_16" screentip="첫 셀 수식 복사" supertip="선택 범위의 첫 셀에서 수식을 텍스트로 가져옵니다. 첫 셀에 수식이 있어야 합니다." onAction="NxRibbonExecute" />
+            <button id="NX-RIBBON-NX-CMD-CLIPBOARD-RB-CLIPBOARD-COPY-BYREFERENCE" label="첫 셀 주소 복사" tag="nx1|command|NX-CMD-CLIPBOARD-RB-CLIPBOARD-COPY-BYREFERENCE" getEnabled="NxRibbonGetEnabled" image="NxBrand_copy_address_16" screentip="첫 셀 주소 복사" supertip="선택 범위의 첫 셀 주소를 문서·시트 이름과 함께 클립보드에 담습니다." onAction="NxRibbonExecute" />
+            <button id="NX-RIBBON-NX-CMD-CLIPBOARD-RB-CLIPBOARD-COPY-BYTEXT" label="보이는 값 복사" tag="nx1|command|NX-CMD-CLIPBOARD-RB-CLIPBOARD-COPY-BYTEXT" getEnabled="NxRibbonGetEnabled" image="NxBrand_copy_values_16" screentip="보이는 값 복사" supertip="화면에 표시되는 셀 내용을 탭으로 구분한 텍스트로 가져옵니다. 수식 자체는 포함하지 않습니다." onAction="NxRibbonExecute" />
+            <button id="NX-RIBBON-NX-CMD-CLIPBOARD-RB-LHECLIPBOARD-PASTEVISIBLEFORMULAS" label="보이는 셀에 수식 붙여넣기" tag="nx1|command|NX-CMD-CLIPBOARD-RB-LHECLIPBOARD-PASTEVISIBLEFORMULAS" getEnabled="NxRibbonGetEnabled" image="NxBrand_paste_formula_16" screentip="보이는 셀에 수식 붙여넣기" supertip="대상에서 숨겨지지 않은 셀만 골라 Excel 클립보드의 수식을 넣습니다. 복사 범위와 대상 구성을 확인하세요." onAction="NxRibbonExecute" />
+            <button id="NX-RIBBON-NX-CMD-CLIPBOARD-RB-LHECLIPBOARD-PASTEVISIBLEFORMATS" label="보이는 셀에 서식 붙여넣기" tag="nx1|command|NX-CMD-CLIPBOARD-RB-LHECLIPBOARD-PASTEVISIBLEFORMATS" getEnabled="NxRibbonGetEnabled" image="NxBrand_paste_format_16" screentip="보이는 셀에 서식 붙여넣기" supertip="대상에서 숨겨지지 않은 셀에만 복사한 서식을 적용합니다. 숨김 셀의 서식은 바꾸지 않습니다." onAction="NxRibbonExecute" />
+          </menu>
+        </group>
+        <group id="NX-GRP-INSERT" label="삽입" imageMso="PictureInsertFromFile">
+          <menu id="NX-INSERT-MENU" label="삽입" keytip="I" image="NxBrand_image_32" size="large">
+            <button id="NX-INSERT-PICTURE" label="그림 삽입" tag="nx1|feature|NX-DRAW-INSERT-PICTURE" getEnabled="NxRibbonGetEnabled" image="NxBrand_image_16" screentip="그림 삽입" supertip="새 그림 파일을 여러 개 삽입하거나 선택한 그림을 셀 범위에 맞춥니다. 대상 범위·크기 방식·여백을 미리 확인한 뒤 적용합니다." onAction="NxRibbonExecute" />
+            <button id="NX-RIBBON-NX-CMD-STRUCTURE-RB-EDIT-CELL-MAKEGROUP-HIDDEN-ROWCOLUMN" label="선택 행·열 그룹 만들기" tag="nx1|command|NX-CMD-STRUCTURE-RB-EDIT-CELL-MAKEGROUP-HIDDEN-ROWCOLUMN" getEnabled="NxRibbonGetEnabled" image="NxBrand_group_16" screentip="선택 행·열 그룹 만들기" supertip="가로로 넓은 선택은 열 그룹, 세로로 긴 선택은 행 그룹으로 묶습니다. 숨겨진 항목을 자동 탐색하는 기능은 아닙니다." onAction="NxRibbonExecute" />
+          </menu>
+        </group>
+        <group id="NX-GRP-FILE" label="파일관리" imageMso="FileOpen">
+          <menu id="NX-FILE-MENU" label="파일관리" keytip="M" image="NxBrand_folder_32" size="large">
+            <button id="NX-FILE-MENU-FOLDER-CREATE" label="폴더 일괄 생성" tag="nx1|feature|NX-FILE-FOLDER-CREATE" getEnabled="NxRibbonGetEnabled" image="NxBrand_folder_add_16" screentip="폴더 일괄 생성" supertip="셀의 문구를 폴더 이름으로 사용합니다. 행별 계층 경로와 저장 위치를 확인한 뒤 필요한 폴더를 만듭니다." onAction="NxRibbonExecute" />
+            <button id="NX-FILE-MENU-CONSOLIDATE" label="파일 통합" tag="nx1|feature|NX-FILE-CONSOLIDATE" getEnabled="NxRibbonGetEnabled" image="NxBrand_file_merge_16" screentip="파일 통합" supertip="여러 문서의 시트를 모으거나 데이터를 한 시트로 이어 붙입니다. 입력 순서와 결과 구성을 확인하고 새 파일로 저장합니다." onAction="NxRibbonExecute" />
+            <button id="NX-FILE-MENU-BATCH-RENAME" label="파일 이름 일괄 변경" tag="nx1|feature|NX-FILE-BATCH-RENAME" getEnabled="NxRibbonGetEnabled" image="NxBrand_file_rename_16" screentip="파일 이름 일괄 변경" supertip="선택한 파일에 이름 규칙을 순서대로 적용합니다. 예정 이름과 충돌을 확인한 뒤 바꾸며 마지막 작업 복구를 지원합니다." onAction="NxRibbonExecute" />
+            <button id="NX-FILE-OPEN-CURRENT-FOLDER" label="현재 파일 폴더 열기" tag="nx1|entry|NX-MGMT-SAVED-FOLDER" image="NxBrand_folder_16" onAction="NxRibbonExecute" />
+          </menu>
+        </group>
+        <group id="NX-GRP-DATA" label="데이터" imageMso="TableInsert">
+          <menu id="NX-DATA-MENU" label="데이터" keytip="D" image="NxBrand_normalize_32" size="large">
+            <menu id="NX-DATA-MENU-NX-NAV-GRP-DATA-COMPARE" label="데이터 비교" image="NxBrand_compare_file_16">
+              <button id="NX-COMPARE-RANGE" label="범위 비교" tag="nx1|feature|NX-FILE-WORKBOOK-COMPARE" getEnabled="NxRibbonGetEnabled" image="NxBrand_compare_range_16" screentip="범위 비교" supertip="두 범위의 왼쪽 위 셀을 맞춰 비교하고 새 통합문서 두 시트에 차이를 연한 빨강으로 표시합니다. 원본은 변경하지 않습니다." onAction="NxRibbonExecute" />
+              <button id="NX-COMPARE-SHEET" label="시트 비교" tag="nx1|feature|NX-FILE-SHEET-COMPARE" getEnabled="NxRibbonGetEnabled" image="NxBrand_compare_sheet_16" screentip="시트 비교" supertip="두 시트의 같은 셀 주소끼리 비교하고 새 통합문서 두 시트에 차이를 연한 빨강으로 표시합니다. 원본은 변경하지 않습니다." onAction="NxRibbonExecute" />
+              <button id="NX-COMPARE-FILE" label="파일 비교" tag="nx1|feature|NX-FILE-FILE-COMPARE" getEnabled="NxRibbonGetEnabled" image="NxBrand_compare_file_16" screentip="파일 비교" supertip="두 Excel 파일의 시트를 비교해 차이와 이동 링크가 있는 새 보고서를 엽니다. 원본은 읽기 전용으로 열며 결과 저장은 직접 선택합니다." onAction="NxRibbonExecute" />
+            </menu>
+            <button id="NX-DATA-MENU-NORMALIZE" label="데이터 정규화" tag="nx1|feature|NX-DATA-NORMALIZE" getEnabled="NxRibbonGetEnabled" image="NxBrand_normalize_16" screentip="데이터 정규화" supertip="공백·문자·숫자·날짜의 표현을 정리합니다. 결과 위치와 옵션을 고른 뒤 바로 실행하며 미리보기는 선택 사항입니다." onAction="NxRibbonExecute" />
+            <button id="NX-DATA-MENU-UNIQUE" label="고유값 개수" tag="nx1|feature|NX-DATA-UNIQUE-COUNT" getEnabled="NxRibbonGetEnabled" image="NxBrand_unique_16" screentip="고유값 개수" supertip="같은 값을 모아 등장 횟수와 비율을 계산합니다. 제목 행·대소문자·빈값 처리를 선택하고 별도 결과로 확인합니다." onAction="NxRibbonExecute" />
+            <button id="NX-DATA-MENU-DUPLICATE" label="중복 목록" tag="nx1|feature|NX-DATA-DUPLICATE-LIST" getEnabled="NxRibbonGetEnabled" image="NxBrand_duplicates_16" screentip="중복 목록" supertip="두 목록을 비교해 함께 있는 값이나 한쪽에만 있는 값을 찾습니다. 비교 기준과 결과 위치를 선택하며 원본은 유지합니다." onAction="NxRibbonExecute" />
+            <button id="NX-DATA-MENU-AGE" label="만나이 계산" tag="nx1|feature|NX-DATA-AGE" getEnabled="NxRibbonGetEnabled" image="NxBrand_age_16" screentip="만나이 계산" supertip="생년월일과 기준일로 만 나이를 계산합니다. 만·세 표기와 결과 위치를 선택합니다. 기본값은 새 통합문서입니다." onAction="NxRibbonExecute" />
+            <button id="NX-DATA-MENU-KOREAN-MONEY" label="한글 금액 변환" tag="nx1|feature|NX-DATA-KOREAN-MONEY" getEnabled="NxRibbonGetEnabled" image="NxBrand_currency_16" screentip="한글 금액 변환" supertip="숫자 금액을 한글 표현으로 만듭니다. 앞뒤 문구·숫자 혼합·0 처리와 결과 위치를 선택합니다." onAction="NxRibbonExecute" />
+            <button id="NX-DATA-MENU-PRIVACY-MASK" label="개인정보 마스킹" tag="nx1|feature|NX-DATA-PRIVACY-MASK" getEnabled="NxRibbonGetEnabled" image="NxBrand_mask_16" screentip="개인정보 마스킹" supertip="이름·연락처 등 선택한 유형의 일부 문자를 가립니다. 가림 방식과 결과 위치를 확인한 뒤 적용합니다." onAction="NxRibbonExecute" />
+            <button id="NX-RIBBON-NX-CMD-DATA-DATE-CONVERT" label="날짜 변환" tag="nx1|command|NX-CMD-DATA-DATE-CONVERT" getEnabled="NxRibbonGetEnabled" image="NxBrand_date_16" screentip="날짜 변환" supertip="240617, 20240617, 점·하이픈 날짜, 주민번호형 생년월일을 날짜로 변환합니다. 표시 형식과 결과 위치를 선택하세요." onAction="NxRibbonExecute" />
+          </menu>
+        </group>
+        <group id="NX-GRP-TEMPLATE" label=" " imageMso="FileNew">
+          <box id="NX-TEMPLATE-FUNCTION-VERTICAL" boxStyle="vertical">
+            <button id="NX-TEMPLATE-OPEN" label="템플릿" tag="nx1|feature|NX-TPL-LIST" getEnabled="NxRibbonGetEnabled" keytip="T" image="NxBrand_template_16" screentip="템플릿" supertip="등록한 엑셀 양식을 검색하고 순서를 조정합니다. 파일·시트 등록, 상세 편집, 사용과 삭제를 제공합니다." onAction="NxRibbonExecute" />
+            <menu id="NX-FUNCTION-MENU" label="함수" image="NxBrand_formula_map_16">
+              <button id="NX-FUNCTION-NOTE" label="셀수식 메모 기록" tag="nx1|command|NX-CMD-STYLE-RB-EDIT-MEMO-ADD-LHEXCELFORMULA" getEnabled="NxRibbonGetEnabled" image="NxBrand_formula_note_16" screentip="셀수식 메모 기록" supertip="기존 메모를 유지하고 수식을 추가하거나 덮어씁니다. 메모 표시 여부를 선택하고 마지막 기록을 되돌릴 수 있습니다." onAction="NxRibbonExecute" />
+              <button id="NX-FUNCTION-REFERENCES" label="수식 참조표 만들기" tag="nx1|command|NX-CMD-FORMULA-RB-FORMULA-PRECEDENTS-LIST" getEnabled="NxRibbonGetEnabled" image="NxBrand_formula_map_16" screentip="수식 참조표 만들기" supertip="선택한 수식의 참조 위치와 값을 한글 표로 정리합니다. 새 시트 또는 새 통합문서를 선택하며, 확인하지 못한 참조는 확인 상태에 표시합니다." onAction="NxRibbonExecute" />
+              <button id="NX-FUNCTION-ROUND" label="ROUND 감싸기" tag="nx1|command|NX-CMD-FUNCTION-ROUND" getEnabled="NxRibbonGetEnabled" image="NxBrand_round_16" screentip="ROUND 감싸기" supertip="기존 값과 수식을 ROUND·ROUNDUP·ROUNDDOWN으로 감쌉니다. 오류는 그대로 유지합니다." onAction="NxRibbonExecute" />
+              <button id="NX-FUNCTION-IFERROR" label="IFERROR 감싸기" tag="nx1|command|NX-CMD-FUNCTION-IFERROR" getEnabled="NxRibbonGetEnabled" image="NxBrand_iferror_16" screentip="IFERROR 감싸기" supertip="기존 수식이나 숫자를 IFERROR로 감싸 오류일 때 공란·숫자·문자를 반환합니다." onAction="NxRibbonExecute" />
+            </menu>
+          </box>
+        </group>
+        <group id="NX-GRP-WORKSHEET-TOOLS" label=" " imageMso="ViewNormalViewExcel">
+          <box id="NX-WORKSHEET-TOOLS-VERTICAL" boxStyle="vertical">
+            <menu id="NX-R50-CELL-FIT-MENU" label="셀맞춤" image="NxBrand_resize_16">
+              <button id="NX-RIBBON-NX-CMD-SIZE-RB-EDIT-CELL-RESIZE" label="셀·글자·도형 크기 조정" tag="nx1|command|NX-CMD-SIZE-RB-EDIT-CELL-RESIZE" getEnabled="NxRibbonGetEnabled" image="NxBrand_resize_16" screentip="셀·글자·도형 크기 조정" supertip="열 너비·행 높이·글자 크기·범위 안 도형 배율 중 필요한 항목을 선택해 조정합니다. 셀 값은 유지하며 오류 시 이전 크기로 복원합니다." onAction="NxRibbonExecute" />
+            </menu>
+            <menu id="NX-R50-SHEET-MENU" label="시트·보기" image="NxBrand_view_16">
+              <button id="NX-RIBBON-NX-CMD-SHEET-RB-SHEET-SELECT-HOME" label="첫번째 시트로 이동" tag="nx1|command|NX-CMD-SHEET-RB-SHEET-SELECT-HOME" getEnabled="NxRibbonGetEnabled" image="NxBrand_first_sheet_16" screentip="첫번째 시트로 이동" supertip="문서의 첫 워크시트를 활성화합니다. 시트 탭 순서를 변경하는 명령과 구별하세요." onAction="NxRibbonExecute" />
+              <button id="NX-RIBBON-NX-CMD-SHEET-RB-SHEET-SELECT-END" label="마지막 시트로 이동" tag="nx1|command|NX-CMD-SHEET-RB-SHEET-SELECT-END" getEnabled="NxRibbonGetEnabled" image="NxBrand_last_sheet_16" screentip="마지막 시트로 이동" supertip="문서의 마지막 워크시트를 활성화합니다. 시트 탭 순서를 변경하는 명령과 구별하세요." onAction="NxRibbonExecute" />
+              <button id="NX-R50-SHEET-MENU-NX-UTIL-DOCUMENT-NAVIGATOR" label="문서·시트 탐색" tag="nx1|feature|NX-UTIL-DOCUMENT-NAVIGATOR" getEnabled="NxRibbonGetEnabled" image="NxBrand_navigate_16" screentip="문서·시트 탐색" supertip="열린 문서와 시트를 찾아 전환합니다. 목록을 보기 위해 원본 문서에 보고서 시트를 추가하지 않습니다." onAction="NxRibbonExecute" />
+              <button id="NX-FILE-MENU-SHEET-BATCH-RENAME" label="시트 이름 일괄 변경" tag="nx1|feature|NX-FILE-SHEET-BATCH-RENAME" getEnabled="NxRibbonGetEnabled" image="NxBrand_sheet_rename_16" screentip="시트 이름 일괄 변경" supertip="문서의 시트 이름에 규칙을 적용하거나 예정 이름을 직접 편집합니다. 이름 충돌을 확인한 뒤 적용하며 시트 내용은 유지합니다." onAction="NxRibbonExecute" />
+              <button id="NX-RIBBON-NX-CMD-VIEW-RB-WINDOWS-VIEW-FULLSCREEN" label="전체 화면 켜기/끄기" tag="nx1|command|NX-CMD-VIEW-RB-WINDOWS-VIEW-FULLSCREEN" getEnabled="NxRibbonGetEnabled" image="NxBrand_fullscreen_16" screentip="전체 화면 켜기/끄기" supertip="Excel의 전체 화면 표시를 전환합니다. 화면 표시만 바꾸며 문서 내용과 인쇄 설정은 유지합니다." onAction="NxRibbonExecute" />
+              <menu id="NX-R50-SHEET-MENU-NX-CMD-GRP-VIEW-WINDOW" label="화면 프리셋" image="NxBrand_view_16">
+                <button id="NX-RIBBON-NX-CMD-VIEW-PRESET-1" label="화면 프리셋 1" tag="nx1|command|NX-CMD-VIEW-PRESET-1" getEnabled="NxRibbonGetEnabled" image="NxBrand_view_1_16" screentip="화면 프리셋 1" supertip="저장한 화면 배율을 적용합니다. 같은 프리셋을 다시 실행하면 이전 배율로 돌아갑니다." onAction="NxRibbonExecute" />
+                <button id="NX-RIBBON-NX-CMD-VIEW-PRESET-2" label="화면 프리셋 2" tag="nx1|command|NX-CMD-VIEW-PRESET-2" getEnabled="NxRibbonGetEnabled" image="NxBrand_view_2_16" screentip="화면 프리셋 2" supertip="저장한 화면 배율을 적용합니다. 같은 프리셋을 다시 실행하면 이전 배율로 돌아갑니다." onAction="NxRibbonExecute" />
+                <button id="NX-RIBBON-NX-CMD-VIEW-PRESET-3" label="화면 프리셋 3" tag="nx1|command|NX-CMD-VIEW-PRESET-3" getEnabled="NxRibbonGetEnabled" image="NxBrand_view_3_16" screentip="화면 프리셋 3" supertip="저장한 화면 배율을 적용합니다. 같은 프리셋을 다시 실행하면 이전 배율로 돌아갑니다." onAction="NxRibbonExecute" />
+                <button id="NX-RIBBON-NX-CMD-VIEW-PRESET-4" label="화면 프리셋 4" tag="nx1|command|NX-CMD-VIEW-PRESET-4" getEnabled="NxRibbonGetEnabled" image="NxBrand_view_4_16" screentip="화면 프리셋 4" supertip="저장한 화면 배율을 적용합니다. 같은 프리셋을 다시 실행하면 이전 배율로 돌아갑니다." onAction="NxRibbonExecute" />
+                <button id="NX-RIBBON-NX-CMD-VIEW-PRESET-5" label="화면 프리셋 5" tag="nx1|command|NX-CMD-VIEW-PRESET-5" getEnabled="NxRibbonGetEnabled" image="NxBrand_view_5_16" screentip="화면 프리셋 5" supertip="저장한 화면 배율을 적용합니다. 같은 프리셋을 다시 실행하면 이전 배율로 돌아갑니다." onAction="NxRibbonExecute" />
+                <button id="NX-RIBBON-NX-CMD-VIEW-PRESET-SETTINGS" label="화면 프리셋 설정" tag="nx1|command|NX-CMD-VIEW-PRESET-SETTINGS" getEnabled="NxRibbonGetEnabled" image="NxBrand_settings_16" screentip="화면 프리셋 설정" supertip="화면 프리셋 1~5의 배율을 10~400%로 지정하고 저장합니다." onAction="NxRibbonExecute" />
+              </menu>
+            </menu>
+            <button id="NX-R94-QUICK-DOCUMENT-NAVIGATOR" label="문서·시트 탐색" tag="nx1|feature|NX-UTIL-DOCUMENT-NAVIGATOR" getEnabled="NxRibbonGetEnabled" image="NxBrand_navigate_16" screentip="문서·시트 탐색" supertip="열린 문서와 시트를 찾아 전환합니다. 목록을 보기 위해 원본 문서에 보고서 시트를 추가하지 않습니다." onAction="NxRibbonExecute" />
+          </box>
+        </group>
+        <group id="NX-GRP-STYLE" label="스타일" imageMso="TableAutoFormat">
+          <box id="NX-STYLE-QUICK-VERTICAL" boxStyle="vertical">
+            <box id="NX-STYLE-QUICK-FONT-SIZE-ROW" boxStyle="horizontal">
+              <button id="NX-STYLE-QUICK-FONT-SIZE-9" tag="nx1|command|NX-CMD-STYLE-FONT-SIZE-9" getEnabled="NxRibbonGetEnabled" image="nx-quick-font-size-9" screentip="글자 크기 9" supertip="선택한 셀의 글자 크기만 9pt로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다." onAction="NxRibbonExecute" label="글자 크기 9" showLabel="false" />
+              <button id="NX-STYLE-QUICK-FONT-SIZE-10" tag="nx1|command|NX-CMD-STYLE-FONT-SIZE-10" getEnabled="NxRibbonGetEnabled" image="nx-quick-font-size-10" screentip="글자 크기 10" supertip="선택한 셀의 글자 크기만 10pt로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다." onAction="NxRibbonExecute" label="글자 크기 10" showLabel="false" />
+              <button id="NX-STYLE-QUICK-FONT-SIZE-12" tag="nx1|command|NX-CMD-STYLE-FONT-SIZE-12" getEnabled="NxRibbonGetEnabled" image="nx-quick-font-size-12" screentip="글자 크기 12" supertip="선택한 셀의 글자 크기만 12pt로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다." onAction="NxRibbonExecute" label="글자 크기 12" showLabel="false" />
+              <button id="NX-STYLE-QUICK-FONT-SIZE-15" tag="nx1|command|NX-CMD-STYLE-FONT-SIZE-15" getEnabled="NxRibbonGetEnabled" image="nx-quick-font-size-15" screentip="글자 크기 15" supertip="선택한 셀의 글자 크기만 15pt로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다." onAction="NxRibbonExecute" label="글자 크기 15" showLabel="false" />
+              <button id="NX-STYLE-QUICK-NUMBER-PERCENTAGE" tag="nx1|command|NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-PERCENTAGE" getEnabled="NxRibbonGetEnabled" image="nx-quick-number-percent" screentip="백분율 표시 · 자릿수 선택" supertip="선택한 숫자를 백분율로 표시합니다. 소수 자릿수를 0~15자리로 선택하며 실제 셀 값은 유지합니다." onAction="NxRibbonExecute" label="백분율 표시 · 자릿수 선택" showLabel="false" />
+              <toggleButton idMso="AlignLeft" screentip="왼쪽 정렬" showLabel="false" />
+            </box>
+            <box id="NX-STYLE-QUICK-FONT-COLOR-ROW" boxStyle="horizontal">
+              <button id="NX-STYLE-QUICK-FONT-COLOR-BLACK" tag="nx1|command|NX-CMD-STYLE-FONT-COLOR-BLACK" getEnabled="NxRibbonGetEnabled" image="nx-quick-font-color-black" screentip="글자색 검정" supertip="선택한 셀의 글자색만 검정으로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다." onAction="NxRibbonExecute" label="글자색 검정" showLabel="false" />
+              <button id="NX-STYLE-QUICK-FONT-COLOR-RED" tag="nx1|command|NX-CMD-STYLE-FONT-COLOR-RED" getEnabled="NxRibbonGetEnabled" image="nx-quick-font-color-red" screentip="글자색 빨강" supertip="선택한 셀의 글자색만 빨강으로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다." onAction="NxRibbonExecute" label="글자색 빨강" showLabel="false" />
+              <button id="NX-STYLE-QUICK-FONT-COLOR-BLUE" tag="nx1|command|NX-CMD-STYLE-FONT-COLOR-BLUE" getEnabled="NxRibbonGetEnabled" image="nx-quick-font-color-blue" screentip="글자색 파랑" supertip="선택한 셀의 글자색만 파랑으로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다." onAction="NxRibbonExecute" label="글자색 파랑" showLabel="false" />
+              <button id="NX-STYLE-QUICK-FONT-COLOR-GREEN" tag="nx1|command|NX-CMD-STYLE-FONT-COLOR-GREEN" getEnabled="NxRibbonGetEnabled" image="nx-quick-font-color-green" screentip="글자색 초록" supertip="선택한 셀의 글자색만 초록으로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다." onAction="NxRibbonExecute" label="글자색 초록" showLabel="false" />
+              <button id="NX-STYLE-QUICK-NUMBER-NUMBER" tag="nx1|command|NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-NUMBER" getEnabled="NxRibbonGetEnabled" image="nx-quick-number-comma" screentip="천 단위 구분 · 정수" supertip="숫자에 천 단위 구분 기호를 넣고 소수 부분은 표시하지 않습니다. 저장된 값은 그대로 유지합니다." onAction="NxRibbonExecute" label="천 단위 구분 · 정수" showLabel="false" />
+              <toggleButton idMso="AlignCenter" screentip="가운데 정렬" showLabel="false" />
+            </box>
+            <box id="NX-STYLE-QUICK-FILL-ROW" boxStyle="horizontal">
+              <button id="NX-STYLE-QUICK-FILL-GRAY" tag="nx1|command|NX-CMD-STYLE-FILL-GRAY" getEnabled="NxRibbonGetEnabled" image="nx-quick-fill-gray" screentip="채우기 회색" supertip="선택한 셀의 채우기색만 회색으로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다." onAction="NxRibbonExecute" label="채우기 회색" showLabel="false" />
+              <button id="NX-STYLE-QUICK-FILL-LIGHT-RED" tag="nx1|command|NX-CMD-STYLE-FILL-LIGHT-RED" getEnabled="NxRibbonGetEnabled" image="nx-quick-fill-light-red" screentip="채우기 연한 빨강" supertip="선택한 셀의 채우기색만 연한 빨강으로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다." onAction="NxRibbonExecute" label="채우기 연한 빨강" showLabel="false" />
+              <button id="NX-STYLE-QUICK-FILL-LIGHT-YELLOW" tag="nx1|command|NX-CMD-STYLE-FILL-LIGHT-YELLOW" getEnabled="NxRibbonGetEnabled" image="nx-quick-fill-light-yellow" screentip="채우기 연한 노랑" supertip="선택한 셀의 채우기색만 연한 노랑으로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다." onAction="NxRibbonExecute" label="채우기 연한 노랑" showLabel="false" />
+              <button id="NX-STYLE-QUICK-FILL-LIGHT-GREEN" tag="nx1|command|NX-CMD-STYLE-FILL-LIGHT-GREEN" getEnabled="NxRibbonGetEnabled" image="nx-quick-fill-light-green" screentip="채우기 연한 초록" supertip="선택한 셀의 채우기색만 연한 초록으로 변경합니다. 값·수식과 나머지 서식은 유지하며, 보호된 시트와 읽기 전용 통합문서에서는 실행하지 않습니다." onAction="NxRibbonExecute" label="채우기 연한 초록" showLabel="false" />
+              <button id="NX-STYLE-QUICK-NUMBER-DECIMAL" tag="nx1|command|NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-DECIMAL" getEnabled="NxRibbonGetEnabled" image="nx-quick-number-decimal" screentip="숫자 표시 · 소수 자릿수 선택" supertip="천 단위 구분과 소수 자릿수를 지정합니다. 0~15자리를 선택하며 실제 셀 값은 유지합니다." onAction="NxRibbonExecute" label="숫자 표시 · 소수 자릿수 선택" showLabel="false" />
+              <toggleButton idMso="AlignRight" screentip="오른쪽 정렬" showLabel="false" />
+            </box>
+          </box>
+          <menu id="NX-STYLE-MENU" label="스타일" keytip="Y" image="NxBrand_style_32" size="large">
+            <button id="NX-STYLE-MENU-NX-DRAW-TITLE-TABLE" label="타이틀표 그리기" tag="nx1|feature|NX-DRAW-TITLE-TABLE" getEnabled="NxRibbonGetEnabled" image="NxBrand_title_table_16" screentip="타이틀표 그리기" supertip="선택 범위를 제목 영역으로 꾸밉니다. 테두리·채우기 옵션을 미리 보고 적용하며 셀 값은 유지합니다." onAction="NxRibbonExecute" />
+            <button id="NX-STYLE-MENU-NX-DRAW-BUSINESS-TABLE" label="표 그리기" tag="nx1|feature|NX-DRAW-BUSINESS-TABLE" getEnabled="NxRibbonGetEnabled" image="NxBrand_table_16" screentip="표 그리기" supertip="선택 범위에 표의 테두리와 머리글 구성을 적용합니다. 범위를 다시 지정하고 원하는 모양을 확인한 뒤 실행합니다." onAction="NxRibbonExecute" />
+            <button id="NX-STYLE-MENU-NX-DRAW-ROLE-STYLE" label="내엑셀 스타일" tag="nx1|feature|NX-DRAW-ROLE-STYLE" getEnabled="NxRibbonGetEnabled" image="NxBrand_style_16" screentip="내엑셀 스타일" supertip="제목·본문·합계 등 역할에 맞는 셀 서식을 선택합니다. 적용 축과 상대 위치를 확인하고 원본 값은 유지합니다." onAction="NxRibbonExecute" />
+            <button id="NX-STYLE-MENU-NX-DRAW-CLEAR-INNER" label="내부선 제거" tag="nx1|feature|NX-DRAW-CLEAR-INNER" getEnabled="NxRibbonGetEnabled" image="NxBrand_clear_inner_16" screentip="내부선 제거" supertip="선택 범위 안쪽의 가로·세로 테두리를 지웁니다. 범위 바깥 둘레의 테두리는 유지합니다." onAction="NxRibbonExecute" />
+            <button id="NX-STYLE-MENU-NX-HANGUL-TABLE-SEND" label="아래한글 표 전송" tag="nx1|feature|NX-HANGUL-TABLE-SEND" getEnabled="NxRibbonGetEnabled" image="NxBrand_hangul_table_16" screentip="아래한글 표 전송" supertip="선택 범위를 아래한글에서 사용할 표로 전달합니다. 글꼴·글자 크기·표 모양 설정을 반영하며 원본 Excel 셀은 유지합니다." onAction="NxRibbonExecute" />
+            <button id="NX-STYLE-MENU-NX-HANGUL-PICTURE-SEND" label="아래한글 그림 전송" tag="nx1|feature|NX-HANGUL-PICTURE-SEND" getEnabled="NxRibbonGetEnabled" image="NxBrand_hangul_image_16" screentip="아래한글 그림 전송" supertip="그림을 제목순 또는 촬영시간순으로 정렬해 아래한글 표의 셀 배경에 문서 포함 방식으로 넣습니다. 그림 셀 크기·쪽당 배치·제목행을 지정할 수 있습니다." onAction="NxRibbonExecute" />
+            <menu id="NX-STYLE-MENU-NX-CMD-GRP-STYLE" label="스타일 조정" image="NxBrand_style_16">
+              <button id="NX-STYLE-RESET-WORKBOOK" label="사용자 스타일 정리" tag="nx1|command|NX-CMD-STYLE-RB-LHESTYLE-RESETWORKBOOKSTYLES" getEnabled="NxRibbonGetEnabled" image="NxBrand_style_clean_16" screentip="사용자 스타일 정리" supertip="현재 문서의 사용자 지정 셀 스타일을 삭제합니다. Excel 기본 스타일은 남으며, 적용 중인 사용자 스타일도 정리 대상입니다." onAction="NxRibbonExecute" />
+              <button id="NX-RIBBON-NX-CMD-STYLE-RB-LHESTYLE-MONO-TITLE" label="흑백 · 제목" tag="nx1|command|NX-CMD-STYLE-RB-LHESTYLE-MONO-TITLE" getEnabled="NxRibbonGetEnabled" image="NxBrand_role_title_16" screentip="흑백 · 제목" supertip="선택 범위에 흑백 계열의 문서의 큰 제목에 맞는 글자와 채우기 서식을 적용합니다. 값과 수식은 유지합니다." onAction="NxRibbonExecute" />
+              <button id="NX-RIBBON-NX-CMD-STYLE-RB-LHESTYLE-MONO-SUBTITLE" label="흑백 · 소제목" tag="nx1|command|NX-CMD-STYLE-RB-LHESTYLE-MONO-SUBTITLE" getEnabled="NxRibbonGetEnabled" image="NxBrand_role_subtitle_16" screentip="흑백 · 소제목" supertip="선택 범위에 흑백 계열의 제목 아래의 구분 문구에 맞는 글자와 채우기 서식을 적용합니다. 값과 수식은 유지합니다." onAction="NxRibbonExecute" />
+              <button id="NX-RIBBON-NX-CMD-STYLE-RB-LHESTYLE-MONO-TABLEHEADER" label="흑백 · 표 머리글" tag="nx1|command|NX-CMD-STYLE-RB-LHESTYLE-MONO-TABLEHEADER" getEnabled="NxRibbonGetEnabled" image="NxBrand_role_header_16" screentip="흑백 · 표 머리글" supertip="선택 범위에 흑백 계열의 표의 열 제목을 구분하는 글자·채우기·테두리 서식을 적용합니다. 값과 수식은 유지합니다." onAction="NxRibbonExecute" />
+              <button id="NX-RIBBON-NX-CMD-STYLE-RB-LHESTYLE-MONO-TABLEBODY" label="흑백 · 표 본문" tag="nx1|command|NX-CMD-STYLE-RB-LHESTYLE-MONO-TABLEBODY" getEnabled="NxRibbonGetEnabled" image="NxBrand_role_body_16" screentip="흑백 · 표 본문" supertip="선택 범위에 흑백 계열의 표의 일반 내용 영역에 맞는 기본 서식을 적용합니다. 값과 수식은 유지합니다." onAction="NxRibbonExecute" />
+              <button id="NX-RIBBON-NX-CMD-STYLE-RB-LHESTYLE-MONO-EMPHASISCELL" label="흑백 · 강조 셀" tag="nx1|command|NX-CMD-STYLE-RB-LHESTYLE-MONO-EMPHASISCELL" getEnabled="NxRibbonGetEnabled" image="NxBrand_role_emphasis_16" screentip="흑백 · 강조 셀" supertip="선택 범위에 흑백 계열의 눈에 띄게 표시할 셀의 글자와 채우기 서식을 적용합니다. 값과 수식은 유지합니다." onAction="NxRibbonExecute" />
+              <button id="NX-RIBBON-NX-CMD-STYLE-RB-LHESTYLE-MONO-TOTALROW" label="흑백 · 합계 행" tag="nx1|command|NX-CMD-STYLE-RB-LHESTYLE-MONO-TOTALROW" getEnabled="NxRibbonGetEnabled" image="NxBrand_role_total_16" screentip="흑백 · 합계 행" supertip="선택 범위에 흑백 계열의 합계 영역을 구분하는 글자·채우기·테두리 서식을 적용합니다. 값과 수식은 유지합니다." onAction="NxRibbonExecute" />
+              <button id="NX-RIBBON-NX-CMD-STYLE-RB-LHESTYLE-COLOR-TITLE" label="컬러 · 제목" tag="nx1|command|NX-CMD-STYLE-RB-LHESTYLE-COLOR-TITLE" getEnabled="NxRibbonGetEnabled" image="NxBrand_role_title_16" screentip="컬러 · 제목" supertip="선택 범위에 컬러 계열의 문서의 큰 제목에 맞는 글자와 채우기 서식을 적용합니다. 값과 수식은 유지합니다." onAction="NxRibbonExecute" />
+              <button id="NX-RIBBON-NX-CMD-STYLE-RB-LHESTYLE-COLOR-SUBTITLE" label="컬러 · 소제목" tag="nx1|command|NX-CMD-STYLE-RB-LHESTYLE-COLOR-SUBTITLE" getEnabled="NxRibbonGetEnabled" image="NxBrand_role_subtitle_16" screentip="컬러 · 소제목" supertip="선택 범위에 컬러 계열의 제목 아래의 구분 문구에 맞는 글자와 채우기 서식을 적용합니다. 값과 수식은 유지합니다." onAction="NxRibbonExecute" />
+              <button id="NX-RIBBON-NX-CMD-STYLE-RB-LHESTYLE-COLOR-TABLEHEADER" label="컬러 · 표 머리글" tag="nx1|command|NX-CMD-STYLE-RB-LHESTYLE-COLOR-TABLEHEADER" getEnabled="NxRibbonGetEnabled" image="NxBrand_role_header_16" screentip="컬러 · 표 머리글" supertip="선택 범위에 컬러 계열의 표의 열 제목을 구분하는 글자·채우기·테두리 서식을 적용합니다. 값과 수식은 유지합니다." onAction="NxRibbonExecute" />
+              <button id="NX-RIBBON-NX-CMD-STYLE-RB-LHESTYLE-COLOR-TABLEBODY" label="컬러 · 표 본문" tag="nx1|command|NX-CMD-STYLE-RB-LHESTYLE-COLOR-TABLEBODY" getEnabled="NxRibbonGetEnabled" image="NxBrand_role_body_16" screentip="컬러 · 표 본문" supertip="선택 범위에 컬러 계열의 표의 일반 내용 영역에 맞는 기본 서식을 적용합니다. 값과 수식은 유지합니다." onAction="NxRibbonExecute" />
+              <button id="NX-RIBBON-NX-CMD-STYLE-RB-LHESTYLE-COLOR-EMPHASISCELL" label="컬러 · 강조 셀" tag="nx1|command|NX-CMD-STYLE-RB-LHESTYLE-COLOR-EMPHASISCELL" getEnabled="NxRibbonGetEnabled" image="NxBrand_role_emphasis_16" screentip="컬러 · 강조 셀" supertip="선택 범위에 컬러 계열의 눈에 띄게 표시할 셀의 글자와 채우기 서식을 적용합니다. 값과 수식은 유지합니다." onAction="NxRibbonExecute" />
+              <button id="NX-RIBBON-NX-CMD-STYLE-RB-LHESTYLE-COLOR-TOTALROW" label="컬러 · 합계 행" tag="nx1|command|NX-CMD-STYLE-RB-LHESTYLE-COLOR-TOTALROW" getEnabled="NxRibbonGetEnabled" image="NxBrand_role_total_16" screentip="컬러 · 합계 행" supertip="선택 범위에 컬러 계열의 합계 영역을 구분하는 글자·채우기·테두리 서식을 적용합니다. 값과 수식은 유지합니다." onAction="NxRibbonExecute" />
+            </menu>
+            <menu id="NX-STYLE-MENU-NX-CMD-GRP-NUMBER-FORMAT" label="표시 형식" image="NxBrand_decimal_16">
+              <button id="NX-RIBBON-NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-PERCENTAGE" label="백분율 표시 · 자릿수 선택" tag="nx1|command|NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-PERCENTAGE" getEnabled="NxRibbonGetEnabled" image="NxBrand_percent_16" screentip="백분율 표시 · 자릿수 선택" supertip="선택한 숫자를 백분율로 표시합니다. 소수 자릿수를 0~15자리로 선택하며 실제 셀 값은 유지합니다." onAction="NxRibbonExecute" />
+              <button id="NX-RIBBON-NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-DECIMAL" label="숫자 표시 · 소수 자릿수 선택" tag="nx1|command|NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-DECIMAL" getEnabled="NxRibbonGetEnabled" image="NxBrand_decimal_16" screentip="숫자 표시 · 소수 자릿수 선택" supertip="천 단위 구분과 소수 자릿수를 지정합니다. 0~15자리를 선택하며 실제 셀 값은 유지합니다." onAction="NxRibbonExecute" />
+              <button id="NX-RIBBON-NX-CMD-NUMBER-EMPHASIS" label="숫자 강조(▲▼)" tag="nx1|command|NX-CMD-NUMBER-EMPHASIS" getEnabled="NxRibbonGetEnabled" image="NxBrand_number_emphasis_16" screentip="숫자 강조(▲▼)" supertip="양수는 빨간색 ▲, 음수는 파란색 ▼로 표시합니다. 소수 자릿수와 백분율 표시를 선택하며 원래 값과 수식은 유지합니다." onAction="NxRibbonExecute" />
+            </menu>
+            <menu id="NX-STYLE-MENU-NX-CMD-GRP-ALIGNMENT-MERGE" label="정렬·병합" imageMso="AlignCenter">
+              <button id="NX-RIBBON-NX-CMD-ALIGN-RB-EDIT-ALIGN-CENTER-OVERCELLS" label="모형병합 실행/취소" tag="nx1|command|NX-CMD-ALIGN-RB-EDIT-ALIGN-CENTER-OVERCELLS" getEnabled="NxRibbonGetEnabled" image="NxBrand_merge_16" screentip="모형병합 실행/취소" supertip="셀을 실제로 합치지 않고 하나의 영역처럼 보이게 정렬합니다. 범위와 표시 방식을 선택하며 값 이동 여부를 확인한 뒤 적용합니다." onAction="NxRibbonExecute" />
+            </menu>
+          </menu>
+          <box id="NX-STYLE-DRAW-VERTICAL" boxStyle="vertical">
+            <button id="NX-STYLE-TITLE-TABLE-BUTTON" label="타이틀표 그리기" tag="nx1|feature|NX-DRAW-TITLE-TABLE" getEnabled="NxRibbonGetEnabled" image="NxBrand_title_table_16" screentip="타이틀표 그리기" supertip="선택 범위를 제목 영역으로 꾸밉니다. 테두리·채우기 옵션을 미리 보고 적용하며 셀 값은 유지합니다." onAction="NxRibbonExecute" />
+            <button id="NX-STYLE-BUSINESS-TABLE-BUTTON" label="표 그리기" tag="nx1|feature|NX-DRAW-BUSINESS-TABLE" getEnabled="NxRibbonGetEnabled" image="NxBrand_table_16" screentip="표 그리기" supertip="선택 범위에 표의 테두리와 머리글 구성을 적용합니다. 범위를 다시 지정하고 원하는 모양을 확인한 뒤 실행합니다." onAction="NxRibbonExecute" />
+            <button id="NX-STYLE-CLEAR-INNER-BUTTON" label="내부선 제거" tag="nx1|feature|NX-DRAW-CLEAR-INNER" getEnabled="NxRibbonGetEnabled" image="NxBrand_clear_inner_16" screentip="내부선 제거" supertip="선택 범위 안쪽의 가로·세로 테두리를 지웁니다. 범위 바깥 둘레의 테두리는 유지합니다." onAction="NxRibbonExecute" />
+          </box>
+          <box id="NX-STYLE-ACTION-VERTICAL" boxStyle="vertical">
+            <button id="NX-STYLE-HANGUL-SEND-BUTTON" label="아래한글 표 전송" tag="nx1|feature|NX-HANGUL-TABLE-SEND" getEnabled="NxRibbonGetEnabled" image="NxBrand_hangul_table_16" screentip="아래한글 표 전송" supertip="선택 범위를 아래한글 표로 전송합니다." onAction="NxRibbonExecute" />
+            <button id="NX-STYLE-MYEXCEL-FORMAT-BUTTON" label="내엑셀 스타일" tag="nx1|feature|NX-DRAW-ROLE-STYLE" getEnabled="NxRibbonGetEnabled" image="NxBrand_style_16" screentip="내엑셀 스타일" supertip="제목·본문·합계 등 역할에 맞는 셀 서식을 선택합니다. 적용 축과 상대 위치를 확인하고 원본 값은 유지합니다." onAction="NxRibbonExecute" />
+            <button id="NX-STYLE-MODEL-MERGE-BUTTON" label="모형병합 실행/취소" tag="nx1|command|NX-CMD-ALIGN-RB-EDIT-ALIGN-CENTER-OVERCELLS" getEnabled="NxRibbonGetEnabled" image="NxBrand_merge_16" screentip="모형병합 실행/취소" supertip="셀을 실제로 합치지 않고 하나의 영역처럼 보이게 정렬합니다. 범위와 표시 방식을 선택하며 값 이동 여부를 확인한 뒤 적용합니다." onAction="NxRibbonExecute" />
+          </box>
+        </group>
+        <group id="NX-GRP-UTIL" label="추가기능" imageMso="AddInManager">
+          <menu id="NX-UTIL-MENU" label="추가기능" keytip="X" image="NxBrand_menu_32" size="large">
+            <button id="NX-UTIL-MENU-NX-DATA-FOCUS-CELL" label="포커스셀" tag="nx1|feature|NX-DATA-FOCUS-CELL" getEnabled="NxRibbonGetEnabled" image="NxBrand_focus_16" screentip="포커스셀" supertip="현재 선택 범위의 행과 열을 강조해 위치를 쉽게 구분합니다. 내부망은 조건부서식 기반으로, DLL 환경은 오버레이로 표시합니다." onAction="NxRibbonExecute" />
+            <button id="NX-UTIL-MENU-NX-UTIL-CALCULATOR" label="계산기" tag="nx1|feature|NX-UTIL-CALCULATOR" getEnabled="NxRibbonGetEnabled" image="NxBrand_calculator_16" screentip="계산기" supertip="숫자와 연산을 계산하고 결과를 복사하거나 선택 셀에 넣습니다. 선택 셀 값 불러오기와 최근 계산 기록을 제공합니다." onAction="NxRibbonExecute" />
+            <button id="NX-UTIL-MENU-NX-UTIL-SYMBOLS" label="기호표" tag="nx1|feature|NX-UTIL-SYMBOLS" getEnabled="NxRibbonGetEnabled" image="NxBrand_symbols_16" screentip="기호표" supertip="기호를 골라 입력 문구를 구성하고 선택한 셀들에 넣습니다. 목록은 휠로 탐색하며 원래 셀 값은 입력 시 교체됩니다." onAction="NxRibbonExecute" />
+            <button id="NX-UTIL-MENU-NAVIGATOR" label="탐색창" tag="nx1|feature|NX-UTIL-NAVIGATOR" getEnabled="NxRibbonGetEnabled" image="NxBrand_navigate_16" screentip="탐색창" supertip="내엑셀 기능을 분류별로 찾고 실행합니다. 내부망 기본 화면과 DLL 확장 화면은 같은 기능 카탈로그를 사용합니다." onAction="NxRibbonExecute" />
+            <button id="NX-UTIL-MENU-SHORTCUTS" label="단축키 관리" tag="nx1|entry|NX-MGMT-SHORTCUTS" image="NxBrand_shortcuts_16" onAction="NxRibbonExecute" />
+            <button id="NX-UTIL-MENU-AI-WORKBENCH" label="AI 작업대" tag="nx1|entry|NX-ENTRY-AI" image="NxBrand_ai_16" onAction="NxRibbonExecute" />
+          </menu>
+          <box id="NX-UTIL-VERTICAL" boxStyle="vertical">
+            <button id="NX-UTIL-AI-WORKBENCH" label="AI 작업대" tag="nx1|entry|NX-ENTRY-AI" image="NxBrand_ai_16" onAction="NxRibbonExecute" />
+            <button id="NX-UTIL-CALCULATOR-BUTTON" label="계산기" tag="nx1|feature|NX-UTIL-CALCULATOR" getEnabled="NxRibbonGetEnabled" image="NxBrand_calculator_16" screentip="계산기" supertip="숫자와 연산을 계산하고 결과를 복사하거나 선택 셀에 넣습니다. 선택 셀 값 불러오기와 최근 계산 기록을 제공합니다." onAction="NxRibbonExecute" />
+            <button id="NX-UTIL-SYMBOLS-BUTTON" label="기호표" tag="nx1|feature|NX-UTIL-SYMBOLS" getEnabled="NxRibbonGetEnabled" image="NxBrand_symbols_16" screentip="기호표" supertip="기호를 골라 입력 문구를 구성하고 선택한 셀들에 넣습니다. 목록은 휠로 탐색하며 원래 셀 값은 입력 시 교체됩니다." onAction="NxRibbonExecute" />
+          </box>
+        </group>
+        <group id="NX-GRP-INFO" label="정보진단" imageMso="Info">
+          <menu id="NX-INFO-MENU" label="정보진단" image="NxBrand_info_32" size="large">
+            <button id="NX-DATA-MENU-PRIVACY-SCAN" label="개인정보 의심 항목 점검" tag="nx1|feature|NX-DATA-PRIVACY-SCAN" getEnabled="NxRibbonGetEnabled" image="NxBrand_privacy_16" screentip="개인정보 의심 항목 점검" supertip="숨김 시트를 포함한 문서의 셀에서 개인정보로 의심되는 패턴과 위치를 찾습니다. 실제 외부 유출 여부를 판정하는 기능은 아닙니다." onAction="NxRibbonExecute" />
+            <button id="NX-INFO-NAME-UNHIDE" label="숨김 이름 정의 표시" tag="nx1|command|NX-CMD-INFO-RB-APP-NAMEUNHIDE" getEnabled="NxRibbonGetEnabled" image="NxBrand_names_16" screentip="숨김 이름 정의 표시" supertip="현재 문서의 숨겨진 이름 정의를 이름 관리자에서 볼 수 있게 바꿉니다. 이름을 삭제하거나 참조식을 바꾸지는 않습니다." onAction="NxRibbonExecute" />
+            <button id="NX-INFO-MEMO-LIST" label="문서 메모 목록 만들기" tag="nx1|command|NX-CMD-INFO-RB-INFO-MEMO-LIST" getEnabled="NxRibbonGetEnabled" image="NxBrand_notes_16" screentip="문서 메모 목록 만들기" supertip="현재 문서의 셀 메모 위치와 내용을 새 보고서 시트에 모읍니다. 원래 셀의 메모는 유지합니다." onAction="NxRibbonExecute" />
+            <button id="NX-INFO-SHEET-LIST" label="문서 시트 목록 만들기" tag="nx1|command|NX-CMD-INFO-RB-INFO-SHEET-LIST" getEnabled="NxRibbonGetEnabled" image="NxBrand_sheet_list_16" screentip="문서 시트 목록 만들기" supertip="현재 문서의 워크시트 이름과 표시·숨김 상태를 새 시트에 정리합니다. 탐색창과 달리 문서에 결과 시트가 추가됩니다." onAction="NxRibbonExecute" />
+          </menu>
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>

@@ -1,0 +1,822 @@
+{
+  "schema_version": 3,
+  "namespace": "http://schemas.microsoft.com/office/2009/07/customui",
+  "control_grammar": {
+    "1": "large list menu",
+    "2": "icon and title",
+    "3": "icon only in one vertical column",
+    "4": "independent Ribbon group boundary"
+  },
+  "navigation_categories": [
+    {
+      "id": "NX-GRP-SAVE",
+      "label": "저장",
+      "image_mso": "FileSave",
+      "order": 1
+    },
+    {
+      "id": "NX-GRP-PRINT",
+      "label": "인쇄",
+      "image_mso": "PrintPreviewAndPrint",
+      "order": 2
+    },
+    {
+      "id": "NX-GRP-COPY",
+      "label": "복붙",
+      "image_mso": "Copy",
+      "order": 3
+    },
+    {
+      "id": "NX-GRP-INSERT",
+      "label": "삽입",
+      "image_mso": "PictureInsertFromFile",
+      "order": 4
+    },
+    {
+      "id": "NX-GRP-FILE",
+      "label": "파일관리",
+      "image_mso": "FileOpen",
+      "order": 5
+    },
+    {
+      "id": "NX-GRP-TEMPLATE",
+      "label": "템플릿",
+      "image_mso": "FileNew",
+      "order": 7
+    },
+    {
+      "id": "NX-GRP-DATA",
+      "label": "데이터",
+      "image_mso": "TableInsert",
+      "order": 8
+    },
+    {
+      "id": "NX-GRP-CELL-FIT",
+      "label": "셀맞춤",
+      "image_mso": "RowHeight",
+      "order": 9
+    },
+    {
+      "id": "NX-GRP-FORMULA",
+      "label": "함수",
+      "image_mso": "FunctionWizard",
+      "order": 10
+    },
+    {
+      "id": "NX-GRP-SHEET",
+      "label": "시트·보기",
+      "image_mso": "ViewNormalViewExcel",
+      "order": 11
+    },
+    {
+      "id": "NX-GRP-STYLE",
+      "label": "스타일",
+      "image_mso": "TableAutoFormat",
+      "order": 12
+    },
+    {
+      "id": "NX-GRP-UTIL",
+      "label": "추가기능",
+      "image_mso": "AddInManager",
+      "order": 13
+    },
+    {
+      "id": "NX-GRP-INFO",
+      "label": "정보진단",
+      "image_mso": "Info",
+      "order": 14
+    }
+  ],
+  "surfaces": {
+    "home": {
+      "idMso": "TabHome",
+      "groups": [
+        {
+          "id": "NX-HOME-GRP-MYEXCEL",
+          "label": "내엑셀",
+          "image_mso": "ControlProperties",
+          "insert_before_mso": "GroupClipboard",
+          "controls": [
+            {
+              "kind": "dynamic_menu",
+              "id": "NX-HOME-MANAGEMENT",
+              "label": "내엑셀",
+              "image_mso": "ControlProperties",
+              "keytip": "N",
+              "size": "large",
+              "control_type": 1,
+              "get_content": "NxRibbonGetManagementContent"
+            },
+            {
+              "kind": "dynamic_menu",
+              "id": "NX-HOME-FAVORITES",
+              "label": "즐겨찾기",
+              "image_mso": "Favorites",
+              "keytip": "F",
+              "control_type": 2,
+              "get_content": "NxRibbonGetFavoritesContent"
+            },
+            {
+              "kind": "dynamic_menu",
+              "id": "NX-HOME-FOCUS",
+              "label": "포커스셀",
+              "image_mso": "TableStyleBandedColumns",
+              "keytip": "O",
+              "control_type": 2,
+              "get_content": "NxRibbonGetFocusContent"
+            },
+            {
+              "kind": "dynamic_menu",
+              "id": "NX-HOME-ALL",
+              "label": "전체기능",
+              "image_mso": "ViewNormalViewExcel",
+              "keytip": "L",
+              "control_type": 2,
+              "get_content": "NxRibbonGetAllFunctionsContent"
+            }
+          ]
+        }
+      ]
+    },
+    "product": {
+      "id": "NX-TAB",
+      "label": "내엑셀",
+      "groups": [
+        {
+          "id": "NX-GRP-MYEXCEL",
+          "label": "내엑셀",
+          "image_mso": "ControlProperties",
+          "controls": [
+            {
+              "kind": "dynamic_menu",
+              "id": "NX-PROD-MANAGEMENT",
+              "label": "내엑셀",
+              "image_mso": "ControlProperties",
+              "keytip": "N",
+              "size": "large",
+              "control_type": 1,
+              "get_content": "NxRibbonGetManagementContent"
+            },
+            {
+              "kind": "dynamic_menu",
+              "id": "NX-PROD-FAVORITES",
+              "label": "즐겨찾기",
+              "image_mso": "Favorites",
+              "keytip": "F",
+              "control_type": 2,
+              "get_content": "NxRibbonGetFavoritesContent"
+            },
+            {
+              "kind": "dynamic_menu",
+              "id": "NX-PROD-FOCUS",
+              "label": "포커스셀",
+              "image_mso": "TableStyleBandedColumns",
+              "keytip": "O",
+              "control_type": 2,
+              "get_content": "NxRibbonGetFocusContent"
+            },
+            {
+              "kind": "dynamic_menu",
+              "id": "NX-PROD-ALL",
+              "label": "전체기능",
+              "image_mso": "ViewNormalViewExcel",
+              "keytip": "L",
+              "control_type": 2,
+              "get_content": "NxRibbonGetAllFunctionsContent"
+            }
+          ]
+        },
+        {
+          "id": "NX-GRP-SAVE",
+          "label": "저장",
+          "image_mso": "FileSave",
+          "controls": [
+            {
+              "kind": "menu",
+              "id": "NX-SAVE-MENU",
+              "label": "저장",
+              "image_mso": "FileSave",
+              "keytip": "S",
+              "size": "large",
+              "control_type": 1,
+              "menu": [],
+              "catalog_category_id": "NX-GRP-SAVE",
+              "catalog_control_ids": {
+                "NX-FILE-PDF-CURRENT-SHEET": "NX-SAVE-PDF-CURRENT-SHEET",
+                "NX-FILE-PDF-ALL-COMBINED": "NX-SAVE-PDF-ALL-COMBINED"
+              }
+            },
+            {
+              "kind": "box",
+              "id": "NX-SAVE-VERTICAL",
+              "box_style": "vertical",
+              "box": [
+                {
+                  "kind": "button",
+                  "feature_id": "NX-FILE-MANNER-SAVE",
+                  "id": "NX-SAVE-MANNER-ICON",
+                  "label": "매너 저장",
+                  "control_type": 2,
+                  "image_mso": "FileSaveAs",
+                  "screentip": "매너 저장",
+                  "supertip": "모든 시트의 커서를 A1로 이동하고 첫 번째 시트의 A1을 선택한 상태로 저장합니다. 파일을 다시 열면 첫 번째 시트의 A1에서 시작합니다."
+                },
+                {
+                  "kind": "button",
+                  "feature_id": "NX-FILE-SHEET-COPY-SAVE",
+                  "id": "NX-SAVE-SHEET-ICON",
+                  "label": "현시트 사본저장",
+                  "control_type": 2,
+                  "image_mso": "FileSaveAsExcelXlsx",
+                  "screentip": "현시트 사본저장",
+                  "supertip": "현재 시트만 새 통합문서로 사본 저장합니다."
+                },
+                {
+                  "kind": "button",
+                  "feature_id": "NX-FILE-RANGE-COPY-SAVE",
+                  "id": "NX-SAVE-RANGE-ICON",
+                  "label": "선택범위 사본저장",
+                  "control_type": 2,
+                  "image_mso": "FileSaveAsOtherFormats",
+                  "screentip": "선택범위 사본저장",
+                  "supertip": "선택한 범위만 새 통합문서로 사본 저장합니다."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "NX-GRP-PRINT",
+          "label": "인쇄",
+          "image_mso": "PrintPreviewAndPrint",
+          "controls": [
+            {
+              "kind": "menu",
+              "id": "NX-PRINT-MENU",
+              "label": "인쇄",
+              "image_mso": "PrintPreviewAndPrint",
+              "keytip": "P",
+              "size": "large",
+              "control_type": 1,
+              "menu": [
+                {
+                  "kind": "builtin_button",
+                  "id_mso": "PrintPreviewAndPrint"
+                },
+                {
+                  "kind": "builtin_button",
+                  "id_mso": "FilePrintQuick"
+                }
+              ],
+              "catalog_category_id": "NX-GRP-PRINT"
+            }
+          ]
+        },
+        {
+          "id": "NX-GRP-COPY",
+          "label": "복붙",
+          "image_mso": "Copy",
+          "controls": [
+            {
+              "kind": "menu",
+              "id": "NX-COPY-MENU",
+              "label": "복붙",
+              "image_mso": "Copy",
+              "keytip": "C",
+              "size": "large",
+              "control_type": 1,
+              "menu": [],
+              "catalog_category_id": "NX-GRP-COPY",
+              "catalog_control_ids": {
+                "NX-DATA-COPY-VISIBLE": "NX-COPY-VISIBLE",
+                "NX-DATA-PASTE-VISIBLE-VALUES": "NX-PASTE-VISIBLE-VALUES"
+              }
+            }
+          ]
+        },
+        {
+          "id": "NX-GRP-INSERT",
+          "label": "삽입",
+          "image_mso": "PictureInsertFromFile",
+          "controls": [
+            {
+              "kind": "menu",
+              "id": "NX-INSERT-MENU",
+              "label": "삽입",
+              "image_mso": "PictureInsertFromFile",
+              "keytip": "I",
+              "size": "large",
+              "control_type": 1,
+              "menu": [],
+              "catalog_category_id": "NX-GRP-INSERT",
+              "catalog_control_ids": {
+                "NX-DRAW-INSERT-PICTURE": "NX-INSERT-PICTURE"
+              }
+            }
+          ]
+        },
+        {
+          "id": "NX-GRP-FILE",
+          "label": "파일관리",
+          "image_mso": "FileOpen",
+          "controls": [
+            {
+              "kind": "menu",
+              "id": "NX-FILE-MENU",
+              "label": "파일관리",
+              "image_mso": "FileOpen",
+              "keytip": "M",
+              "size": "large",
+              "control_type": 1,
+              "menu": [
+                {
+                  "kind": "button",
+                  "id": "NX-FILE-OPEN-CURRENT-FOLDER",
+                  "target": "NX-MGMT-SAVED-FOLDER",
+                  "tag": "nx1|entry|NX-MGMT-SAVED-FOLDER",
+                  "label": "현재 파일 폴더 열기",
+                  "image_mso": "FileOpen",
+                  "callback": "NxRibbonExecute"
+                }
+              ],
+              "catalog_category_id": "NX-GRP-FILE",
+              "catalog_control_ids": {
+                "NX-FILE-FOLDER-CREATE": "NX-FILE-MENU-FOLDER-CREATE",
+                "NX-FILE-CONSOLIDATE": "NX-FILE-MENU-CONSOLIDATE",
+                "NX-FILE-BATCH-RENAME": "NX-FILE-MENU-BATCH-RENAME"
+              }
+            }
+          ]
+        },
+        {
+          "id": "NX-GRP-DATA",
+          "label": "데이터",
+          "image_mso": "TableInsert",
+          "controls": [
+            {
+              "kind": "menu",
+              "id": "NX-DATA-MENU",
+              "label": "데이터",
+              "image_mso": "TableInsert",
+              "keytip": "D",
+              "size": "large",
+              "control_type": 1,
+              "menu": [],
+              "catalog_category_id": "NX-GRP-DATA",
+              "catalog_control_ids": {
+                "NX-DATA-NORMALIZE": "NX-DATA-MENU-NORMALIZE",
+                "NX-DATA-UNIQUE-COUNT": "NX-DATA-MENU-UNIQUE",
+                "NX-DATA-DUPLICATE-LIST": "NX-DATA-MENU-DUPLICATE",
+                "NX-DATA-AGE": "NX-DATA-MENU-AGE",
+                "NX-DATA-KOREAN-MONEY": "NX-DATA-MENU-KOREAN-MONEY",
+                "NX-DATA-PRIVACY-MASK": "NX-DATA-MENU-PRIVACY-MASK",
+                "NX-FILE-WORKBOOK-COMPARE": "NX-COMPARE-RANGE",
+                "NX-FILE-SHEET-COMPARE": "NX-COMPARE-SHEET",
+                "NX-FILE-FILE-COMPARE": "NX-COMPARE-FILE"
+              }
+            }
+          ]
+        },
+        {
+          "id": "NX-GRP-TEMPLATE",
+          "label": " ",
+          "image_mso": "FileNew",
+          "controls": [
+            {
+              "kind": "box",
+              "id": "NX-TEMPLATE-FUNCTION-VERTICAL",
+              "box_style": "vertical",
+              "box": [
+                {
+                  "kind": "button",
+                  "id": "NX-TEMPLATE-OPEN",
+                  "feature_id": "NX-TPL-LIST",
+                  "label": "템플릿",
+                  "image_mso": "FileNew",
+                  "keytip": "T",
+                  "size": "normal",
+                  "control_type": 2
+                },
+                {
+                  "kind": "menu",
+                  "id": "NX-FUNCTION-MENU",
+                  "label": "함수",
+                  "image_mso": "FunctionWizard",
+                  "control_type": 2,
+                  "menu": [
+                    {
+                      "kind": "button",
+                      "id": "NX-FUNCTION-NOTE",
+                      "command_id": "NX-CMD-STYLE-RB-EDIT-MEMO-ADD-LHEXCELFORMULA"
+                    },
+                    {
+                      "kind": "button",
+                      "id": "NX-FUNCTION-REFERENCES",
+                      "command_id": "NX-CMD-FORMULA-RB-FORMULA-PRECEDENTS-LIST"
+                    },
+                    {
+                      "kind": "button",
+                      "id": "NX-FUNCTION-ROUND",
+                      "command_id": "NX-CMD-FUNCTION-ROUND"
+                    },
+                    {
+                      "kind": "button",
+                      "id": "NX-FUNCTION-IFERROR",
+                      "command_id": "NX-CMD-FUNCTION-IFERROR"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "NX-GRP-WORKSHEET-TOOLS",
+          "label": " ",
+          "image_mso": "ViewNormalViewExcel",
+          "controls": [
+            {
+              "kind": "box",
+              "id": "NX-WORKSHEET-TOOLS-VERTICAL",
+              "box_style": "vertical",
+              "box": [
+                {
+                  "kind": "menu",
+                  "id": "NX-R50-CELL-FIT-MENU",
+                  "label": "셀맞춤",
+                  "image_mso": "RowHeight",
+                  "control_type": 2,
+                  "catalog_category_id": "NX-GRP-CELL-FIT",
+                  "menu": []
+                },
+                {
+                  "kind": "menu",
+                  "id": "NX-R50-SHEET-MENU",
+                  "label": "시트·보기",
+                  "image_mso": "ViewNormalViewExcel",
+                  "control_type": 2,
+                  "menu": [],
+                  "catalog_category_id": "NX-GRP-SHEET",
+                  "catalog_control_ids": {
+                    "NX-FILE-SHEET-BATCH-RENAME": "NX-FILE-MENU-SHEET-BATCH-RENAME"
+                  }
+                },
+                {
+                  "kind": "button",
+                  "id": "NX-R94-QUICK-DOCUMENT-NAVIGATOR",
+                  "feature_id": "NX-UTIL-DOCUMENT-NAVIGATOR",
+                  "size": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "NX-GRP-STYLE",
+          "label": "스타일",
+          "image_mso": "TableAutoFormat",
+          "controls": [
+            {
+              "kind": "box",
+              "id": "NX-STYLE-QUICK-VERTICAL",
+              "box_style": "vertical",
+              "box": [
+                {
+                  "kind": "box",
+                  "id": "NX-STYLE-QUICK-FONT-SIZE-ROW",
+                  "box_style": "horizontal",
+                  "box": [
+                    {
+                      "kind": "button",
+                      "command_id": "NX-CMD-STYLE-FONT-SIZE-9",
+                      "id": "NX-STYLE-QUICK-FONT-SIZE-9",
+                      "control_type": 3,
+                      "show_label": false,
+                      "image": "nx-quick-font-size-9"
+                    },
+                    {
+                      "kind": "button",
+                      "command_id": "NX-CMD-STYLE-FONT-SIZE-10",
+                      "id": "NX-STYLE-QUICK-FONT-SIZE-10",
+                      "control_type": 3,
+                      "show_label": false,
+                      "image": "nx-quick-font-size-10"
+                    },
+                    {
+                      "kind": "button",
+                      "command_id": "NX-CMD-STYLE-FONT-SIZE-12",
+                      "id": "NX-STYLE-QUICK-FONT-SIZE-12",
+                      "control_type": 3,
+                      "show_label": false,
+                      "image": "nx-quick-font-size-12"
+                    },
+                    {
+                      "kind": "button",
+                      "command_id": "NX-CMD-STYLE-FONT-SIZE-15",
+                      "id": "NX-STYLE-QUICK-FONT-SIZE-15",
+                      "control_type": 3,
+                      "show_label": false,
+                      "image": "nx-quick-font-size-15"
+                    },
+                    {
+                      "kind": "button",
+                      "command_id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-PERCENTAGE",
+                      "id": "NX-STYLE-QUICK-NUMBER-PERCENTAGE",
+                      "control_type": 3,
+                      "show_label": false,
+                      "image": "nx-quick-number-percent"
+                    },
+                    {
+                      "kind": "builtin_button",
+                      "id_mso": "AlignLeft",
+                      "show_label": false,
+                      "screentip": "왼쪽 정렬",
+                      "element": "toggleButton"
+                    }
+                  ]
+                },
+                {
+                  "kind": "box",
+                  "id": "NX-STYLE-QUICK-FONT-COLOR-ROW",
+                  "box_style": "horizontal",
+                  "box": [
+                    {
+                      "kind": "button",
+                      "command_id": "NX-CMD-STYLE-FONT-COLOR-BLACK",
+                      "id": "NX-STYLE-QUICK-FONT-COLOR-BLACK",
+                      "control_type": 3,
+                      "show_label": false,
+                      "image": "nx-quick-font-color-black"
+                    },
+                    {
+                      "kind": "button",
+                      "command_id": "NX-CMD-STYLE-FONT-COLOR-RED",
+                      "id": "NX-STYLE-QUICK-FONT-COLOR-RED",
+                      "control_type": 3,
+                      "show_label": false,
+                      "image": "nx-quick-font-color-red"
+                    },
+                    {
+                      "kind": "button",
+                      "command_id": "NX-CMD-STYLE-FONT-COLOR-BLUE",
+                      "id": "NX-STYLE-QUICK-FONT-COLOR-BLUE",
+                      "control_type": 3,
+                      "show_label": false,
+                      "image": "nx-quick-font-color-blue"
+                    },
+                    {
+                      "kind": "button",
+                      "command_id": "NX-CMD-STYLE-FONT-COLOR-GREEN",
+                      "id": "NX-STYLE-QUICK-FONT-COLOR-GREEN",
+                      "control_type": 3,
+                      "show_label": false,
+                      "image": "nx-quick-font-color-green"
+                    },
+                    {
+                      "kind": "button",
+                      "command_id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-NUMBER",
+                      "id": "NX-STYLE-QUICK-NUMBER-NUMBER",
+                      "control_type": 3,
+                      "show_label": false,
+                      "image": "nx-quick-number-comma"
+                    },
+                    {
+                      "kind": "builtin_button",
+                      "id_mso": "AlignCenter",
+                      "show_label": false,
+                      "screentip": "가운데 정렬",
+                      "element": "toggleButton"
+                    }
+                  ]
+                },
+                {
+                  "kind": "box",
+                  "id": "NX-STYLE-QUICK-FILL-ROW",
+                  "box_style": "horizontal",
+                  "box": [
+                    {
+                      "kind": "button",
+                      "command_id": "NX-CMD-STYLE-FILL-GRAY",
+                      "id": "NX-STYLE-QUICK-FILL-GRAY",
+                      "control_type": 3,
+                      "show_label": false,
+                      "image": "nx-quick-fill-gray"
+                    },
+                    {
+                      "kind": "button",
+                      "command_id": "NX-CMD-STYLE-FILL-LIGHT-RED",
+                      "id": "NX-STYLE-QUICK-FILL-LIGHT-RED",
+                      "control_type": 3,
+                      "show_label": false,
+                      "image": "nx-quick-fill-light-red"
+                    },
+                    {
+                      "kind": "button",
+                      "command_id": "NX-CMD-STYLE-FILL-LIGHT-YELLOW",
+                      "id": "NX-STYLE-QUICK-FILL-LIGHT-YELLOW",
+                      "control_type": 3,
+                      "show_label": false,
+                      "image": "nx-quick-fill-light-yellow"
+                    },
+                    {
+                      "kind": "button",
+                      "command_id": "NX-CMD-STYLE-FILL-LIGHT-GREEN",
+                      "id": "NX-STYLE-QUICK-FILL-LIGHT-GREEN",
+                      "control_type": 3,
+                      "show_label": false,
+                      "image": "nx-quick-fill-light-green"
+                    },
+                    {
+                      "kind": "button",
+                      "command_id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-DECIMAL",
+                      "id": "NX-STYLE-QUICK-NUMBER-DECIMAL",
+                      "control_type": 3,
+                      "show_label": false,
+                      "image": "nx-quick-number-decimal"
+                    },
+                    {
+                      "kind": "builtin_button",
+                      "id_mso": "AlignRight",
+                      "show_label": false,
+                      "screentip": "오른쪽 정렬",
+                      "element": "toggleButton"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "menu",
+              "id": "NX-STYLE-MENU",
+              "label": "스타일",
+              "image_mso": "TableAutoFormat",
+              "keytip": "Y",
+              "size": "large",
+              "control_type": 1,
+              "menu": [],
+              "catalog_category_id": "NX-GRP-STYLE",
+              "catalog_control_ids": {
+                "NX-CMD-STYLE-RB-LHESTYLE-RESETWORKBOOKSTYLES": "NX-STYLE-RESET-WORKBOOK"
+              }
+            },
+            {
+              "kind": "box",
+              "id": "NX-STYLE-DRAW-VERTICAL",
+              "box_style": "vertical",
+              "box": [
+                {
+                  "kind": "button",
+                  "feature_id": "NX-DRAW-TITLE-TABLE",
+                  "id": "NX-STYLE-TITLE-TABLE-BUTTON",
+                  "label": "타이틀표 그리기",
+                  "control_type": 2
+                },
+                {
+                  "kind": "button",
+                  "feature_id": "NX-DRAW-BUSINESS-TABLE",
+                  "id": "NX-STYLE-BUSINESS-TABLE-BUTTON",
+                  "label": "표 그리기",
+                  "control_type": 2
+                },
+                {
+                  "kind": "button",
+                  "feature_id": "NX-DRAW-CLEAR-INNER",
+                  "id": "NX-STYLE-CLEAR-INNER-BUTTON",
+                  "label": "내부선 제거",
+                  "control_type": 2
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "id": "NX-STYLE-ACTION-VERTICAL",
+              "box_style": "vertical",
+              "box": [
+                {
+                  "kind": "button",
+                  "feature_id": "NX-HANGUL-TABLE-SEND",
+                  "id": "NX-STYLE-HANGUL-SEND-BUTTON",
+                  "label": "아래한글 표 전송",
+                  "control_type": 2,
+                  "screentip": "아래한글 표 전송",
+                  "supertip": "선택 범위를 아래한글 표로 전송합니다."
+                },
+                {
+                  "kind": "button",
+                  "id": "NX-STYLE-MYEXCEL-FORMAT-BUTTON",
+                  "label": "내엑셀 스타일",
+                  "control_type": 2,
+                  "feature_id": "NX-DRAW-ROLE-STYLE"
+                },
+                {
+                  "kind": "button",
+                  "command_id": "NX-CMD-ALIGN-RB-EDIT-ALIGN-CENTER-OVERCELLS",
+                  "id": "NX-STYLE-MODEL-MERGE-BUTTON",
+                  "label": "모형병합 실행/취소",
+                  "control_type": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "NX-GRP-UTIL",
+          "label": "추가기능",
+          "image_mso": "AddInManager",
+          "controls": [
+            {
+              "kind": "menu",
+              "id": "NX-UTIL-MENU",
+              "label": "추가기능",
+              "image_mso": "AddInManager",
+              "keytip": "X",
+              "size": "large",
+              "control_type": 1,
+              "menu": [
+                {
+                  "kind": "button",
+                  "id": "NX-UTIL-MENU-SHORTCUTS",
+                  "target": "NX-MGMT-SHORTCUTS",
+                  "tag": "nx1|entry|NX-MGMT-SHORTCUTS",
+                  "label": "단축키 관리",
+                  "image_mso": "ControlProperties",
+                  "callback": "NxRibbonExecute"
+                },
+                {
+                  "kind": "button",
+                  "id": "NX-UTIL-MENU-AI-WORKBENCH",
+                  "target": "NX-ENTRY-AI",
+                  "tag": "nx1|entry|NX-ENTRY-AI",
+                  "label": "AI 작업대",
+                  "image_mso": "SmartArtInsert",
+                  "callback": "NxRibbonExecute",
+                  "control_type": 2
+                }
+              ],
+              "catalog_category_id": "NX-GRP-UTIL",
+              "catalog_control_ids": {
+                "NX-UTIL-NAVIGATOR": "NX-UTIL-MENU-NAVIGATOR"
+              }
+            },
+            {
+              "kind": "box",
+              "id": "NX-UTIL-VERTICAL",
+              "box_style": "vertical",
+              "box": [
+                {
+                  "kind": "button",
+                  "id": "NX-UTIL-AI-WORKBENCH",
+                  "target": "NX-ENTRY-AI",
+                  "tag": "nx1|entry|NX-ENTRY-AI",
+                  "label": "AI 작업대",
+                  "image_mso": "SmartArtInsert",
+                  "callback": "NxRibbonExecute",
+                  "control_type": 2
+                },
+                {
+                  "kind": "button",
+                  "feature_id": "NX-UTIL-CALCULATOR",
+                  "id": "NX-UTIL-CALCULATOR-BUTTON",
+                  "label": "계산기",
+                  "image_mso": "CalculateNow",
+                  "control_type": 2
+                },
+                {
+                  "kind": "button",
+                  "feature_id": "NX-UTIL-SYMBOLS",
+                  "id": "NX-UTIL-SYMBOLS-BUTTON",
+                  "label": "기호표",
+                  "image_mso": "SymbolInsert",
+                  "control_type": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "NX-GRP-INFO",
+          "label": "정보진단",
+          "image_mso": "Info",
+          "controls": [
+            {
+              "kind": "menu",
+              "id": "NX-INFO-MENU",
+              "label": "정보진단",
+              "image_mso": "Info",
+              "size": "large",
+              "control_type": 1,
+              "menu": [],
+              "catalog_category_id": "NX-GRP-INFO",
+              "catalog_control_ids": {
+                "NX-CMD-INFO-RB-APP-NAMEUNHIDE": "NX-INFO-NAME-UNHIDE",
+                "NX-CMD-INFO-RB-INFO-MEMO-LIST": "NX-INFO-MEMO-LIST",
+                "NX-CMD-INFO-RB-INFO-SHEET-LIST": "NX-INFO-SHEET-LIST",
+                "NX-DATA-PRIVACY-SCAN": "NX-DATA-MENU-PRIVACY-SCAN"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

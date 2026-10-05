@@ -1,0 +1,2924 @@
+{
+  "schema_version": 6,
+  "required_fields": [
+    "id",
+    "description_ko",
+    "owner",
+    "base_execution_grade",
+    "planned_cell_threshold",
+    "privacy",
+    "ribbon",
+    "launch_surface",
+    "ui_surface",
+    "dialog_id",
+    "dialog_template",
+    "dialog_variant",
+    "state_resolver",
+    "source_asset_id",
+    "reuse_mode",
+    "catalog_path",
+    "catalog_visible",
+    "navigation"
+  ],
+  "privacy_fields": [
+    "ai_processing",
+    "network_transfer",
+    "local_process_transfer",
+    "local_file_creation"
+  ],
+  "ribbon_metadata": {
+    "authority": "feature-contract",
+    "surface_contract": "ribbon-shell-contract.json",
+    "unexposed_features": [
+      "NX-DRAW-FIT-PICTURE",
+      "NX-AI-SUMMARY",
+      "NX-AI-CLEAN",
+      "NX-AI-FORMULA",
+      "NX-AI-WRITE",
+      "NX-AI-IMAGE",
+      "NX-FILE-PDF-EACH-SHEET",
+      "NX-FILE-PDF-SELECTED-COMBINED",
+      "NX-FILE-PDF-SETTINGS"
+    ],
+    "home_group": "NX-HOME-GRP-MYEXCEL",
+    "groups": [
+      "NX-GRP-MYEXCEL",
+      "NX-GRP-SAVE",
+      "NX-GRP-PRINT",
+      "NX-GRP-COPY",
+      "NX-GRP-INSERT",
+      "NX-GRP-FILE",
+      "NX-GRP-COMPARE",
+      "NX-GRP-TEMPLATE",
+      "NX-GRP-DATA",
+      "NX-GRP-WORKSHEET-TOOLS",
+      "NX-GRP-STYLE",
+      "NX-GRP-UTIL",
+      "NX-GRP-INFO"
+    ]
+  },
+  "lineage": {
+    "baseline": "r41-31-feature-floor",
+    "required_feature_ids": [
+      "NX-AI-SUMMARY",
+      "NX-AI-CLEAN",
+      "NX-AI-FORMULA",
+      "NX-AI-WRITE",
+      "NX-AI-IMAGE",
+      "NX-TPL-REGISTER-SHEET",
+      "NX-TPL-LIST",
+      "NX-TPL-LOAD",
+      "NX-TPL-RENAME",
+      "NX-TPL-DELETE",
+      "NX-DATA-NORMALIZE",
+      "NX-DATA-UNIQUE-COUNT",
+      "NX-DATA-DUPLICATE-LIST",
+      "NX-DATA-FOCUS-CELL",
+      "NX-DRAW-TITLE-TABLE",
+      "NX-DRAW-BUSINESS-TABLE",
+      "NX-DRAW-ROLE-STYLE",
+      "NX-DRAW-CLEAR-INNER",
+      "NX-DRAW-FIT-PICTURE",
+      "NX-DRAW-INSERT-PICTURE",
+      "NX-FILE-FOLDER-CREATE",
+      "NX-FILE-CONSOLIDATE",
+      "NX-FILE-MANNER-SAVE",
+      "NX-FILE-RANGE-PNG",
+      "NX-FILE-CHART-PNG"
+    ],
+    "release_feature_ids": [
+      "NX-AI-SUMMARY",
+      "NX-AI-CLEAN",
+      "NX-AI-FORMULA",
+      "NX-AI-WRITE",
+      "NX-AI-IMAGE",
+      "NX-TPL-REGISTER-SHEET",
+      "NX-TPL-LIST",
+      "NX-TPL-LOAD",
+      "NX-TPL-RENAME",
+      "NX-TPL-DELETE",
+      "NX-DATA-NORMALIZE",
+      "NX-DATA-UNIQUE-COUNT",
+      "NX-DATA-DUPLICATE-LIST",
+      "NX-DATA-AGE",
+      "NX-DATA-KOREAN-MONEY",
+      "NX-DATA-PRIVACY-MASK",
+      "NX-DATA-PRIVACY-SCAN",
+      "NX-DATA-FOCUS-CELL",
+      "NX-DATA-COPY-VISIBLE",
+      "NX-DATA-PASTE-VISIBLE-VALUES",
+      "NX-HANGUL-TABLE-SEND",
+      "NX-HANGUL-PICTURE-SEND",
+      "NX-DRAW-TITLE-TABLE",
+      "NX-DRAW-BUSINESS-TABLE",
+      "NX-DRAW-ROLE-STYLE",
+      "NX-DRAW-CLEAR-INNER",
+      "NX-DRAW-FIT-PICTURE",
+      "NX-DRAW-INSERT-PICTURE",
+      "NX-FILE-FOLDER-CREATE",
+      "NX-FILE-CONSOLIDATE",
+      "NX-FILE-MANNER-SAVE",
+      "NX-FILE-RANGE-PNG",
+      "NX-FILE-CHART-PNG",
+      "NX-FILE-SHEET-COPY-SAVE",
+      "NX-FILE-RANGE-COPY-SAVE",
+      "NX-FILE-WORKBOOK-COMPARE",
+      "NX-FILE-BATCH-RENAME",
+      "NX-FILE-SHEET-BATCH-RENAME",
+      "NX-FILE-PDF-CURRENT-SHEET",
+      "NX-FILE-PDF-EACH-SHEET",
+      "NX-FILE-PDF-SELECTED-COMBINED",
+      "NX-FILE-PDF-ALL-COMBINED",
+      "NX-FILE-PDF-SETTINGS",
+      "NX-UTIL-CALCULATOR",
+      "NX-UTIL-SYMBOLS",
+      "NX-UTIL-NAVIGATOR",
+      "NX-UTIL-DOCUMENT-NAVIGATOR",
+      "NX-FILE-SHEET-COMPARE",
+      "NX-FILE-FILE-COMPARE"
+    ],
+    "hangul_table_send_requirement": {
+      "feature_id": "NX-HANGUL-TABLE-SEND",
+      "name": "아래한글 표 전송",
+      "reference": "v3.4",
+      "status": "implemented",
+      "transport": "embedded-HWPX"
+    }
+  },
+  "features": [
+    {
+      "id": "NX-AI-SUMMARY",
+      "owner": "ai",
+      "base_execution_grade": "guarded",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": false,
+        "workflow_group_id": "NX-GRP-UTIL",
+        "control_id": "NX-AI-SUMMARY",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 1,
+        "size": "small",
+        "image_mso": "SmartArtInsert",
+        "keytip": null,
+        "label": "요약·분석",
+        "label_key": "nx_ai_summary"
+      },
+      "launch_surface": "workbench",
+      "dialog_id": "NX-DLG-AI-WORKBENCH",
+      "dialog_template": "FNxAi",
+      "dialog_variant": "summary",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": "NX-ASSET-DATA-AI-WORKBENCH-V34",
+      "reuse_mode": "adapt",
+      "catalog_path": [
+        "추가기능",
+        "AI 작업대"
+      ],
+      "catalog_visible": false,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-UTIL",
+        "object_scope": [
+          "selection",
+          "clipboard"
+        ],
+        "purpose_tags": [
+          "요약·분석"
+        ],
+        "launch_surface": "workbench",
+        "mutation_scope": "none",
+        "selection_mode": "optional",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "선택한 내용과 지시문으로 요약·분석 요청을 준비합니다. 전송할 문구를 확인해 복사하며 외부 서비스에 자동 업로드하지 않습니다."
+    },
+    {
+      "id": "NX-AI-CLEAN",
+      "owner": "ai",
+      "base_execution_grade": "guarded",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": false,
+        "workflow_group_id": "NX-GRP-UTIL",
+        "control_id": "NX-AI-CLEAN",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 2,
+        "size": "small",
+        "image_mso": "TextDirectionLeftToRight",
+        "keytip": null,
+        "label": "데이터 정리",
+        "label_key": "nx_ai_clean"
+      },
+      "launch_surface": "workbench",
+      "dialog_id": "NX-DLG-AI-WORKBENCH",
+      "dialog_template": "FNxAi",
+      "dialog_variant": "clean",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": "NX-ASSET-DATA-AI-WORKBENCH-V34",
+      "reuse_mode": "adapt",
+      "catalog_path": [
+        "추가기능",
+        "AI 작업대"
+      ],
+      "catalog_visible": false,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-UTIL",
+        "object_scope": [
+          "selection",
+          "clipboard"
+        ],
+        "purpose_tags": [
+          "데이터 정리"
+        ],
+        "launch_surface": "workbench",
+        "mutation_scope": "none",
+        "selection_mode": "optional",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "선택한 데이터의 정리 요청을 AI 작업대에서 작성합니다. 이 화면에서 원본 셀을 직접 바꾸지는 않습니다."
+    },
+    {
+      "id": "NX-AI-FORMULA",
+      "owner": "ai",
+      "base_execution_grade": "guarded",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": false,
+        "workflow_group_id": "NX-GRP-UTIL",
+        "control_id": "NX-AI-FORMULA",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 3,
+        "size": "small",
+        "image_mso": "TableFormulaDialog",
+        "keytip": null,
+        "label": "수식 도우미",
+        "label_key": "nx_ai_formula"
+      },
+      "launch_surface": "workbench",
+      "dialog_id": "NX-DLG-AI-WORKBENCH",
+      "dialog_template": "FNxAi",
+      "dialog_variant": "formula",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": "NX-ASSET-DATA-AI-WORKBENCH-V34",
+      "reuse_mode": "adapt",
+      "catalog_path": [
+        "추가기능",
+        "AI 작업대"
+      ],
+      "catalog_visible": false,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-UTIL",
+        "object_scope": [
+          "selection",
+          "clipboard"
+        ],
+        "purpose_tags": [
+          "수식 도우미"
+        ],
+        "launch_surface": "workbench",
+        "mutation_scope": "none",
+        "selection_mode": "optional",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "표의 구조와 원하는 계산을 설명하는 요청을 준비합니다. 생성 결과를 자동 실행하거나 원본 수식에 덮어쓰지 않습니다."
+    },
+    {
+      "id": "NX-AI-WRITE",
+      "owner": "ai",
+      "base_execution_grade": "guarded",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": false,
+        "workflow_group_id": "NX-GRP-UTIL",
+        "control_id": "NX-AI-WRITE",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 4,
+        "size": "small",
+        "image_mso": "SmartArtInsert",
+        "keytip": "W1",
+        "label": "AI 문서 작성",
+        "label_key": null
+      },
+      "launch_surface": "workbench",
+      "dialog_id": "NX-DLG-AI-WORKBENCH",
+      "dialog_template": "FNxAi",
+      "dialog_variant": "write",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": "NX-ASSET-DATA-AI-WORKBENCH-V34",
+      "reuse_mode": "adapt",
+      "catalog_path": [
+        "추가기능",
+        "AI 작업대"
+      ],
+      "catalog_visible": false,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-UTIL",
+        "object_scope": [
+          "selection",
+          "clipboard"
+        ],
+        "purpose_tags": [
+          "AI 문서 작성"
+        ],
+        "launch_surface": "workbench",
+        "mutation_scope": "none",
+        "selection_mode": "optional",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "문서 작성 목적과 참고 내용을 한 요청으로 정리합니다. 확인한 문구만 사용자가 복사해 활용합니다."
+    },
+    {
+      "id": "NX-AI-IMAGE",
+      "owner": "ai",
+      "base_execution_grade": "guarded",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": false,
+        "workflow_group_id": "NX-GRP-UTIL",
+        "control_id": "NX-AI-IMAGE",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 5,
+        "size": "small",
+        "image_mso": "ControlImage",
+        "keytip": "W2",
+        "label": "AI 이미지 활용",
+        "label_key": null
+      },
+      "launch_surface": "workbench",
+      "dialog_id": "NX-DLG-AI-WORKBENCH",
+      "dialog_template": "FNxAi",
+      "dialog_variant": "image",
+      "ui_surface": null,
+      "state_resolver": null,
+      "source_asset_id": "NX-ASSET-DATA-AI-WORKBENCH-V34",
+      "reuse_mode": "adapt",
+      "catalog_path": [
+        "추가기능",
+        "AI 작업대"
+      ],
+      "catalog_visible": false,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-UTIL",
+        "object_scope": [
+          "selection",
+          "clipboard"
+        ],
+        "purpose_tags": [
+          "AI 이미지 활용"
+        ],
+        "launch_surface": "workbench",
+        "mutation_scope": "none",
+        "selection_mode": "optional",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "이미지 활용을 위한 지시문을 준비합니다. 선택한 내용을 미리 확인하며 이 기능 자체가 이미지를 생성하지는 않습니다."
+    },
+    {
+      "id": "NX-TPL-REGISTER-SHEET",
+      "owner": "template",
+      "base_execution_grade": "planned",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": false,
+        "workflow_group_id": "NX-GRP-TEMPLATE",
+        "control_id": "NX-TPL-REGISTER-SHEET",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 7,
+        "size": "small",
+        "image_mso": "FileSaveAs",
+        "keytip": null,
+        "label": "현재 시트 템플릿 등록",
+        "label_key": "nx_tpl_register_sheet"
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-TPL-REGISTER",
+      "dialog_template": "FNxTemplateRegister",
+      "dialog_variant": "sheet",
+      "ui_surface": "compact",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "direct",
+      "catalog_path": [
+        "템플릿",
+        "현재 시트 템플릿 등록"
+      ],
+      "catalog_visible": false,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-TEMPLATE",
+        "object_scope": [
+          "worksheet",
+          "template_store"
+        ],
+        "purpose_tags": [
+          "현재 시트 템플릿 등록"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "local_store",
+        "selection_mode": "none",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "현재 시트의 사용 영역을 템플릿으로 등록합니다. 전용 창에서 이름과 셀 값 포함 여부를 정하며 원본 시트는 유지합니다."
+    },
+    {
+      "id": "NX-TPL-LIST",
+      "owner": "template",
+      "base_execution_grade": "fast",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-TEMPLATE",
+        "control_id": "NX-TPL-LIST",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 8,
+        "size": "small",
+        "image_mso": "PropertySheet",
+        "keytip": "W3",
+        "label": "템플릿",
+        "label_key": null
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-TPL-MANAGER",
+      "dialog_template": "FNxTemplateManager",
+      "dialog_variant": "list",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "direct",
+      "catalog_path": [
+        "템플릿",
+        "템플릿"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-TEMPLATE",
+        "object_scope": [
+          "template_store",
+          "workbook"
+        ],
+        "purpose_tags": [
+          "템플릿 관리"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "local_store",
+        "selection_mode": "none",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "등록한 엑셀 양식을 검색하고 순서를 조정합니다. 파일·시트 등록, 상세 편집, 사용과 삭제를 제공합니다."
+    },
+    {
+      "id": "NX-TPL-LOAD",
+      "owner": "template",
+      "base_execution_grade": "guarded",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": true
+      },
+      "ribbon": {
+        "exposed": false,
+        "workflow_group_id": "NX-GRP-TEMPLATE",
+        "control_id": "NX-TPL-LOAD",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 9,
+        "size": "small",
+        "image_mso": "FileOpen",
+        "keytip": null,
+        "label": "템플릿 사용",
+        "label_key": "nx_tpl_load"
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-TPL-MANAGER",
+      "dialog_template": "FNxTemplateManager",
+      "dialog_variant": "load",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "direct",
+      "catalog_path": [
+        "템플릿",
+        "템플릿 사용"
+      ],
+      "catalog_visible": false,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-TEMPLATE",
+        "object_scope": [
+          "template_store",
+          "workbook"
+        ],
+        "purpose_tags": [
+          "템플릿 사용"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "local_store",
+        "selection_mode": "none",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "등록한 템플릿을 선택해 새 결과를 만듭니다. 원본 템플릿과 기존 시트 내용을 덮어쓰지 않습니다."
+    },
+    {
+      "id": "NX-TPL-RENAME",
+      "owner": "template",
+      "base_execution_grade": "planned",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": false,
+        "workflow_group_id": "NX-GRP-TEMPLATE",
+        "control_id": "NX-TPL-RENAME",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 10,
+        "size": "small",
+        "image_mso": "FileProperties",
+        "keytip": null,
+        "label": "템플릿 이름 바꾸기",
+        "label_key": "nx_tpl_rename"
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-TPL-MANAGER",
+      "dialog_template": "FNxTemplateManager",
+      "dialog_variant": "rename",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "direct",
+      "catalog_path": [
+        "템플릿",
+        "템플릿 이름 바꾸기"
+      ],
+      "catalog_visible": false,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-TEMPLATE",
+        "object_scope": [
+          "template_store",
+          "workbook"
+        ],
+        "purpose_tags": [
+          "템플릿 이름 바꾸기"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "local_store",
+        "selection_mode": "none",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "이름 변경 창에서 템플릿과 새 표시 이름을 지정합니다. 같은 이름이 있는지와 저장소 상태를 확인한 뒤 적용합니다."
+    },
+    {
+      "id": "NX-TPL-DELETE",
+      "owner": "template",
+      "base_execution_grade": "planned",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": false,
+        "workflow_group_id": "NX-GRP-TEMPLATE",
+        "control_id": "NX-TPL-DELETE",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 11,
+        "size": "small",
+        "image_mso": "DataFormDeleteRecord",
+        "keytip": null,
+        "label": "템플릿 제거",
+        "label_key": "nx_tpl_delete"
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-TPL-MANAGER",
+      "dialog_template": "FNxTemplateManager",
+      "dialog_variant": "delete",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "direct",
+      "catalog_path": [
+        "템플릿",
+        "템플릿 제거"
+      ],
+      "catalog_visible": false,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-TEMPLATE",
+        "object_scope": [
+          "template_store",
+          "workbook"
+        ],
+        "purpose_tags": [
+          "템플릿 제거"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "local_store",
+        "selection_mode": "none",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "선택한 양식을 보관함 목록에서 삭제합니다. 등록에 사용한 원본 파일은 변경하지 않습니다."
+    },
+    {
+      "id": "NX-DATA-NORMALIZE",
+      "owner": "data",
+      "base_execution_grade": "fast",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-DATA",
+        "control_id": "NX-DATA-NORMALIZE",
+        "launch_mode": "feature",
+        "placement": "small",
+        "order": 12,
+        "size": "small",
+        "image_mso": "TextDirectionLeftToRight",
+        "keytip": "N",
+        "label": "데이터 정규화",
+        "label_key": null
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-DATA-NORMALIZE",
+      "dialog_template": "FNxDataNormalize",
+      "dialog_variant": "normalize",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": "NX-ASSET-DATA-AI-WORKBENCH-V34",
+      "reuse_mode": "adapt",
+      "catalog_path": [
+        "데이터",
+        "데이터 정규화"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "selection",
+          "worksheet"
+        ],
+        "purpose_tags": [
+          "데이터 정규화"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "공백·문자·숫자·날짜의 표현을 정리합니다. 결과 위치와 옵션을 고른 뒤 바로 실행하며 미리보기는 선택 사항입니다."
+    },
+    {
+      "id": "NX-DATA-UNIQUE-COUNT",
+      "owner": "data",
+      "base_execution_grade": "fast",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-DATA",
+        "control_id": "NX-DATA-UNIQUE-COUNT",
+        "launch_mode": "feature",
+        "placement": "small",
+        "order": 13,
+        "size": "small",
+        "image_mso": "NumberingGallery",
+        "keytip": "U",
+        "label": "고유값 개수",
+        "label_key": null
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-DATA-ANALYZE",
+      "dialog_template": "FNxDataAnalyze",
+      "dialog_variant": "unique-count",
+      "ui_surface": "compact",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "direct",
+      "catalog_path": [
+        "데이터",
+        "고유값 개수"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "selection",
+          "worksheet"
+        ],
+        "purpose_tags": [
+          "고유값 개수"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "같은 값을 모아 등장 횟수와 비율을 계산합니다. 제목 행·대소문자·빈값 처리를 선택하고 별도 결과로 확인합니다."
+    },
+    {
+      "id": "NX-DATA-DUPLICATE-LIST",
+      "owner": "data",
+      "base_execution_grade": "fast",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-DATA",
+        "control_id": "NX-DATA-DUPLICATE-LIST",
+        "launch_mode": "feature",
+        "placement": "small",
+        "order": 14,
+        "size": "small",
+        "image_mso": "TableInsert",
+        "keytip": "P",
+        "label": "중복 목록",
+        "label_key": null,
+        "favorite_eligible": false
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-DATA-ANALYZE",
+      "dialog_template": "FNxDataAnalyze",
+      "dialog_variant": "duplicate-list",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "direct",
+      "catalog_path": [
+        "데이터",
+        "중복 목록"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "selection",
+          "worksheet"
+        ],
+        "purpose_tags": [
+          "중복 목록"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "두 목록을 비교해 함께 있는 값이나 한쪽에만 있는 값을 찾습니다. 비교 기준과 결과 위치를 선택하며 원본은 유지합니다."
+    },
+    {
+      "id": "NX-DATA-AGE",
+      "owner": "data",
+      "base_execution_grade": "guarded",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-DATA",
+        "control_id": "NX-DATA-AGE",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 15,
+        "size": "small",
+        "image_mso": "DateAndTimeInsert",
+        "keytip": "D1",
+        "label": "만나이 계산",
+        "label_key": "nx_data_age"
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-DATA-SPECIAL",
+      "dialog_template": "FNxAgeCalculator",
+      "dialog_variant": "age",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": "NX-ASSET-V34-SPECIAL-CATALOG",
+      "reuse_mode": "clean-room",
+      "catalog_path": [
+        "데이터",
+        "만나이 계산"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "selection",
+          "worksheet"
+        ],
+        "purpose_tags": [
+          "만나이 계산"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "생년월일과 기준일로 만 나이를 계산합니다. 만·세 표기와 결과 위치를 선택합니다. 기본값은 새 통합문서입니다."
+    },
+    {
+      "id": "NX-DATA-KOREAN-MONEY",
+      "owner": "data",
+      "base_execution_grade": "guarded",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-DATA",
+        "control_id": "NX-DATA-KOREAN-MONEY",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 16,
+        "size": "small",
+        "image_mso": "AccountingFormat",
+        "keytip": "D2",
+        "label": "한글 금액 변환",
+        "label_key": "nx_data_korean_money"
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-DATA-SPECIAL",
+      "dialog_template": "FNxDataSpecial",
+      "dialog_variant": "korean-money",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": "NX-ASSET-V34-SPECIAL-CATALOG",
+      "reuse_mode": "clean-room",
+      "catalog_path": [
+        "데이터",
+        "한글 금액 변환"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "selection",
+          "worksheet"
+        ],
+        "purpose_tags": [
+          "한글 금액 변환"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "숫자 금액을 한글 표현으로 만듭니다. 앞뒤 문구·숫자 혼합·0 처리와 결과 위치를 선택합니다."
+    },
+    {
+      "id": "NX-DATA-PRIVACY-MASK",
+      "owner": "data",
+      "base_execution_grade": "guarded",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-DATA",
+        "control_id": "NX-DATA-PRIVACY-MASK",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 17,
+        "size": "small",
+        "image_mso": "ProtectDocument",
+        "keytip": "D3",
+        "label": "개인정보 마스킹",
+        "label_key": "nx_data_privacy_mask"
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-DATA-SPECIAL",
+      "dialog_template": "FNxDataSpecial",
+      "dialog_variant": "privacy-mask",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": "NX-ASSET-V34-SPECIAL-CATALOG",
+      "reuse_mode": "clean-room",
+      "catalog_path": [
+        "데이터",
+        "개인정보 마스킹"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "selection",
+          "worksheet"
+        ],
+        "purpose_tags": [
+          "개인정보 마스킹"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "이름·연락처 등 선택한 유형의 일부 문자를 가립니다. 가림 방식과 결과 위치를 확인한 뒤 적용합니다."
+    },
+    {
+      "id": "NX-DATA-PRIVACY-SCAN",
+      "owner": "data",
+      "base_execution_grade": "guarded",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-INFO",
+        "control_id": "NX-DATA-PRIVACY-SCAN",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 18,
+        "size": "small",
+        "image_mso": "FileCheckOut",
+        "keytip": "D4",
+        "label": "개인정보 의심 항목 점검",
+        "label_key": "nx_data_privacy_scan"
+      },
+      "launch_surface": "direct",
+      "dialog_id": null,
+      "dialog_template": null,
+      "dialog_variant": null,
+      "ui_surface": "direct",
+      "state_resolver": null,
+      "source_asset_id": "NX-ASSET-V34-SPECIAL-CATALOG",
+      "reuse_mode": "clean-room",
+      "catalog_path": [
+        "정보진단",
+        "개인정보 의심 항목 점검"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-INFO",
+        "object_scope": [
+          "workbook"
+        ],
+        "purpose_tags": [
+          "개인정보 의심 항목 점검"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "none",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "숨김 시트를 포함한 문서의 셀에서 개인정보로 의심되는 패턴과 위치를 찾습니다. 실제 외부 유출 여부를 판정하는 기능은 아닙니다."
+    },
+    {
+      "id": "NX-DATA-FOCUS-CELL",
+      "owner": "data",
+      "base_execution_grade": "fast",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-UTIL",
+        "control_id": "NX-DATA-FOCUS-CELL",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 17,
+        "size": "small",
+        "image_mso": "TableStyleBandedColumns",
+        "keytip": "D5",
+        "label": "포커스셀",
+        "label_key": null
+      },
+      "launch_surface": "hybrid",
+      "dialog_id": "NX-DLG-FOCUS-SETTINGS",
+      "dialog_template": "FNxFocusSettings",
+      "dialog_variant": "focus-settings",
+      "ui_surface": "medium",
+      "state_resolver": "NxFocusIsEnabled",
+      "source_asset_id": "NX-ASSET-FOCUS-LIFECYCLE-V34",
+      "reuse_mode": "adapt",
+      "catalog_path": [
+        "추가기능",
+        "포커스셀"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-UTIL",
+        "object_scope": [
+          "selection",
+          "window"
+        ],
+        "purpose_tags": [
+          "포커스셀"
+        ],
+        "launch_surface": "hybrid",
+        "mutation_scope": "none",
+        "selection_mode": "optional",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "현재 선택 범위의 행과 열을 강조해 위치를 쉽게 구분합니다. 내부망은 조건부서식 기반으로, DLL 환경은 오버레이로 표시합니다."
+    },
+    {
+      "id": "NX-DATA-COPY-VISIBLE",
+      "owner": "data",
+      "base_execution_grade": "fast",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-COPY",
+        "control_id": "NX-DATA-COPY-VISIBLE",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 36,
+        "size": "small",
+        "image_mso": "Copy",
+        "keytip": "C1",
+        "label": "보이는 셀만 복사",
+        "label_key": null
+      },
+      "launch_surface": "direct",
+      "dialog_id": null,
+      "dialog_template": null,
+      "dialog_variant": null,
+      "ui_surface": "direct",
+      "state_resolver": null,
+      "source_asset_id": "NX-ASSET-CLIPBOARD-V34",
+      "reuse_mode": "adapt",
+      "catalog_path": [
+        "복사",
+        "보이는 셀만 복사"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-COPY",
+        "object_scope": [
+          "selection",
+          "clipboard"
+        ],
+        "purpose_tags": [
+          "보이는 셀만 복사"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "required",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "숨김·필터로 가려진 셀을 제외하고 보이는 셀의 값을 복사합니다. 붙여넣을 범위 크기를 함께 확인하세요."
+    },
+    {
+      "id": "NX-DATA-PASTE-VISIBLE-VALUES",
+      "owner": "data",
+      "base_execution_grade": "planned",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-COPY",
+        "control_id": "NX-DATA-PASTE-VISIBLE-VALUES",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 37,
+        "size": "small",
+        "image_mso": "Paste",
+        "keytip": "C2",
+        "label": "보이는 셀에 값 붙여넣기",
+        "label_key": null
+      },
+      "launch_surface": "direct",
+      "dialog_id": null,
+      "dialog_template": null,
+      "dialog_variant": null,
+      "ui_surface": "direct",
+      "state_resolver": null,
+      "source_asset_id": "NX-ASSET-CLIPBOARD-V34",
+      "reuse_mode": "adapt",
+      "catalog_path": [
+        "복사",
+        "보이는 셀에 값 붙여넣기"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-COPY",
+        "object_scope": [
+          "selection",
+          "clipboard"
+        ],
+        "purpose_tags": [
+          "보이는 셀에 값 붙여넣기"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "복사한 값을 대상의 보이는 셀에 입력합니다. 숨김 셀은 건너뛰며 대상 크기가 맞는지 실행 전에 확인합니다."
+    },
+    {
+      "id": "NX-HANGUL-TABLE-SEND",
+      "owner": "hangul",
+      "base_execution_grade": "guarded",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": true
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-STYLE",
+        "control_id": "NX-STYLE-HANGUL-TABLE-SEND",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 30,
+        "size": "small",
+        "image_mso": "FileSendAsAttachment",
+        "keytip": "H",
+        "label": "아래한글 표 전송",
+        "label_key": "nx_hangul_table_send"
+      },
+      "launch_surface": "direct",
+      "dialog_id": null,
+      "dialog_template": null,
+      "dialog_variant": null,
+      "ui_surface": "direct",
+      "state_resolver": null,
+      "source_asset_id": "NX-ASSET-HANGUL-TABLE-SEND-V34",
+      "reuse_mode": "adapt",
+      "catalog_path": [
+        "스타일",
+        "아래한글 표 전송"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection",
+          "hangul_document"
+        ],
+        "purpose_tags": [
+          "아래한글 표 전송"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "external_document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ],
+        "transport": "embedded-HWPX"
+      },
+      "description_ko": "선택 범위를 아래한글에서 사용할 표로 전달합니다. 글꼴·글자 크기·표 모양 설정을 반영하며 원본 Excel 셀은 유지합니다."
+    },
+    {
+      "id": "NX-HANGUL-PICTURE-SEND",
+      "owner": "hangul",
+      "base_execution_grade": "guarded",
+      "planned_cell_threshold": 10000,
+      "privacy": {"ai_processing": false, "network_transfer": false, "local_process_transfer": true, "local_file_creation": true},
+      "ribbon": {
+        "exposed": true, "workflow_group_id": "NX-GRP-STYLE", "control_id": "NX-STYLE-HANGUL-PICTURE-SEND",
+        "launch_mode": "feature", "placement": "menu", "order": 31, "size": "small", "image_mso": "PictureInsertFromFile",
+        "keytip": "HP", "label": "아래한글 그림 전송", "label_key": null
+      },
+      "launch_surface": "dialog", "dialog_id": "NX-DLG-HANGUL-PICTURES", "dialog_template": "FNxHangulPictures",
+      "dialog_variant": "hangul-pictures", "ui_surface": "medium", "state_resolver": null,
+      "source_asset_id": null, "reuse_mode": "clean-room",
+      "catalog_path": ["스타일", "아래한글 그림 전송"], "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE", "object_scope": ["file", "hangul_document"],
+        "purpose_tags": ["그림", "한글", "사진"], "launch_surface": "dialog", "mutation_scope": "external_document",
+        "selection_mode": "optional", "feedback_mode": "inline", "profile_availability": ["internal-xlam", "enhanced-dll"]
+      },
+      "description_ko": "그림을 제목순 또는 촬영시간순으로 정렬해 아래한글 표의 셀 배경에 문서 포함 방식으로 넣습니다. 그림 셀 크기·쪽당 배치·제목행을 지정할 수 있습니다."
+    },
+    {
+      "id": "NX-DRAW-TITLE-TABLE",
+      "owner": "draw",
+      "base_execution_grade": "fast",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-STYLE",
+        "control_id": "NX-DRAW-TITLE-TABLE",
+        "launch_mode": "feature",
+        "placement": "small",
+        "order": 20,
+        "size": "small",
+        "image_mso": "BorderOutside",
+        "keytip": "T",
+        "label": "타이틀표 그리기",
+        "label_key": null
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-DRAW-TABLE",
+      "dialog_template": "FNxDrawTable",
+      "dialog_variant": "title-table",
+      "ui_surface": "compact",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "direct",
+      "catalog_path": [
+        "스타일",
+        "표그리기",
+        "타이틀표 그리기"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection",
+          "worksheet"
+        ],
+        "purpose_tags": [
+          "타이틀표 그리기"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "선택 범위를 제목 영역으로 꾸밉니다. 테두리·채우기 옵션을 미리 보고 적용하며 셀 값은 유지합니다."
+    },
+    {
+      "id": "NX-DRAW-BUSINESS-TABLE",
+      "owner": "draw",
+      "base_execution_grade": "fast",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-STYLE",
+        "control_id": "NX-DRAW-BUSINESS-TABLE",
+        "launch_mode": "feature",
+        "placement": "small",
+        "order": 21,
+        "size": "small",
+        "image_mso": "TableAutoFormat",
+        "keytip": "B",
+        "label": "표 그리기",
+        "label_key": null
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-DRAW-TABLE",
+      "dialog_template": "FNxDrawTable",
+      "dialog_variant": "business-table",
+      "ui_surface": "compact",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "direct",
+      "catalog_path": [
+        "스타일",
+        "표그리기",
+        "표 그리기"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection",
+          "worksheet"
+        ],
+        "purpose_tags": [
+          "표 그리기"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "선택 범위에 표의 테두리와 머리글 구성을 적용합니다. 범위를 다시 지정하고 원하는 모양을 확인한 뒤 실행합니다."
+    },
+    {
+      "id": "NX-DRAW-ROLE-STYLE",
+      "owner": "draw",
+      "base_execution_grade": "fast",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-STYLE",
+        "control_id": "NX-DRAW-ROLE-STYLE",
+        "launch_mode": "feature",
+        "placement": "small",
+        "order": 22,
+        "size": "small",
+        "image_mso": "WordArtInsertGallery",
+        "keytip": "C",
+        "label": "내엑셀 스타일",
+        "label_key": null
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-DRAW-ROLE-STYLE",
+      "dialog_template": "FNxRoleStyle",
+      "dialog_variant": "role-style",
+      "ui_surface": "compact",
+      "state_resolver": null,
+      "source_asset_id": "NX-ASSET-ROLE-STYLE-V34",
+      "reuse_mode": "adapt",
+      "catalog_path": [
+        "스타일",
+        "내엑셀 스타일",
+        "내엑셀 스타일"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection",
+          "worksheet"
+        ],
+        "purpose_tags": [
+          "내엑셀 스타일"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "제목·본문·합계 등 역할에 맞는 셀 서식을 선택합니다. 적용 축과 상대 위치를 확인하고 원본 값은 유지합니다."
+    },
+    {
+      "id": "NX-DRAW-CLEAR-INNER",
+      "owner": "draw",
+      "base_execution_grade": "fast",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-STYLE",
+        "control_id": "NX-DRAW-CLEAR-INNER",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 23,
+        "size": "small",
+        "image_mso": "BorderOutside",
+        "keytip": "Y4",
+        "label": "내부선 제거",
+        "label_key": null
+      },
+      "launch_surface": "direct",
+      "dialog_id": null,
+      "dialog_template": null,
+      "dialog_variant": null,
+      "ui_surface": "direct",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "direct",
+      "catalog_path": [
+        "스타일",
+        "표그리기",
+        "내부선 제거"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-STYLE",
+        "object_scope": [
+          "selection",
+          "worksheet"
+        ],
+        "purpose_tags": [
+          "내부선 제거"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "선택 범위 안쪽의 가로·세로 테두리를 지웁니다. 범위 바깥 둘레의 테두리는 유지합니다."
+    },
+    {
+      "id": "NX-DRAW-FIT-PICTURE",
+      "owner": "draw",
+      "base_execution_grade": "planned",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": false,
+        "workflow_group_id": "NX-GRP-INSERT",
+        "control_id": "NX-DRAW-FIT-PICTURE",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 25,
+        "size": "small",
+        "image_mso": "DrawingCanvasFit",
+        "keytip": "Y6",
+        "label": "그림 셀 맞춤",
+        "label_key": null
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-DRAW-INSERT-PICTURE",
+      "dialog_template": "FNxPictureInsert",
+      "dialog_variant": "picture-fit",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "direct",
+      "catalog_path": [
+        "삽입",
+        "그림",
+        "그림 셀 맞춤"
+      ],
+      "catalog_visible": false,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-INSERT",
+        "object_scope": [
+          "selection",
+          "shape"
+        ],
+        "purpose_tags": [
+          "그림 셀 맞춤"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "document",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "그림을 대상 셀의 위치와 크기에 맞춥니다. 비율·여백 등 표시 옵션을 확인한 뒤 적용합니다."
+    },
+    {
+      "id": "NX-DRAW-INSERT-PICTURE",
+      "owner": "draw",
+      "base_execution_grade": "planned",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-INSERT",
+        "control_id": "NX-DRAW-INSERT-PICTURE",
+        "launch_mode": "feature",
+        "placement": "small",
+        "order": 26,
+        "size": "small",
+        "image_mso": "PictureInsertFromFile",
+        "keytip": "I",
+        "label": "그림 삽입",
+        "label_key": null
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-DRAW-INSERT-PICTURE",
+      "dialog_template": "FNxPictureInsert",
+      "dialog_variant": "picture-insert",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "adapt",
+      "catalog_path": [
+        "삽입",
+        "그림",
+        "그림 삽입"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-INSERT",
+        "object_scope": [
+          "selection",
+          "shape"
+        ],
+        "purpose_tags": [
+          "그림 삽입"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "document",
+        "selection_mode": "optional",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "새 그림 파일을 여러 개 삽입하거나 선택한 그림을 셀 범위에 맞춥니다. 대상 범위·크기 방식·여백을 미리 확인한 뒤 적용합니다."
+    },
+    {
+      "id": "NX-FILE-FOLDER-CREATE",
+      "owner": "file",
+      "base_execution_grade": "planned",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": true
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-FILE",
+        "control_id": "NX-FILE-FOLDER-CREATE",
+        "launch_mode": "feature",
+        "placement": "small",
+        "order": 27,
+        "size": "small",
+        "image_mso": "Folder",
+        "keytip": "Z3",
+        "label": "폴더 일괄 생성",
+        "label_key": null
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-FILE-FOLDER-CREATE",
+      "dialog_template": "FNxFolderCreate",
+      "dialog_variant": "folder-create",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "adapt",
+      "catalog_path": [
+        "파일관리",
+        "폴더 일괄 생성"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-FILE",
+        "object_scope": [
+          "selection",
+          "filesystem"
+        ],
+        "purpose_tags": [
+          "폴더 일괄 생성"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "filesystem",
+        "selection_mode": "optional",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "셀의 문구를 폴더 이름으로 사용합니다. 행별 계층 경로와 저장 위치를 확인한 뒤 필요한 폴더를 만듭니다."
+    },
+    {
+      "id": "NX-FILE-CONSOLIDATE",
+      "owner": "file",
+      "base_execution_grade": "planned",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": true
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-FILE",
+        "control_id": "NX-FILE-CONSOLIDATE",
+        "launch_mode": "feature",
+        "placement": "small",
+        "order": 28,
+        "size": "small",
+        "image_mso": "FileOpen",
+        "keytip": "H",
+        "label": "파일 통합",
+        "label_key": null
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-FILE-CONSOLIDATE",
+      "dialog_template": "FNxFileConsolidate",
+      "dialog_variant": "consolidate",
+      "ui_surface": "guided",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "direct",
+      "catalog_path": [
+        "파일관리",
+        "파일 통합"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-FILE",
+        "object_scope": [
+          "workbook",
+          "filesystem"
+        ],
+        "purpose_tags": [
+          "파일 통합"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "filesystem",
+        "selection_mode": "none",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "여러 문서의 시트를 모으거나 데이터를 한 시트로 이어 붙입니다. 입력 순서와 결과 구성을 확인하고 새 파일로 저장합니다."
+    },
+    {
+      "id": "NX-FILE-MANNER-SAVE",
+      "owner": "file",
+      "base_execution_grade": "guarded",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": true
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-SAVE",
+        "control_id": "NX-FILE-MANNER-SAVE",
+        "launch_mode": "feature",
+        "placement": "small",
+        "order": 29,
+        "size": "small",
+        "image_mso": "FileSave",
+        "keytip": "G",
+        "label": "매너 저장",
+        "label_key": null
+      },
+      "launch_surface": "direct",
+      "dialog_id": null,
+      "dialog_template": null,
+      "dialog_variant": null,
+      "ui_surface": "compact",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "direct",
+      "catalog_path": [
+        "저장",
+        "매너 저장"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SAVE",
+        "object_scope": [
+          "workbook",
+          "filesystem"
+        ],
+        "purpose_tags": [
+          "매너 저장"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "none",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "모든 시트의 커서를 A1로 이동하고 첫 번째 시트의 A1을 선택한 상태로 저장합니다. 파일을 다시 열면 첫 번째 시트의 A1에서 시작합니다."
+    },
+    {
+      "id": "NX-FILE-RANGE-PNG",
+      "owner": "file",
+      "base_execution_grade": "planned",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": true
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-SAVE",
+        "control_id": "NX-FILE-RANGE-PNG",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 34,
+        "size": "small",
+        "image_mso": "FileSaveAs",
+        "keytip": "Z5",
+        "label": "선택 범위 그림 저장",
+        "label_key": null
+      },
+      "launch_surface": "direct",
+      "dialog_id": null,
+      "dialog_template": null,
+      "dialog_variant": null,
+      "ui_surface": "direct",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "direct",
+      "catalog_path": [
+        "저장",
+        "선택 범위 그림 저장"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SAVE",
+        "object_scope": [
+          "selection",
+          "filesystem"
+        ],
+        "purpose_tags": [
+          "선택 범위 그림 저장"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "filesystem",
+        "selection_mode": "required",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "선택 범위를 문서 폴더에 PNG로 바로 저장합니다. 미저장 문서는 Excel 기본 저장 폴더를 사용하며 같은 이름은 새 번호로 구분합니다. 오류가 있을 때만 알립니다."
+    },
+    {
+      "id": "NX-FILE-CHART-PNG",
+      "owner": "file",
+      "base_execution_grade": "planned",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": true
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-SAVE",
+        "control_id": "NX-FILE-CHART-PNG",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 35,
+        "size": "small",
+        "image_mso": "FileSaveAs",
+        "keytip": "Z6",
+        "label": "차트 그림 저장",
+        "label_key": null
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-FILE-OUTPUT",
+      "dialog_template": "FNxFileOutput",
+      "dialog_variant": "chart-png",
+      "ui_surface": "compact",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "direct",
+      "catalog_path": [
+        "저장",
+        "차트 그림 저장"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SAVE",
+        "object_scope": [
+          "shape",
+          "filesystem"
+        ],
+        "purpose_tags": [
+          "차트 그림 저장"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "filesystem",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "선택한 차트를 그림 파일로 내보냅니다. 저장 형식과 위치를 선택하며 문서 안의 차트는 그대로 둡니다."
+    },
+    {
+      "id": "NX-FILE-SHEET-COPY-SAVE",
+      "owner": "file",
+      "base_execution_grade": "planned",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": true
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-SAVE",
+        "control_id": "NX-FILE-SHEET-COPY-SAVE",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 30,
+        "size": "small",
+        "image_mso": "FileSaveAs",
+        "keytip": null,
+        "label": "현재 시트 사본 저장",
+        "label_key": null
+      },
+      "launch_surface": "direct",
+      "dialog_id": null,
+      "dialog_template": null,
+      "dialog_variant": null,
+      "ui_surface": "direct",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "clean-room",
+      "catalog_path": [
+        "저장",
+        "사본 저장",
+        "현재 시트 사본 저장"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SAVE",
+        "object_scope": [
+          "workbook",
+          "filesystem"
+        ],
+        "purpose_tags": [
+          "현재 시트 사본 저장"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "filesystem",
+        "selection_mode": "none",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "현재 워크시트를 별도 Excel 파일로 저장합니다. 결과 경로를 확인하며 원본 문서를 덮어쓰지 않습니다."
+    },
+    {
+      "id": "NX-FILE-RANGE-COPY-SAVE",
+      "owner": "file",
+      "base_execution_grade": "planned",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": true
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-SAVE",
+        "control_id": "NX-FILE-RANGE-COPY-SAVE",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 31,
+        "size": "small",
+        "image_mso": "FileSaveAs",
+        "keytip": null,
+        "label": "선택 범위 사본 저장",
+        "label_key": null
+      },
+      "launch_surface": "direct",
+      "dialog_id": null,
+      "dialog_template": null,
+      "dialog_variant": null,
+      "ui_surface": "direct",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "clean-room",
+      "catalog_path": [
+        "저장",
+        "사본 저장",
+        "선택 범위 사본 저장"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SAVE",
+        "object_scope": [
+          "selection",
+          "filesystem"
+        ],
+        "purpose_tags": [
+          "선택 범위 사본 저장"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "filesystem",
+        "selection_mode": "required",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "선택한 셀 영역으로 별도 Excel 파일을 만듭니다. 전체 시트 저장과 달리 지정한 범위가 결과 대상입니다."
+    },
+    {
+      "id": "NX-FILE-WORKBOOK-COMPARE",
+      "owner": "file",
+      "base_execution_grade": "planned",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": true
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-DATA",
+        "control_id": "NX-FILE-WORKBOOK-COMPARE",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 1,
+        "size": "small",
+        "image_mso": "WindowsArrangeAll",
+        "keytip": null,
+        "label": "범위 비교",
+        "label_key": null
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-DATA-COMPARE",
+      "dialog_template": "FNxDataCompare",
+      "dialog_variant": "range-compare",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "clean-room",
+      "catalog_path": [
+        "데이터",
+        "데이터 비교",
+        "범위 비교"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "workbook",
+          "range"
+        ],
+        "purpose_tags": [
+          "범위 비교"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "none",
+        "selection_mode": "none",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "두 범위의 왼쪽 위 셀을 맞춰 비교하고 새 통합문서 두 시트에 차이를 연한 빨강으로 표시합니다. 원본은 변경하지 않습니다."
+    },
+    {
+      "id": "NX-FILE-SHEET-COMPARE",
+      "owner": "file",
+      "base_execution_grade": "planned",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": true
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-DATA",
+        "control_id": "NX-FILE-SHEET-COMPARE",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 2,
+        "size": "small",
+        "image_mso": "WindowsArrangeAll",
+        "keytip": null,
+        "label": "시트 비교",
+        "label_key": null
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-DATA-COMPARE",
+      "dialog_template": "FNxDataCompare",
+      "dialog_variant": "sheet-compare",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "clean-room",
+      "catalog_path": [
+        "데이터",
+        "데이터 비교",
+        "시트 비교"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "workbook",
+          "range"
+        ],
+        "purpose_tags": [
+          "시트 비교"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "none",
+        "selection_mode": "none",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "두 시트의 같은 셀 주소끼리 비교하고 새 통합문서 두 시트에 차이를 연한 빨강으로 표시합니다. 원본은 변경하지 않습니다."
+    },
+    {
+      "id": "NX-FILE-FILE-COMPARE",
+      "owner": "file",
+      "base_execution_grade": "planned",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": true
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-DATA",
+        "control_id": "NX-FILE-FILE-COMPARE",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 3,
+        "size": "small",
+        "image_mso": "FileOpen",
+        "keytip": null,
+        "label": "파일 비교",
+        "label_key": null
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-WORKBOOK-COMPARE",
+      "dialog_template": "FNxWorkbookCompare",
+      "dialog_variant": "file-compare",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "clean-room",
+      "catalog_path": [
+        "데이터",
+        "데이터 비교",
+        "파일 비교"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-DATA",
+        "object_scope": [
+          "workbook",
+          "range"
+        ],
+        "purpose_tags": [
+          "파일 비교"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "none",
+        "selection_mode": "none",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "두 Excel 파일의 시트를 비교해 차이와 이동 링크가 있는 새 보고서를 엽니다. 원본은 읽기 전용으로 열며 결과 저장은 직접 선택합니다."
+    },
+    {
+      "id": "NX-FILE-BATCH-RENAME",
+      "owner": "file",
+      "base_execution_grade": "planned",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-FILE",
+        "control_id": "NX-FILE-BATCH-RENAME",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 35,
+        "size": "small",
+        "image_mso": "FileProperties",
+        "keytip": null,
+        "label": "파일 이름 일괄 변경",
+        "label_key": null
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-FILE-BATCH-RENAME",
+      "dialog_template": "FNxBatchRename",
+      "dialog_variant": "file-rename",
+      "ui_surface": "guided",
+      "state_resolver": null,
+      "source_asset_id": "NX-ASSET-V34-BATCH-RENAME",
+      "reuse_mode": "adapt",
+      "catalog_path": [
+        "파일관리",
+        "이름 변경",
+        "파일 이름 일괄 변경"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-FILE",
+        "object_scope": [
+          "filesystem"
+        ],
+        "purpose_tags": [
+          "파일 이름 일괄 변경"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "filesystem",
+        "selection_mode": "none",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "선택한 파일에 이름 규칙을 순서대로 적용합니다. 예정 이름과 충돌을 확인한 뒤 바꾸며 마지막 작업 복구를 지원합니다."
+    },
+    {
+      "id": "NX-FILE-SHEET-BATCH-RENAME",
+      "owner": "file",
+      "base_execution_grade": "planned",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-SHEET",
+        "control_id": "NX-FILE-SHEET-BATCH-RENAME",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 160,
+        "size": "small",
+        "image_mso": "NameDefine",
+        "keytip": null,
+        "label": "시트 이름 일괄 변경",
+        "label_key": null
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-FILE-BATCH-RENAME",
+      "dialog_template": "FNxBatchRename",
+      "dialog_variant": "sheet-rename",
+      "ui_surface": "guided",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "clean-room",
+      "catalog_path": [
+        "시트",
+        "시트 이름 일괄 변경"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SHEET",
+        "object_scope": [
+          "workbook",
+          "worksheet"
+        ],
+        "purpose_tags": [
+          "시트 이름 일괄 변경"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "document",
+        "selection_mode": "none",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "문서의 시트 이름에 규칙을 적용하거나 예정 이름을 직접 편집합니다. 이름 충돌을 확인한 뒤 적용하며 시트 내용은 유지합니다."
+    },
+    {
+      "id": "NX-FILE-PDF-CURRENT-SHEET",
+      "owner": "file",
+      "base_execution_grade": "planned",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": true
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-SAVE",
+        "control_id": "NX-FILE-PDF-CURRENT-SHEET",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 32,
+        "size": "small",
+        "image_mso": "FileSaveAsPdfOrXps",
+        "keytip": null,
+        "label": "현재 시트 PDF 저장",
+        "label_key": null
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-FILE-PDF",
+      "dialog_template": "FNxPdf",
+      "dialog_variant": "current-sheet",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "clean-room",
+      "catalog_path": [
+        "저장",
+        "PDF",
+        "현재 시트 PDF 저장"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SAVE",
+        "object_scope": [
+          "workbook",
+          "filesystem"
+        ],
+        "purpose_tags": [
+          "현재 시트 PDF 저장"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "filesystem",
+        "selection_mode": "none",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "현재 워크시트를 한 PDF 파일로 저장합니다. 인쇄영역과 페이지 설정을 확인한 뒤 결과 위치를 선택하세요."
+    },
+    {
+      "id": "NX-FILE-PDF-EACH-SHEET",
+      "owner": "file",
+      "base_execution_grade": "planned",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": true
+      },
+      "ribbon": {
+        "exposed": false,
+        "workflow_group_id": "NX-GRP-SAVE",
+        "control_id": "NX-FILE-PDF-EACH-SHEET",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 38,
+        "size": "small",
+        "image_mso": "FileSaveAsPdfOrXps",
+        "keytip": null,
+        "label": "시트별 PDF 저장",
+        "label_key": null
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-FILE-PDF",
+      "dialog_template": "FNxPdf",
+      "dialog_variant": "each-sheet",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "clean-room",
+      "catalog_path": [
+        "저장",
+        "PDF",
+        "시트별 PDF 저장"
+      ],
+      "catalog_visible": false,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SAVE",
+        "object_scope": [
+          "workbook",
+          "filesystem"
+        ],
+        "purpose_tags": [
+          "시트별 PDF 저장"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "filesystem",
+        "selection_mode": "none",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "선택한 시트를 각각의 PDF 파일로 저장하는 호환 경로입니다. 기본 메뉴에서는 현재 시트 또는 문서 PDF 저장을 사용합니다."
+    },
+    {
+      "id": "NX-FILE-PDF-SELECTED-COMBINED",
+      "owner": "file",
+      "base_execution_grade": "planned",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": true
+      },
+      "ribbon": {
+        "exposed": false,
+        "workflow_group_id": "NX-GRP-SAVE",
+        "control_id": "NX-FILE-PDF-SELECTED-COMBINED",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 39,
+        "size": "small",
+        "image_mso": "FileSaveAsPdfOrXps",
+        "keytip": null,
+        "label": "선택 시트 PDF 합치기",
+        "label_key": null
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-FILE-PDF",
+      "dialog_template": "FNxPdf",
+      "dialog_variant": "selected-combined",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "clean-room",
+      "catalog_path": [
+        "저장",
+        "PDF",
+        "선택 시트 PDF 합치기"
+      ],
+      "catalog_visible": false,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SAVE",
+        "object_scope": [
+          "workbook",
+          "filesystem"
+        ],
+        "purpose_tags": [
+          "선택 시트 PDF 합치기"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "filesystem",
+        "selection_mode": "none",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "선택 시트들을 한 PDF로 내보내는 호환 경로입니다. 원본 문서는 변경하지 않습니다."
+    },
+    {
+      "id": "NX-FILE-PDF-ALL-COMBINED",
+      "owner": "file",
+      "base_execution_grade": "planned",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": true
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-SAVE",
+        "control_id": "NX-FILE-PDF-ALL-COMBINED",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 33,
+        "size": "small",
+        "image_mso": "FileSaveAsPdfOrXps",
+        "keytip": null,
+        "label": "문서 PDF 저장",
+        "label_key": null
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-FILE-PDF",
+      "dialog_template": "FNxPdf",
+      "dialog_variant": "all-combined",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "clean-room",
+      "catalog_path": [
+        "저장",
+        "PDF",
+        "문서 PDF 저장"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SAVE",
+        "object_scope": [
+          "workbook",
+          "filesystem"
+        ],
+        "purpose_tags": [
+          "문서 PDF 저장"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "filesystem",
+        "selection_mode": "none",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "통합문서의 출력 대상 시트를 순서대로 한 PDF에 담습니다. 숨김 시트 등 제외 조건은 저장 화면에서 확인하세요."
+    },
+    {
+      "id": "NX-FILE-PDF-SETTINGS",
+      "owner": "file",
+      "base_execution_grade": "planned",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": true
+      },
+      "ribbon": {
+        "exposed": false,
+        "workflow_group_id": "NX-GRP-SAVE",
+        "control_id": "NX-FILE-PDF-SETTINGS",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 41,
+        "size": "small",
+        "image_mso": "FileProperties",
+        "keytip": null,
+        "label": "PDF 저장 설정",
+        "label_key": null
+      },
+      "launch_surface": "dialog",
+      "dialog_id": "NX-DLG-FILE-PDF",
+      "dialog_template": "FNxPdf",
+      "dialog_variant": "settings",
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "clean-room",
+      "catalog_path": [
+        "저장",
+        "PDF",
+        "PDF 저장 설정"
+      ],
+      "catalog_visible": false,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SAVE",
+        "object_scope": [
+          "workbook",
+          "filesystem"
+        ],
+        "purpose_tags": [
+          "PDF 저장 설정"
+        ],
+        "launch_surface": "dialog",
+        "mutation_scope": "settings",
+        "selection_mode": "none",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "PDF 출력에 사용할 설정을 관리하는 호환 경로입니다. 기본 메뉴의 PDF 저장 화면에서 같은 옵션을 확인할 수 있습니다."
+    },
+    {
+      "id": "NX-UTIL-CALCULATOR",
+      "owner": "calculator",
+      "base_execution_grade": "fast",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-UTIL",
+        "control_id": "NX-UTIL-CALCULATOR",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 42,
+        "size": "small",
+        "image_mso": "CalculateNow",
+        "keytip": null,
+        "label": "계산기",
+        "label_key": null
+      },
+      "launch_surface": "direct",
+      "dialog_id": null,
+      "dialog_template": null,
+      "dialog_variant": null,
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "clean-room",
+      "catalog_path": [
+        "추가기능",
+        "계산기"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-UTIL",
+        "object_scope": [
+          "application",
+          "selection"
+        ],
+        "purpose_tags": [
+          "계산기"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "optional",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "숫자와 연산을 계산하고 결과를 복사하거나 선택 셀에 넣습니다. 선택 셀 값 불러오기와 최근 계산 기록을 제공합니다."
+    },
+    {
+      "id": "NX-UTIL-SYMBOLS",
+      "owner": "symbols",
+      "base_execution_grade": "fast",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-UTIL",
+        "control_id": "NX-UTIL-SYMBOLS",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 43,
+        "size": "small",
+        "image_mso": "SymbolInsert",
+        "keytip": null,
+        "label": "기호표",
+        "label_key": null
+      },
+      "launch_surface": "direct",
+      "dialog_id": null,
+      "dialog_template": null,
+      "dialog_variant": null,
+      "ui_surface": "medium",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "clean-room",
+      "catalog_path": [
+        "추가기능",
+        "기호표"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-UTIL",
+        "object_scope": [
+          "application",
+          "selection"
+        ],
+        "purpose_tags": [
+          "기호표"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "document",
+        "selection_mode": "optional",
+        "feedback_mode": "completion",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "기호를 골라 입력 문구를 구성하고 선택한 셀들에 넣습니다. 목록은 휠로 탐색하며 원래 셀 값은 입력 시 교체됩니다."
+    },
+    {
+      "id": "NX-UTIL-DOCUMENT-NAVIGATOR",
+      "owner": "navigator",
+      "base_execution_grade": "fast",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-WORKSHEET-TOOLS",
+        "control_id": "NX-UTIL-DOCUMENT-NAVIGATOR",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 45,
+        "size": "small",
+        "image_mso": "FindDialog",
+        "keytip": null,
+        "label": "문서·시트 탐색",
+        "label_key": null
+      },
+      "launch_surface": "direct",
+      "dialog_id": null,
+      "dialog_template": null,
+      "dialog_variant": null,
+      "ui_surface": "direct",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "clean-room",
+      "catalog_path": [
+        "시트·보기",
+        "문서·시트 탐색"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-SHEET",
+        "object_scope": [
+          "application"
+        ],
+        "purpose_tags": [
+          "문서·시트 탐색"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "none",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "열린 문서와 시트를 찾아 전환합니다. 목록을 보기 위해 원본 문서에 보고서 시트를 추가하지 않습니다."
+    },
+    {
+      "id": "NX-UTIL-NAVIGATOR",
+      "owner": "navigator",
+      "base_execution_grade": "fast",
+      "planned_cell_threshold": 10000,
+      "privacy": {
+        "ai_processing": false,
+        "network_transfer": false,
+        "local_process_transfer": false,
+        "local_file_creation": false
+      },
+      "ribbon": {
+        "exposed": true,
+        "workflow_group_id": "NX-GRP-UTIL",
+        "control_id": "NX-UTIL-NAVIGATOR",
+        "launch_mode": "feature",
+        "placement": "menu",
+        "order": 44,
+        "size": "small",
+        "image_mso": "ControlProperties",
+        "keytip": null,
+        "label": "탐색창",
+        "label_key": null
+      },
+      "launch_surface": "direct",
+      "dialog_id": null,
+      "dialog_template": null,
+      "dialog_variant": null,
+      "ui_surface": "direct",
+      "state_resolver": null,
+      "source_asset_id": null,
+      "reuse_mode": "clean-room",
+      "catalog_path": [
+        "추가기능",
+        "탐색창"
+      ],
+      "catalog_visible": true,
+      "navigation": {
+        "ribbon_group_id": "NX-GRP-UTIL",
+        "object_scope": [
+          "application",
+          "workbook"
+        ],
+        "purpose_tags": [
+          "탐색창"
+        ],
+        "launch_surface": "direct",
+        "mutation_scope": "none",
+        "selection_mode": "none",
+        "feedback_mode": "inline",
+        "profile_availability": [
+          "internal-xlam",
+          "enhanced-dll"
+        ]
+      },
+      "description_ko": "내엑셀 기능을 분류별로 찾고 실행합니다. 내부망 기본 화면과 DLL 확장 화면은 같은 기능 카탈로그를 사용합니다."
+    }
+  ]
+}

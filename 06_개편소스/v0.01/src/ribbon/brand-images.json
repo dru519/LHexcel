@@ -1,0 +1,1088 @@
+{
+  "source": "260927 18;09 LHexcel 내엑셀 확정 디자인셋",
+  "tags": {
+    "nx1|feature|NX-FILE-MANNER-SAVE": "save",
+    "nx1|feature|NX-FILE-SHEET-COPY-SAVE": "save-sheet",
+    "nx1|feature|NX-FILE-RANGE-COPY-SAVE": "save-range",
+    "nx1|feature|NX-FILE-PDF-CURRENT-SHEET": "save-pdf",
+    "nx1|feature|NX-FILE-PDF-ALL-COMBINED": "save-pdf-all",
+    "nx1|feature|NX-FILE-RANGE-PNG": "save-image",
+    "nx1|feature|NX-FILE-CHART-PNG": "save-chart",
+    "nx1|command|NX-CMD-PRINT-RB-PRINT-SETUP-QUICK": "print",
+    "nx1|command|NX-CMD-PRINT-RB-PRINT-SETUP-QUICK-PORTRAIT": "portrait",
+    "nx1|command|NX-CMD-PRINT-RB-PRINT-SETUP-QUICK-LANDSCAPE": "landscape",
+    "nx1|command|NX-CMD-PRINT-RB-PRINT-SETUP-QUICK-PORTRAIT-1BY1": "fit-page",
+    "nx1|command|NX-CMD-PRINT-RB-PRINT-SETUP-QUICK-LANDSCAPE-1BY1": "fit-page",
+    "nx1|command|NX-CMD-PRINT-RB-PRINT-SETUP-REPEAT": "print-title",
+    "nx1|feature|NX-DATA-COPY-VISIBLE": "copy-visible",
+    "nx1|feature|NX-DATA-PASTE-VISIBLE-VALUES": "paste-values",
+    "nx1|command|NX-CMD-CLIPBOARD-RB-CLIPBOARD-COPY-BYFORMULA": "copy-formula",
+    "nx1|command|NX-CMD-CLIPBOARD-RB-CLIPBOARD-COPY-BYREFERENCE": "copy-address",
+    "nx1|command|NX-CMD-CLIPBOARD-RB-CLIPBOARD-COPY-BYTEXT": "copy-values",
+    "nx1|command|NX-CMD-CLIPBOARD-RB-LHECLIPBOARD-PASTEVISIBLEFORMULAS": "paste-formula",
+    "nx1|command|NX-CMD-CLIPBOARD-RB-LHECLIPBOARD-PASTEVISIBLEFORMATS": "paste-format",
+    "nx1|feature|NX-DRAW-INSERT-PICTURE": "image",
+    "nx1|command|NX-CMD-STRUCTURE-RB-EDIT-CELL-MAKEGROUP-HIDDEN-ROWCOLUMN": "group",
+    "nx1|feature|NX-FILE-FOLDER-CREATE": "folder-add",
+    "nx1|feature|NX-FILE-CONSOLIDATE": "file-merge",
+    "nx1|feature|NX-FILE-BATCH-RENAME": "file-rename",
+    "nx1|entry|NX-MGMT-SAVED-FOLDER": "folder",
+    "nx1|feature|NX-FILE-WORKBOOK-COMPARE": "compare-range",
+    "nx1|feature|NX-FILE-SHEET-COMPARE": "compare-sheet",
+    "nx1|feature|NX-FILE-FILE-COMPARE": "compare-file",
+    "nx1|feature|NX-DATA-NORMALIZE": "normalize",
+    "nx1|feature|NX-DATA-UNIQUE-COUNT": "unique",
+    "nx1|feature|NX-DATA-DUPLICATE-LIST": "duplicates",
+    "nx1|feature|NX-DATA-AGE": "age",
+    "nx1|feature|NX-DATA-KOREAN-MONEY": "currency",
+    "nx1|feature|NX-DATA-PRIVACY-MASK": "mask",
+    "nx1|command|NX-CMD-DATA-DATE-CONVERT": "date",
+    "nx1|feature|NX-TPL-LIST": "template",
+    "nx1|command|NX-CMD-STYLE-RB-EDIT-MEMO-ADD-LHEXCELFORMULA": "formula-note",
+    "nx1|command|NX-CMD-FORMULA-RB-FORMULA-PRECEDENTS-LIST": "formula-map",
+    "nx1|command|NX-CMD-FUNCTION-ROUND": "round",
+    "nx1|command|NX-CMD-FUNCTION-IFERROR": "iferror",
+    "nx1|command|NX-CMD-SIZE-RB-EDIT-CELL-RESIZE": "resize",
+    "nx1|command|NX-CMD-SHEET-RB-SHEET-SELECT-HOME": "first-sheet",
+    "nx1|command|NX-CMD-SHEET-RB-SHEET-SELECT-END": "last-sheet",
+    "nx1|feature|NX-UTIL-DOCUMENT-NAVIGATOR": "navigate",
+    "nx1|feature|NX-FILE-SHEET-BATCH-RENAME": "sheet-rename",
+    "nx1|command|NX-CMD-VIEW-RB-WINDOWS-VIEW-FULLSCREEN": "fullscreen",
+    "nx1|command|NX-CMD-VIEW-PRESET-1": "view-1",
+    "nx1|command|NX-CMD-VIEW-PRESET-2": "view-2",
+    "nx1|command|NX-CMD-VIEW-PRESET-3": "view-3",
+    "nx1|command|NX-CMD-VIEW-PRESET-4": "view-4",
+    "nx1|command|NX-CMD-VIEW-PRESET-5": "view-5",
+    "nx1|command|NX-CMD-VIEW-PRESET-SETTINGS": "settings",
+    "nx1|command|NX-CMD-STYLE-FONT-SIZE-9": "type-9",
+    "nx1|command|NX-CMD-STYLE-FONT-SIZE-10": "type-10",
+    "nx1|command|NX-CMD-STYLE-FONT-SIZE-12": "type-12",
+    "nx1|command|NX-CMD-STYLE-FONT-SIZE-15": "type-15",
+    "nx1|command|NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-PERCENTAGE": "percent",
+    "nx1|command|NX-CMD-STYLE-FONT-COLOR-BLACK": "font-color",
+    "nx1|command|NX-CMD-STYLE-FONT-COLOR-RED": "font-color",
+    "nx1|command|NX-CMD-STYLE-FONT-COLOR-BLUE": "font-color",
+    "nx1|command|NX-CMD-STYLE-FONT-COLOR-GREEN": "font-color",
+    "nx1|command|NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-NUMBER": "comma",
+    "nx1|command|NX-CMD-STYLE-FILL-GRAY": "fill",
+    "nx1|command|NX-CMD-STYLE-FILL-LIGHT-RED": "fill",
+    "nx1|command|NX-CMD-STYLE-FILL-LIGHT-YELLOW": "fill",
+    "nx1|command|NX-CMD-STYLE-FILL-LIGHT-GREEN": "fill",
+    "nx1|command|NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-DECIMAL": "decimal",
+    "nx1|feature|NX-DRAW-TITLE-TABLE": "title-table",
+    "nx1|feature|NX-DRAW-BUSINESS-TABLE": "table",
+    "nx1|feature|NX-DRAW-ROLE-STYLE": "style",
+    "nx1|feature|NX-DRAW-CLEAR-INNER": "clear-inner",
+    "nx1|feature|NX-HANGUL-TABLE-SEND": "hangul-table",
+    "nx1|feature|NX-HANGUL-PICTURE-SEND": "hangul-image",
+    "nx1|command|NX-CMD-STYLE-RB-LHESTYLE-RESETWORKBOOKSTYLES": "style-clean",
+    "nx1|command|NX-CMD-STYLE-RB-LHESTYLE-MONO-TITLE": "role-title",
+    "nx1|command|NX-CMD-STYLE-RB-LHESTYLE-MONO-SUBTITLE": "role-subtitle",
+    "nx1|command|NX-CMD-STYLE-RB-LHESTYLE-MONO-TABLEHEADER": "role-header",
+    "nx1|command|NX-CMD-STYLE-RB-LHESTYLE-MONO-TABLEBODY": "role-body",
+    "nx1|command|NX-CMD-STYLE-RB-LHESTYLE-MONO-EMPHASISCELL": "role-emphasis",
+    "nx1|command|NX-CMD-STYLE-RB-LHESTYLE-MONO-TOTALROW": "role-total",
+    "nx1|command|NX-CMD-STYLE-RB-LHESTYLE-COLOR-TITLE": "role-title",
+    "nx1|command|NX-CMD-STYLE-RB-LHESTYLE-COLOR-SUBTITLE": "role-subtitle",
+    "nx1|command|NX-CMD-STYLE-RB-LHESTYLE-COLOR-TABLEHEADER": "role-header",
+    "nx1|command|NX-CMD-STYLE-RB-LHESTYLE-COLOR-TABLEBODY": "role-body",
+    "nx1|command|NX-CMD-STYLE-RB-LHESTYLE-COLOR-EMPHASISCELL": "role-emphasis",
+    "nx1|command|NX-CMD-STYLE-RB-LHESTYLE-COLOR-TOTALROW": "role-total",
+    "nx1|command|NX-CMD-NUMBER-EMPHASIS": "number-emphasis",
+    "nx1|command|NX-CMD-ALIGN-RB-EDIT-ALIGN-CENTER-OVERCELLS": "merge",
+    "nx1|feature|NX-DATA-FOCUS-CELL": "focus",
+    "nx1|feature|NX-UTIL-CALCULATOR": "calculator",
+    "nx1|feature|NX-UTIL-SYMBOLS": "symbols",
+    "nx1|feature|NX-UTIL-NAVIGATOR": "navigate",
+    "nx1|entry|NX-MGMT-SHORTCUTS": "shortcuts",
+    "nx1|entry|NX-ENTRY-AI": "ai",
+    "nx1|feature|NX-DATA-PRIVACY-SCAN": "privacy",
+    "nx1|command|NX-CMD-INFO-RB-APP-NAMEUNHIDE": "names",
+    "nx1|command|NX-CMD-INFO-RB-INFO-MEMO-LIST": "notes",
+    "nx1|command|NX-CMD-INFO-RB-INFO-SHEET-LIST": "sheet-list"
+  },
+  "labels": {
+    "매너 저장": "save",
+    "시트 사본 저장": "save-sheet",
+    "범위 사본 저장": "save-range",
+    "시트 PDF 저장": "save-pdf",
+    "문서 PDF 저장": "save-pdf-all",
+    "범위 그림 저장": "save-image",
+    "차트 그림 저장": "save-chart",
+    "인쇄 미리보기": "print",
+    "세로 너비 맞춤": "portrait",
+    "가로 너비 맞춤": "landscape",
+    "한 장에 맞춤": "fit-page",
+    "인쇄 제목 행": "print-title",
+    "복사": "copy",
+    "보이는 셀 복사": "copy-visible",
+    "보이는 셀 값 붙여넣기": "paste-values",
+    "수식 복사": "copy-formula",
+    "주소 복사": "copy-address",
+    "보이는 값 복사": "copy-values",
+    "수식 붙여넣기": "paste-formula",
+    "서식 붙여넣기": "paste-format",
+    "그림 삽입": "image",
+    "행·열 그룹": "group",
+    "폴더 열기": "folder",
+    "폴더 일괄 생성": "folder-add",
+    "파일 통합": "file-merge",
+    "파일 이름 변경": "file-rename",
+    "범위 비교": "compare-range",
+    "시트 비교": "compare-sheet",
+    "파일 비교": "compare-file",
+    "데이터 정규화": "normalize",
+    "고유값 개수": "unique",
+    "중복 목록": "duplicates",
+    "만나이 계산": "age",
+    "한글 금액 변환": "currency",
+    "개인정보 마스킹": "mask",
+    "날짜 변환": "date",
+    "템플릿": "template",
+    "셀수식 메모": "formula-note",
+    "수식 참조표": "formula-map",
+    "ROUND 감싸기": "round",
+    "IFERROR 감싸기": "iferror",
+    "크기 조정": "resize",
+    "첫 시트": "first-sheet",
+    "마지막 시트": "last-sheet",
+    "문서·시트 탐색": "navigate",
+    "시트 이름 변경": "sheet-rename",
+    "전체 화면": "fullscreen",
+    "화면 프리셋": "view",
+    "화면 프리셋 1": "view-1",
+    "화면 프리셋 2": "view-2",
+    "화면 프리셋 3": "view-3",
+    "화면 프리셋 4": "view-4",
+    "화면 프리셋 5": "view-5",
+    "글자 크기": "type",
+    "글자 크기 9": "type-9",
+    "글자 크기 10": "type-10",
+    "글자 크기 12": "type-12",
+    "글자 크기 15": "type-15",
+    "글자색": "font-color",
+    "채우기": "fill",
+    "백분율": "percent",
+    "소수 자릿수": "decimal",
+    "천 단위 구분": "comma",
+    "숫자 강조": "number-emphasis",
+    "타이틀표": "title-table",
+    "표 그리기": "table",
+    "내부선 제거": "clear-inner",
+    "내엑셀 스타일": "style",
+    "사용자 스타일 정리": "style-clean",
+    "모형병합": "merge",
+    "아래한글 표 전송": "hangul-table",
+    "아래한글 그림 전송": "hangul-image",
+    "제목 스타일": "role-title",
+    "소제목 스타일": "role-subtitle",
+    "표 머리글 스타일": "role-header",
+    "표 본문 스타일": "role-body",
+    "강조 셀 스타일": "role-emphasis",
+    "합계 행 스타일": "role-total",
+    "포커스셀": "focus",
+    "계산기": "calculator",
+    "기호표": "symbols",
+    "단축키": "shortcuts",
+    "AI 작업대": "ai",
+    "개인정보 점검": "privacy",
+    "숨김 이름 정의": "names",
+    "문서 메모 목록": "notes",
+    "문서 시트 목록": "sheet-list",
+    "즐겨찾기": "favorites",
+    "전체 기능": "all",
+    "검색": "search",
+    "설정": "settings",
+    "다운로드": "download",
+    "불러오기": "upload",
+    "닫기": "close",
+    "완료": "check",
+    "주의": "warning",
+    "오류": "error",
+    "안내": "info",
+    "실행 취소": "undo",
+    "다시 실행": "redo",
+    "도움말": "help",
+    "새 창": "external",
+    "펼치기": "chevron",
+    "메뉴": "menu",
+    "잠금": "lock",
+    "새로고침": "refresh",
+    "내엑셀": "product",
+    "전체기능": "all",
+    "저장": "save",
+    "인쇄": "print",
+    "복붙": "copy",
+    "삽입": "image",
+    "파일관리": "folder",
+    "데이터": "normalize",
+    "데이터 비교": "compare-file",
+    "함수": "formula-map",
+    "셀맞춤": "resize",
+    "시트·보기": "view",
+    "스타일": "style",
+    "스타일 조정": "style",
+    "표시 형식": "decimal",
+    "배치·병합": "merge",
+    "추가기능": "menu",
+    "정보진단": "info"
+  },
+  "images": {
+    "NxBrand_save_16": {
+      "path": "images/brand/save-16.png",
+      "sha256": "f4756877c789daa1fa53e4c5f9e9a452a17850c5958b0a2851c84416bbace334"
+    },
+    "NxBrand_save_32": {
+      "path": "images/brand/save-32.png",
+      "sha256": "a89a23e6aea0ba05cb9a1d2fbdd2f1182b9c9fe2e5debe41bd89f101f6f97e30"
+    },
+    "NxBrand_save_sheet_16": {
+      "path": "images/brand/save-sheet-16.png",
+      "sha256": "0c12c3bd48ca54450bf2eee1ec1dc0e4d0f677ca1dcbc509dee759112997c1d0"
+    },
+    "NxBrand_save_sheet_32": {
+      "path": "images/brand/save-sheet-32.png",
+      "sha256": "5f49e3be8e8cb393e1efe073b9e1d9fc3819348764cc521bf2a412de2a26b097"
+    },
+    "NxBrand_save_range_16": {
+      "path": "images/brand/save-range-16.png",
+      "sha256": "33f7677d034c6521a4deb9ef1c739e4ac36b56d9c4373d073f389efeb59788ef"
+    },
+    "NxBrand_save_range_32": {
+      "path": "images/brand/save-range-32.png",
+      "sha256": "73f6294b0bd350ec3cc34d1e2be263b5ce6618d84fd2205d7cde50cd9fad18a9"
+    },
+    "NxBrand_save_pdf_16": {
+      "path": "images/brand/save-pdf-16.png",
+      "sha256": "96e73583a17a1d46f731fe71c69b9ba01cb3a0aa18b61a02210138c44322ab5a"
+    },
+    "NxBrand_save_pdf_32": {
+      "path": "images/brand/save-pdf-32.png",
+      "sha256": "c1eef8a423db33698e9edb7853a1505f34a9559cfe7fcf683a1c0da1bc5437d9"
+    },
+    "NxBrand_save_pdf_all_16": {
+      "path": "images/brand/save-pdf-all-16.png",
+      "sha256": "34cc5fa0d14c04cd2c592f5cfe99a8b50470066a0df2bf7f143e756dfdbf8485"
+    },
+    "NxBrand_save_pdf_all_32": {
+      "path": "images/brand/save-pdf-all-32.png",
+      "sha256": "48509b6349c86273c6424d9fdecd3049f4cdaf26655af985c8fe2359f4d1231b"
+    },
+    "NxBrand_save_image_16": {
+      "path": "images/brand/save-image-16.png",
+      "sha256": "4d2d0715c357f2eb298f9c9ad6efd67025c7c0d92e855dc349545151eaddc43a"
+    },
+    "NxBrand_save_image_32": {
+      "path": "images/brand/save-image-32.png",
+      "sha256": "425302ed7671e8949fdc603024a1a59e3cd9d55a7e9a4d6b17097d716d041056"
+    },
+    "NxBrand_save_chart_16": {
+      "path": "images/brand/save-chart-16.png",
+      "sha256": "dd206558fd831b95ddd02d264c4207b59139477859c55964158208580e0caa94"
+    },
+    "NxBrand_save_chart_32": {
+      "path": "images/brand/save-chart-32.png",
+      "sha256": "93b575d1a76754a52c15fa5e7658aaf4952ee5f8724f271fab102e216f02b87b"
+    },
+    "NxBrand_print_16": {
+      "path": "images/brand/print-16.png",
+      "sha256": "b7a8b480fa9575967c683fa194ec1e2687b4b1816a870b57aa7a5c50d601b82b"
+    },
+    "NxBrand_print_32": {
+      "path": "images/brand/print-32.png",
+      "sha256": "cc23db07ce9133304008fec23b678bf6cc41e5d6f73aaf92c6c9f5f8cd781c06"
+    },
+    "NxBrand_portrait_16": {
+      "path": "images/brand/portrait-16.png",
+      "sha256": "5e80ab8a8441c73d069a4044ef6e7f47b8af923c0b25157e124cd126cff2d577"
+    },
+    "NxBrand_portrait_32": {
+      "path": "images/brand/portrait-32.png",
+      "sha256": "797d4946368c80d632106ca5be4e746bd76bf5fd9eead991eaaa5f84e1998fab"
+    },
+    "NxBrand_landscape_16": {
+      "path": "images/brand/landscape-16.png",
+      "sha256": "99a308966e48c947363b167b87d2ccfa3b75464f4d69ffda30c2071cba8e8658"
+    },
+    "NxBrand_landscape_32": {
+      "path": "images/brand/landscape-32.png",
+      "sha256": "56b56b347539652b9c62f8525b16300b89bf49907a0e4b63f3a02f7a7a695293"
+    },
+    "NxBrand_fit_page_16": {
+      "path": "images/brand/fit-page-16.png",
+      "sha256": "c89bb89fdc1448404ac1db4c5f4cae9434c9e36b414e75308e0a2348a650d79f"
+    },
+    "NxBrand_fit_page_32": {
+      "path": "images/brand/fit-page-32.png",
+      "sha256": "7c0036e32a96ad9d466e3498e193816012917255865fa264a4e4a1f32b88dd28"
+    },
+    "NxBrand_print_title_16": {
+      "path": "images/brand/print-title-16.png",
+      "sha256": "6e63ac37b6c3b9e47d711ca5227cae7759ffa3e7cdee41194deb2125778ebc9e"
+    },
+    "NxBrand_print_title_32": {
+      "path": "images/brand/print-title-32.png",
+      "sha256": "15108b885336ce948b564d5516dd56c00737fedf319b0e3d7615591a883c8969"
+    },
+    "NxBrand_copy_16": {
+      "path": "images/brand/copy-16.png",
+      "sha256": "f4b19884d96a4e7be44990c2d6650eccd6d6a20cac8700f7269502de6655b19f"
+    },
+    "NxBrand_copy_32": {
+      "path": "images/brand/copy-32.png",
+      "sha256": "ab64d7ef92896b6de97eedbf6f077c85a7f145b4a3d040a5bb4aa6cffe1ee7ab"
+    },
+    "NxBrand_copy_visible_16": {
+      "path": "images/brand/copy-visible-16.png",
+      "sha256": "264b921967731608830a96bc8a7ea9eef66714a44fd4d99bfebac491b1c064c0"
+    },
+    "NxBrand_copy_visible_32": {
+      "path": "images/brand/copy-visible-32.png",
+      "sha256": "5973e998e6a648649cfb2f44572287bfadf374b024717d0e6b8b93b29d0700c3"
+    },
+    "NxBrand_paste_values_16": {
+      "path": "images/brand/paste-values-16.png",
+      "sha256": "16eaab169c4fa5d50bda2cb63bde38635f325664096188b74a43160ca2ca59f4"
+    },
+    "NxBrand_paste_values_32": {
+      "path": "images/brand/paste-values-32.png",
+      "sha256": "e9588bbaf2f05335e08de6c6df482cdd41c67b362eef126dd60555acf53a3ae5"
+    },
+    "NxBrand_copy_formula_16": {
+      "path": "images/brand/copy-formula-16.png",
+      "sha256": "73f05a1d9353dc750581f72f45097135d259cbeb7256ec627c8ce8a52a52c223"
+    },
+    "NxBrand_copy_formula_32": {
+      "path": "images/brand/copy-formula-32.png",
+      "sha256": "ae1c1664bfb886dee1aa242ae0ec153e5219031e6f759ebc1872dbf31acdaf91"
+    },
+    "NxBrand_copy_address_16": {
+      "path": "images/brand/copy-address-16.png",
+      "sha256": "da5e846e7882fa927ba96d0fafbba29474bfef7e4aaef3605d6e83d6dfc6a66e"
+    },
+    "NxBrand_copy_address_32": {
+      "path": "images/brand/copy-address-32.png",
+      "sha256": "1790d7092ca507190a9333e3376fea93a191f34c8d05d1764708650d08841192"
+    },
+    "NxBrand_copy_values_16": {
+      "path": "images/brand/copy-values-16.png",
+      "sha256": "8236e093ad390bccbdcc2b4e25873ef0bb6ee778f0032b2ddb3c18ff2629c1da"
+    },
+    "NxBrand_copy_values_32": {
+      "path": "images/brand/copy-values-32.png",
+      "sha256": "ae86ef87990a41165a885283e4be5a504504981544e10acc0dec302cf55f79d6"
+    },
+    "NxBrand_paste_formula_16": {
+      "path": "images/brand/paste-formula-16.png",
+      "sha256": "0545fdf456564bdb834a3d82f187af7e230f7f5b7a751dbae2bd1f950288395f"
+    },
+    "NxBrand_paste_formula_32": {
+      "path": "images/brand/paste-formula-32.png",
+      "sha256": "57f756c4c098ea7a3bc130a774f8fe33b0c9bc34316bb3cfc1ed948e2ab5d1a7"
+    },
+    "NxBrand_paste_format_16": {
+      "path": "images/brand/paste-format-16.png",
+      "sha256": "a0e3e5c17d8a423d55a46f9c84f64c5c770b92038ac11ab01dd7b0b42ab6733d"
+    },
+    "NxBrand_paste_format_32": {
+      "path": "images/brand/paste-format-32.png",
+      "sha256": "91e79c1ccf8a5a91f69e9d1106f8a9e041e9ec8b7b30ac17a9cc0e65239acb4a"
+    },
+    "NxBrand_image_16": {
+      "path": "images/brand/image-16.png",
+      "sha256": "2ed51393d12e1d8cf6c327a19cd0146ef3835b81c2e2afdb924bb6629820b970"
+    },
+    "NxBrand_image_32": {
+      "path": "images/brand/image-32.png",
+      "sha256": "bfa58214bfb6c6d23c3c04214cf420cd97f664511265f3eabed744ad420b66d0"
+    },
+    "NxBrand_group_16": {
+      "path": "images/brand/group-16.png",
+      "sha256": "adf30e4ac7cec69805a41f8a767f4f5e14eb73adf29d8468b1fe789b54450bd8"
+    },
+    "NxBrand_group_32": {
+      "path": "images/brand/group-32.png",
+      "sha256": "fd6aad1239749a389cdec843bd61c0eba1089360e6e4777a2efe88da7b6a757f"
+    },
+    "NxBrand_folder_16": {
+      "path": "images/brand/folder-16.png",
+      "sha256": "379c505b461a037df733a900bdb112464f491404b219774e1f2a2a9a33d59c60"
+    },
+    "NxBrand_folder_32": {
+      "path": "images/brand/folder-32.png",
+      "sha256": "e449ff97283cd486f81c7b38e4baf6d7e248965386f10fe30c61f7273fc357ba"
+    },
+    "NxBrand_folder_add_16": {
+      "path": "images/brand/folder-add-16.png",
+      "sha256": "05be2328a5241aef3e58dbb2fd9efc56dfbdd15a5e395f9c6f417b45333ac503"
+    },
+    "NxBrand_folder_add_32": {
+      "path": "images/brand/folder-add-32.png",
+      "sha256": "6daf8a69c4ab467714dd7606e22c12a6dca1435ec65790ab7b8cbde481c725f2"
+    },
+    "NxBrand_file_merge_16": {
+      "path": "images/brand/file-merge-16.png",
+      "sha256": "b93e74bddd5e75bf6e34aea46e69e48056baeb48657167a23ab275f7179d7bae"
+    },
+    "NxBrand_file_merge_32": {
+      "path": "images/brand/file-merge-32.png",
+      "sha256": "47036ff162140145f80cf89a9c7f010300afbd4f7cb9c9d4cc36c8ca926777e0"
+    },
+    "NxBrand_file_rename_16": {
+      "path": "images/brand/file-rename-16.png",
+      "sha256": "a968bb6eff276a081d6adba6ba1b9eb72629811cb9919e0480436fa3936a0dbe"
+    },
+    "NxBrand_file_rename_32": {
+      "path": "images/brand/file-rename-32.png",
+      "sha256": "4d125f919be2e4f31bd8e60b644f2eccc0ebfb6543fc28a0a1c09e02092d7d3e"
+    },
+    "NxBrand_compare_range_16": {
+      "path": "images/brand/compare-range-16.png",
+      "sha256": "1b144631895dc6b0eac26a669575bb9dc6f360f1e8624fea55dbaab9b4d798f4"
+    },
+    "NxBrand_compare_range_32": {
+      "path": "images/brand/compare-range-32.png",
+      "sha256": "132744c8b33eb05ce44737146ebeb19498d11a044381a9d72362fb4fb9764d07"
+    },
+    "NxBrand_compare_sheet_16": {
+      "path": "images/brand/compare-sheet-16.png",
+      "sha256": "b9264d14c68c14d1e492b8c99a3444726043db1ae512775792554e849198d420"
+    },
+    "NxBrand_compare_sheet_32": {
+      "path": "images/brand/compare-sheet-32.png",
+      "sha256": "7bb3bf0ce99499c0b0aa0eb6d75f4d0842893086823a7d57cf01b061c3ec30b4"
+    },
+    "NxBrand_compare_file_16": {
+      "path": "images/brand/compare-file-16.png",
+      "sha256": "1bfeea0fd6251047ea281db0a8f1442efd9a18090fb284e60dad059ae4927a7c"
+    },
+    "NxBrand_compare_file_32": {
+      "path": "images/brand/compare-file-32.png",
+      "sha256": "b975d87f209743d3d2f23135d34338f6409ee8f2442e831e21e6846ce7ed914f"
+    },
+    "NxBrand_normalize_16": {
+      "path": "images/brand/normalize-16.png",
+      "sha256": "83972ea20cc33dcba9306dd7f296aa02d36fad637fe378a1d510f3f9b85b8cd2"
+    },
+    "NxBrand_normalize_32": {
+      "path": "images/brand/normalize-32.png",
+      "sha256": "2db2fdc588722f659c80017789f0d1f9292d6ea805509338855cc41ac0312b8b"
+    },
+    "NxBrand_unique_16": {
+      "path": "images/brand/unique-16.png",
+      "sha256": "e3ad73d1a11471ea6ea02895ff73b6a28c1d487ee3fea4c722626a3f02dd712d"
+    },
+    "NxBrand_unique_32": {
+      "path": "images/brand/unique-32.png",
+      "sha256": "c227323fa7f2238c000db1d2af10943bf8feffea93787a081f906f3e9ac58e08"
+    },
+    "NxBrand_duplicates_16": {
+      "path": "images/brand/duplicates-16.png",
+      "sha256": "fa7640b94a762adbca44694b783eace68b49f4bfefaf43c77bf877b052fa87b5"
+    },
+    "NxBrand_duplicates_32": {
+      "path": "images/brand/duplicates-32.png",
+      "sha256": "f9b0d51f1ba3b5ab347a7c66fe69904866362483c28857f06942dd9002d3ea43"
+    },
+    "NxBrand_age_16": {
+      "path": "images/brand/age-16.png",
+      "sha256": "74f1de37e76c82104af27d10c0a18767fd85c5de5e1aa136424582e15779e74c"
+    },
+    "NxBrand_age_32": {
+      "path": "images/brand/age-32.png",
+      "sha256": "6b63c96d05128b1368342e0f0ec675266d468357b112127d42fdccad5e006d1b"
+    },
+    "NxBrand_currency_16": {
+      "path": "images/brand/currency-16.png",
+      "sha256": "c838e18c26dc1996e04b9d97357689efdf3bb373f67c0e75794ba3a23243fa33"
+    },
+    "NxBrand_currency_32": {
+      "path": "images/brand/currency-32.png",
+      "sha256": "787523c400ddd87e325a9b06b446c6a9748579df80a51a579c6365d8360d508e"
+    },
+    "NxBrand_mask_16": {
+      "path": "images/brand/mask-16.png",
+      "sha256": "b82c6bad6f2fd0f2c11803af913820bf7ee3508076509abeca738380fe00c35d"
+    },
+    "NxBrand_mask_32": {
+      "path": "images/brand/mask-32.png",
+      "sha256": "6ef8885d1158d2f11db7c996e9009a2490bda3898b7481e9acb8bfc21a1d3ed8"
+    },
+    "NxBrand_date_16": {
+      "path": "images/brand/date-16.png",
+      "sha256": "d709f1e778b8f6d65f30aaa991c03e37dc2b22656745926d43b1dc1d300560c1"
+    },
+    "NxBrand_date_32": {
+      "path": "images/brand/date-32.png",
+      "sha256": "eb9c91fbf53b6ddf0cad4877a26eb9130d28b93329c240388ea6599368b8ee5b"
+    },
+    "NxBrand_template_16": {
+      "path": "images/brand/template-16.png",
+      "sha256": "564fd07d6089fe434620ef01f7a3fbd76dd1cad509412b358a3fb61fc2252698"
+    },
+    "NxBrand_template_32": {
+      "path": "images/brand/template-32.png",
+      "sha256": "144e5c39d6accb227bf9f7797d4707d48ab8209a1b485f0dca2b620579a269b0"
+    },
+    "NxBrand_formula_note_16": {
+      "path": "images/brand/formula-note-16.png",
+      "sha256": "b0640c77c9eba15cf9539c73c6290f7e799c05acc73eb3513cc321d109d5bb09"
+    },
+    "NxBrand_formula_note_32": {
+      "path": "images/brand/formula-note-32.png",
+      "sha256": "e927c42cb88871e3b1dadeb26a3111d1b9796d85d371a06361f8c0ce01ba5aaa"
+    },
+    "NxBrand_formula_map_16": {
+      "path": "images/brand/formula-map-16.png",
+      "sha256": "63d63e6592b8393344de7609f6a90b1e62cf078a23ef6e36e13fe74846515c62"
+    },
+    "NxBrand_formula_map_32": {
+      "path": "images/brand/formula-map-32.png",
+      "sha256": "fe6c9470b32e581d2278ae2780fa31c4fd0c21dd062ee8297d259f5281c9643a"
+    },
+    "NxBrand_round_16": {
+      "path": "images/brand/round-16.png",
+      "sha256": "6e90ec746456a911f0555ca9414fd8d3a880bb35c74b8dcc06e54a177322f0fe"
+    },
+    "NxBrand_round_32": {
+      "path": "images/brand/round-32.png",
+      "sha256": "46df9ff34143c7e91e56857325f5fbee2cfd590a6a37fc8b488fea3baf6c90cd"
+    },
+    "NxBrand_iferror_16": {
+      "path": "images/brand/iferror-16.png",
+      "sha256": "3e6e59f3dd082e72de8b940f13d1825fdee05f6e9513a43a41d475c050c092a5"
+    },
+    "NxBrand_iferror_32": {
+      "path": "images/brand/iferror-32.png",
+      "sha256": "6a21a5b4d915a7ed968bd43dea1697d79293b49399cdcd1046504573a920d629"
+    },
+    "NxBrand_resize_16": {
+      "path": "images/brand/resize-16.png",
+      "sha256": "d015eac7f5708ca6a6129ef99a1c0c0aab41470c6a093270439d109d913533e3"
+    },
+    "NxBrand_resize_32": {
+      "path": "images/brand/resize-32.png",
+      "sha256": "dab31e3a16b8a848ef00c4673017eac8d32118075ad928dae3b8c53c7677383b"
+    },
+    "NxBrand_first_sheet_16": {
+      "path": "images/brand/first-sheet-16.png",
+      "sha256": "6edf9f3c2a2d80bf7351a97658d09786ba7b2e3512226e856dd79a8ed5bdc49f"
+    },
+    "NxBrand_first_sheet_32": {
+      "path": "images/brand/first-sheet-32.png",
+      "sha256": "4cea870d44758295ab458d7bb2a588823acbc9378edc65f4859c5a0fcbdeee5e"
+    },
+    "NxBrand_last_sheet_16": {
+      "path": "images/brand/last-sheet-16.png",
+      "sha256": "42e63c1532391a44586140dc3309ae545e11b189b8ec3e93d27729100a944dce"
+    },
+    "NxBrand_last_sheet_32": {
+      "path": "images/brand/last-sheet-32.png",
+      "sha256": "048f5457be35d60710bdda3c8700815de58dc150870afa228ad0701a0808faf6"
+    },
+    "NxBrand_navigate_16": {
+      "path": "images/brand/navigate-16.png",
+      "sha256": "3997afeecbcd3125ff67c5c08a412411a71b5ab3bebf651d0be13ae498114328"
+    },
+    "NxBrand_navigate_32": {
+      "path": "images/brand/navigate-32.png",
+      "sha256": "48d0463a142f23fc00bb365db628e2f22e8ba6bd6ad0bffb86e681091d7695c5"
+    },
+    "NxBrand_sheet_rename_16": {
+      "path": "images/brand/sheet-rename-16.png",
+      "sha256": "075dc3d795fb044d79a74d5a182b39a85e7f7650692a88d6a990b7420cd9f946"
+    },
+    "NxBrand_sheet_rename_32": {
+      "path": "images/brand/sheet-rename-32.png",
+      "sha256": "b428ef37559a1b448fce421c3bd842e18a243be052bcaf02706f9f60e038ea90"
+    },
+    "NxBrand_fullscreen_16": {
+      "path": "images/brand/fullscreen-16.png",
+      "sha256": "0844e28dadd928f511706190198e1d3ee9cd79192e5987127e194be17f9839ce"
+    },
+    "NxBrand_fullscreen_32": {
+      "path": "images/brand/fullscreen-32.png",
+      "sha256": "7db9ca9286150a23f454249ab1d7438f15e1c67699466938e4c41011abea38c0"
+    },
+    "NxBrand_view_16": {
+      "path": "images/brand/view-16.png",
+      "sha256": "695cbf586356b9389e01cfa4dd8398629ce560afa7c823ca480528ca1fcd5811"
+    },
+    "NxBrand_view_32": {
+      "path": "images/brand/view-32.png",
+      "sha256": "3bad50db1022a0a3642137c309d79b087f6fba2094b8687dd8d72b5d7f0bd167"
+    },
+    "NxBrand_view_1_16": {
+      "path": "images/brand/view-1-16.png",
+      "sha256": "4d0164956c403717fc77b163d56715ec9e3f8deb2efa886af1991f4ac0b6501b"
+    },
+    "NxBrand_view_1_32": {
+      "path": "images/brand/view-1-32.png",
+      "sha256": "c4842e88ac624ca088e48deee672db0ff3a2c7bd74f14d2d3c0015624b975949"
+    },
+    "NxBrand_view_2_16": {
+      "path": "images/brand/view-2-16.png",
+      "sha256": "a36132e40d3959f7dcb1536e8f6be98370a07dd8a1b5dd8f54c58fd9f8fa928c"
+    },
+    "NxBrand_view_2_32": {
+      "path": "images/brand/view-2-32.png",
+      "sha256": "8367f9da5c88f77e2711a578b5dc92f3a0b479863478eecd3d5867314a5976b7"
+    },
+    "NxBrand_view_3_16": {
+      "path": "images/brand/view-3-16.png",
+      "sha256": "de93920dac615c583be04792fcf09c47227ed66c6b16fddfd0ac228b607edae6"
+    },
+    "NxBrand_view_3_32": {
+      "path": "images/brand/view-3-32.png",
+      "sha256": "22562cd40d969f0ea74b56699eb1cd400a88f0c8001efc0c5a1fd240bf664f37"
+    },
+    "NxBrand_view_4_16": {
+      "path": "images/brand/view-4-16.png",
+      "sha256": "4608c2f1aa753dc7dc4c13d2c04e6a650bd293ba7d9759f568d5b3d4f2219e69"
+    },
+    "NxBrand_view_4_32": {
+      "path": "images/brand/view-4-32.png",
+      "sha256": "595e7f000593201e99516f2cfdb838a449cf2c167993983a781cf5ae65749c36"
+    },
+    "NxBrand_view_5_16": {
+      "path": "images/brand/view-5-16.png",
+      "sha256": "61765b9e49b2b5b49a87882308a249f680fa29647fba25922de3436321d54d8a"
+    },
+    "NxBrand_view_5_32": {
+      "path": "images/brand/view-5-32.png",
+      "sha256": "97bba1a1a0c20647dd9a49d8b44c9688325ac56d296d2d7cd64178073984717d"
+    },
+    "NxBrand_type_16": {
+      "path": "images/brand/type-16.png",
+      "sha256": "caa2223fc18793c6f135f55d31817be69972e354b9d4b86030fed47c5d748e51"
+    },
+    "NxBrand_type_32": {
+      "path": "images/brand/type-32.png",
+      "sha256": "34dd8c79f773b0c318dd3ae88506ab3012b43bf1dd23716dbcef4c18ed271f54"
+    },
+    "NxBrand_type_9_16": {
+      "path": "images/brand/type-9-16.png",
+      "sha256": "a5e029fed3ef0de06d75efb039d04643bca9c08ef839fdfd2f8cfbf2f70445aa"
+    },
+    "NxBrand_type_9_32": {
+      "path": "images/brand/type-9-32.png",
+      "sha256": "e7c7a52729d0eb4f75062843cdd59008af1b82a9ace8bc1f697f030ac5465a2b"
+    },
+    "NxBrand_type_10_16": {
+      "path": "images/brand/type-10-16.png",
+      "sha256": "4e2f901945ace66c7efde35ee93302f69dbfde72205b8f285ac279e5cb5e1324"
+    },
+    "NxBrand_type_10_32": {
+      "path": "images/brand/type-10-32.png",
+      "sha256": "5d9ae245f25fa035e96f2a41676b299fbc22efe63451c9c707a8db99563c18b5"
+    },
+    "NxBrand_type_12_16": {
+      "path": "images/brand/type-12-16.png",
+      "sha256": "00d054878a54f1ff20d218306e074ddab403b8512987e0ac5defae36daa1c5c8"
+    },
+    "NxBrand_type_12_32": {
+      "path": "images/brand/type-12-32.png",
+      "sha256": "efb2690425fd5858ab6237b6a554cb7f43bbdb9680f224ba9a8856dd761bd5c4"
+    },
+    "NxBrand_type_15_16": {
+      "path": "images/brand/type-15-16.png",
+      "sha256": "c171d5ae0ac7f54e6a83f4b248d081ba76aa2291a5c457a9cd93a4e282bb122c"
+    },
+    "NxBrand_type_15_32": {
+      "path": "images/brand/type-15-32.png",
+      "sha256": "1b02100ce5dc25081b48119f375459f228f0bda14b40bc8aacd0f4b47e7eddd2"
+    },
+    "NxBrand_font_color_16": {
+      "path": "images/brand/font-color-16.png",
+      "sha256": "6d09834c5379488a2270a123e13f0a11033bd559b828f4e291192fb33bdfbfeb"
+    },
+    "NxBrand_font_color_32": {
+      "path": "images/brand/font-color-32.png",
+      "sha256": "c7749627a0ca91a7cff5d35832bbe717b466e9b2dd0709d950cb9eb0b6ee88b0"
+    },
+    "NxBrand_fill_16": {
+      "path": "images/brand/fill-16.png",
+      "sha256": "4aae84a71110087a8e0e82d3bde3299cc3ef784afb4f4e604f7d4bed125be4b0"
+    },
+    "NxBrand_fill_32": {
+      "path": "images/brand/fill-32.png",
+      "sha256": "236809b0ee59aeaaee18478bbe9049b58a77692024df4aa62e66d704578b1291"
+    },
+    "NxBrand_percent_16": {
+      "path": "images/brand/percent-16.png",
+      "sha256": "714a31220cebb8a5a9a10d7ad8ee3a993f4e97d98f97457f01620c846cc7fbdb"
+    },
+    "NxBrand_percent_32": {
+      "path": "images/brand/percent-32.png",
+      "sha256": "74d541ffa896e416a78e2acc23a23108ef74c605b9bbf9c1011c5cb4128b9038"
+    },
+    "NxBrand_decimal_16": {
+      "path": "images/brand/decimal-16.png",
+      "sha256": "484479751fb4ddd5c741d2fac6778f4bc97969dbde589cd2a2bf7f812e19b86b"
+    },
+    "NxBrand_decimal_32": {
+      "path": "images/brand/decimal-32.png",
+      "sha256": "00ea653b12b4263f1369e4179ada3979771ec1ee2cbc996cab769ab1b5fa7f6e"
+    },
+    "NxBrand_comma_16": {
+      "path": "images/brand/comma-16.png",
+      "sha256": "7fb39ed5ab9d9964de8ca1e5723c2c85f0d41d81e8863af72d4dd51e130b2cdf"
+    },
+    "NxBrand_comma_32": {
+      "path": "images/brand/comma-32.png",
+      "sha256": "96e5931951ffbdd8033a581f0d0be7ceea1730302cb9a543ff146d14e291dc39"
+    },
+    "NxBrand_number_emphasis_16": {
+      "path": "images/brand/number-emphasis-16.png",
+      "sha256": "e587bc6d1314c34057b5712f42dec8fdd1441326df2fdbf252b04d16c0a3d476"
+    },
+    "NxBrand_number_emphasis_32": {
+      "path": "images/brand/number-emphasis-32.png",
+      "sha256": "392f83c4d5d7abcfb85d90791ee102d03dca861bfbf21d9963e36977b9d95108"
+    },
+    "NxBrand_title_table_16": {
+      "path": "images/brand/title-table-16.png",
+      "sha256": "9560d9b96f05cfa823a9edf3b5f5886e1d62c5800487e3401584a285a0556183"
+    },
+    "NxBrand_title_table_32": {
+      "path": "images/brand/title-table-32.png",
+      "sha256": "feeee5520edde24c0ff258918ac893943ccea267641e88b1df988cf685ecbbc3"
+    },
+    "NxBrand_table_16": {
+      "path": "images/brand/table-16.png",
+      "sha256": "b3910e4d9f03294f2de5cd1569f5273dbdf78f41e7ce0a3e72788af98761e23e"
+    },
+    "NxBrand_table_32": {
+      "path": "images/brand/table-32.png",
+      "sha256": "475abc6e3b82d8e61815513c61af69f291e6f6bedf7264ee9a70f1635081b603"
+    },
+    "NxBrand_clear_inner_16": {
+      "path": "images/brand/clear-inner-16.png",
+      "sha256": "2f93270791c9c0f1cd21807a0f2f1b2461c32e5188f568afb159595c1ee118e2"
+    },
+    "NxBrand_clear_inner_32": {
+      "path": "images/brand/clear-inner-32.png",
+      "sha256": "4801396117bf48a1059e1ade012a3cd72b329550c63a3a52101c348ad807588f"
+    },
+    "NxBrand_style_16": {
+      "path": "images/brand/style-16.png",
+      "sha256": "6b377675b6c38f8ed7391d0fccb790a8e6ea2abed3137514a15d84966c467beb"
+    },
+    "NxBrand_style_32": {
+      "path": "images/brand/style-32.png",
+      "sha256": "68fcd61fd3f727f07e2ffe01b58d55fdcecaf80e13e31fd69ca7c7ac24ff088c"
+    },
+    "NxBrand_style_clean_16": {
+      "path": "images/brand/style-clean-16.png",
+      "sha256": "df96e38b238097300c4440ca35737f90ada1e552ba09a1b344a63fe7441b6585"
+    },
+    "NxBrand_style_clean_32": {
+      "path": "images/brand/style-clean-32.png",
+      "sha256": "fb947f6a97aefc5a7014d5276d6e3962d39ed46b6037d59857e2c68ab370d6f3"
+    },
+    "NxBrand_merge_16": {
+      "path": "images/brand/merge-16.png",
+      "sha256": "065442d6ff4400939d5f5de5f47e6036da057297a84c1293c3681a60aa535834"
+    },
+    "NxBrand_merge_32": {
+      "path": "images/brand/merge-32.png",
+      "sha256": "98ca67e82ac679590753346c8a7d157b7f20025d679534fad5460e4cd8c326fc"
+    },
+    "NxBrand_hangul_table_16": {
+      "path": "images/brand/hangul-table-16.png",
+      "sha256": "2bc7a438b3d9278db40047c4b870d18b073528ca185e66d77b44af063b0b2c08"
+    },
+    "NxBrand_hangul_table_32": {
+      "path": "images/brand/hangul-table-32.png",
+      "sha256": "ec5decc84bd8c5b4e79caaebfafbf84c9299d6e39827873bb2e159ad74eab1f4"
+    },
+    "NxBrand_hangul_image_16": {
+      "path": "images/brand/hangul-image-16.png",
+      "sha256": "d368343a257f4832e6e358d4d66620f474ef9ff43b30047dd00ce112d23d41af"
+    },
+    "NxBrand_hangul_image_32": {
+      "path": "images/brand/hangul-image-32.png",
+      "sha256": "284be4147477f539a06a0db91a71b9f5e98c227f9889502302e245db1e3ead95"
+    },
+    "NxBrand_role_title_16": {
+      "path": "images/brand/role-title-16.png",
+      "sha256": "d993324818069cabc055dcd123146d8097718170182ed632945afe3e8161a8b8"
+    },
+    "NxBrand_role_title_32": {
+      "path": "images/brand/role-title-32.png",
+      "sha256": "1967e0a8ee8c130bf44e27580afcfdf7879675fc315c152f4ff8bf69b1e32c79"
+    },
+    "NxBrand_role_subtitle_16": {
+      "path": "images/brand/role-subtitle-16.png",
+      "sha256": "3fbc4a11bcfc0540b68a4a62351923bec2721b3d69a1a0100fec284f4246eb01"
+    },
+    "NxBrand_role_subtitle_32": {
+      "path": "images/brand/role-subtitle-32.png",
+      "sha256": "c779a5b31c3c309a54169339c7f7bd880fe36f05986838890c1b8dc31a15a0ba"
+    },
+    "NxBrand_role_header_16": {
+      "path": "images/brand/role-header-16.png",
+      "sha256": "3bbb8e31758cb101dcc232832c4e803dfa2d009492fe9ff27715e82f67a94184"
+    },
+    "NxBrand_role_header_32": {
+      "path": "images/brand/role-header-32.png",
+      "sha256": "6ebc462cecf1bcaf623cb96f85eab8a744c043495fc68117d4c8c5c74bd01057"
+    },
+    "NxBrand_role_body_16": {
+      "path": "images/brand/role-body-16.png",
+      "sha256": "da47d5c6740ed71c05b5fd9544cc3f9903b23884edb499f6c84188c73d90aebd"
+    },
+    "NxBrand_role_body_32": {
+      "path": "images/brand/role-body-32.png",
+      "sha256": "3bb7a289b70cdc3cfdcf7879ae626b1a18d3f1fcb697cd1015930285bb9e0a79"
+    },
+    "NxBrand_role_emphasis_16": {
+      "path": "images/brand/role-emphasis-16.png",
+      "sha256": "176680053e5d56da42ea5be6b76ac1351d8a47efaedd42e72b6cd2c36d2e7add"
+    },
+    "NxBrand_role_emphasis_32": {
+      "path": "images/brand/role-emphasis-32.png",
+      "sha256": "300a09cc1dd328fdc6c9744bd816ab4a4240a2894bc4e36778bac30b3b2059f7"
+    },
+    "NxBrand_role_total_16": {
+      "path": "images/brand/role-total-16.png",
+      "sha256": "20940454b68b1a38bdd781a2c9cbf6800c53fb6332ddfd10e5a5ba84954f3f67"
+    },
+    "NxBrand_role_total_32": {
+      "path": "images/brand/role-total-32.png",
+      "sha256": "9635d7abb8f6084f1e8fe775c001c2b8226397eea4d5895ba9e761cf20abe7a2"
+    },
+    "NxBrand_focus_16": {
+      "path": "images/brand/focus-16.png",
+      "sha256": "1090aaaa546d772019c594f0335380f62bb89a2effbd54aef9cad365d90ad8c2"
+    },
+    "NxBrand_focus_32": {
+      "path": "images/brand/focus-32.png",
+      "sha256": "1778c2e6cbed2aac36fd8cbbe79438ada168502e66c3367b88e97b4b29826bb4"
+    },
+    "NxBrand_calculator_16": {
+      "path": "images/brand/calculator-16.png",
+      "sha256": "4d79a6aff7b7bd064877e2c7ed4476dc6340aaf8b551ac91a79540dc454929cd"
+    },
+    "NxBrand_calculator_32": {
+      "path": "images/brand/calculator-32.png",
+      "sha256": "cb99971cf4f2d5a1e8bde3601a53d4f35a5a75146cb082cb8a879def54d5801b"
+    },
+    "NxBrand_symbols_16": {
+      "path": "images/brand/symbols-16.png",
+      "sha256": "4fce4a7a6335d5448ab37360af502b47fcabc1e08104d8df265c84cd7b2106ff"
+    },
+    "NxBrand_symbols_32": {
+      "path": "images/brand/symbols-32.png",
+      "sha256": "1e64af8509c4120845c6b7e16bd643b94551b9d608c792ee0959f3f6ff1c6371"
+    },
+    "NxBrand_shortcuts_16": {
+      "path": "images/brand/shortcuts-16.png",
+      "sha256": "d3878593fe736e5f7009e75bd7e53dbee5a42b9ffc14fcfe10bd6139c0660233"
+    },
+    "NxBrand_shortcuts_32": {
+      "path": "images/brand/shortcuts-32.png",
+      "sha256": "b5abd452ab65319b64249aa72d2b3ed25c19e45a594d0b9a248b17df42252223"
+    },
+    "NxBrand_ai_16": {
+      "path": "images/brand/ai-16.png",
+      "sha256": "b9718d2fc5a0b96a36f33bea86f362685ca8450aecfb65c197a858d221c5469c"
+    },
+    "NxBrand_ai_32": {
+      "path": "images/brand/ai-32.png",
+      "sha256": "83fddb7910cbd56abdabb84047e436c338d45226b2bda1e5064fbd61e3860227"
+    },
+    "NxBrand_privacy_16": {
+      "path": "images/brand/privacy-16.png",
+      "sha256": "9cabc47989de3303e53f3144559e566e1f04576bd98d5c6bbaadd929a22bb11d"
+    },
+    "NxBrand_privacy_32": {
+      "path": "images/brand/privacy-32.png",
+      "sha256": "0fa913212f4807bf77cb14ee0fa97c41948ef54cc8b69161ea9330b1c2b7b3cf"
+    },
+    "NxBrand_names_16": {
+      "path": "images/brand/names-16.png",
+      "sha256": "a61e618cc5f3244d2113cf54535ad57808d91636464a0523db93845d6593ce4d"
+    },
+    "NxBrand_names_32": {
+      "path": "images/brand/names-32.png",
+      "sha256": "ec6a3fb953e30ace4a1fe6adb1fb55e3bd4405471538385f38ccac7da3528a08"
+    },
+    "NxBrand_notes_16": {
+      "path": "images/brand/notes-16.png",
+      "sha256": "974a266688a502980d5f7c072cbca23f8822d4b0e8fa2b6109d19f41af7bfb65"
+    },
+    "NxBrand_notes_32": {
+      "path": "images/brand/notes-32.png",
+      "sha256": "ce3d6286ade6f767f8180e3f2091e0ce655969bd1fe8ee3c7213152ea98620f6"
+    },
+    "NxBrand_sheet_list_16": {
+      "path": "images/brand/sheet-list-16.png",
+      "sha256": "0413f225c7dcfd73e1b1dcca35777fdb90c7e9566e583f91f9c1251331d67046"
+    },
+    "NxBrand_sheet_list_32": {
+      "path": "images/brand/sheet-list-32.png",
+      "sha256": "33e6448d11dcc30820d56745ab4bc02e4ab229785d07ebed800e6c856b8d760b"
+    },
+    "NxBrand_favorites_16": {
+      "path": "images/brand/favorites-16.png",
+      "sha256": "8fdb69a7e87275864df49f36f4738ae5efa405ef98efa895decb76e05be4890c"
+    },
+    "NxBrand_favorites_32": {
+      "path": "images/brand/favorites-32.png",
+      "sha256": "23b567754c1a3ac6a792725a258d2cc6ce14e09207f392c448f2c845fd6f9859"
+    },
+    "NxBrand_all_16": {
+      "path": "images/brand/all-16.png",
+      "sha256": "9927c59bf245eb651a0a61665963602fbf02b6b52526d16ec61fa6f1e1942e0a"
+    },
+    "NxBrand_all_32": {
+      "path": "images/brand/all-32.png",
+      "sha256": "67ea2f8bd5a4747cca4dd501ef4bdbb139293e089a3530038d8c7e27a90b2587"
+    },
+    "NxBrand_search_16": {
+      "path": "images/brand/search-16.png",
+      "sha256": "d0f6bc52f19f18d7b74504440b5ec1cf334c03580583c63348fd02c5ef8a21a7"
+    },
+    "NxBrand_search_32": {
+      "path": "images/brand/search-32.png",
+      "sha256": "3858ac1dfa5655f85786938220de02f5f6f343cc7cb1343f77000f4f0077406e"
+    },
+    "NxBrand_settings_16": {
+      "path": "images/brand/settings-16.png",
+      "sha256": "a511a80b2bc6d9d55315860e67f0af331ff7573a8411e987089ff19ae979018e"
+    },
+    "NxBrand_settings_32": {
+      "path": "images/brand/settings-32.png",
+      "sha256": "cd53693b76ac6ffde22e50e932a2d4ed017a1ee60de3a631e8a77496a4c1fd79"
+    },
+    "NxBrand_download_16": {
+      "path": "images/brand/download-16.png",
+      "sha256": "510d8d5dcca4f9bdc418989220f96a5862696bf5997333ceb36bf14c3321b0f5"
+    },
+    "NxBrand_download_32": {
+      "path": "images/brand/download-32.png",
+      "sha256": "4122b066a5f46e34c9fef89739e9d1417b17245f108af3702aeba9adf12144f2"
+    },
+    "NxBrand_upload_16": {
+      "path": "images/brand/upload-16.png",
+      "sha256": "46bbdcf7aff7294b36f996e5ade4a60e7efc986972cbbbb9331245f30dbf7586"
+    },
+    "NxBrand_upload_32": {
+      "path": "images/brand/upload-32.png",
+      "sha256": "365e17abb55453ffaac2ac14a4878fd08b1383f36bb4639e5b531adf7e766299"
+    },
+    "NxBrand_close_16": {
+      "path": "images/brand/close-16.png",
+      "sha256": "7f7b94cdba6190d76f43933ea7a218e914cf92590b08d6faf7925c5d76904c4e"
+    },
+    "NxBrand_close_32": {
+      "path": "images/brand/close-32.png",
+      "sha256": "4e4aca93ee6562749bcdd8113359c8dd723444fd7872570fa66df07044c3443c"
+    },
+    "NxBrand_check_16": {
+      "path": "images/brand/check-16.png",
+      "sha256": "9779eaedea0215962e7505fa9873551e0afddfd39a681fa92e472e2b4bb075f5"
+    },
+    "NxBrand_check_32": {
+      "path": "images/brand/check-32.png",
+      "sha256": "e5735209bed92eeba874c64568c30f8861cf1ff530a66f7cba16d698214da6d8"
+    },
+    "NxBrand_warning_16": {
+      "path": "images/brand/warning-16.png",
+      "sha256": "4ac683815f22a77e598d26f2a0726a0ed6d492080bf0b73cd73d921ad9f1cc88"
+    },
+    "NxBrand_warning_32": {
+      "path": "images/brand/warning-32.png",
+      "sha256": "d7d0f6f494ca315c6835f3fac5987b9401e8711979cad1025b38b4c702f490a3"
+    },
+    "NxBrand_error_16": {
+      "path": "images/brand/error-16.png",
+      "sha256": "aa525c5b03b1e4ebdc5e86b6b50709d59370effe1d55288bd9f0377a15def9d3"
+    },
+    "NxBrand_error_32": {
+      "path": "images/brand/error-32.png",
+      "sha256": "baaff45129053ee0b351319f23e17c981738958e65a4b77359b309811db59f95"
+    },
+    "NxBrand_info_16": {
+      "path": "images/brand/info-16.png",
+      "sha256": "50eb58ff8b7ca411aa8e6b702a7138bb7b014b332e4c2455fd6f7272a5a7d739"
+    },
+    "NxBrand_info_32": {
+      "path": "images/brand/info-32.png",
+      "sha256": "6b06f79867a873ec6301efccdc87901ef275d6fec4c71ee35432464a5452fa6e"
+    },
+    "NxBrand_undo_16": {
+      "path": "images/brand/undo-16.png",
+      "sha256": "58605a22d26626fd01f2536a20f21a69615b47da8d33199da4d97f0d9a85a166"
+    },
+    "NxBrand_undo_32": {
+      "path": "images/brand/undo-32.png",
+      "sha256": "2eb71ec04373eb15d1965c4fb42f14a2f3d177febc0968ffdbfbdbebc127cf81"
+    },
+    "NxBrand_redo_16": {
+      "path": "images/brand/redo-16.png",
+      "sha256": "3f6cdcb7e09565348765acab91957be553ddb955d1128b73bbe3663ac92c1575"
+    },
+    "NxBrand_redo_32": {
+      "path": "images/brand/redo-32.png",
+      "sha256": "87a7f4e4ee75786040e25344b8286573a8d2544c67e8af08bd3f50c5d341b60d"
+    },
+    "NxBrand_help_16": {
+      "path": "images/brand/help-16.png",
+      "sha256": "703c4acb441bec5152908dcf2cbc082a846cf953d0a1aef97dfd28f212c0bc6d"
+    },
+    "NxBrand_help_32": {
+      "path": "images/brand/help-32.png",
+      "sha256": "1cc9e2546a0ecec788629875268324f2deeb4895248bfe6e91b4688f7a22754b"
+    },
+    "NxBrand_external_16": {
+      "path": "images/brand/external-16.png",
+      "sha256": "5dc5f559d66ec68582ee419195020f894137652084e939058c6c9723628a560f"
+    },
+    "NxBrand_external_32": {
+      "path": "images/brand/external-32.png",
+      "sha256": "6c49ee0574f91d4b3c4ff5954a596a0eace0fa96be95e1c2a510979484355213"
+    },
+    "NxBrand_chevron_16": {
+      "path": "images/brand/chevron-16.png",
+      "sha256": "24860cbcdb9946f6d8942729eae03b84e93e0f0fb6d6a948cee05449d7627659"
+    },
+    "NxBrand_chevron_32": {
+      "path": "images/brand/chevron-32.png",
+      "sha256": "281ad75f3ad272f937c262f2ee9202dde07006ad2a4439adfbfaaf19cd67cea6"
+    },
+    "NxBrand_menu_16": {
+      "path": "images/brand/menu-16.png",
+      "sha256": "e95cc5627aee33e462717414c3cea1266beb7127a54bd2bfab5d25f110b491b4"
+    },
+    "NxBrand_menu_32": {
+      "path": "images/brand/menu-32.png",
+      "sha256": "f13ab857430104c5ec73f6439d49ebc6cda5fa267b637e1b4f1a0355c161d92c"
+    },
+    "NxBrand_lock_16": {
+      "path": "images/brand/lock-16.png",
+      "sha256": "cc529a7d89acd4ddcb8d8b2805ae62a0661d212ba7acc6083ad3c3a6b4873f4a"
+    },
+    "NxBrand_lock_32": {
+      "path": "images/brand/lock-32.png",
+      "sha256": "739eeb99be02a37fc912bf587d188993293be724db6c78ee26e43d81d2893f70"
+    },
+    "NxBrand_refresh_16": {
+      "path": "images/brand/refresh-16.png",
+      "sha256": "c4c0224daac9a78026661d8aef78144ed778c88ecbd5edec3dba67aeb8ea0847"
+    },
+    "NxBrand_refresh_32": {
+      "path": "images/brand/refresh-32.png",
+      "sha256": "23fe92b317109c64700253a7dc6d6d6d4083c0420affb6dbf3ad50de4f1cd798"
+    },
+    "NxBrand_product_16": {
+      "path": "images/brand/product-16.png",
+      "sha256": "55fab646764a460b01f63bfd6cce99e733bfde2c124753ad8d184ad9f3187588"
+    },
+    "NxBrand_product_32": {
+      "path": "images/brand/product-32.png",
+      "sha256": "feb96db5c16eaa4c3aacafb4e4d0ba8167566a26b78bde15b4f7d3e451c3ae38"
+    }
+  }
+}

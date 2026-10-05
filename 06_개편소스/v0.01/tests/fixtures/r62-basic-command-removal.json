@@ -1,0 +1,299 @@
+{
+  "removed_commands": [
+    {
+      "id": "NX-CMD-CLIPBOARD-RB-CLIPBOARD-PASTE-BYFORMULA",
+      "arg": "RB_CLIPBOARD_PASTE_BYFORMULA",
+      "label": "수식 붙여넣기",
+      "handler": "NxCmdClipboard"
+    },
+    {
+      "id": "NX-CMD-CLIPBOARD-RB-CLIPBOARD-PASTE-BYSTYLE",
+      "arg": "RB_CLIPBOARD_PASTE_BYSTYLE",
+      "label": "서식 붙여넣기",
+      "handler": "NxCmdClipboard"
+    },
+    {
+      "id": "NX-CMD-CLIPBOARD-RB-CLIPBOARD-PASTE-BYVALE",
+      "arg": "RB_CLIPBOARD_PASTE_BYVALE",
+      "label": "값 붙여넣기",
+      "handler": "NxCmdClipboard"
+    },
+    {
+      "id": "NX-CMD-FONT-RB-EDIT-FONT-COLOR-NONE",
+      "arg": "RB_EDIT_FONT_COLOR_NONE",
+      "label": "글자색 · 자동",
+      "handler": "NxCmdFontColor"
+    },
+    {
+      "id": "NX-CMD-FONT-RB-EDIT-FONT-SIZE-DOWN",
+      "arg": "RB_EDIT_FONT_SIZE_DOWN",
+      "label": "글자 크기 · 1pt 줄이기",
+      "handler": "NxCmdFontColor"
+    },
+    {
+      "id": "NX-CMD-FONT-RB-EDIT-FONT-SIZE-UP",
+      "arg": "RB_EDIT_FONT_SIZE_UP",
+      "label": "글자 크기 · 1pt 늘리기",
+      "handler": "NxCmdFontColor"
+    },
+    {
+      "id": "NX-CMD-FONT-RB-EDIT-FONT-STYLE-TEXTFITTING",
+      "arg": "RB_EDIT_FONT_STYLE_TEXTFITTING",
+      "label": "글자 축소 맞춤 켜기/끄기",
+      "handler": "NxCmdFontColor"
+    },
+    {
+      "id": "NX-CMD-SIZE-RB-EDIT-AUTOFIT-COLUMN",
+      "arg": "RB_EDIT_AUTOFIT_COLUMN",
+      "label": "내용에 맞게 열 너비 조정",
+      "handler": "NxCmdRowsColumns"
+    },
+    {
+      "id": "NX-CMD-SIZE-RB-EDIT-AUTOFIT-ROW",
+      "arg": "RB_EDIT_AUTOFIT_ROW",
+      "label": "내용에 맞게 행 높이 조정",
+      "handler": "NxCmdRowsColumns"
+    },
+    {
+      "id": "NX-CMD-SIZE-RB-EDIT-CELL-SIZE-COLDOWN",
+      "arg": "RB_EDIT_CELL_SIZE_COLDOWN",
+      "label": "열 너비 · 한 단계 줄이기",
+      "handler": "NxCmdRowsColumns"
+    },
+    {
+      "id": "NX-CMD-SIZE-RB-EDIT-CELL-SIZE-COLUP",
+      "arg": "RB_EDIT_CELL_SIZE_COLUP",
+      "label": "열 너비 · 한 단계 늘리기",
+      "handler": "NxCmdRowsColumns"
+    },
+    {
+      "id": "NX-CMD-SIZE-RB-EDIT-CELL-SIZE-ROWDOWN",
+      "arg": "RB_EDIT_CELL_SIZE_ROWDOWN",
+      "label": "행 높이 · 1pt 줄이기",
+      "handler": "NxCmdRowsColumns"
+    },
+    {
+      "id": "NX-CMD-SIZE-RB-EDIT-CELL-SIZE-ROWUP",
+      "arg": "RB_EDIT_CELL_SIZE_ROWUP",
+      "label": "행 높이 · 1pt 늘리기",
+      "handler": "NxCmdRowsColumns"
+    },
+    {
+      "id": "NX-CMD-ALIGN-RB-WINDOWS-ALIGN-TILE",
+      "arg": "RB_WINDOWS_ALIGN_TILE",
+      "label": "열린 창 바둑판 배치",
+      "handler": "NxCmdAlignment"
+    },
+    {
+      "id": "NX-CMD-ALIGN-RB-EDIT-CELL-MERGE",
+      "arg": "RB_EDIT_CELL_MERGE",
+      "label": "셀 병합/해제",
+      "handler": "NxCmdAlignment"
+    },
+    {
+      "id": "NX-CMD-ALIGN-RB-EDIT-ALIGN-LEFT",
+      "arg": "RB_EDIT_ALIGN_LEFT",
+      "label": "왼쪽 정렬 켜기/끄기",
+      "handler": "NxCmdAlignment"
+    },
+    {
+      "id": "NX-CMD-ALIGN-RB-EDIT-ALIGN-CENTER",
+      "arg": "RB_EDIT_ALIGN_CENTER",
+      "label": "가운데 정렬 켜기/끄기",
+      "handler": "NxCmdAlignment"
+    },
+    {
+      "id": "NX-CMD-ALIGN-RB-EDIT-ALIGN-RIGHT",
+      "arg": "RB_EDIT_ALIGN_RIGHT",
+      "label": "오른쪽 정렬 켜기/끄기",
+      "handler": "NxCmdAlignment"
+    },
+    {
+      "id": "NX-CMD-ALIGN-RB-EDIT-ALIGN-INDENT-ADD",
+      "arg": "RB_EDIT_ALIGN_INDENT_ADD",
+      "label": "들여쓰기 · 한 단계 늘리기",
+      "handler": "NxCmdAlignment"
+    },
+    {
+      "id": "NX-CMD-ALIGN-RB-EDIT-ALIGN-INDENT-SUBSTRACT",
+      "arg": "RB_EDIT_ALIGN_INDENT_SUBSTRACT",
+      "label": "들여쓰기 · 한 단계 줄이기",
+      "handler": "NxCmdAlignment"
+    },
+    {
+      "id": "NX-CMD-STRUCTURE-RB-EDIT-CELL-DELETECOLENTIRE",
+      "arg": "RB_EDIT_CELL_DELETECOLENTIRE",
+      "label": "선택 위치의 열 삭제",
+      "handler": "NxCmdInsertDelete"
+    },
+    {
+      "id": "NX-CMD-STRUCTURE-RB-EDIT-CELL-DELETEROWENTIRE",
+      "arg": "RB_EDIT_CELL_DELETEROWENTIRE",
+      "label": "선택 위치의 행 삭제",
+      "handler": "NxCmdInsertDelete"
+    },
+    {
+      "id": "NX-CMD-STRUCTURE-RB-EDIT-CELL-INSERTCOLENTIRE",
+      "arg": "RB_EDIT_CELL_INSERTCOLENTIRE",
+      "label": "선택 위치 왼쪽에 열 추가",
+      "handler": "NxCmdInsertDelete"
+    },
+    {
+      "id": "NX-CMD-STRUCTURE-RB-EDIT-CELL-INSERTROWENTIRE",
+      "arg": "RB_EDIT_CELL_INSERTROWENTIRE",
+      "label": "선택 위치 위에 행 추가",
+      "handler": "NxCmdInsertDelete"
+    },
+    {
+      "id": "NX-CMD-STRUCTURE-RB-EDIT-CELL-SHOW-COLUNHIDE",
+      "arg": "RB_EDIT_CELL_SHOW_COLUNHIDE",
+      "label": "선택 범위의 숨김 열 표시",
+      "handler": "NxCmdInsertDelete"
+    },
+    {
+      "id": "NX-CMD-STRUCTURE-RB-SHEET-MANAGE-DELETE",
+      "arg": "RB_SHEET_MANAGE_DELETE",
+      "label": "현재 워크시트 삭제",
+      "handler": "NxCmdInsertDelete"
+    },
+    {
+      "id": "NX-CMD-SHEET-RB-SHEET-COPY-AFTER",
+      "arg": "RB_SHEET_COPY_AFTER",
+      "label": "현재 시트 사본 만들기",
+      "handler": "NxCmdSheet"
+    },
+    {
+      "id": "NX-CMD-SHEET-RB-SHEET-COPY-BEFORE",
+      "arg": "RB_SHEET_COPY_BEFORE",
+      "label": "현재 시트 복제",
+      "handler": "NxCmdSheet"
+    },
+    {
+      "id": "NX-CMD-SHEET-RB-SHEET-MANAGE-ADD",
+      "arg": "RB_SHEET_MANAGE_ADD",
+      "label": "현재 시트 뒤에 새 시트",
+      "handler": "NxCmdSheet"
+    },
+    {
+      "id": "NX-CMD-SHEET-RB-SHEET-MOVE-END",
+      "arg": "RB_SHEET_MOVE_END",
+      "label": "시트 순서 · 맨 뒤로",
+      "handler": "NxCmdSheet"
+    },
+    {
+      "id": "NX-CMD-SHEET-RB-SHEET-MOVE-FIRST",
+      "arg": "RB_SHEET_MOVE_FIRST",
+      "label": "시트 순서 · 맨 앞으로",
+      "handler": "NxCmdSheet"
+    },
+    {
+      "id": "NX-CMD-SHEET-RB-SHEET-MOVE-NEXT",
+      "arg": "RB_SHEET_MOVE_NEXT",
+      "label": "시트 순서 · 오른쪽으로",
+      "handler": "NxCmdSheet"
+    },
+    {
+      "id": "NX-CMD-SHEET-RB-SHEET-MOVE-PREVIOUS",
+      "arg": "RB_SHEET_MOVE_PREVIOUS",
+      "label": "시트 순서 · 왼쪽으로",
+      "handler": "NxCmdSheet"
+    },
+    {
+      "id": "NX-CMD-VIEW-RB-WINDOWS-SHOW-GRID",
+      "arg": "RB_WINDOWS_SHOW_GRID",
+      "label": "눈금선 켜기/끄기",
+      "handler": "NxCmdView"
+    },
+    {
+      "id": "NX-CMD-VIEW-RB-APP-OPTION-SHOW-ZERO",
+      "arg": "RB_APP_OPTION_SHOW_ZERO",
+      "label": "0 표시 켜기/끄기",
+      "handler": "NxCmdView"
+    },
+    {
+      "id": "NX-CMD-VIEW-RB-WINDOW-VIEW-COMPAREVIEW",
+      "arg": "RB_WINDOW_VIEW_COMPAREVIEW",
+      "label": "현재 문서를 두 창으로",
+      "handler": "NxCmdView"
+    },
+    {
+      "id": "NX-CMD-VIEW-RB-APP-OPTION-SHOW-PAGEBREAKS",
+      "arg": "RB_APP_OPTION_SHOW_PAGEBREAKS",
+      "label": "페이지 구분선 켜기/끄기",
+      "handler": "NxCmdView"
+    },
+    {
+      "id": "NX-CMD-VIEW-RB-WINDOWS-VIEW-FREEZE-PAN",
+      "arg": "RB_WINDOWS_VIEW_FREEZE_PAN",
+      "label": "틀 고정 켜기/끄기",
+      "handler": "NxCmdView"
+    },
+    {
+      "id": "NX-CMD-VIEW-RB-WINDOWS-VIEW-ZOOM-ACTUAL",
+      "arg": "RB_WINDOWS_VIEW_ZOOM_ACTUAL",
+      "label": "화면 배율 · 100%",
+      "handler": "NxCmdView"
+    },
+    {
+      "id": "NX-CMD-VIEW-RB-WINDOWS-VIEW-ZOOM-IN",
+      "arg": "RB_WINDOWS_VIEW_ZOOM_IN",
+      "label": "화면 배율 · 5% 높이기",
+      "handler": "NxCmdView"
+    },
+    {
+      "id": "NX-CMD-VIEW-RB-WINDOWS-VIEW-ZOOM-OUT",
+      "arg": "RB_WINDOWS_VIEW_ZOOM_OUT",
+      "label": "화면 배율 · 5% 낮추기",
+      "handler": "NxCmdView"
+    },
+    {
+      "id": "NX-CMD-VIEW-RB-WINDOWS-VIEW-ZOOM-SELECTION",
+      "arg": "RB_WINDOWS_VIEW_ZOOM_SELECTION",
+      "label": "선택 범위에 화면 맞춤",
+      "handler": "NxCmdView"
+    },
+    {
+      "id": "NX-CMD-VIEW-RB-WINDOWS-VIEW-ZOOM-USEDRANGE",
+      "arg": "RB_WINDOWS_VIEW_ZOOM_USEDRANGE",
+      "label": "사용 영역에 화면 맞춤",
+      "handler": "NxCmdView"
+    },
+    {
+      "id": "NX-CMD-INFO-RB-SHOW-WORKBOOK-LIST",
+      "arg": "RB_SHOW_WORKBOOK_LIST",
+      "label": "열린 문서 목록 만들기",
+      "handler": "NxCmdInfo"
+    }
+  ],
+  "preserved_number_format_ids": [
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-NUMBER",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-PERCENTAGE",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-DECREASE",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-INCREASE",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-CTRLSHIFT1",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-CTRLSHIFT2",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-CTRLSHIFT3",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-CTRLSHIFT4",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-CTRLSHIFT5",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-CTRLSHIFT6",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-INTEGER",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-DECIMAL",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-THOUSAND",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-MILLION",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-BILLION",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-DATE-DMMMMYYYY",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-DATE-YYMMDD1",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-DATE-YYMM",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-DATE-YYYYMMDD",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-DATE-YYYYMMDDHHMM",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-KRW",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-USD",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-EURO",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-JPY",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-UPDOWN1",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-UPDOWN2",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-KOREAN",
+    "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-HANMOON"
+  ],
+  "removed_feature": "NX-DRAW-OUTLINE"
+}

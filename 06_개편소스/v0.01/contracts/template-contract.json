@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "store_root": "%INSTALL_DIR%\\내엑셀 템플릿",
+  "storage_model": "folder-record",
+  "package_file": "template.xlsx",
+  "metadata_file": "metadata.ini",
+  "legacy_index_supported": false,
+  "package_sheet": "Template",
+  "package_extension": ".xlsx",
+  "source_kinds": [
+    "range",
+    "sheet_used_range",
+    "workbook",
+    "file"
+  ],
+  "risk_flags": [
+    "VolatileFormula",
+    "DynamicFormula",
+    "EnvironmentFormula"
+  ],
+  "warning_functions": {
+    "VolatileFormula": [
+      "NOW",
+      "TODAY",
+      "RAND",
+      "RANDBETWEEN"
+    ],
+    "DynamicFormula": [
+      "INDIRECT",
+      "OFFSET"
+    ],
+    "EnvironmentFormula": [
+      "CELL",
+      "INFO"
+    ]
+  },
+  "blocked_formula_tokens": [
+    "[",
+    "!",
+    "WEBSERVICE",
+    "RTD",
+    "DDE"
+  ],
+  "blocked_package_parts": [
+    "vbaProject",
+    "activeX",
+    "embeddings",
+    "externalLinks",
+    "connections",
+    "pivotCache",
+    "customUI"
+  ],
+  "load_target": "new_sheets_a1_or_new_unsaved_workbook",
+  "privacy_scan": "ai_or_external_transfer_only",
+  "delete_mode": "whole_folder_quarantine",
+  "registration_source_kinds": [
+    "sheet_used_range",
+    "workbook",
+    "file"
+  ],
+  "package_schemas": {
+    "1": {
+      "source_kinds": [
+        "range",
+        "sheet_used_range"
+      ],
+      "worksheets": "one visible worksheet named Template"
+    },
+    "2": {
+      "source_kinds": [
+        "workbook",
+        "file"
+      ],
+      "worksheets": "visible source worksheets, ordered original names, each UsedRange normalized to A1",
+      "metadata_dimensions": "row_count is total stored cells; column_count is 1",
+      "maximum_cells": 100000,
+      "digest_prefix": "LHexcelTemplateWorkbook|2|"
+    }
+  },
+  "file_input_extensions": [
+    ".xlsx",
+    ".xltx"
+  ]
+}

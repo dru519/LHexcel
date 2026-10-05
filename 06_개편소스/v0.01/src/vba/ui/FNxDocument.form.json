@@ -1,0 +1,24 @@
+{
+  "schema_version": 2,
+  "name": "FNxDocument",
+  "caption": "내엑셀 - 문서 작업대",
+  "width": 480,
+  "height": 276,
+  "client_width": 480,
+  "client_height": 276,
+  "start_up_position": 1,
+  "code_path": "src/vba/ui/FNxDocument.vba",
+  "default_control": "cmdPreview",
+  "cancel_control": "cmdClose",
+  "controls": [
+    {"type":"Label","name":"lblWorkflow","left":16,"top":8,"width":448,"height":18,"tab_index":0,"tab_stop":false,"enabled":true,"caption":"대상 확인 > 작업 선택 > 옵션 > 미리보기/안전 > 실행"},
+    {"type":"ListBox","name":"lstDocumentModes","left":16,"top":34,"width":210,"height":94,"tab_index":1,"tab_stop":true,"enabled":true,"items":["AI 문서 작성","AI 이미지 활용","내엑셀 템플릿"],"selected_index":0},
+    {"type":"Label","name":"lblSelection","left":238,"top":34,"width":226,"height":34,"tab_index":2,"tab_stop":false,"enabled":true,"caption":"선택 범위: 현재 선택을 확인하세요."},
+    {"type":"Label","name":"lblPrivacyBoundary","left":238,"top":72,"width":226,"height":48,"tab_index":3,"tab_stop":false,"enabled":true,"caption":"안전 경계: 기능 소유 작업대에서 미리보기·등급·승인을 확인합니다."},
+    {"type":"Label","name":"lblExecutionGrade","left":238,"top":124,"width":226,"height":18,"tab_index":4,"tab_stop":false,"enabled":true,"caption":"[빠름] 미리보기"},
+    {"type":"TextBox","name":"txtPreview","left":16,"top":148,"width":448,"height":72,"tab_index":5,"tab_stop":false,"enabled":true,"value":"문서 작업을 선택하고 미리보기를 실행하세요.","locked":true,"multi_line":true},
+    {"type":"CommandButton","name":"cmdPreview","left":248,"top":244,"width":82,"height":24,"tab_index":6,"tab_stop":true,"enabled":true,"caption":"미리보기"},
+    {"type":"CommandButton","name":"cmdOpenOwner","left":336,"top":244,"width":88,"height":24,"tab_index":7,"tab_stop":true,"enabled":false,"caption":"소유 작업대 열기"},
+    {"type":"CommandButton","name":"cmdClose","left":432,"top":244,"width":32,"height":24,"tab_index":8,"tab_stop":true,"enabled":true,"caption":"닫기"}
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": ["PASS", "HOLD"],
+  "selected_strategy": "owned_modeless_overlay",
+  "refresh_count": 200,
+  "warmup_count": 20,
+  "required_gates": [
+    "saved_state_preserved",
+    "undo_preserved",
+    "workbook_assets_unchanged",
+    "endpoint_axes_exact",
+    "click_through_no_activate",
+    "scroll_zoom_resize_tracking",
+    "refresh_p95_within_50ms",
+    "multi_document_isolated",
+    "cleanup_zero_windows",
+    "excel_process_zero_residue"
+  ]
+}

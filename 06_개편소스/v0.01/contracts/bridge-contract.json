@@ -1,0 +1,54 @@
+{
+  "schema_version": 3,
+  "interface_version": "nx-bridge-v1",
+  "product_title": "내엑셀 v0.01_r86",
+  "excel_bitness": ["x86", "x64"],
+  "allowed_operations": ["PING", "SHOW_NAVIGATOR", "HIDE_NAVIGATOR", "SHOW_DOCUMENT_NAVIGATOR", "HIDE_DOCUMENT_NAVIGATOR", "FOCUS_START", "FOCUS_UPDATE", "FOCUS_STOP"],
+  "document_navigation": {
+    "snapshot_columns": ["token", "parent_token", "title", "available", "active"],
+    "max_items": 10000, "excludes": ["chart", "very_hidden", "file_path", "cell_data"],
+    "activation": "enter-or-double-click-with-live-token-validation",
+    "fallback": "existing-vba-dialog"
+  },
+  "picture_preview_service": {
+    "interface_version": "nx-picture-preview-v1",
+    "prog_id": "LH.NxHost.PicturePreviewService",
+    "max_files": 500, "max_file_bytes": 33554432, "max_pixels": 16000000,
+    "source_mutation": false, "fallback": "only-before-show"
+  },
+  "workbook_compare_service": {
+    "interface_version": "nx-compare-v1",
+    "prog_id": "LH.NxHost.WorkbookCompareService",
+    "max_cells": 200000, "max_characters": 16777216, "timeout_seconds": 60,
+    "worker_excel_access": false, "fallback": "only-before-start"
+  },
+  "workbook_compare_results_service": {
+    "interface_version": "nx-compare-results-v1",
+    "interface_id": "C812F023-E912-49AA-98B7-75DC86501905",
+    "prog_id": "LH.NxHost.WorkbookCompareResultsService",
+    "methods": ["Connect", "ShowResults", "Close"],
+    "snapshot_columns": ["sheet", "cell", "reason", "left_value", "right_value", "left_formula", "right_formula", "left_available", "right_available"],
+    "max_rows": 200000, "max_characters": 16777216,
+    "callback": "session-bound-index-and-side-revalidate-report-literals-and-self-anchor",
+    "source_mutation": false, "fallback": "existing-xlsx-report"
+  },
+  "hwpx_service": {
+    "interface_version": "nx-hwpx-v1",
+    "interface_id": "2C1FC9B6-2471-4A82-9080-10331E120801",
+    "prog_id": "LH.NxHost.HwpxExportService",
+    "methods": ["Connect", "Start", "GetStatus", "GetResult", "GetError", "Cancel"],
+    "max_payload_chars": 16777216,
+    "max_cells": 16384,
+    "max_concurrent_jobs": 1,
+    "timeout_seconds": 60,
+    "fallback": "only-before-start",
+    "template_sha256": "9a8446816cc377c8f848a0666f1e7e8e38320311e248c4c2594c40ca896cf44b"
+  },
+  "forbidden_operations": ["APPLICATION_RUN", "SHELL_EXECUTE", "NETWORK_REQUEST"],
+  "handshake": {
+    "required_fields": ["product_title", "interface_version", "bridge_sha256", "feature_sha256", "command_sha256", "excel_bitness"],
+    "required_hashes": ["bridge_sha256", "feature_sha256", "command_sha256"],
+    "identity_rule": "exact",
+    "product_manifest_hash": false
+  }
+}

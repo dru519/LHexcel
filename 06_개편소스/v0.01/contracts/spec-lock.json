@@ -1,0 +1,13 @@
+{
+  "schema_version": 2,
+  "approved_commit": "5d852e61697cd224c4c575380e2e827927b97e69",
+  "approved_response": "설계 기준선 5d852e6 승인",
+  "spec_blobs": {
+    "통합": "8273978403c221735641cd14890166a006f8bcd3",
+    "AI": "d4011c6a11baa02dbd5d8e22ed8e3348cd5e8cec",
+    "템플릿": "d0a1ee786cd3f58ff167dc792aad86c165338c54",
+    "데이터": "a3e07f0a6a7d89a1426888a74bacfaa660760d5c",
+    "표그리기": "c0b2db5136fa23d3dadaa21156e2cf4dc39b9dea",
+    "파일관리": "fdc1109344c723fe0f95fe43f3dd2264e25f0cf8"
+  }
+}

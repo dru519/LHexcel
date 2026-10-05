@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "ai": {"max_cells": 50000, "max_areas": 20, "max_prompt_chars": 50000},
+  "template": {"max_cells": 100000},
+  "data": {"max_cells": 200000},
+  "hangul_table_send": {"max_cells": 16384},
+  "draw": {"max_cells": 100000, "max_pictures": 1},
+  "file": {"max_input_files": 20, "max_total_sheets": 100, "max_total_cells": 500000, "max_file_bytes": 104857600},
+  "file_consolidate": {"max_input_files": 0},
+  "png": {"max_cells": 10000, "max_dimension_pixels": 16384},
+  "data_compare": {"max_cells": 1000000, "block_cells": 20000},
+  "cancel_check_interval_rows": 1024
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "name": "FNxSymbols",
+  "caption": "내엑셀 - 기호표",
+  "width": 366,
+  "height": 205,
+  "client_width": 366,
+  "client_height": 205,
+  "start_up_position": 1,
+  "code_path": "src/vba/features/symbols/ui/FNxSymbols.vba",
+  "default_control": "cmdInsertCell",
+  "cancel_control": "cmdClose",
+  "controls": [
+    {"type":"CommandButton","name":"cmdTabPractical","left":8,"top":6,"width":70,"height":22,"tab_index":0,"tab_stop":true,"enabled":true,"caption":"실무 기호","tag":"practical","font_name":"맑은 고딕","font_size":9},
+    {"type":"CommandButton","name":"cmdTabUnicode","left":82,"top":6,"width":70,"height":22,"tab_index":1,"tab_stop":true,"enabled":true,"caption":"유니코드","tag":"unicode","font_name":"맑은 고딕","font_size":9},
+    {"type":"CommandButton","name":"cmdTabRecent","left":156,"top":6,"width":70,"height":22,"tab_index":2,"tab_stop":true,"enabled":true,"caption":"최근 사용","tag":"recent","font_name":"맑은 고딕","font_size":9},
+    {"type":"ListBox","name":"lstCategories","left":8,"top":34,"width":82,"height":163,"tab_index":3,"tab_stop":true,"enabled":true,"multi_select":false,"font_name":"맑은 고딕","font_size":9,"control_tip_text":"표시할 기호 분류를 선택합니다."},
+    {"type":"Label","name":"lblGridAnchor","left":98,"top":34,"width":1,"height":1,"tab_index":-1,"tab_stop":false,"enabled":true,"caption":"","font_name":"맑은 고딕","font_size":9},
+    {"type":"Label","name":"lblScrollAnchor","left":342,"top":34,"width":14,"height":104,"tab_index":-1,"tab_stop":false,"enabled":true,"caption":"","font_name":"맑은 고딕","font_size":9},
+    {"type":"TextBox","name":"txtBuffer","left":98,"top":145,"width":258,"height":22,"tab_index":4,"tab_stop":true,"enabled":true,"value":"","locked":false,"multi_line":false,"font_name":"맑은 고딕","font_size":9,"back_color":16777215,"control_tip_text":"기호를 누르면 이 입력칸에 바로 추가됩니다."},
+    {"type":"CommandButton","name":"cmdCopy","left":98,"top":173,"width":82,"height":24,"tab_index":5,"tab_stop":true,"enabled":true,"caption":"복사","font_name":"맑은 고딕","font_size":9,"control_tip_text":"입력칸의 기호를 복사합니다."},
+    {"type":"CommandButton","name":"cmdInsertCell","left":184,"top":173,"width":82,"height":24,"tab_index":6,"tab_stop":true,"enabled":true,"caption":"입력","font_name":"맑은 고딕","font_size":9,"control_tip_text":"입력칸의 기호를 선택한 모든 셀에 입력합니다."},
+    {"type":"CommandButton","name":"cmdClose","left":270,"top":173,"width":82,"height":24,"tab_index":7,"tab_stop":true,"enabled":true,"caption":"닫기","font_name":"맑은 고딕","font_size":9}
+  ]
+}

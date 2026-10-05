@@ -1,0 +1,63 @@
+{
+  "schema_version": 2,
+  "name": "FNxCopySaveResult",
+  "caption": "내엑셀 - 사본 저장",
+  "width": 324,
+  "height": 108,
+  "client_width": 324,
+  "client_height": 108,
+  "start_up_position": 1,
+  "code_path": "src/vba/features/file/ui/FNxCopySaveResult.vba",
+  "default_control": "cmdClose",
+  "cancel_control": "cmdClose",
+  "controls": [
+    {
+      "type": "Label",
+      "name": "lblPath",
+      "left": 12,
+      "top": 12,
+      "width": 300,
+      "height": 44,
+      "tab_index": -1,
+      "tab_stop": false,
+      "enabled": true,
+      "caption": "사본을 저장했습니다."
+    },
+    {
+      "type": "CommandButton",
+      "name": "cmdFolder",
+      "left": 12,
+      "top": 70,
+      "width": 96,
+      "height": 26,
+      "tab_index": 0,
+      "tab_stop": true,
+      "enabled": true,
+      "caption": "폴더 열기"
+    },
+    {
+      "type": "CommandButton",
+      "name": "cmdFile",
+      "left": 114,
+      "top": 70,
+      "width": 96,
+      "height": 26,
+      "tab_index": 1,
+      "tab_stop": true,
+      "enabled": true,
+      "caption": "파일 열기"
+    },
+    {
+      "type": "CommandButton",
+      "name": "cmdClose",
+      "left": 216,
+      "top": 70,
+      "width": 96,
+      "height": 26,
+      "tab_index": 2,
+      "tab_stop": true,
+      "enabled": true,
+      "caption": "닫기"
+    }
+  ]
+}

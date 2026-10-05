@@ -1,0 +1,13 @@
+Public Function NxR78Reasons(ByVal leftRange As Range, ByVal rightRange As Range, ByVal formats As Boolean) As Variant
+    Dim leftRows As Variant, rightRows As Variant, rows() As String
+    Dim i As Long, row As Long, column As Long
+    leftRows = CompareCapture(leftRange, formats): rightRows = CompareCapture(rightRange, formats)
+    ReDim rows(0 To leftRange.CountLarge - 1)
+    For row = 1 To leftRange.Rows.Count
+        For column = 1 To leftRange.Columns.Count
+            rows(i) = NxWorkbookCompareCellDifference(leftRows, rightRows, i)
+            i = i + 1
+        Next column
+    Next row
+    NxR78Reasons = rows
+End Function

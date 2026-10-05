@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "name": "FNxAbout",
+  "caption": "내엑셀 정보",
+  "width": 320,
+  "height": 112,
+  "client_width": 320,
+  "client_height": 112,
+  "start_up_position": 1,
+  "code_path": "src/vba/ui/FNxAbout.vba",
+  "default_control": "cmdClose",
+  "cancel_control": "cmdClose",
+  "controls": [
+    {"type":"Label","name":"lblVersion","left":16,"top":14,"width":288,"height":22,"tab_index":0,"tab_stop":false,"enabled":true,"caption":"내엑셀"},
+    {"type":"Label","name":"lblExpiry","left":16,"top":44,"width":288,"height":18,"tab_index":0,"tab_stop":false,"enabled":true,"caption":"사용기한:"},
+    {"type":"CommandButton","name":"cmdClose","left":232,"top":76,"width":72,"height":24,"tab_index":1,"tab_stop":true,"enabled":true,"caption":"닫기"}
+  ]
+}

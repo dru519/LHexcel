@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "purpose": "synthetic lineage detector fixture",
+  "expected_detected_axes": ["code", "workbook", "ui_wording", "assets"],
+  "subject": {
+    "code": ["synthetic alpha beta gamma"],
+    "workbook": ["synthetic-sheet-topology"],
+    "ui_wording": ["synthetic unique wording"],
+    "assets": ["synthetic-asset-sha256"]
+  }
+}

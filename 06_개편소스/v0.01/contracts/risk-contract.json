@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "levels": ["L0", "L1", "L2", "L3", "L4"],
+  "effects": {
+    "none": "L0",
+    "cell_mutation": "L1",
+    "worksheet_create": "L1",
+    "file_create": "L2",
+    "binary_package_write": "L2",
+    "clipboard_write": "L2",
+    "external_process": "L3",
+    "browser_open": "L3",
+    "file_replace": "L4"
+  },
+  "capabilities": {
+    "template_quarantine": "L2",
+    "risky_formula": "L2"
+  },
+  "privacy": {
+    "safe": "unchanged",
+    "caution_external": "at_least_L3",
+    "blocked": "block",
+    "incomplete": "block"
+  },
+  "feature_overrides": {
+    "NX-TPL-DELETE": "quarantine_only"
+  },
+  "l4_policy": "blocked_in_v0.01"
+}

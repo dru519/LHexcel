@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "suites": {
+    "Core": {
+      "owner": "core",
+      "module": "T_Core",
+      "list": "T_Core.TestNames",
+      "run": "NxTestHarness.RunSuite",
+      "extension_manifest": null
+    },
+    "Frame": {
+      "owner": "frame",
+      "module": "T_Frame",
+      "list": "T_Frame.TestNames",
+      "run": "NxTestHarness.RunSuite",
+      "extension_manifest": "tests/manifests/Frame.json"
+    },
+    "AI": {
+      "owner": "ai",
+      "module": "T_Ai",
+      "list": "T_Ai.TestNames",
+      "run": "NxTestHarness.RunSuite",
+      "extension_manifest": "tests/manifests/AI.json"
+    },
+    "G005": {
+      "owner": "g005",
+      "module": "T_G005",
+      "list": "T_G005.TestNames",
+      "run": "NxTestHarness.RunSuite",
+      "extension_manifest": "tests/manifests/G005.json"
+    },
+    "Template": {
+      "owner": "template",
+      "module": "T_Template",
+      "list": "T_Template.TestNames",
+      "run": "NxTestHarness.RunSuite",
+      "extension_manifest": "tests/manifests/Template.json"
+    },
+    "Data": {
+      "owner": "data",
+      "module": "T_Data",
+      "list": "T_Data.TestNames",
+      "run": "NxTestHarness.RunSuite",
+      "extension_manifest": "tests/manifests/Data.json"
+    },
+    "Draw": {
+      "owner": "draw",
+      "module": "T_Draw",
+      "list": "T_Draw.TestNames",
+      "run": "NxTestHarness.RunSuite",
+      "extension_manifest": "tests/manifests/Draw.json"
+    },
+    "File": {
+      "owner": "file",
+      "module": "T_File",
+      "list": "T_File.TestNames",
+      "run": "NxTestHarness.RunSuite",
+      "extension_manifest": "tests/manifests/File.json"
+    },
+    "Calculator": {
+      "owner": "calculator",
+      "module": "T_Calculator",
+      "list": "T_Calculator.TestNames",
+      "run": "NxTestHarness.RunSuite",
+      "extension_manifest": "tests/manifests/Calculator.json"
+    },
+    "Symbols": {
+      "owner": "symbols",
+      "module": "T_Symbols",
+      "list": "T_Symbols.TestNames",
+      "run": "NxTestHarness.RunSuite",
+      "extension_manifest": "tests/manifests/Symbols.json"
+    }
+  }
+}

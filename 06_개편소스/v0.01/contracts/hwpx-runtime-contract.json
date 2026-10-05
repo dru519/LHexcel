@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "runtime_contract_version": "2026.08.05.1",
+  "product_id": "LHexcel",
+  "runtime_id": "lhexcel_hwpx_embedded",
+  "runtime": {
+    "launcher": "embedded-powershell-5.1",
+    "extract_root": "%TEMP%\\LHexcel\\embedded_support",
+    "allow_external_executable_payload": false,
+    "resources": [
+      {
+        "path": "tools/lhexcel_hwpx_table_export.ps1",
+        "sha256": "8b1267188828809fa75afc173b411d8218738b14f35507bf8ad3fab4afe4d5e1"
+      },
+      {
+        "path": "templates/표.hwpx",
+        "sha256": "9a8446816cc377c8f848a0666f1e7e8e38320311e248c4c2594c40ca896cf44b"
+      }
+    ]
+  },
+  "output": {
+    "local_root": "%LOCALAPPDATA%\\LHexcel\\Temp\\Hwpx",
+    "retention_hours": 24,
+    "preserve_validated_on_open_failure": true
+  },
+  "deployment": {
+    "artifact": "Product.xlam",
+    "single_file": true,
+    "forbidden_extensions": [
+      ".exe",
+      ".dll",
+      ".pyd"
+    ]
+  }
+}

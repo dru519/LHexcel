@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "execution_grades": {
+    "fast": {"surface": "direct_no_plan_popup", "explicit_confirmation": false},
+    "guarded": {"surface": "inline_confirmation", "explicit_confirmation": true},
+    "planned": {"surface": "FNxExecutionPlan", "explicit_confirmation": true},
+    "all_grades_use_internal_sealed_plan": true
+  },
+  "execution_frame": {
+    "steps": ["input", "plan", "result"],
+    "states": ["input", "checking", "ready", "blocked", "running", "success", "cancelled", "error", "partial_failure"],
+    "actions": ["back", "cancel", "execute_plan", "open_result", "copy_path"],
+    "primary_action": "execute_plan",
+    "risk_labels_required": true,
+    "color_only_status_forbidden": true,
+    "common_forms": ["FNxExecutionPlan", "FNxExecutionResult"],
+    "transitions": {
+      "input": ["checking", "cancelled"],
+      "checking": ["ready", "blocked", "error", "cancelled"],
+      "ready": ["input", "running", "cancelled"],
+      "blocked": ["input", "cancelled"],
+      "running": ["success", "cancelled", "error", "partial_failure"],
+      "success": [],
+      "cancelled": [],
+      "error": [],
+      "partial_failure": []
+    }
+  },
+  "ribbon_entrypoints": [
+    {"id": "NX-ENTRY-MANAGEMENT", "label": "내엑셀", "surface": "dynamic_menu", "callback": "NxRibbonGetManagementContent"},
+    {"id": "NX-ENTRY-FAVORITES", "label": "즐겨찾기", "surface": "dynamic_menu", "callback": "NxRibbonGetFavoritesContent"},
+    {"id": "NX-ENTRY-ALL", "label": "전체기능", "surface": "dynamic_menu", "callback": "NxRibbonGetAllFunctionsContent"},
+    {"id": "NX-ENTRY-AI", "label": "AI 작업대", "surface": "medium", "form": "FNxAi"}
+  ],
+  "form_inventory": {
+    "authority": "build/manifests/Product.json",
+    "diagnostic_only": ["FNxStart", "FNxAllFunctions", "FNxData", "FNxDraw", "FNxFile", "FNxTemplate", "FNxFocusPalette"]
+  },
+  "category_navigation": {
+    "surface": "ribbon_dynamic_menu",
+    "feature_reselection_in_forms": false,
+    "category_userforms_allowed": false
+  },
+  "all_function_categories": ["저장", "인쇄", "복붙", "삽입", "파일관리", "템플릿", "데이터", "수식", "시트", "보기", "스타일", "추가기능"],
+  "default_focus": "cancel_safe",
+  "close_button_result": "cancelled"
+}

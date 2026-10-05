@@ -1,0 +1,26 @@
+{
+  "schema_version": 2,
+  "reference_identity": "내엑셀-v3.4",
+  "style_authority": "내엑셀-v0.01",
+  "records": [
+    {
+      "feature_id": "NX-HANGUL-TABLE-SEND",
+      "donor_path": "06_개편소스/v3.4/candidate/src/mdLHeHangulAutomation.bas",
+      "donor_sha256": "a7867b0e53603449d09c5d1583b0394b3decba54599e00d7078f6d4757f4ac8e",
+      "donor_runtime": "HWPFrame.HwpObject",
+      "transformation": "behavioral-reimplementation",
+      "active_runtime": "HWPFrame.HwpObject",
+      "retained_contracts": [
+        "feature identity",
+        "single contiguous Excel range",
+        "16384-cell limit",
+        "Korean error handling"
+      ],
+      "not_copied": [
+        "external v3.4 add-in invocation",
+        "legacy global state",
+        "unbounded selection handling"
+      ]
+    }
+  ]
+}

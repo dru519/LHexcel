@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "max_input_files": 20,
+  "max_file_bytes": 104857600,
+  "max_total_sheets": 100,
+  "max_total_cells": 500000,
+  "features": ["NX-FILE-CONSOLIDATE", "NX-FILE-MANNER-SAVE", "NX-FILE-RANGE-PNG", "NX-FILE-CHART-PNG"],
+  "forbidden": ["NX-FILE-BACKUP", "NX-FILE-WORKSTATE"]
+}

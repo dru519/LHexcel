@@ -1,0 +1,12 @@
+{
+  "schema_version": 2,
+  "primary_profile": "office_2024_x64",
+  "profiles": ["office_2024_x64", "office_2024_x86", "legacy_32"],
+  "capabilities": ["vba7", "windows_api", "file_dialog", "sheet_export", "dynamic_array"],
+  "states": ["native", "fallback", "unavailable", "incomplete"],
+  "fallbacks": ["formula_legacy"],
+  "runtime_authority": "capability_probe",
+  "unsupported_behavior": "disable_feature",
+  "incomplete_behavior": "block",
+  "supported_bitness": [32, 64]
+}

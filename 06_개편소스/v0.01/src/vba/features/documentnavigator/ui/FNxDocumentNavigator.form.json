@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "name": "FNxDocumentNavigator",
+  "caption": "내엑셀 - 문서·시트 탐색",
+  "width": 340,
+  "height": 336,
+  "client_width": 340,
+  "client_height": 336,
+  "start_up_position": 1,
+  "code_path": "src/vba/features/documentnavigator/ui/FNxDocumentNavigator.vba",
+  "default_control": null,
+  "cancel_control": "cmdClose",
+  "controls": [
+    {"type":"Label","name":"lblBooks","left":10,"top":8,"width":320,"height":14,"caption":"열린 문서","tab_index":-1,"tab_stop":false,"enabled":true,"font_name":"맑은 고딕","font_size":9},
+    {"type":"TextBox","name":"txtBooks","left":10,"top":24,"width":320,"height":20,"value":"","locked":false,"multi_line":false,"tab_index":0,"tab_stop":true,"enabled":true,"control_tip_text":"열린 문서 이름 검색. Enter는 목록으로 이동합니다.","font_name":"맑은 고딕","font_size":9},
+    {"type":"ListBox","name":"lstBooks","left":10,"top":48,"width":320,"height":82,"column_count":2,"column_widths":"0 pt;300 pt","tab_index":1,"tab_stop":true,"enabled":true,"control_tip_text":"한 번 선택하면 아래 시트 목록만 바뀝니다. Enter 또는 더블클릭하면 문서로 이동합니다.","font_name":"맑은 고딕","font_size":9},
+    {"type":"Label","name":"lblSheets","left":10,"top":138,"width":320,"height":14,"caption":"시트","tab_index":-1,"tab_stop":false,"enabled":true,"font_name":"맑은 고딕","font_size":9},
+    {"type":"TextBox","name":"txtSheets","left":10,"top":154,"width":320,"height":20,"value":"","locked":false,"multi_line":false,"tab_index":2,"tab_stop":true,"enabled":true,"control_tip_text":"선택한 문서 안의 시트 이름 검색. Enter는 목록으로 이동합니다.","font_name":"맑은 고딕","font_size":9},
+    {"type":"ListBox","name":"lstSheets","left":10,"top":178,"width":320,"height":82,"column_count":3,"column_widths":"0 pt;208 pt;92 pt","tab_index":3,"tab_stop":true,"enabled":true,"control_tip_text":"Enter 또는 더블클릭하면 시트로 이동합니다. 숨긴 시트는 자동으로 표시하지 않습니다.","font_name":"맑은 고딕","font_size":9},
+    {"type":"Label","name":"lblStatus","left":10,"top":268,"width":320,"height":26,"caption":"문서를 선택하세요.","word_wrap":true,"tab_index":-1,"tab_stop":false,"enabled":true,"font_name":"맑은 고딕","font_size":9},
+    {"type":"CommandButton","name":"cmdRefresh","left":10,"top":300,"width":82,"height":26,"caption":"새로고침","tab_index":4,"tab_stop":true,"enabled":true,"font_name":"맑은 고딕","font_size":9},
+    {"type":"CommandButton","name":"cmdMove","left":180,"top":300,"width":70,"height":26,"caption":"이동","tab_index":5,"tab_stop":true,"enabled":false,"font_name":"맑은 고딕","font_size":9},
+    {"type":"CommandButton","name":"cmdClose","left":260,"top":300,"width":70,"height":26,"caption":"닫기","tab_index":6,"tab_stop":true,"enabled":true,"font_name":"맑은 고딕","font_size":9}
+  ]
+}

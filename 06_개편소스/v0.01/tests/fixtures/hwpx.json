@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "rows": 4,
+  "columns": 3,
+  "title_row": true,
+  "source_mode": "display",
+  "cells": [
+    {"row":1,"column":1,"text":"구분","fill_rgb":"D9EAF7","font_bold":true,"font_rgb":"000000","horizontal":"center","vertical":"center","borders":"all"},
+    {"row":1,"column":2,"text":"내용","fill_rgb":"D9EAF7","font_bold":true,"font_rgb":"000000","horizontal":"center","vertical":"center","borders":"all"},
+    {"row":1,"column":3,"text":"비고","fill_rgb":"D9EAF7","font_bold":true,"font_rgb":"000000","horizontal":"center","vertical":"center","borders":"all"},
+    {"row":2,"column":1,"text":"A","fill_rgb":"FFFFFF","font_bold":false,"font_rgb":"000000","horizontal":"left","vertical":"center","borders":"all"},
+    {"row":2,"column":2,"text":"병합 셀","fill_rgb":"FFFFFF","font_bold":false,"font_rgb":"000000","horizontal":"left","vertical":"center","borders":"all"},
+    {"row":2,"column":3,"text":"","fill_rgb":"FFFFFF","font_bold":false,"font_rgb":"000000","horizontal":"left","vertical":"center","borders":"all"},
+    {"row":3,"column":1,"text":"B","fill_rgb":"FFFFFF","font_bold":false,"font_rgb":"000000","horizontal":"left","vertical":"center","borders":"all"},
+    {"row":3,"column":2,"text":"계산값 10","fill_rgb":"FFF2CC","font_bold":false,"font_rgb":"C00000","horizontal":"right","vertical":"center","borders":"all"},
+    {"row":3,"column":3,"text":"#N/A","fill_rgb":"FFFFFF","font_bold":false,"font_rgb":"000000","horizontal":"center","vertical":"center","borders":"all"},
+    {"row":4,"column":1,"text":"빈 셀","fill_rgb":"FFFFFF","font_bold":false,"font_rgb":"000000","horizontal":"left","vertical":"center","borders":"all"},
+    {"row":4,"column":2,"text":"","fill_rgb":"FFFFFF","font_bold":false,"font_rgb":"000000","horizontal":"left","vertical":"center","borders":"all"},
+    {"row":4,"column":3,"text":"끝","fill_rgb":"FFFFFF","font_bold":true,"font_rgb":"000000","horizontal":"center","vertical":"center","borders":"all"}
+  ],
+  "merges": [
+    {"row":2,"column":2,"row_span":1,"column_span":2}
+  ],
+  "column_widths": [12.0, 28.0, 16.0],
+  "row_heights": [22.0, 20.0, 20.0, 20.0]
+}

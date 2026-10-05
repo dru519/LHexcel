@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://naeexcel.local/schemas/product-ui-200.schema.json",
+  "title": "ProductUi current 200 percent evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "suite",
+    "status",
+    "run_id",
+    "artifact_sha256",
+    "source_tree_sha256",
+    "source_snapshot_sha256",
+    "windows_scale_percent",
+    "scale_changed_by_test",
+    "excel_client_bounds",
+    "menu_cases",
+    "direct_case",
+    "form_cases",
+    "forbidden_text_matches"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "suite": {"const": "ProductUi"},
+    "status": {"const": "PASS"},
+    "run_id": {"type": "string", "format": "uuid"},
+    "artifact_sha256": {"$ref": "#/$defs/sha256"},
+    "source_tree_sha256": {"$ref": "#/$defs/sha256"},
+    "source_snapshot_sha256": {"$ref": "#/$defs/sha256"},
+    "windows_scale_percent": {"const": 200},
+    "scale_changed_by_test": {"const": false},
+    "excel_client_bounds": {"$ref": "#/$defs/bounds"},
+    "menu_cases": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {"$ref": "#/$defs/menuCase"}
+    },
+    "direct_case": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["feature_id", "popup_count", "workbook_before_sha256", "workbook_after_sha256"],
+      "properties": {
+        "feature_id": {"const": "NX-DATA-COPY-VISIBLE"},
+        "popup_count": {"const": 0},
+        "workbook_before_sha256": {"$ref": "#/$defs/sha256"},
+        "workbook_after_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "form_cases": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {"$ref": "#/$defs/formCase"}
+    },
+    "forbidden_text_matches": {"type": "array", "maxItems": 0}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "bounds": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["left", "top", "width", "height"],
+      "properties": {
+        "left": {"type": "number"},
+        "top": {"type": "number"},
+        "width": {"type": "number", "exclusiveMinimum": 0},
+        "height": {"type": "number", "exclusiveMinimum": 0}
+      }
+    },
+    "menuChild": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "control_type", "left", "top", "width", "height"],
+      "properties": {
+        "label": {"type": "string", "minLength": 1},
+        "control_type": {"type": "string", "minLength": 1},
+        "left": {"type": "number"},
+        "top": {"type": "number"},
+        "width": {"type": "number", "exclusiveMinimum": 0},
+        "height": {"type": "number", "exclusiveMinimum": 0}
+      }
+    },
+    "menuCase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["surface", "menu_label", "bounds", "child_count", "children", "typed_route_prefixes", "typed_routes_verified", "typed_route_source_sha256"],
+      "properties": {
+        "surface": {"const": "Product"},
+        "menu_label": {"type": "string", "minLength": 1},
+        "bounds": {"$ref": "#/$defs/bounds"},
+        "child_count": {"type": "integer", "minimum": 2},
+        "children": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/menuChild"}},
+        "typed_route_prefixes": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^(nx1|fav1)\\|"}},
+        "typed_routes_verified": {"const": true},
+        "typed_route_source_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "formCase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "form", "feature_id", "ui_surface", "caption_sha256", "native_handle",
+        "bounds", "width_ratio", "height_ratio", "inside_work_area",
+        "default_control", "cancel_control", "close_method", "control_attestation", "control_attestation_sha256",
+        "workbook_before_sha256", "workbook_after_sha256", "forbidden_text_matches"
+      ],
+      "properties": {
+        "form": {"type": "string", "pattern": "^FNx[A-Za-z0-9]+$"},
+        "feature_id": {"type": "string"},
+        "ui_surface": {"enum": ["compact", "medium", "guided"]},
+        "caption_sha256": {"$ref": "#/$defs/sha256"},
+        "native_handle": {"type": "integer", "minimum": 1},
+        "bounds": {"$ref": "#/$defs/bounds"},
+        "width_ratio": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+        "height_ratio": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+        "inside_work_area": {"const": true},
+        "default_control": {"type": "string", "minLength": 1},
+        "cancel_control": {"type": ["string", "null"]},
+        "close_method": {"enum": ["escape-cancel", "alt-f4"]},
+        "control_attestation": {"const": "ProductUi.UserForms.json"},
+        "control_attestation_sha256": {"$ref": "#/$defs/sha256"},
+        "workbook_before_sha256": {"$ref": "#/$defs/sha256"},
+        "workbook_after_sha256": {"$ref": "#/$defs/sha256"},
+        "forbidden_text_matches": {"type": "array", "maxItems": 0}
+      }
+    }
+  }
+}

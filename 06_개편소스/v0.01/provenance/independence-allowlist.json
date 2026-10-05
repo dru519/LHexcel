@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "policy": "exact-and-count-bounded",
+  "entries": [
+    {
+      "axis": "workbook",
+      "kind": "exact-package-part",
+      "value": "[Content_Types].xml",
+      "max_count": 1,
+      "rationale": "Required OOXML package boilerplate"
+    },
+    {
+      "axis": "workbook",
+      "kind": "exact-package-part",
+      "value": "_rels/.rels",
+      "max_count": 1,
+      "rationale": "Required OOXML root relationship part"
+    },
+    {
+      "axis": "code",
+      "kind": "exact-line",
+      "value": "Option Explicit",
+      "max_count": 256,
+      "rationale": "Common VBA compiler directive"
+    },
+    {
+      "axis": "ui_wording",
+      "kind": "exact-term",
+      "value": "Excel",
+      "max_count": 256,
+      "rationale": "Generic Microsoft product name"
+    },
+    {
+      "axis": "ui_wording",
+      "kind": "exact-term",
+      "value": "인쇄",
+      "max_count": 1,
+      "rationale": "Generic Excel command label; callbacks and multi-word phrasing remain forbidden"
+    },
+    {
+      "axis": "ui_wording",
+      "kind": "exact-term",
+      "value": "전체기능",
+      "max_count": 1,
+      "rationale": "Generic catalog label; callbacks and multi-word phrasing remain forbidden"
+    }
+  ],
+  "forbidden_allowlist_targets": [
+    "reference-only identifiers",
+    "reference-only callbacks",
+    "reference-only misspellings",
+    "nonstandard asset hashes"
+  ]
+}

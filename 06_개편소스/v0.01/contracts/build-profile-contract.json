@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "default_profile": "enhanced-dll",
+  "fallback_profile": "internal-xlam",
+  "required_fields": [
+    "id",
+    "host_artifact",
+    "allowed_sidecars",
+    "bridge_enabled",
+    "vba_fallback_required"
+  ],
+  "profiles": [
+    {
+      "id": "enhanced-dll",
+      "host_artifact": "Product.xlam",
+      "artifact_files": ["Product.xlam", "NxHost32.dll", "NxHost64.dll", "NxCore32.dll", "NxCore64.dll"],
+      "allowed_sidecars": [
+        "NxHost32.dll",
+        "NxHost64.dll",
+        "NxCore32.dll",
+        "NxCore64.dll"
+      ],
+      "final_name": "내엑셀 v0.01_r105",
+      "metadata_paths": ["SHA256SUMS", "docs/r105-build.md"],
+      "metadata_policy": "declared-metadata-is-allowed-and-is-hash-bound-in-SHA256SUMS; it is not an artifact",
+      "bridge_enabled": true,
+      "compiled_only_features": ["NX-FILE-FILE-COMPARE"],
+      "compiled_only_policy": "enhanced distribution removes VBA comparison fallback; internal-xlam retains it; other enhanced features retain existing fallback",
+      "vba_fallback_required": true,
+      "requires_com_registration": true
+    },
+    {
+      "id": "internal-xlam",
+      "host_artifact": "Product.xlam",
+      "artifact_files": ["Product.xlam"],
+      "allowed_sidecars": [],
+      "final_name": "내엑셀 v0.01_r105",
+      "metadata_paths": ["SHA256SUMS", "docs/r105-build.md"],
+      "metadata_policy": "declared-metadata-is-allowed-and-is-hash-bound-in-SHA256SUMS; it is not an artifact",
+      "bridge_enabled": false,
+      "vba_fallback_required": true,
+      "requires_com_registration": false
+    }
+  ]
+}

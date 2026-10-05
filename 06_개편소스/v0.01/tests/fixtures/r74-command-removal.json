@@ -1,0 +1,185 @@
+{
+  "reason": "Approved r74 feature cleanup",
+  "removed_commands": [
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-DECREASE",
+      "arg": "RB_EDIT_NUMBERFORMAT_DECREASE",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-INCREASE",
+      "arg": "RB_EDIT_NUMBERFORMAT_INCREASE",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-CTRLSHIFT1",
+      "arg": "RB_EDIT_NUMBERFORMAT_CTRLSHIFT1",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-CTRLSHIFT2",
+      "arg": "RB_EDIT_NUMBERFORMAT_CTRLSHIFT2",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-CTRLSHIFT3",
+      "arg": "RB_EDIT_NUMBERFORMAT_CTRLSHIFT3",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-CTRLSHIFT4",
+      "arg": "RB_EDIT_NUMBERFORMAT_CTRLSHIFT4",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-CTRLSHIFT5",
+      "arg": "RB_EDIT_NUMBERFORMAT_CTRLSHIFT5",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-CTRLSHIFT6",
+      "arg": "RB_EDIT_NUMBERFORMAT_CTRLSHIFT6",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-INTEGER",
+      "arg": "RB_EDIT_NUMBERFORMAT_INTEGER",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-THOUSAND",
+      "arg": "RB_EDIT_NUMBERFORMAT_THOUSAND",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-MILLION",
+      "arg": "RB_EDIT_NUMBERFORMAT_MILLION",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-BILLION",
+      "arg": "RB_EDIT_NUMBERFORMAT_BILLION",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-DATE-DMMMMYYYY",
+      "arg": "RB_EDIT_NUMBERFORMAT_DATE_DMMMMYYYY",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-DATE-YYMMDD1",
+      "arg": "RB_EDIT_NUMBERFORMAT_DATE_YYMMDD1",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-DATE-YYMM",
+      "arg": "RB_EDIT_NUMBERFORMAT_DATE_YYMM",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-DATE-YYYYMMDD",
+      "arg": "RB_EDIT_NUMBERFORMAT_DATE_YYYYMMDD",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-DATE-YYYYMMDDHHMM",
+      "arg": "RB_EDIT_NUMBERFORMAT_DATE_YYYYMMDDHHMM",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-KRW",
+      "arg": "RB_EDIT_NUMBERFORMAT_KRW",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-USD",
+      "arg": "RB_EDIT_NUMBERFORMAT_USD",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-EURO",
+      "arg": "RB_EDIT_NUMBERFORMAT_EURO",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-JPY",
+      "arg": "RB_EDIT_NUMBERFORMAT_JPY",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-UPDOWN1",
+      "arg": "RB_EDIT_NUMBERFORMAT_UPDOWN1",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-UPDOWN2",
+      "arg": "RB_EDIT_NUMBERFORMAT_UPDOWN2",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-KOREAN",
+      "arg": "RB_EDIT_NUMBERFORMAT_KOREAN",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-NUMBER-RB-EDIT-NUMBERFORMAT-HANMOON",
+      "arg": "RB_EDIT_NUMBERFORMAT_HANMOON",
+      "handler": "NxCmdNumberFormat"
+    },
+    {
+      "id": "NX-CMD-FILTER-RB-EDIT-CONVERTTONUMBER",
+      "arg": "RB_EDIT_CONVERTTONUMBER",
+      "handler": "NxCmdFilterSort"
+    },
+    {
+      "id": "NX-CMD-FORMULA-RB-FORMULA-SUM",
+      "arg": "RB_FORMULA_SUM",
+      "handler": "NxCmdFormula"
+    },
+    {
+      "id": "NX-CMD-FORMULA-RB-FORMULA-ROUND0",
+      "arg": "RB_FORMULA_ROUND0",
+      "handler": "NxCmdFormula"
+    },
+    {
+      "id": "NX-CMD-FORMULA-RB-FORMULA-ROUND2",
+      "arg": "RB_FORMULA_ROUND2",
+      "handler": "NxCmdFormula"
+    },
+    {
+      "id": "NX-CMD-FORMULA-RB-FORMULA-INT",
+      "arg": "RB_FORMULA_INT",
+      "handler": "NxCmdFormula"
+    },
+    {
+      "id": "NX-CMD-FORMULA-RB-FORMULA-MINUS1",
+      "arg": "RB_FORMULA_MINUS1",
+      "handler": "NxCmdFormula"
+    },
+    {
+      "id": "NX-CMD-FORMULA-RB-FORMULA-MULTIPLY1",
+      "arg": "RB_FORMULA_MULTIPLY1",
+      "handler": "NxCmdFormula"
+    },
+    {
+      "id": "NX-CMD-FORMULA-RB-FORMULA-NOTE-HEAD",
+      "arg": "RB_FORMULA_NOTE_HEAD",
+      "handler": "NxCmdFormula"
+    },
+    {
+      "id": "NX-CMD-FORMULA-RB-FORMULA-NOTE-FOOT",
+      "arg": "RB_FORMULA_NOTE_FOOT",
+      "handler": "NxCmdFormula"
+    },
+    {
+      "id": "NX-CMD-VIEW-RB-EDIT-PRESET-VIEWBETTER-LHEXCELBIG",
+      "arg": "RB_EDIT_PRESET_VIEWBETTER_LHEXCELBIG",
+      "handler": "NxCmdView"
+    },
+    {
+      "id": "NX-CMD-VIEW-RB-EDIT-PRESET-VIEWBETTER-LHEXCELSMALL",
+      "arg": "RB_EDIT_PRESET_VIEWBETTER_LHEXCELSMALL",
+      "handler": "NxCmdView"
+    }
+  ]
+}

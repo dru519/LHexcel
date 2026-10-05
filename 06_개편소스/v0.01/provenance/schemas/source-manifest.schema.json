@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NaeExcel v0.01 source manifest",
+  "type": "object",
+  "required": ["version", "policy", "source_tree_digest", "files"],
+  "properties": {
+    "version": {"const": 1},
+    "policy": {"const": "clean-room"},
+    "source_tree_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "frozen_source_commit": {"type": "string", "minLength": 1},
+    "artifact_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "product_bundle_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "product_files": {"type": "array", "items": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+"}, "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}, "additionalProperties": false}},
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "origin", "spec_ids", "sha256", "created_commit", "license"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "origin": {"type": "string", "minLength": 1},
+          "spec_ids": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "created_commit": {"type": "string", "minLength": 1},
+          "license": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": true
+}

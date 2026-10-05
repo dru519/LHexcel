@@ -1,0 +1,41 @@
+
+Public Function NxR69Reasons(ByVal leftRange As Range, ByVal rightRange As Range, ByVal formats As Boolean) As Variant
+    Dim reasons As Variant, rows() As String, i As Long, row As Long, column As Long
+    Dim leftRows As Variant, rightRows As Variant
+    If CompareNativeReasons(leftRange, rightRange, reasons, formats) Then
+        T_R69CompareMigration.UsedNative = True
+        NxR69Reasons = reasons
+        Exit Function
+    End If
+    ReDim rows(0 To leftRange.CountLarge - 1)
+    leftRows = CompareCapture(leftRange, formats): rightRows = CompareCapture(rightRange, formats)
+    For row = 1 To leftRange.Rows.Count
+        For column = 1 To leftRange.Columns.Count
+            rows(i) = NxWorkbookCompareCellDifference(leftRows, rightRows, i)
+            i = i + 1
+        Next column
+    Next row
+    NxR69Reasons = rows
+End Function
+
+Public Sub NxR69SavedProbe(ByVal target As Range)
+    Dim value As Variant, cells As Range, book As Workbook, handle As Integer
+    Set book = target.Parent.Parent
+    handle = FreeFile
+    Open Environ$("LHEXCEL_PROFILE_ROOT") & Application.PathSeparator & "saved-probe.txt" For Append As #handle
+    Print #handle, "before=" & book.Saved
+    value = target.Value2: Print #handle, "value=" & book.Saved
+    value = target.Formula: Print #handle, "formula=" & book.Saved
+    value = target.HasFormula: Print #handle, "hasFormula=" & book.Saved
+    value = target.MergeCells: Print #handle, "merge=" & book.Saved
+    Set cells = target.SpecialCells(xlCellTypeFormulas): Print #handle, "specialCells=" & book.Saved
+    Close #handle
+End Sub
+
+Public Function NxR69ErrorProbe(ByVal value As Variant) As String
+    Dim code As Long, functionCode As Variant
+    On Error Resume Next
+    NxR69ErrorProbe = "type=" & VarType(value) & ";text=" & CStr(value) & ";code=" & NxWorkbookCompareCellText(value)
+    functionCode = Application.WorksheetFunction.Error_Type(value)
+    NxR69ErrorProbe = NxR69ErrorProbe & ";worksheet=" & CStr(functionCode) & ";err=" & Err.Number
+End Function

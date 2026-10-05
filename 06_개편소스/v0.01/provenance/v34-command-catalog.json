@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "source": {
+    "path": "../v3.4/candidate/src/mdShortcutCatalog.bas",
+    "sha256": "826d856ad02cd3a7d350f6c23f8d786ab90df409df4ab6ed2727ac3ef2cf3b8d",
+    "reuse_basis": "user-owned-v3.4-lineage"
+  },
+  "selected_index_ranges": [
+    "28-37",
+    "44-190",
+    "197",
+    "200"
+  ],
+  "selected_raw_count": 159,
+  "normalized_command_count": 147,
+  "raw_group_counts": {
+    "clipboard": 10,
+    "print": 7,
+    "style": 15,
+    "number_format": 30,
+    "font_color": 6,
+    "selection_move": 9,
+    "row_column": 11,
+    "alignment_merge": 8,
+    "insert_delete_hide": 7,
+    "filter_sort": 12,
+    "formula_reference": 9,
+    "sheet": 10,
+    "view_window": 17,
+    "info_diagnostics": 6,
+    "pivot": 2
+  },
+  "normalized_group_counts": {
+    "clipboard": 10,
+    "print": 7,
+    "style": 15,
+    "number_format": 28,
+    "font_color": 4,
+    "selection_move": 9,
+    "row_column": 7,
+    "alignment_merge": 8,
+    "insert_delete_hide": 7,
+    "filter_sort": 8,
+    "formula_reference": 9,
+    "sheet": 10,
+    "view_window": 17,
+    "info_diagnostics": 6,
+    "pivot": 2
+  },
+  "duplicate_groups_merged": 12,
+  "normalization": {
+    "identity": "group + allowlisted handler + normalized legacy operation argument",
+    "removed_entrypoint_suffixes": [
+      "_CANTUNDO",
+      "_KEYEVENT",
+      "_BYKEY",
+      "_ALL",
+      "_BTN",
+      "_B"
+    ],
+    "canonical_label": "shortest Korean label then ordinal label",
+    "aliases": "all remaining Korean labels"
+  },
+  "third_party_assets": [],
+  "kutools_policy": "UI, classification, and interaction patterns only; no Kutools code or binary included"
+}

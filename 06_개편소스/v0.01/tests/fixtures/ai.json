@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "origin": "synthetic",
+  "limits": {
+    "areas": 20,
+    "cells": 50000
+  },
+  "sort_order": [
+    "sheet_codename",
+    "top_row",
+    "left_column",
+    "absolute_address"
+  ],
+  "tokens": {
+    "overlap": "<겹침 제외>",
+    "empty": "<빈 셀>",
+    "error": "<오류>",
+    "merged_tail": "<병합 셀>"
+  },
+  "selection_kinds": {
+    "range": "RANGE",
+    "picture": "PICTURE"
+  },
+  "delivery_modes": ["COPY_AND_OPEN"],
+  "target_sites": {
+    "ChatGPT": "https://chatgpt.com/",
+    "Claude": "https://claude.ai/",
+    "Gemini": "https://gemini.google.com/"
+  }
+}

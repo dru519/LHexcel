@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "settings": "%LOCALAPPDATA%\\LHexcel\\Settings",
+  "templates": "%LOCALAPPDATA%\\LHexcel\\Templates",
+  "ai_temp": "%LOCALAPPDATA%\\LHexcel\\Temp\\Ai",
+  "work_temp": "%LOCALAPPDATA%\\LHexcel\\Temp\\Work",
+  "logs": "%LOCALAPPDATA%\\LHexcel\\Logs"
+}

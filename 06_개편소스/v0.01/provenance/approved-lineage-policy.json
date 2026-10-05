@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "policy": "approved-first-party-v3.4-lineage",
+  "approved_reference_identity": "v3x",
+  "scope": "all-functions",
+  "style_authority": "내엑셀 v0.01",
+  "integration_requirements": [
+    "v0.01-ribbon-and-registry",
+    "v0.01-risk-and-recovery",
+    "v0.01-native-verification"
+  ],
+  "forbidden_reference_identities": [
+    "original",
+    "abtools"
+  ]
+}
