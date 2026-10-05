@@ -26,9 +26,9 @@ from distribution_private_names import compact_private_names, TOKEN as VBA_TOKEN
 
 def find_project_root(start: Path) -> Path:
     for path in (start, *start.parents):
-        if (path / "06_개편소스/v0.01/contracts").is_dir() and (path / "03_개발자료/작업스크립트").is_dir():
+        if (path / "source/v0.01/contracts").is_dir() and (path / "development/scripts").is_dir():
             return path
-        if (path / "01_완성본").exists() and (path / "06_개편소스").exists():
+        if (path / "01_완성본").exists() and (path / "source").exists():
             return path
     raise RuntimeError(f"project root not found from {start}")
 
@@ -38,7 +38,7 @@ VERSION_LABEL = "v0.01_r105"
 SOURCE_XLAM = ROOT / "01_완성본" / f"내엑셀 {VERSION_LABEL}.xlam"
 DISTRIBUTION_DIR = ROOT / "02_배포본(고도화)"
 DISTRIBUTION_XLAM = DISTRIBUTION_DIR / f"내엑셀 {VERSION_LABEL}_배포본.xlam"
-REPORT_PATH = ROOT / "06_개편소스" / "v0.01" / "reports" / "r105-distribution-policy-build.json"
+REPORT_PATH = ROOT / "source" / "v0.01" / "reports" / "r105-distribution-policy-build.json"
 
 CORE_NS = {
     "cp": "http://schemas.openxmlformats.org/package/2006/metadata/core-properties",
@@ -604,7 +604,7 @@ def main() -> int:
     REPORT_PATH = (
         resolve_project_path(args.json)
         if args.json
-        else ROOT / "06_개편소스" / "v0.01" / "reports" / f"{version_token}-distribution-policy-build.json"
+        else ROOT / "source" / "v0.01" / "reports" / f"{version_token}-distribution-policy-build.json"
     )
     protection_seed = resolve_project_path(args.protection_seed) if args.protection_seed else DISTRIBUTION_XLAM
 

@@ -13,7 +13,7 @@ Windows PowerShell 5.1, Windows용 Excel, .NET Framework의 C# 컴파일러와 O
 저장소 루트에서 실행합니다.
 
 ```powershell
-python "03_개발자료/작업스크립트/lhexcel_windows_ascii_build.py" prepare --version v0.01_r105 --attempt local01
+python "development/scripts/lhexcel_windows_ascii_build.py" prepare --version v0.01_r105 --attempt local01
 ```
 
 출력된 `windows_launcher_bat`를 **Windows 안에서** 실행합니다. 출력과 검증 기록은 저장소의 `workspace/tmp/lhexcel_v001r105_direct_run_ascii_local01` 아래에 생성됩니다. 기존 출력이 있으면 새 attempt 이름을 사용하세요.
@@ -31,9 +31,9 @@ python "03_개발자료/작업스크립트/lhexcel_windows_ascii_build.py" prepa
 ## 공개 사본 검사
 
 ```powershell
-python "06_개편소스/v0.01/tools/build_product_manifest.py" --check
-python "06_개편소스/v0.01/tools/generate_symbol_catalog.py" --check
-python -m unittest discover -s "06_개편소스/v0.01/tests/python" -p "test_*.py"
+python "source/v0.01/tools/build_product_manifest.py" --check
+python "source/v0.01/tools/generate_symbol_catalog.py" --check
+python -m unittest discover -s "source/v0.01/tests/python" -p "test_*.py"
 ```
 
 공개 기본값은 개인 생일 알림을 비활성화합니다. 사용기한과 보호장치를 유지해야 합니다. 소속 조직의 자체 업무를 위한 빌드가 허용되는 범위와 수정본의 외부 배포 제한은 LICENSE를 따릅니다. 컴파일러·Office·로컬 정책 서명과 패키지 메타데이터가 다를 수 있으므로 빌드가 공식 파일과 같은 해시가 된다고 보장하지 않습니다.

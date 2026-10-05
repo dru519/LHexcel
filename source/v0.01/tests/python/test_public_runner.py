@@ -5,7 +5,7 @@ from pathlib import Path
 from types import SimpleNamespace
 
 ROOT = Path(__file__).resolve().parents[4]
-SCRIPT = ROOT / "03_개발자료/작업스크립트/lhexcel_windows_ascii_build.py"
+SCRIPT = ROOT / "development/scripts/lhexcel_windows_ascii_build.py"
 spec = importlib.util.spec_from_file_location("public_runner_contract", SCRIPT)
 runner = importlib.util.module_from_spec(spec)
 sys.modules[spec.name] = runner

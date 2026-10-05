@@ -10,7 +10,7 @@ import unittest
 from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[2]
-RUNNER = ROOT.parents[1] / '03_개발자료/작업스크립트/lhexcel_windows_ascii_build.py'
+RUNNER = ROOT.parents[1] / 'development/scripts/lhexcel_windows_ascii_build.py'
 spec = importlib.util.spec_from_file_location('r65_setup_runner', RUNNER)
 runner = importlib.util.module_from_spec(spec)
 sys.modules[spec.name] = runner

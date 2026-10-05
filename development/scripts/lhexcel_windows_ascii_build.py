@@ -31,15 +31,15 @@ from pathlib import Path
 
 def find_project_root(start: Path) -> Path:
     for path in (start, *start.parents):
-        if (path / "06_개편소스/v0.01/contracts").is_dir() and (path / "03_개발자료/작업스크립트").is_dir():
+        if (path / "source/v0.01/contracts").is_dir() and (path / "development/scripts").is_dir():
             return path
-        if (path / "01_완성본").exists() and (path / "06_개편소스").exists():
+        if (path / "01_완성본").exists() and (path / "source").exists():
             return path
     raise RuntimeError(f"project root not found from {start}")
 
 
 ROOT = find_project_root(Path(__file__).resolve())
-SCRIPT_DIR = ROOT / "03_개발자료" / "작업스크립트"
+SCRIPT_DIR = ROOT / "development" / "scripts"
 WORKSPACE = ROOT / "workspace"
 TMP_ROOT = WORKSPACE / "tmp"
 
@@ -98,7 +98,7 @@ def resolve_v001_release_paths(version_arg: str) -> V001ReleasePaths:
     version = normalize_version(version_arg)
     if not is_v001_release(version):
         raise SystemExit(f"unsupported v0.01 release version: {version}")
-    source_root = ROOT / "06_개편소스" / "v0.01"
+    source_root = ROOT / "source" / "v0.01"
     if not source_root.is_dir():
         raise SystemExit(f"v0.01 source root not found: {source_root}")
     token = version_token(version)
@@ -114,7 +114,7 @@ def resolve_v001_release_paths(version_arg: str) -> V001ReleasePaths:
 def resolve_paths(version_arg: str) -> VersionPaths:
     version = normalize_version(version_arg)
     token = version_token(version)
-    version_dir = ROOT / "06_개편소스" / version
+    version_dir = ROOT / "source" / version
     if not version_dir.exists():
         raise SystemExit(f"version directory not found: {version_dir}")
 
@@ -1737,7 +1737,7 @@ def prepare_document_navigator(tag: str, visual_hold: bool = False, artifact: Pa
         raise SystemExit("navigator tag must be lowercase ASCII")
     directory = TMP_ROOT / ("r61-document-navigator-" + tag)
     directory.mkdir(parents=True, exist_ok=False)
-    source = ROOT / "06_개편소스/v0.01"
+    source = ROOT / "source/v0.01"
     shutil.copytree(source, directory / "source",
                     ignore=shutil.ignore_patterns("__pycache__", "*.pyc", ".pytest_cache", "out", "*.dll", "*.xlam"))
     if artifact is not None:
@@ -1779,7 +1779,7 @@ def prepare_ctp_diagnostics(tag: str) -> None:
         raise SystemExit("check tag must be lowercase ASCII")
     directory = TMP_ROOT / ("r60-ctp-diagnostics-" + tag)
     directory.mkdir(parents=True, exist_ok=False)
-    source = ROOT / "06_개편소스/v0.01/tests/windows"
+    source = ROOT / "source/v0.01/tests/windows"
     for name in ("Test-R60CtpDiagnostics.ps1", "Run-R60CtpCreation.ps1", "Run-R60RegisteredInventory.ps1"):
         shutil.copy2(source / name, directory / name)
     (directory / "run.bat").write_text('@echo off\nsetlocal\ncd /d "%~dp0"\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0Test-R60CtpDiagnostics.ps1" -EvidenceRoot "%~dp0evidence"\nexit /b %ERRORLEVEL%\n', encoding="ascii", newline="\r\n")
@@ -1793,7 +1793,7 @@ def prepare_internal_checks(tag: str, artifact: Path) -> None:
         raise SystemExit("check tag must be lowercase ASCII")
     directory = TMP_ROOT / ("r61-internal-checks-" + tag)
     directory.mkdir(parents=True, exist_ok=False)
-    source = ROOT / "06_개편소스" / "v0.01"
+    source = ROOT / "source" / "v0.01"
     script = (source / "tools/build_r47_distribution.py").read_text(encoding="utf-8")
     parsed = ast.parse(script)
     function = next(node for node in parsed.body if isinstance(node, ast.FunctionDef) and node.name == "distribution_policy_module")
@@ -1822,7 +1822,7 @@ def prepare_com_inventory(tag: str, candidate: Path | None = None, build: Path |
         raise SystemExit("inventory tag must be lowercase ASCII")
     directory = TMP_ROOT / ("r60-com-inventory-" + tag)
     directory.mkdir(parents=True, exist_ok=False)
-    source = ROOT / "06_개편소스" / "v0.01"
+    source = ROOT / "source" / "v0.01"
     for item in (source / "tests/windows/Run-R60ComInventory.ps1", source / "build/Excel-ProcessLifecycle.ps1"):
         shutil.copy2(item, directory / item.name)
     runner = "Run-R60ComInventory.ps1"
@@ -1921,7 +1921,7 @@ def main(argv: list[str]) -> int:
         directory.mkdir(parents=True, exist_ok=False)
         setup = directory / "Setup.exe"
         shutil.copy2(args.setup_exe, setup)
-        source = ROOT / "06_개편소스/v0.01"
+        source = ROOT / "source/v0.01"
         for relative in ("tests/windows/Run-R63SetupSuite.ps1", "tests/windows/Test-R75InstalledIntegrity.ps1", "tests/windows/Run-NxSetupUpgradeSuite.ps1", "tests/windows/Run-R97InstallerUi.ps1", "build/Excel-ProcessLifecycle.ps1"):
             destination = directory / relative
             destination.parent.mkdir(parents=True, exist_ok=True)

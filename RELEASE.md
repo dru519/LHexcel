@@ -10,4 +10,4 @@
 - 공개 소스: 제품 manifest와 심벌 목록 일치, 공개 범위·해시·비밀정보 검사, 이용 고지 및 패키지 회귀 검사를 수행했습니다. Windows 전용·과거 소스가 필요한 검사는 범위를 표시합니다.
 - 새 공개 패키지: XLAM ZIP/VBA 구조, 사용기한 서명, 모든 모듈 안내문, DLL 해시와 설치 패키지 구성을 확인했습니다. Windows에서 EXE 컴파일·내장 패키지 검증·로컬 Defender 검사가 통과했습니다. 게시 파일의 해시가 해당 검사 결과와 일치합니다.
 
-파일별 SHA-256은 `RELEASE_ASSETS.json`과 Releases의 게시 기록에 제공합니다. 배포 파일은 `LHexcel_v0.01_r105.xlam`과 `LHexcel_v0.01_r105_Setup.exe` 두 가지입니다. EXE는 전자서명이 적용되지 않았습니다. 로컬 Defender 검사는 게시 시점의 해당 Windows 검사 범위입니다.
+파일별 SHA-256은 `RELEASE_ASSETS.json`과 Releases의 게시 기록에 제공합니다. 배포 파일은 `LHexcel_v0.01_r105.xlam`과 `LHexcel_v0.01_r105_Setup.exe` 두 가지입니다. 로컬 Defender 검사는 게시 시점의 해당 Windows 검사 범위입니다.

@@ -4,6 +4,6 @@ useDefault = true
 [[allowlists]]
 description = "Public Windows CSP container label; contains no signing key"
 condition = "AND"
-paths = ['06_개편소스/v0\.01/build/Sign-DistributionPolicy\.ps1$']
+paths = ['source/v0\.01/build/Sign-DistributionPolicy\.ps1$']
 regexTarget = "line"
 regexes = ["KeyContainer = 'LHExcel.DistributionPolicy.v1'"]
