@@ -40,7 +40,7 @@ namespace LH.NxHost {
         internal static bool RefreshFocus() {
             if (!focusActive || focusPayload == null || addIn == null || addIn.Application == null) return false;
             FocusGeometryResult geometry;
-            if (!FocusGeometryBuilder.TryBuild(addIn.Application, out geometry)) {
+            if (!FocusGeometryBuilder.TryBuild(addIn.Application, out geometry, focusPayload.Style == "outer-cells")) {
                 // A hidden/off-screen/non-range selection is a valid non-rendering state,
                 // not an engine failure that should force a VBA backend downgrade.
                 overlay.Hide();
@@ -88,7 +88,8 @@ namespace LH.NxHost {
                 !map.ContainsKey("intensity") || !map.ContainsKey("selected")) return false;
             string shape = map["shape"];
             if (shape != "criss-cross" && shape != "horizontal" && shape != "vertical") return false;
-            if (map["style"] != "wide-stripe") return false;
+            if (map["style"] == "outline") map["style"] = "outer-cells";
+            if (map["style"] != "wide-stripe" && map["style"] != "outer-cells") return false;
             int intensity;
             if (!Int32.TryParse(map["intensity"], out intensity) || intensity < 0 || intensity > 100) return false;
             bool selected;

@@ -198,6 +198,7 @@ End Function
 Public Function NxFocusNormalizeStyle(ByVal value As String) As String
     Select Case LCase$(Trim$(value))
         Case NX_FOCUS_STYLE_WIDE, "넓은 띠": NxFocusNormalizeStyle = NX_FOCUS_STYLE_WIDE
+        Case NX_FOCUS_STYLE_OUTER_CELLS, "outline", "윤곽선 (음영 없음)", "바깥 셀 음영": NxFocusNormalizeStyle = NX_FOCUS_STYLE_OUTER_CELLS
     End Select
 End Function
 

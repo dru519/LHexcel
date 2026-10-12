@@ -18,6 +18,7 @@ Private mPlanBuilt As Boolean
 Private mConsolidationMode As String
 Private mSkipHeaders As Boolean
 Private mCreateContents As Boolean
+Private mAddFileName As Boolean
 Private mRenameUndo As Boolean
 Private mUndoJournal As Object
 Private mUndoBook As Workbook
@@ -60,6 +61,7 @@ Public Sub Configure(ByVal featureId As String, ByVal outputPath As String, Opti
             mConsolidationMode = WorkflowText("consolidation_mode")
             mSkipHeaders = WorkflowBoolean("skip_headers")
             If workflowOptions.Exists("create_contents") Then mCreateContents = WorkflowBoolean("create_contents")
+            If workflowOptions.Exists("add_file_name") Then mAddFileName = WorkflowBoolean("add_file_name")
             If mConsolidationMode <> "SHEETS" And mConsolidationMode <> "ROWS" And mConsolidationMode <> "BOTH" Then NxRaiseContractError "파일 통합 방식이 올바르지 않습니다."
         End If
     End If
@@ -108,7 +110,7 @@ Private Function INxFeatureCommand_Execute(ByVal context As CNxExecutionContext,
     Select Case mFeatureId
         Case "NX-FILE-CONSOLIDATE"
             If Not IsArray(mInputPaths) Then NxRaiseContractError "Consolidation input files are required"
-            Set INxFeatureCommand_Execute = NxRunConsolidation(mInputPaths, mOutputPath, mAllowPartial, mSecondApproval, mConsolidationMode, mSkipHeaders, mCreateContents)
+            Set INxFeatureCommand_Execute = NxRunConsolidation(mInputPaths, mOutputPath, mAllowPartial, mSecondApproval, mConsolidationMode, mSkipHeaders, mCreateContents, mAddFileName)
         Case "NX-FILE-RANGE-PNG"
             If mSelectedTarget Is Nothing Then NxRaiseContractError "저장할 셀 범위를 선택하세요."
             If TypeName(mSelectedTarget) <> "Range" Then NxRaiseContractError "저장할 셀 범위를 확인하세요."

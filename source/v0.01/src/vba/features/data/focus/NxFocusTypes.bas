@@ -13,6 +13,7 @@ Public Const NX_FOCUS_SHAPE_CROSS As String = "criss-cross"
 Public Const NX_FOCUS_SHAPE_HORIZONTAL As String = "horizontal"
 Public Const NX_FOCUS_SHAPE_VERTICAL As String = "vertical"
 Public Const NX_FOCUS_STYLE_WIDE As String = "wide-stripe"
+Public Const NX_FOCUS_STYLE_OUTER_CELLS As String = "outer-cells"
 Public Const NX_FOCUS_MAX_SELECTION_CELLS As Double = 100000#
 Public Const NX_FOCUS_APPLIES_ROWS As Long = 4096
 Public Const NX_FOCUS_APPLIES_COLUMNS As Long = 256

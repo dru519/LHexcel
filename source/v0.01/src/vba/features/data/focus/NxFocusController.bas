@@ -444,7 +444,7 @@ Private Function NxFocusControllerRefreshConditionalSelection(ByVal target As Ob
     Set sheet = target.Worksheet
     Set workbook = sheet.Parent
     Set selection = New CNxFocusSelection
-    If Not selection.Configure(target) Then
+    If Not selection.Configure(target, mSettings.Style = NX_FOCUS_STYLE_OUTER_CELLS) Then
         mBackendDiagnostic = "CF_UNSUPPORTED_SELECTION|" & selection.Reason
         If allowRepair And Not sheet.ProtectContents And Not workbook.ReadOnly Then _
             NxFocusDeleteManagedRules sheet

@@ -35,6 +35,9 @@ $script:OUTER_BORDER_COLOR = "#000000"
 $script:MAX_CELLS = 16384
 $script:TABLE_FONT_SIZE_PT = 13
 $script:TABLE_TITLE_ROW = $true
+$script:TABLE_HEADER_ROWS = 1
+$script:TABLE_TOTAL_ROW = $false
+$script:TABLE_ROWS = 0
 $script:TABLE_CHAR_PR_IDS = @("0", "2", "3", "10")
 $script:WON_TEXT = ([char]0xC6D0).ToString()
 $script:JUNGGOTHIC_TEXT = ([char]0xC911).ToString() + ([char]0xACE0).ToString() + ([char]0xB515).ToString()
@@ -192,9 +195,19 @@ function Read-Payload([string]$Path) {
             $script:TABLE_FONT_SIZE_PT = $fontSize
         }
         if ($settings.PSObject.Properties.Name -contains "title_row") { $script:TABLE_TITLE_ROW = [bool]$settings.title_row }
+        $script:TABLE_HEADER_ROWS = [int]$script:TABLE_TITLE_ROW
+        if ($settings.PSObject.Properties.Name -contains 'header_rows') {
+            $n = $settings.header_rows
+            if ($n -is [bool] -or $n -is [string] -or $null -eq $n -or [double]$n -ne [Math]::Truncate([double]$n) -or $n -lt 0 -or $n -gt $rows) { throw 'SETTINGS_ROW_ROLES' }
+            $script:TABLE_HEADER_ROWS = [int]$n
+        }
+        if ($settings.PSObject.Properties.Name -contains 'total_row') {
+            if ($settings.total_row -isnot [bool]) { throw 'SETTINGS_ROW_ROLES' }
+            $script:TABLE_TOTAL_ROW = $settings.total_row
+        }
         if ($settings.PSObject.Properties.Name -contains "table_style") {
             $tableStyle = [string]$settings.table_style
-            if ($tableStyle -ne $script:FORMAL_STYLE_TEXT -and $tableStyle -ne $script:SIMPLE_STYLE_TEXT) {
+            if ($tableStyle -ne $script:FORMAL_STYLE_TEXT -and $tableStyle -ne $script:SIMPLE_STYLE_TEXT -and $tableStyle -ne '열린 표' -and $tableStyle -ne '닫힌 표') {
                 throw (New-HwpxError "SETTINGS_TABLE_STYLE_INVALID" "The selected table style is not approved." 3)
             }
             $script:TABLE_STYLE = $tableStyle
@@ -205,6 +218,8 @@ function Read-Payload([string]$Path) {
             }
         }
     }
+    if ($script:TABLE_TOTAL_ROW -and $script:TABLE_HEADER_ROWS -ge $rows) { throw 'SETTINGS_ROW_ROLES' }
+    $script:TABLE_ROWS = $rows
     return [pscustomobject]@{ Raw = $payload; Rows = $rows; Cols = $cols }
 }
 
@@ -264,22 +279,22 @@ function Normalize-Heights($PayloadInfo) {
     $items = @(Get-JsonArray $PayloadInfo.Raw @("row_heights", "rowHeights", "rowsMeta"))
     $heights = New-Object System.Collections.Generic.List[int]
     for ($i = 0; $i -lt $items.Count; $i++) {
-        $height = if ($i -eq 0 -and $script:TABLE_TITLE_ROW) { $script:HEADER_ROW_HEIGHT } else { $script:DEFAULT_ROW_HEIGHT }
+        $height = if ($i -lt $script:TABLE_HEADER_ROWS) { $script:HEADER_ROW_HEIGHT } else { $script:DEFAULT_ROW_HEIGHT }
         try {
             if ($items[$i] -is [ValueType]) {
                 $pointHeight = [Math]::Max([double]$items[$i], 8.0)
-                $minimum = if ($i -eq 0 -and $script:TABLE_TITLE_ROW) { $script:HEADER_ROW_HEIGHT } else { $script:MIN_BODY_ROW_HEIGHT }
+                $minimum = if ($i -lt $script:TABLE_HEADER_ROWS) { $script:HEADER_ROW_HEIGHT } else { $script:MIN_BODY_ROW_HEIGHT }
                 $height = [Math]::Max($minimum, [int][Math]::Round($pointHeight * 100.0))
             } elseif ($null -ne $items[$i] -and $items[$i].PSObject.Properties.Name -contains "height") {
                 $pointHeight = [Math]::Max([double]$items[$i].height, 8.0)
-                $minimum = if ($i -eq 0) { $script:HEADER_ROW_HEIGHT } else { $script:MIN_BODY_ROW_HEIGHT }
+                $minimum = if ($i -lt $script:TABLE_HEADER_ROWS -or $i -eq 0) { $script:HEADER_ROW_HEIGHT } else { $script:MIN_BODY_ROW_HEIGHT }
                 $height = [Math]::Max($minimum, [int][Math]::Round($pointHeight * 100.0))
             }
         } catch {}
         $heights.Add($height)
     }
     while ($heights.Count -lt $rows) {
-        $heights.Add($(if ($heights.Count -eq 0 -and $script:TABLE_TITLE_ROW) { $script:HEADER_ROW_HEIGHT } else { $script:DEFAULT_ROW_HEIGHT }))
+        $heights.Add($(if ($heights.Count -lt $script:TABLE_HEADER_ROWS) { $script:HEADER_ROW_HEIGHT } else { $script:DEFAULT_ROW_HEIGHT }))
     }
     while ($heights.Count -gt $rows) { $heights.RemoveAt($heights.Count - 1) }
     return @($heights)
@@ -327,6 +342,7 @@ function Get-MergeMaps($PayloadInfo) {
             if (($row + $rowSpan) -gt $PayloadInfo.Rows -or ($col + $colSpan) -gt $PayloadInfo.Cols) {
                 throw (New-HwpxError "INPUT_MERGE_RANGE" "Merge is outside the declared table." 3)
             }
+            if (($row -lt $script:TABLE_HEADER_ROWS -and $row + $rowSpan -gt $script:TABLE_HEADER_ROWS) -or ($script:TABLE_TOTAL_ROW -and $row -lt $PayloadInfo.Rows - 1 -and $row + $rowSpan -eq $PayloadInfo.Rows)) { throw 'MERGE_CROSSES_ROW_ROLE' }
             for ($mergeRow = $row; $mergeRow -lt ($row + $rowSpan); $mergeRow++) {
                 for ($mergeCol = $col; $mergeCol -lt ($col + $colSpan); $mergeCol++) {
                     $key = "$mergeRow,$mergeCol"
@@ -364,20 +380,21 @@ function Test-NumericText([string]$Value) {
 }
 
 function Get-ParagraphStyle([int]$Row, [string]$Value) {
-    if ($script:TABLE_TITLE_ROW -and $Row -eq 0) { return [pscustomobject]@{ Para = "11"; Char = "10" } }
+    if ($Row -lt $script:TABLE_HEADER_ROWS) { return [pscustomobject]@{ Para = "11"; Char = "10" } }
+    if ($script:TABLE_TOTAL_ROW -and $Row -eq $script:TABLE_ROWS - 1) { return [pscustomobject]@{ Para = $(if (Test-NumericText $Value) { "15" } else { "11" }); Char = "10" } }
     if (Test-NumericText $Value) { return [pscustomobject]@{ Para = "15"; Char = "2" } }
     return [pscustomobject]@{ Para = "11"; Char = "2" }
 }
 
 function Get-BorderFillId([int]$Row, [int]$Col, [int]$Rows, [int]$Cols) {
     if ($Cols -eq 1) {
-        if ($script:TABLE_TITLE_ROW -and $Row -eq 0) { return 17 }
+        if ($Row -lt $script:TABLE_HEADER_ROWS) { return 17 }
         if ($Row -eq ($Rows - 1)) { return 19 }
         return 18
     }
     $firstCol = $Col -eq 0
     $lastCol = $Col -eq ($Cols - 1)
-    if ($script:TABLE_TITLE_ROW -and $Row -eq 0) {
+    if ($Row -lt $script:TABLE_HEADER_ROWS) {
         if ($firstCol) { return 7 }
         if ($lastCol) { return 9 }
         if ($Col -eq 1) { return 8 }
@@ -408,11 +425,12 @@ function New-TemplateClone([System.Xml.XmlDocument]$Doc, [System.Xml.XmlNode]$Te
 }
 
 function New-CellFromTemplate([System.Xml.XmlDocument]$Doc, [System.Xml.XmlNode]$TemplateCell, [int]$Row, [int]$Col, [int]$Rows, [int]$Cols, [int]$Width, [int]$Height, [int]$RowSpan, [int]$ColSpan, [string]$Value, [int]$ParagraphId) {
+    $offset = if ($Row -lt $script:TABLE_HEADER_ROWS) { if ($Row + $RowSpan -lt $script:TABLE_HEADER_ROWS) {15} elseif ($Row -gt 0) {30} else {0} } elseif ($script:TABLE_TOTAL_ROW -and $Row -eq $Rows - 1) {45} else {0}
     $ns = New-NamespaceManager $Doc
     $tc = New-TemplateClone $Doc $TemplateCell "tc"
     foreach ($pair in @{
-        name = ""; header = "0"; hasMargin = "0"; protect = "0"; editable = "0"; dirty = "0";
-        borderFillIDRef = [string](Get-BorderFillId $Row $Col $Rows $Cols)
+        name = ""; header = [string][int]($Row -lt $script:TABLE_HEADER_ROWS); hasMargin = "0"; protect = "0"; editable = "0"; dirty = "0";
+        borderFillIDRef = [string]((Get-BorderFillId $Row $Col $Rows $Cols) + $offset)
     }.GetEnumerator()) {
         $tc.SetAttribute([string]$pair.Key, [string]$pair.Value)
     }
@@ -544,7 +562,7 @@ function Build-SectionXml($PayloadInfo, [byte[]]$TemplateSectionBytes) {
     foreach ($pair in @{
         id = "1000000999"; zOrder = "6"; numberingType = "TABLE"; textWrap = "TOP_AND_BOTTOM";
         textFlow = "BOTH_SIDES"; lock = "0"; dropcapstyle = "None"; pageBreak = "CELL";
-        repeatHeader = "1"; rowCnt = [string]$rows; colCnt = [string]$cols; cellSpacing = "0";
+        repeatHeader = [string][int]($script:TABLE_HEADER_ROWS -gt 0); rowCnt = [string]$rows; colCnt = [string]$cols; cellSpacing = "0";
         borderFillIDRef = "3"; noAdjust = "0"
     }.GetEnumerator()) {
         $tbl.SetAttribute([string]$pair.Key, [string]$pair.Value)
@@ -701,7 +719,7 @@ function Patch-HeaderXml([byte[]]$Bytes) {
     }
     $borderFills = $doc.SelectSingleNode("//hh:borderFills", $ns)
     if ($null -ne $borderFills) {
-        $headerFill = if ($script:TABLE_STYLE -eq $script:FORMAL_STYLE_TEXT) { "#EEF3F8" } else { "" }
+        $headerFill = if ($script:TABLE_STYLE -ne $script:SIMPLE_STYLE_TEXT) { "#EEF3F8" } else { "" }
         $headerBorderFill = Ensure-BorderFill $doc $borderFills "17" $headerFill
         if ($script:TABLE_STYLE -eq $script:SIMPLE_STYLE_TEXT) {
             $existingFill = $headerBorderFill.SelectSingleNode("hc:fillBrush", $ns)
@@ -746,7 +764,33 @@ function Patch-HeaderXml([byte[]]$Bytes) {
             Set-BorderSide $doc $borderFill "topBorder" $style[2] $topWidth $topColor
             Set-BorderSide $doc $borderFill "bottomBorder" $style[3] $style[6] $bottomColor
             Set-BorderSide $doc $borderFill "diagonal" "NONE" $style[4] $script:INNER_BORDER_COLOR
+            if ($script:TABLE_STYLE -eq '닫힌 표') {
+                if ($style[0] -eq 'NONE') { Set-BorderSide $doc $borderFill 'leftBorder' 'SOLID' '0.3 mm' $script:OUTER_BORDER_COLOR }
+                if ($style[1] -eq 'NONE') { Set-BorderSide $doc $borderFill 'rightBorder' 'SOLID' '0.3 mm' $script:OUTER_BORDER_COLOR }
+            }
         }
+    }
+    if ($script:TABLE_HEADER_ROWS -gt 1 -or $script:TABLE_TOTAL_ROW) {
+        foreach ($offset in @(15,30,45)) { foreach ($id in 5..19) {
+            $fill = $borderFills.SelectSingleNode("hh:borderFill[@id='$id']", $ns).CloneNode($true)
+            $fill.SetAttribute('id', [string]($id + $offset))
+            $fill.SelectSingleNode('hh:topBorder', $ns).SetAttribute('width', $(if ($offset -eq 45) {'0.3 mm'} else {'0.1 mm'}))
+            if ($offset -eq 15) {
+                $fill.SelectSingleNode('hh:bottomBorder', $ns).SetAttribute('type', 'SOLID')
+                $fill.SelectSingleNode('hh:bottomBorder', $ns).SetAttribute('width', '0.1 mm')
+            }
+            if ($offset -eq 45) {
+                $brush = $fill.SelectSingleNode('hc:fillBrush', $ns)
+                if ($null -eq $brush) { $brush=New-HcElement $doc 'fillBrush' @{}; [void]$fill.AppendChild($brush) }
+                $win = $brush.SelectSingleNode('hc:winBrush', $ns)
+                if ($null -eq $win) { $win=New-HcElement $doc 'winBrush' @{}; [void]$brush.AppendChild($win) }
+                $win.SetAttribute('faceColor','#E6E6E6'); $win.SetAttribute('hatchColor','#000000'); $win.SetAttribute('alpha','0')
+                Set-BorderSide $doc $fill 'topBorder' 'SOLID' '0.3 mm' $script:OUTER_BORDER_COLOR
+                Set-BorderSide $doc $fill 'bottomBorder' 'SOLID' '0.5 mm' $script:OUTER_BORDER_COLOR
+            }
+            [void]$borderFills.AppendChild($fill)
+        } }
+        $borderFills.SetAttribute('itemCnt', [string]$borderFills.ChildNodes.Count)
     }
     return ConvertTo-XmlBytes $doc
 }

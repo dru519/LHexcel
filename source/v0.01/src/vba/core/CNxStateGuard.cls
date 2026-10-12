@@ -11,6 +11,8 @@ Private mDisplayAlerts As Boolean
 Private mCalculation As XlCalculation
 Private mStatusBar As Variant
 Private mWorkbook As Workbook
+Private mWindow As Window
+Private mScrollRow As Long, mScrollColumn As Long
 Private mSheet As Worksheet
 Private mSelection As Range
 Private mRestored As Boolean
@@ -25,6 +27,11 @@ Private Sub Class_Initialize()
     mCalculation = Application.Calculation
     mStatusBar = Application.StatusBar
     Set mWorkbook = Application.ActiveWorkbook
+    Set mWindow = Application.ActiveWindow
+    If Not mWindow Is Nothing Then
+        mScrollRow = mWindow.ScrollRow
+        mScrollColumn = mWindow.ScrollColumn
+    End If
     Set mSheet = Application.ActiveSheet
     If TypeName(Application.Selection) = "Range" Then Set mSelection = Application.Selection
 End Sub
@@ -114,7 +121,11 @@ End Sub
 Private Sub RestoreActiveWorkbook()
     On Error GoTo Failed
     RaiseIfInjected "ActiveWorkbook"
-    If Not mWorkbook Is Nothing Then mWorkbook.Activate
+    If Not mWindow Is Nothing Then
+        If Not Application.ActiveWindow Is mWindow Then mWindow.Activate
+    ElseIf Not mWorkbook Is Nothing Then
+        If Not Application.ActiveWorkbook Is mWorkbook Then mWorkbook.Activate
+    End If
     Exit Sub
 Failed:
     AppendFailure "ActiveWorkbook", Err.Number, Err.Description
@@ -124,7 +135,9 @@ End Sub
 Private Sub RestoreActiveSheet()
     On Error GoTo Failed
     RaiseIfInjected "ActiveSheet"
-    If Not mSheet Is Nothing Then mSheet.Activate
+    If Not mSheet Is Nothing Then
+        If Not Application.ActiveSheet Is mSheet Then mSheet.Activate
+    End If
     Exit Sub
 Failed:
     AppendFailure "ActiveSheet", Err.Number, Err.Description
@@ -135,6 +148,10 @@ Private Sub RestoreSelection()
     On Error GoTo Failed
     RaiseIfInjected "Selection"
     If Not mSelection Is Nothing Then mSelection.Select
+    If Not mWindow Is Nothing Then
+        If mScrollRow > 0 Then mWindow.ScrollRow = mScrollRow
+        If mScrollColumn > 0 Then mWindow.ScrollColumn = mScrollColumn
+    End If
     Exit Sub
 Failed:
     AppendFailure "Selection", Err.Number, Err.Description

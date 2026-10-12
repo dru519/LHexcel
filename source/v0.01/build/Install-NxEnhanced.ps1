@@ -105,17 +105,17 @@ if (@(Get-Process -Name EXCEL -ErrorAction SilentlyContinue).Count -ne 0) {
     throw 'EXCEL_RUNNING: save documents and close every Excel process before installation'
 }
 
-$stateRoot = Join-Path $env:LOCALAPPDATA 'LHexcel\NxHost\state\r105'
+$stateRoot = Join-Path $env:LOCALAPPDATA 'LHexcel\NxHost\state\r106'
 [void](New-Item -ItemType Directory -Path $stateRoot -Force)
 $installStatePath = Join-Path $stateRoot 'install-state.json'
 if (Test-Path -LiteralPath $installStatePath -PathType Leaf) {
     $existingState = [IO.File]::ReadAllText($installStatePath) | ConvertFrom-Json
-    if ([string]$existingState.status -eq 'ACTIVE') { throw 'ACTIVE_INSTALL_STATE_CONFLICT: uninstall the current r105 installation first' }
+    if ([string]$existingState.status -eq 'ACTIVE') { throw 'ACTIVE_INSTALL_STATE_CONFLICT: uninstall the current r106 installation first' }
 }
 
 $xlstartRoot = Join-Path $env:APPDATA 'Microsoft\Excel\XLSTART'
 $productName = -join @([char]0xB0B4, [char]0xC5D1, [char]0xC140)
-$xlstartTarget = Join-Path $xlstartRoot ($productName + ' v0.01_r105.xlam')
+$xlstartTarget = Join-Path $xlstartRoot ($productName + ' v0.01_r106.xlam')
 $xlstartBackup = Join-Path $stateRoot 'xlstart-backup.xlam'
 $hadPrevious = $false
 if ($InstallXlamToXLStart) {
@@ -128,7 +128,7 @@ if ($InstallXlamToXLStart) {
         throw ('XLSTART_CONFLICT: another ' + $productName + ' add-in exists: ' + ($otherProducts.Name -join ', '))
     }
     if (Test-Path -LiteralPath $xlstartTarget -PathType Leaf) {
-        if (-not $ReplaceExistingXlam) { throw 'XLSTART_CONFLICT: r105 target already exists; pass -ReplaceExistingXlam to back it up' }
+        if (-not $ReplaceExistingXlam) { throw 'XLSTART_CONFLICT: r106 target already exists; pass -ReplaceExistingXlam to back it up' }
         Copy-Item -LiteralPath $xlstartTarget -Destination $xlstartBackup -Force
         $hadPrevious = $true
     }
@@ -144,7 +144,7 @@ try {
     $registered = $true
 
     if ($InstallXlamToXLStart) {
-        $temporaryTarget = Join-Path $xlstartRoot ('.nx-r105-' + [Guid]::NewGuid().ToString('N') + '.tmp')
+        $temporaryTarget = Join-Path $xlstartRoot ('.nx-r106-' + [Guid]::NewGuid().ToString('N') + '.tmp')
         try {
             Copy-Item -LiteralPath $product -Destination $temporaryTarget
             if ((Get-Sha256 $temporaryTarget) -cne (Get-Sha256 $product)) { throw 'XLSTART staged Product.xlam hash mismatch' }
@@ -156,7 +156,7 @@ try {
 
     $receipt = [pscustomobject][ordered]@{
         schema_version = 1
-        release_id = 'r105'
+        release_id = 'r106'
         status = 'ACTIVE'
         excel_path = $resolvedExcel
         excel_architecture = $excelArchitecture

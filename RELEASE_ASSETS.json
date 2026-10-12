@@ -1,30 +1,30 @@
 {
   "schema_version": 1,
-  "version": "v0.01_r105",
-  "tag": "v0.01-r105-public1",
+  "version": "v0.01_r106",
+  "tag": "v0.01-r106-public1",
   "expiry": "2027-12-31",
-  "release_url": "https://github.com/dru519/LHexcel/releases/tag/v0.01-r105-public1",
+  "release_url": "https://github.com/dru519/LHexcel/releases/tag/v0.01-r106-public1",
   "files": [
     {
-      "name": "LHexcel_v0.01_r105_Setup.exe",
-      "format": "exe",
-      "bytes": 2451968,
-      "sha256": "14eba1dc1e11465aa03ad0f0edd7dbc445cc2d2287d18708302ee14767096c89",
-      "url": "https://github.com/dru519/LHexcel/releases/download/v0.01-r105-public1/LHexcel_v0.01_r105_Setup.exe"
+      "name": "LHexcel_v0.01_r106.xlam",
+      "format": "xlam",
+      "bytes": 2282742,
+      "sha256": "7e5340b2aaf8ec5aaa9e98494f0de7b5c68b67cb7db4ab00dc0d3d936363f210",
+      "url": "https://github.com/dru519/LHexcel/releases/download/v0.01-r106-public1/LHexcel_v0.01_r106.xlam"
     },
     {
-      "name": "LHexcel_v0.01_r105.xlam",
-      "format": "xlam",
-      "bytes": 2266412,
-      "sha256": "b630f13375dbdd5b50f32aac4fda911449977d7b89eb456413b7ef446b9f5f36",
-      "url": "https://github.com/dru519/LHexcel/releases/download/v0.01-r105-public1/LHexcel_v0.01_r105.xlam"
+      "name": "LHexcel_v0.01_r106_Setup.exe",
+      "format": "exe",
+      "bytes": 2469376,
+      "sha256": "b334b1b749d44ad9f100fe288ce25a3d5bc5229afcd33802ea796921a2a77209",
+      "url": "https://github.com/dru519/LHexcel/releases/download/v0.01-r106-public1/LHexcel_v0.01_r106_Setup.exe"
     }
   ],
   "verification": {
     "source_python_tests": {
       "run": 90,
-      "passed": 84,
-      "skipped": 6
+      "passed": 89,
+      "skipped": 1
     },
     "xlam_zip_and_policy_signature": "PASS",
     "installer_windows_compile_and_embedded_package": "PASS",

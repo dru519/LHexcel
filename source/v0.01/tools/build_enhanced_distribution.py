@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Assemble and atomically publish the r105 enhanced-DLL distribution."""
+"""Assemble and atomically publish the r106 enhanced-DLL distribution."""
 from __future__ import annotations
 
 import argparse
@@ -31,7 +31,7 @@ PAYLOAD_FILES = (
     "NxCore32.dll",
     "NxCore64.dll",
     "SHA256SUMS",
-    "docs/r105-build.md",
+    "docs/r106-build.md",
 )
 PACKAGE_FILES = (
     "README.md",
@@ -42,7 +42,7 @@ PACKAGE_FILES = (
     "payload/NxCore32.dll",
     "payload/NxCore64.dll",
     "payload/SHA256SUMS",
-    "payload/docs/r105-build.md",
+    "payload/docs/r106-build.md",
     "deployment/Install-NxEnhanced.ps1",
     "deployment/Register-NxHost.ps1",
     "deployment/Uninstall-NxEnhanced.ps1",
@@ -207,10 +207,10 @@ def assemble(complete_root: Path, source_root: Path, staging: Path, *, developme
         shutil.copy2(source, deployment / name)
 
     (staging / "README.md").write_text(
-        ("# 내엑셀 v0.01_r105 DLL 개발 검증본 — 정식 배포 금지\n\n"
+        ("# 내엑셀 v0.01_r106 DLL 개발 검증본 — 정식 배포 금지\n\n"
          "출시 전 시험용입니다. Product.xlam은 개발 완성본이며 배포 보호를 적용하지 않았습니다. "
          "서명·정식 출시·실사용 수용 검증 완료를 뜻하지 않습니다. 승인된 검증 환경에서만 사용하세요.\n\n"
-         if development_candidate else "# 내엑셀 v0.01_r105 DLL 배포본\n\n")
+         if development_candidate else "# 내엑셀 v0.01_r106 DLL 배포본\n\n")
         +
         "이 배포본은 Product.xlam과 Excel 비트수별 NxHost DLL을 포함합니다. "
         "실행 파일, PYD, Python 런타임은 포함하지 않습니다. 내부망 단일 파일 반입은 별도의 XLAM 배포본을 사용하세요.\n\n"
@@ -299,7 +299,7 @@ def publish(staging: Path, destination_folder: Path, destination_zip: Path) -> d
     temporary_archive.unlink()
     try:
         write_archive(staging, destination_folder, temporary_archive)
-        with tempfile.TemporaryDirectory(prefix="naeexcel-r105-archive-", dir=destination_zip.parent) as temporary:
+        with tempfile.TemporaryDirectory(prefix="naeexcel-r106-archive-", dir=destination_zip.parent) as temporary:
             extracted = extract_archive_safely(temporary_archive, Path(temporary))
             run_package_verifier(extracted)
         staging.replace(destination_folder)
@@ -348,7 +348,7 @@ def resolve_path(path: Path) -> Path:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build and atomically publish the r105 enhanced-DLL package")
+    parser = argparse.ArgumentParser(description="Build and atomically publish the r106 enhanced-DLL package")
     parser.add_argument("--complete-root", type=Path, required=True)
     parser.add_argument("--destination-root", type=Path, required=True)
     parser.add_argument("--destination-zip", type=Path, required=True)

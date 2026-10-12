@@ -61,7 +61,7 @@ function Get-PeMachine([string]$Path) {
 
 $payloadRoot = Join-Path $PackageRoot 'payload'
 if (-not (Test-Path -LiteralPath $payloadRoot -PathType Container)) { throw 'payload directory is missing' }
-$expectedPayload = @('NxHost32.dll','NxHost64.dll','NxCore32.dll','NxCore64.dll','Product.xlam','SHA256SUMS','docs/r105-build.md') | Sort-Object
+$expectedPayload = @('NxHost32.dll','NxHost64.dll','NxCore32.dll','NxCore64.dll','Product.xlam','SHA256SUMS','docs/r106-build.md') | Sort-Object
 $actualPayload = @(Get-ChildItem -LiteralPath $payloadRoot -Recurse -File -Force | Where-Object { $_.Name -ne '.DS_Store' } | ForEach-Object { Get-RelativePath $payloadRoot $_.FullName } | Sort-Object)
 if (@(Compare-Object -ReferenceObject $expectedPayload -DifferenceObject $actualPayload).Count -ne 0) { throw 'payload does not match the enhanced-dll contract file set' }
 

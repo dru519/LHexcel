@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build one final r105 profile into a staging directory and verify it."""
+"""Build one final r106 profile into a staging directory and verify it."""
 from __future__ import annotations
 
 import argparse
@@ -43,21 +43,21 @@ def write_sums(root: Path) -> None:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="내엑셀 v0.01_r105 final-only build")
+    parser = argparse.ArgumentParser(description="내엑셀 v0.01_r106 final-only build")
     parser.add_argument("--profile", choices=("internal-xlam", "enhanced-dll"), default="enhanced-dll")
     parser.add_argument("--output-root", type=Path,
                         help="empty caller-owned staging/output directory; no deployment is performed")
     parser.add_argument("--deployment-package", action="store_true", help=argparse.SUPPRESS)
     args = parser.parse_args()
     if args.deployment_package:
-        parser.error("deployment package disabled/rejected for final-only r105 builds")
+        parser.error("deployment package disabled/rejected for final-only r106 builds")
     if args.output_root is None:
         parser.error("--output-root is required; refusing implicit repository output")
     output = args.output_root.resolve()
     if output.exists() and any(output.iterdir()):
         parser.error(f"refusing non-empty output root: {output}")
     output.mkdir(parents=True, exist_ok=True)
-    staging = Path(tempfile.mkdtemp(prefix="naeexcel-r105-"))
+    staging = Path(tempfile.mkdtemp(prefix="naeexcel-r106-"))
     try:
         payload = staging / "payload"
         payload.mkdir()

@@ -10,7 +10,7 @@
     },
     "build_profiles": {
       "path": "contracts/build-profile-contract.json",
-      "sha256": "4c7f3620f0f10f4966dba1d66082c476979efbb4a8086ffb07cd06a070a2a569"
+      "sha256": "ec5dfbc08aa005f6957d3b6b1eb8b9790b2ec70afcf5a45383eb99fa2a65cb3b"
     },
     "commands": {
       "path": "contracts/command-contract.json",
@@ -52,7 +52,7 @@
       "path": "src/vba/core/CNxCellRollbackJournal.cls",
       "kind": "class_module",
       "owner_phase": "product",
-      "sha256": "a0f06df875ba50d1e592d8335fcb4e1709e1d501fed6ad725a2364d9314037b3"
+      "sha256": "c1943bde2aedde2a8a85f99a4577ddea8bda0fe60170db40012aa20b9fc56957"
     },
     {
       "path": "src/vba/core/CNxExecutionContext.cls",
@@ -76,7 +76,7 @@
       "path": "src/vba/core/CNxRangeFormatBackup.cls",
       "kind": "class_module",
       "owner_phase": "product",
-      "sha256": "1b7b661a3f73aa611b69bbea62287c6f114917b8e57535469365c092fdcee375"
+      "sha256": "7c440b68d4dfe96fc57035cac000028efb6547a6ed3ceae9873892b12a48a8c6"
     },
     {
       "path": "src/vba/core/CNxRangeSelectionSession.cls",
@@ -106,7 +106,7 @@
       "path": "src/vba/core/CNxStateGuard.cls",
       "kind": "class_module",
       "owner_phase": "product",
-      "sha256": "4dc80ab7a36c9c5e06fa39d19c21bc41072a60621793b81dca347f5a9f352510"
+      "sha256": "aa1913ae0ae407de599b2727a1a3b9d10fc895b5a8f6fa122ff72a907932ec3d"
     },
     {
       "path": "src/vba/core/INxFeatureCommand.cls",
@@ -396,13 +396,13 @@
       "path": "src/vba/features/data/focus/CNxFocusRuleEngine.cls",
       "kind": "class_module",
       "owner_phase": "product",
-      "sha256": "623d7a15542553d655d73bb06e4a9095218485d94c89b4cd4f2ed827440a5c30"
+      "sha256": "000961af10a623ab53ff9beaa37c20f5e4ed3bb90dec0596b5e40ba7a82ade9d"
     },
     {
       "path": "src/vba/features/data/focus/CNxFocusSelection.cls",
       "kind": "class_module",
       "owner_phase": "product",
-      "sha256": "7ba8e68e9a57f559222ef47bac8ad9921e6a776f798e4a49f715bce4797a06ad"
+      "sha256": "7ff39bf1a0c47c0d68785c3b9347705459b724ef8e3a1277a051f8de33b4b584"
     },
     {
       "path": "src/vba/features/data/focus/CNxFocusSettingsModel.cls",
@@ -420,7 +420,7 @@
       "path": "src/vba/features/data/focus/NxFocusController.bas",
       "kind": "standard_module",
       "owner_phase": "product",
-      "sha256": "76600ba0bca95493732409b77ea14047f41b48e89efd55021f9b93214834e6fa"
+      "sha256": "9fee24564906a285caf6bfc5686b3e85d0991cb9ea05baf3a8d325c719e39904"
     },
     {
       "path": "src/vba/features/data/focus/NxFocusLifecycleGuard.bas",
@@ -450,13 +450,13 @@
       "path": "src/vba/features/data/focus/NxFocusSettings.bas",
       "kind": "standard_module",
       "owner_phase": "product",
-      "sha256": "f4ef08ec1b0e2aec5ce56aa5b48521a94a05885d472a84707b296554242a21aa"
+      "sha256": "a3f65714f15554fab7e3c00a1a1293f3e4d2357d5ad3ad8e79ce977e8a9a9886"
     },
     {
       "path": "src/vba/features/data/focus/NxFocusTypes.bas",
       "kind": "standard_module",
       "owner_phase": "product",
-      "sha256": "e56cea8db3cefe5088940946de988d29dd666ae51bfb5ef9d3381ac4f33f31fa"
+      "sha256": "3dfe16b951315c139b362c7018d84b4963944d5e5dd1022398e5e4535530d7b6"
     },
     {
       "path": "src/vba/features/data/privacy/NxPrivacyMask.bas",
@@ -556,14 +556,14 @@
       "path": "src/vba/features/data/ui/FNxFocusSettings.form.json",
       "kind": "form_layout",
       "owner_phase": "product",
-      "sha256": "0e10efee417d8cf8e80f096c45f06ad8f16e79382d5af5e104cf2add4c5a4638",
+      "sha256": "dac5b79e1fa5aac19920718a1fe3e1ee10ed5b82fc3d3fa1805a9b90a45338f5",
       "code_path": "src/vba/features/data/ui/FNxFocusSettings.vba"
     },
     {
       "path": "src/vba/features/data/ui/FNxFocusSettings.vba",
       "kind": "form_code",
       "owner_phase": "product",
-      "sha256": "71bfb8c238b76a3c3d0341a2007fae6cf715e1c29cb2ec7e685ce667019ed060"
+      "sha256": "e7608a7140d9311a8e6aa930d586d12550c97317d6dd1a833fc9e20922237634"
     },
     {
       "path": "src/vba/features/documentnavigator/CNxDocumentNavigatorItem.cls",
@@ -636,7 +636,7 @@
       "path": "src/vba/features/draw/CNxRoleStyleCellState.cls",
       "kind": "class_module",
       "owner_phase": "product",
-      "sha256": "f6a1d755b736f971d0b1ecce574a71cc5797c72f688bab73d5e59f742ecdcccf"
+      "sha256": "4773b4f83a66983c25222693192218f26e75be8f96f4fa5e4426ba687622c1cf"
     },
     {
       "path": "src/vba/features/draw/CNxRoleStyleCommand.cls",
@@ -672,7 +672,7 @@
       "path": "src/vba/features/draw/NxDrawController.bas",
       "kind": "standard_module",
       "owner_phase": "product",
-      "sha256": "24bc696f6e9b20058c5346874d8b8efb1b8e3f2c83e619f63b52d3882e5732ae"
+      "sha256": "9230cc351d5300ac2ac00d7bdfbb28a7a572d6790c7eb7c132a70acdc3b953e5"
     },
     {
       "path": "src/vba/features/draw/NxDrawingRegistry.bas",
@@ -820,7 +820,7 @@
       "path": "src/vba/features/file/CNxFileFeatureCommand.cls",
       "kind": "class_module",
       "owner_phase": "product",
-      "sha256": "635e7de81cac0f56723e5093f80cdd51cbd4fe965b55d2b2fdbd0cb46111119e"
+      "sha256": "019b8278c4b5f26387966ce52a6b64c4d49ce88f230c1101f5f14bf93b96954a"
     },
     {
       "path": "src/vba/features/file/CNxFolderCreateCommand.cls",
@@ -856,13 +856,13 @@
       "path": "src/vba/features/file/NxConsolidate.bas",
       "kind": "standard_module",
       "owner_phase": "product",
-      "sha256": "eb3bc121a01d3c2308c38b9b35c3ce0fdec33f6f015211f768bd7961b9a43006"
+      "sha256": "a639362854c62923f13d268bcf657511d37d51265129c4ba13cc4394a612288c"
     },
     {
       "path": "src/vba/features/file/NxCopySave.bas",
       "kind": "standard_module",
       "owner_phase": "product",
-      "sha256": "9ef88d6d6ccdd815f73061f8093cf74dc17c4b255c7cc35201471e732ff34b00"
+      "sha256": "7ab4daae3e21aff50c202c1ab56222896e96b5a19d798d433ab2dfc7e897add9"
     },
     {
       "path": "src/vba/features/file/NxFileController.bas",
@@ -1039,14 +1039,14 @@
       "path": "src/vba/features/file/ui/FNxFileConsolidate.form.json",
       "kind": "form_layout",
       "owner_phase": "product",
-      "sha256": "572b0248425345284887128acfab7593a124445441a53a715e43d1d9c29e421d",
+      "sha256": "8b41101ec47e6c03175818185c9f05d36a36e5c8a301d23ee5ee3b255fdd5f16",
       "code_path": "src/vba/features/file/ui/FNxFileConsolidate.vba"
     },
     {
       "path": "src/vba/features/file/ui/FNxFileConsolidate.vba",
       "kind": "form_code",
       "owner_phase": "product",
-      "sha256": "c483221e62ad458339891bffde9371a15a4b9127a708015da6ebfb3bb781e3d1"
+      "sha256": "ff1940716b0e9bcb8b6db95777a4c57d8621565171a0ae78abaf6261f1fcca0b"
     },
     {
       "path": "src/vba/features/file/ui/FNxFileOutput.form.json",
@@ -1117,7 +1117,7 @@
       "path": "src/vba/features/hangul/CNxHangulSettings.cls",
       "kind": "class_module",
       "owner_phase": "product",
-      "sha256": "afe10a0d1c4f194db145a2222e6dce6eae23a9bdd6fe766d75d5083f72aaaae2"
+      "sha256": "cea8ba554781b9559d360ad03f8941477e1001638fb1201293ff64e4eb619c6e"
     },
     {
       "path": "src/vba/features/hangul/CNxHangulTableRequest.cls",
@@ -1141,19 +1141,19 @@
       "path": "src/vba/features/hangul/NxHangulSettings.bas",
       "kind": "standard_module",
       "owner_phase": "product",
-      "sha256": "f449c6d38a71a1188d5432e89ced8fd54445455990b8a21bd593ca39f4e015fd"
+      "sha256": "f413d38ef4bae8446dad20b031082d62e26a32b1a1f6df9e1060e4e795a3f209"
     },
     {
       "path": "src/vba/features/hangul/NxHangulTableTransfer.bas",
       "kind": "standard_module",
       "owner_phase": "product",
-      "sha256": "0cb5ac9b148020447473105c509a52062675b2926abb90c8fb2514c7d415a9bc"
+      "sha256": "1b5d06cc241c7da8eae05ba21646705ffb6121c7a70602ca2316cc8df687d8b5"
     },
     {
       "path": "src/vba/features/hangul/hwpx/NxHwpxController.bas",
       "kind": "standard_module",
       "owner_phase": "product",
-      "sha256": "b6e8bf8c420d9b2c99901f54e8c45ee1261231a2ca157cb6284d0b6e5bcc1512"
+      "sha256": "1d798e971e18d8401a4f814a436c26f0a7b90e64b179c2dc7c37b42e4b87f174"
     },
     {
       "path": "src/vba/features/hangul/hwpx/NxHwpxSerializer.bas",
@@ -1165,7 +1165,7 @@
       "path": "src/vba/features/hangul/hwpx/adapters/NxHwpxEmbeddedResources.bas",
       "kind": "standard_module",
       "owner_phase": "product",
-      "sha256": "54ad7deef5e3d34ac1d4b769a0b0a3bc79c04d8a62b832ee7aa53656f55283f1"
+      "sha256": "7ff624d05533b178c874c0e13b2dfbbdaf4e9dafc566695c85a21b2cdf2700a1"
     },
     {
       "path": "src/vba/features/hangul/hwpx/adapters/NxHwpxRuntime.bas",
@@ -1196,14 +1196,14 @@
       "path": "src/vba/features/hangul/ui/FNxHangulSettings.form.json",
       "kind": "form_layout",
       "owner_phase": "product",
-      "sha256": "20fceeafe768ba2583b4881f343e74ae564f240e317597fb4f2c8e2b10dec783",
+      "sha256": "0078b18061da0ca5f1702c82c7abb368787d9b48eac84736d61aa95f76ebd8fe",
       "code_path": "src/vba/features/hangul/ui/FNxHangulSettings.vba"
     },
     {
       "path": "src/vba/features/hangul/ui/FNxHangulSettings.vba",
       "kind": "form_code",
       "owner_phase": "product",
-      "sha256": "7bf5c8273e011175a2eeee75dae4af2fc5b787087e8bf3369f3380a91bcdfffb"
+      "sha256": "265745d2a8eceeb9b76ab942a194fe1d8150c3ae6a09d6b5e5f9a4fc247f0d36"
     },
     {
       "path": "src/vba/features/navigator/NxNavigatorFallback.bas",
@@ -1873,7 +1873,7 @@
       "path": "src/vba/ui/NxProductAbout.bas",
       "kind": "standard_module",
       "owner_phase": "product",
-      "sha256": "d7ff771b36f34007cb35dd0b42789806e9c83a41d6b66affb3541b4c895cb26c"
+      "sha256": "af23bb5d81d3ed1bf662af14205a189ba4057e51205bc497bd1427596d92ecf8"
     },
     {
       "path": "src/vba/ui/NxProductRegistry.bas",

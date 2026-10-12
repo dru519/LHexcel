@@ -8,6 +8,7 @@ Option Explicit
 Private mWorkbook As Workbook
 Private mSource As Range
 Private mBackup As Range
+Private mPreserveConditions As Boolean
 
 Public Sub Capture(ByVal target As Range)
     Dim owner As Window, priorEvents As Boolean, priorAlerts As Boolean
@@ -22,6 +23,7 @@ Public Sub Capture(ByVal target As Range)
     Application.EnableEvents = False
     Application.DisplayAlerts = False
     Set mSource = target
+    mPreserveConditions = (target.FormatConditions.Count > 0)
     ' Excel copies its own style and theme records with the worksheet.
     ' No temporary file or user worksheet is created in the source workbook.
     target.Worksheet.Copy
@@ -43,7 +45,18 @@ Failed:
 End Sub
 
 Public Sub Restore()
+    Dim index As Long, state As CNxRoleStyleCellState
     If mWorkbook Is Nothing Or mSource Is Nothing Then NxRaiseContractError "Format backup is unavailable"
+    If mPreserveConditions Then
+        ' Restore only properties changed by table drawing; keep live CF identity,
+        ' priority and AppliesTo intact, including rules spanning outside the target.
+        For index = 1 To mSource.Cells.Count
+            Set state = New CNxRoleStyleCellState
+            state.Capture mBackup.Cells(index)
+            state.RestoreTo mSource.Cells(index)
+        Next index
+        Exit Sub
+    End If
     mBackup.Copy
     mSource.PasteSpecial Paste:=xlPasteFormats
     Application.CutCopyMode = False

@@ -168,7 +168,7 @@ class R46BuildProfileTests(unittest.TestCase):
             "missing planned final-only build entry point: tools/build_r46_complete.py",
         )
         source = COMPLETE_BUILD.read_text(encoding="utf-8-sig")
-        self.assertIn("내엑셀 v0.01_r105", source)
+        self.assertIn("내엑셀 v0.01_r106", source)
         self.assertIn("final-only", source.casefold())
         self.assertLess(source.index("check = subprocess.run"), source.index("for source in payload.iterdir()"))
 

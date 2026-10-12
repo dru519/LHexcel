@@ -1,7 +1,7 @@
 param(
     [Parameter(Mandatory=$true)][string]$PackageZip,
     [Parameter(Mandatory=$true)][string]$OutputPath,
-    [ValidatePattern('^v0\.01_r[0-9]+$')][string]$Version = 'v0.01_r105'
+    [ValidatePattern('^v0\.01_r[0-9]+$')][string]$Version = 'v0.01_r106'
 )
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest

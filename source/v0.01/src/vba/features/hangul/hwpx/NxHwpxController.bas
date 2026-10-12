@@ -12,14 +12,22 @@ Private Declare Sub NxHwpxSleep Lib "kernel32" Alias "Sleep" (ByVal milliseconds
 #End If
 
 Public Function NxHwpxSerializeWithSettings(ByVal source As Range, ByVal settings As CNxHangulSettings) As String
-    Dim payload As String
+    Dim payload As String, headerRows As Long, rowIndex As Long, totalRow As Boolean
     If source Is Nothing Or settings Is Nothing Or Not settings.IsSealed Then NxRaiseContractError "한글 표 전송 설정을 확인하세요."
     If CDbl(source.CountLarge) > NX_HWPX_MAX_CELLS Then NxRaiseContractError "아래한글 표는 최대 16,384셀입니다."
+    If settings.HeaderRows > source.Rows.Count Then NxRaiseContractError "제목행 수가 선택 범위의 행 수보다 많습니다."
+    If settings.TotalRow And settings.HeaderRows >= source.Rows.Count Then NxRaiseContractError "합계행은 제목행과 겹칠 수 없습니다."
+    For rowIndex = 1 To settings.HeaderRows
+        If settings.IncludeHidden Or Not CBool(source.Rows(rowIndex).EntireRow.Hidden) Then headerRows = headerRows + 1
+    Next rowIndex
+    totalRow = settings.TotalRow
+    If Not settings.IncludeHidden And CBool(source.Rows(source.Rows.Count).EntireRow.Hidden) Then totalRow = False
     payload = NxHwpxSerialize(source, settings.TitleRow, settings.IncludeHidden, "display")
     If Right$(payload, 1) <> "}" Then NxRaiseContractError "HWPX 전송 데이터가 올바르지 않습니다."
     payload = Left$(payload, Len(payload) - 1) & _
         ",""settings"":{""font_name"":""" & JsonEscape(settings.FontName) & """,""font_type"":""HFT"",""font_size_pt"":" & _
         CStr(settings.FontSizePt) & ",""title_row"":" & JsonBoolean(settings.TitleRow) & _
+        ",""header_rows"":" & CStr(headerRows) & ",""total_row"":" & JsonBoolean(totalRow) & _
         ",""include_hidden"":" & JsonBoolean(settings.IncludeHidden) & _
         ",""table_style"":""" & JsonEscape(settings.TableStyle) & """}}"
     NxHwpxSerializeWithSettings = payload

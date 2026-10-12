@@ -8,7 +8,7 @@ Public Sub NxProductShowAbout()
 End Sub
 
 Public Function NxProductVersionText() As String
-    NxProductVersionText = "내엑셀 v0.01_r105"
+    NxProductVersionText = "내엑셀 v0.01_r106"
 End Function
 
 Public Function NxProductCountsText() As String
@@ -20,5 +20,5 @@ Public Function NxProductCommandCountText() As String
 End Function
 
 Public Function NxProductBuildIdText() As String
-    NxProductBuildIdText = "r105 · 시트비교 링크 및 파일통합 목차"
+    NxProductBuildIdText = "r106 · 시트비교 링크 및 파일통합 목차"
 End Function

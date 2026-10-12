@@ -17,14 +17,14 @@ if (!(Test-Path -LiteralPath $X64Dll)) { throw "missing DLL: $X64Dll" }
 
 $X86Dll = [IO.Path]::GetFullPath($X86Dll)
 $X64Dll = [IO.Path]::GetFullPath($X64Dll)
-$runtimeRoot = Join-Path $env:LOCALAPPDATA 'LHexcel\NxHost\r105'
+$runtimeRoot = Join-Path $env:LOCALAPPDATA 'LHexcel\NxHost\r106'
 $runtimeX86 = Join-Path $runtimeRoot 'x86\NxHost32.dll'
 $runtimeX64 = Join-Path $runtimeRoot 'x64\NxHost64.dll'
 $coreX86 = Join-Path (Split-Path -Parent $X86Dll) 'NxCore32.dll'
 $coreX64 = Join-Path (Split-Path -Parent $X64Dll) 'NxCore64.dll'
 $runtimeCoreX86 = Join-Path $runtimeRoot 'x86\NxCore32.dll'
 $runtimeCoreX64 = Join-Path $runtimeRoot 'x64\NxCore64.dll'
-$backup = Join-Path $env:LOCALAPPDATA 'LHexcel\NxHost\state\r105'
+$backup = Join-Path $env:LOCALAPPDATA 'LHexcel\NxHost\state\r106'
 [void](New-Item -ItemType Directory -Path $backup -Force)
 $statePath = Join-Path $backup 'registry-state.json'
 $addinSubKey = 'Software\Microsoft\Office\Excel\Addins\LH.NxHost.Connect'

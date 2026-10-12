@@ -24,7 +24,7 @@ Private Sub LoadModel(ByVal model As CNxFocusSettingsModel)
         Case NX_FOCUS_SHAPE_HORIZONTAL: cboShape.ListIndex = 1
         Case NX_FOCUS_SHAPE_VERTICAL: cboShape.ListIndex = 2
     End Select
-    cboStyle.ListIndex = 0
+    cboStyle.ListIndex = IIf(model.Style = NX_FOCUS_STYLE_OUTER_CELLS, 1, 0)
     txtColor.Value = model.ColorHex
     txtIntensity.Value = CStr(model.IntensityPercent)
     chkSelectedArea.Value = model.HighlightSelectedArea
@@ -47,6 +47,7 @@ Private Sub UpdatePreview()
     If mLoading Then Exit Sub
     On Error GoTo Invalid
     Set model = ModelFromControls()
+    chkSelectedArea.Enabled = (model.Style <> NX_FOCUS_STYLE_OUTER_CELLS)
     DrawGridPreview model
     Exit Sub
 Invalid:
@@ -127,6 +128,10 @@ Private Sub DrawGridPreview(ByVal model As CNxFocusSettingsModel)
             highlighted = Not selected And (((model.Shape <> NX_FOCUS_SHAPE_VERTICAL) And r >= mSelectedTop And r <= mSelectedBottom) Or _
                 ((model.Shape <> NX_FOCUS_SHAPE_HORIZONTAL) And c >= mSelectedLeft And c <= mSelectedRight))
             color = mSampleColor(r, c)
+            If model.Style = NX_FOCUS_STYLE_OUTER_CELLS Then
+                highlighted = ((model.Shape <> NX_FOCUS_SHAPE_VERTICAL) And (r = mSelectedTop - 1 Or r = mSelectedBottom + 1)) Or _
+                    ((model.Shape <> NX_FOCUS_SHAPE_HORIZONTAL) And (c = mSelectedLeft - 1 Or c = mSelectedRight + 1))
+            End If
             If highlighted Then color = PreviewBlend(color, NxFocusEffectiveColor(model), model.IntensityPercent)
             Set item = PreviewLabel("nxFocus_cell_" & r & "_" & c, gridLeft + (c - 1) * cellWidth, gridTop + (r - 1) * cellHeight, cellWidth - 1, cellHeight - 1)
             item.Caption = mSampleText(r, c): item.BackColor = color
@@ -136,7 +141,7 @@ Private Sub DrawGridPreview(ByVal model As CNxFocusSettingsModel)
     w = (mSelectedRight - mSelectedLeft + 1) * cellWidth - 1
     h = (mSelectedBottom - mSelectedTop + 1) * cellHeight - 1
     color = RGB(33, 115, 70)
-    If model.HighlightSelectedArea Then color = NxFocusConditionalColor(model)
+    If model.HighlightSelectedArea And model.Style <> NX_FOCUS_STYLE_OUTER_CELLS Then color = NxFocusConditionalColor(model)
     Set item = PreviewLabel("nxFocus_top", x, y, w, 2): item.BackColor = color
     Set item = PreviewLabel("nxFocus_bottom", x, y + h - 2, w, 2): item.BackColor = color
     Set item = PreviewLabel("nxFocus_left", x, y, 2, h): item.BackColor = color

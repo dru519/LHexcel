@@ -16,7 +16,7 @@
     {"type":"Label","name":"lblShapeTitle","left":16,"top":68,"width":60,"height":18,"tab_index":-1,"tab_stop":false,"enabled":true,"caption":"모양"},
     {"type":"ComboBox","name":"cboShape","left":84,"top":64,"width":130,"height":22,"tab_index":0,"tab_stop":true,"enabled":true,"items":["교차","가로","세로"],"selected_index":0,"style":"drop_down_list","match_required":true},
     {"type":"Label","name":"lblStyleTitle","left":16,"top":96,"width":60,"height":18,"tab_index":-1,"tab_stop":false,"enabled":true,"caption":"스타일"},
-    {"type":"ComboBox","name":"cboStyle","left":84,"top":92,"width":130,"height":22,"tab_index":1,"tab_stop":true,"enabled":true,"items":["넓은 띠"],"selected_index":0,"style":"drop_down_list","match_required":true},
+    {"type":"ComboBox","name":"cboStyle","left":84,"top":92,"width":130,"height":22,"tab_index":1,"tab_stop":true,"enabled":true,"items":["넓은 띠","바깥 셀 음영"],"selected_index":0,"style":"drop_down_list","match_required":true},
     {"type":"Label","name":"lblColorTitle","left":16,"top":124,"width":60,"height":18,"tab_index":-1,"tab_stop":false,"enabled":true,"caption":"강조 색상"},
     {"type":"CommandButton","name":"cmdSwatch1","left":84,"top":120,"width":20,"height":20,"tab_index":2,"tab_stop":true,"enabled":true,"caption":"","back_color":14207071,"control_tip_text":"청록"},
     {"type":"CommandButton","name":"cmdSwatch2","left":110,"top":120,"width":20,"height":20,"tab_index":3,"tab_stop":true,"enabled":true,"caption":"","back_color":10733176,"control_tip_text":"초록"},

@@ -19,6 +19,7 @@ namespace LH.NxHost {
     internal sealed class FocusGeometryResult {
         public readonly Rectangle[] Segments = new Rectangle[8];
         public readonly bool[] Visible = new bool[8];
+        public readonly Rectangle[] OuterBands = new Rectangle[4]; // above, below, left, right
         public Rectangle Grid;
         public Rectangle Selection;
         public IntPtr Owner;
@@ -39,7 +40,7 @@ namespace LH.NxHost {
         private const double RowHeaderLogicalPixels = 31.0;
         private const double ColumnHeaderLogicalPixels = 22.5;
 
-        public static bool TryBuild(Excel.Application app, out FocusGeometryResult result) {
+        public static bool TryBuild(Excel.Application app, out FocusGeometryResult result, bool outerCells = false) {
             result = null;
             if (app == null) return false;
             Excel.Window window = null;
@@ -119,6 +120,21 @@ namespace LH.NxHost {
                 geometry.Zoom = zoom;
                 geometry.PaneIndex = paneIndex;
                 geometry.Signature = BuildStateSignature(window, pane, visible, logical);
+                if (outerCells) {
+                    Excel.Worksheet sheet = null;
+                    Excel.Range cells = null, rows = null, columns = null;
+                    try {
+                        sheet = logical.Worksheet;
+                        cells = sheet.Cells;
+                        rows = logical.Rows; columns = logical.Columns;
+                        int firstRow = logical.Row, lastRow = firstRow + rows.Count - 1;
+                        int firstColumn = logical.Column, lastColumn = firstColumn + columns.Count - 1;
+                        geometry.OuterBands[0] = NeighborBand(cells, firstRow - 1, firstColumn, true, geometry.Grid, visibleLeft, visibleTop, pointScale);
+                        geometry.OuterBands[1] = NeighborBand(cells, lastRow + 1, firstColumn, true, geometry.Grid, visibleLeft, visibleTop, pointScale);
+                        geometry.OuterBands[2] = NeighborBand(cells, firstRow, firstColumn - 1, false, geometry.Grid, visibleLeft, visibleTop, pointScale);
+                        geometry.OuterBands[3] = NeighborBand(cells, firstRow, lastColumn + 1, false, geometry.Grid, visibleLeft, visibleTop, pointScale);
+                    } finally { Release(columns); Release(rows); Release(cells); Release(sheet); }
+                }
                 geometry.Set(FocusSegment.RowLeft, gridLeft, selectionTop, selectionLeft, selectionBottom);
                 geometry.Set(FocusSegment.RowRight, selectionRight, selectionTop, gridRight, selectionBottom);
                 geometry.Set(FocusSegment.ColumnTop, selectionLeft, gridTop, selectionRight, selectionTop);
@@ -158,6 +174,22 @@ namespace LH.NxHost {
                 return BuildStateSignature(window, pane, visible, selection);
             } catch { return String.Empty; }
             finally { Release(selection); Release(visible); Release(pane); Release(window); }
+        }
+
+        private static Rectangle NeighborBand(Excel.Range cells, int row, int column, bool horizontal,
+            Rectangle grid, double visibleLeft, double visibleTop, double scale) {
+            if (row < 1 || row > 1048576 || column < 1 || column > 16384) return Rectangle.Empty;
+            Excel.Range cell = null;
+            try {
+                cell = cells[row, column] as Excel.Range;
+                double start = Convert.ToDouble(horizontal ? cell.Top : cell.Left);
+                double size = Convert.ToDouble(horizontal ? cell.Height : cell.Width);
+                if (size <= 0) return Rectangle.Empty;
+                int from = (horizontal ? grid.Top : grid.Left) + Round((start - (horizontal ? visibleTop : visibleLeft)) * scale);
+                int to = from + Round(size * scale);
+                Rectangle band = horizontal ? Rectangle.FromLTRB(grid.Left, from, grid.Right, to) : Rectangle.FromLTRB(from, grid.Top, to, grid.Bottom);
+                return Rectangle.Intersect(grid, band);
+            } finally { Release(cell); }
         }
 
         private static string BuildStateSignature(Excel.Window window, Excel.Pane pane, Excel.Range visible, Excel.Range selection) {

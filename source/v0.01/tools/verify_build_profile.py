@@ -62,7 +62,7 @@ def inventory(profile: str, payload_root: Path) -> dict:
     rows = [{"path": safe_rel(p, root), "sha256": sha(p)} for p in files]
     names = {row["path"] for row in rows}
     expected = set(spec.get("artifact_files", [spec["host_artifact"], *spec.get("allowed_sidecars", [])]))
-    metadata = set(spec.get("metadata_paths", ["SHA256SUMS", "docs/r105-build.md"]))
+    metadata = set(spec.get("metadata_paths", ["SHA256SUMS", "docs/r106-build.md"]))
     if names - expected - metadata:
         raise ValueError(f"unexpected payload entries: {sorted(names - expected - metadata)}")
     if expected - names:
@@ -88,7 +88,7 @@ def inventory(profile: str, payload_root: Path) -> dict:
             forbidden.append(row["path"])
     if forbidden:
         raise ValueError(f"forbidden payload content: {sorted(set(forbidden))}")
-    return {"schema_version": 2, "profile": profile, "final_name": spec.get("final_name", "내엑셀 v0.01_r105"), "source_check": False,
+    return {"schema_version": 2, "profile": profile, "final_name": spec.get("final_name", "내엑셀 v0.01_r106"), "source_check": False,
             "payload_files": [row for row in rows if row["path"] in expected],
             "artifact_files": [row for row in rows if row["path"] in expected],
             "metadata_files": [row for row in rows if row["path"] not in expected],
@@ -106,7 +106,7 @@ def source_report(profile: str) -> dict:
     source_rows = [{"path": p.relative_to(ROOT).as_posix(), "exists": p.is_file()} for p in source_files]
     if not all(row["exists"] for row in source_rows):
         raise ValueError("source policy references a missing source file")
-    return {"schema_version": 2, "profile": profile, "final_name": spec.get("final_name", "내엑셀 v0.01_r105"), "source_check": True,
+    return {"schema_version": 2, "profile": profile, "final_name": spec.get("final_name", "내엑셀 v0.01_r106"), "source_check": True,
             "source_files": source_rows, "payload_files": [], "artifact_files": [], "metadata_files": [], "forbidden_matches": [],
             "source_policy": {"artifact_hash_bound": False, "metadata_paths": list(spec.get("metadata_paths", []))},
             "requires_com_registration": bool(spec["requires_com_registration"]), "com_registration_performed": False,

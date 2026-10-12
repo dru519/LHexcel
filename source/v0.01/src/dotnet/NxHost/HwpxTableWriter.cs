@@ -23,6 +23,9 @@ namespace LH.NxHost {
         private readonly CancellationToken cancellation;
         private int rows, cols, fontSize = 13;
         private bool title = true, simple;
+        private int headerRows = 1;
+        private bool totalRow;
+        private bool closedTable;
         private string font = "중고딕";
         private int[] widths, heights;
         private string[,] values;
@@ -106,20 +109,25 @@ namespace LH.NxHost {
             object settings = Get(raw, "settings");
             if (settings != null) {
                 var s = Map(settings);
-                Only(s, "font_name|font_type|font_size_pt|title_row|include_hidden|table_style");
+                Only(s, "font_name|font_type|font_size_pt|title_row|header_rows|total_row|include_hidden|table_style");
                 if (s.ContainsKey("font_name")) font = Convert.ToString(s["font_name"], Invariant);
                 if (Array.IndexOf(new [] { "중고딕", "함초롬돋움", "맑은 고딕", "굴림" }, font) < 0) throw new InvalidDataException("SETTINGS_FONT");
                 if (s.ContainsKey("font_type") && (string)s["font_type"] != "HFT") throw new InvalidDataException("SETTINGS_FONT_TYPE");
                 if (s.ContainsKey("font_size_pt")) fontSize = Integer(s["font_size_pt"]);
                 if (fontSize < 9 || fontSize > 24) throw new InvalidDataException("SETTINGS_FONT_SIZE");
                 if (s.ContainsKey("title_row")) title = (bool)s["title_row"];
+                headerRows = s.ContainsKey("header_rows") ? Integer(s["header_rows"]) : title ? 1 : 0;
+                if (s.ContainsKey("total_row")) totalRow = (bool)s["total_row"];
                 if (s.ContainsKey("include_hidden") && !(s["include_hidden"] is bool)) throw new InvalidDataException("SETTINGS_HIDDEN");
                 if (s.ContainsKey("table_style")) {
                     string style = (string)s["table_style"];
-                    if (style != "공문형" && style != "간결형") throw new InvalidDataException("SETTINGS_STYLE");
+                    if (style != "공문형" && style != "간결형" && style != "열린 표" && style != "닫힌 표") throw new InvalidDataException("SETTINGS_STYLE");
+                    closedTable = style == "닫힌 표";
                     simple = style == "간결형";
                 }
             }
+            if (headerRows > rows || (totalRow && headerRows >= rows)) throw new InvalidDataException("SETTINGS_ROW_ROLES");
+            title = headerRows > 0;
             values = new string[rows, cols];
             var occupiedCells = new HashSet<int>();
             foreach (object item in Items(raw, "cells")) {
@@ -140,6 +148,7 @@ namespace LH.NxHost {
                 int r = Integer(Get(merge, "row")) - 1, c = Integer(Get(merge, "column")) - 1;
                 int rs = Integer(Get(merge, "row_span")), cs = Integer(Get(merge, "column_span"));
                 if (r < 0 || c < 0 || rs < 1 || cs < 1 || r + rs > rows || c + cs > cols) throw new InvalidDataException("INPUT_MERGE");
+                if ((r < headerRows && r + rs > headerRows) || (totalRow && r < rows - 1 && r + rs == rows)) throw new InvalidDataException("MERGE_CROSSES_ROW_ROLE");
                 for (int y = r; y < r + rs; y++) for (int x = c; x < c + cs; x++) {
                     int key = y * cols + x;
                     if (!occupiedMerges.Add(key)) throw new InvalidDataException("INPUT_MERGE_OVERLAP");
@@ -160,9 +169,9 @@ namespace LH.NxHost {
             heights = new int[rows];
             for (int r = 0; r < rows; r++) {
                 int headerHeight = simple ? 2000 : 2200;
-                heights[r] = r == 0 && title ? headerHeight : 1865;
+                heights[r] = r < headerRows ? headerHeight : 1865;
                 if (r < heightItems.Count) {
-                    int minimum = r == 0 && (title || heightItems[r] is Dictionary<string, object>) ? headerHeight : 1500;
+                    int minimum = r < headerRows || (r == 0 && heightItems[r] is Dictionary<string, object>) ? headerHeight : 1500;
                     heights[r] = Math.Max(minimum, (int)Math.Round(Dimension(heightItems[r], "height", 8) * 100));
                 }
             }
@@ -222,10 +231,14 @@ namespace LH.NxHost {
             double n; return Double.TryParse(text, NumberStyles.Float, Invariant, out n);
         }
         private int Border(int r, int c) {
-            if (cols == 1) return title && r == 0 ? 17 : r == rows - 1 ? 19 : 18;
-            if (title && r == 0) return c == 0 ? 7 : c == cols - 1 ? 9 : c == 1 ? 8 : 10;
+            if (cols == 1) return r < headerRows ? 17 : r == rows - 1 ? 19 : 18;
+            if (r < headerRows) return c == 0 ? 7 : c == cols - 1 ? 9 : c == 1 ? 8 : 10;
             if (r == rows - 1) return c == 0 ? 5 : c == cols - 1 ? 15 : c == 1 ? 14 : 16;
             return c == 0 ? 6 : c == cols - 1 ? 12 : c == 1 ? 11 : 13;
+        }
+        private int StyledBorder(int r, int c, int span) {
+            int offset = r < headerRows ? (r + span < headerRows ? 15 : r > 0 ? 30 : 0) : totalRow && r == rows - 1 ? 45 : 0;
+            return Border(r, c) + offset;
         }
         private byte[] Section(byte[] bytes) {
             var original = Load(bytes); var doc = Load(bytes); var section = doc.DocumentElement; ClearChildren(section);
@@ -237,7 +250,7 @@ namespace LH.NxHost {
             Attr(p, "id", 1000000002, "paraPrIDRef", 0, "styleIDRef", 0, "pageBreak", 0, "columnBreak", 0, "merged", 0);
             var run = (XmlElement)doc.ImportNode(sourceTable.ParentNode, true); ClearChildren(run); Attr(run, "charPrIDRef", 0);
             var table = (XmlElement)doc.ImportNode(sourceTable, true); Remove(table, "hp:tr");
-            Attr(table, "id", 1000000999, "zOrder", 6, "numberingType", "TABLE", "textWrap", "TOP_AND_BOTTOM", "textFlow", "BOTH_SIDES", "lock", 0, "dropcapstyle", "None", "pageBreak", "CELL", "repeatHeader", 1, "rowCnt", rows, "colCnt", cols, "cellSpacing", 0, "borderFillIDRef", 3, "noAdjust", 0);
+            Attr(table, "id", 1000000999, "zOrder", 6, "numberingType", "TABLE", "textWrap", "TOP_AND_BOTTOM", "textFlow", "BOTH_SIDES", "lock", 0, "dropcapstyle", "None", "pageBreak", "CELL", "repeatHeader", title ? 1 : 0, "rowCnt", rows, "colCnt", cols, "cellSpacing", 0, "borderFillIDRef", 3, "noAdjust", 0);
             int totalHeight = 0; foreach (int h in heights) totalHeight = checked(totalHeight + h);
             Attr(Child(table, "hp", "sz"), "width", 47341, "widthRelTo", "ABSOLUTE", "height", totalHeight, "heightRelTo", "ABSOLUTE", "protect", 0);
             Attr(Child(table, "hp", "pos"), "treatAsChar", 1, "affectLSpacing", 0, "flowWithText", 1, "allowOverlap", 0, "holdAnchorAndSO", 0, "vertRelTo", "PARA", "horzRelTo", "COLUMN", "vertAlign", "TOP", "horzAlign", "LEFT", "vertOffset", 0, "horzOffset", 0);
@@ -252,11 +265,11 @@ namespace LH.NxHost {
                     int[] span; if (!merges.TryGetValue(r * cols + c, out span)) span = new [] { 1, 1 };
                     int w = 0, h = 0; for (int x = c; x < c + span[1]; x++) w += widths[x]; for (int y = r; y < r + span[0]; y++) h = checked(h + heights[y]);
                     var tc = (XmlElement)doc.ImportNode(sourceCell, true);
-                    Attr(tc, "name", "", "header", 0, "hasMargin", 0, "protect", 0, "editable", 0, "dirty", 0, "borderFillIDRef", Border(r, c));
+                    Attr(tc, "name", "", "header", r < headerRows ? 1 : 0, "hasMargin", 0, "protect", 0, "editable", 0, "dirty", 0, "borderFillIDRef", StyledBorder(r, c, span[0]));
                     var sub = Child(tc, "hp", "subList");
                     Attr(sub, "id", "", "textDirection", "HORIZONTAL", "lineWrap", "BREAK", "vertAlign", "CENTER", "linkListIDRef", 0, "linkListNextIDRef", 0, "textWidth", 0, "textHeight", 0, "hasTextRef", 0, "hasNumRef", 0);
                     Remove(sub, "hp:p"); string text = values[r, c] ?? "";
-                    sub.AppendChild(Paragraph(doc, pid++, title && r == 0 ? "11" : Numeric(text) ? "15" : "11", title && r == 0 ? "10" : "2", text));
+                    sub.AppendChild(Paragraph(doc, pid++, r < headerRows ? "11" : Numeric(text) ? "15" : "11", r < headerRows || (totalRow && r == rows - 1) ? "10" : "2", text));
                     Attr(Child(tc, "hp", "cellAddr"), "colAddr", c, "rowAddr", r); Attr(Child(tc, "hp", "cellSpan"), "colSpan", span[1], "rowSpan", span[0]);
                     Attr(Child(tc, "hp", "cellSz"), "width", w, "height", h); Attr(Child(tc, "hp", "cellMargin"), "left", 340, "right", 340, "top", 120, "bottom", 120);
                     tr.AppendChild(tc);
@@ -302,11 +315,26 @@ namespace LH.NxHost {
                 bool left = id == 5 || id == 6 || id == 7 || id >= 17;
                 bool right = id == 9 || id == 12 || id == 15 || id >= 17;
                 var fill = Need(fills, "hh:borderFill[@id='" + id + "']");
-                Attr(Child(fill, "hh", "leftBorder"), "type", left ? "NONE" : "SOLID", "width", "0.1 mm", "color", inner);
-                Attr(Child(fill, "hh", "rightBorder"), "type", right ? "NONE" : "SOLID", "width", "0.1 mm", "color", inner);
+                Attr(Child(fill, "hh", "leftBorder"), "type", left && !closedTable ? "NONE" : "SOLID", "width", left && closedTable ? "0.3 mm" : "0.1 mm", "color", left && closedTable ? outer : inner);
+                Attr(Child(fill, "hh", "rightBorder"), "type", right && !closedTable ? "NONE" : "SOLID", "width", right && closedTable ? "0.3 mm" : "0.1 mm", "color", right && closedTable ? outer : inner);
                 Attr(Child(fill, "hh", "topBorder"), "type", "SOLID", "width", header && !simple ? "0.3 mm" : "0.1 mm", "color", header ? outer : inner);
                 Attr(Child(fill, "hh", "bottomBorder"), "type", header ? "DOUBLE_SLIM" : "SOLID", "width", header ? "0.5 mm" : simple ? "0.1 mm" : bottom ? "0.3 mm" : "0.1 mm", "color", bottom ? outer : inner);
                 Attr(Child(fill, "hh", "diagonal"), "type", "NONE", "width", "0.1 mm", "color", inner);
+            }
+            if (headerRows > 1 || totalRow) {
+                foreach (int offset in new [] { 15, 30, 45 }) for (int id = 5; id <= 19; id++) {
+                    var fill = (XmlElement)Need(fills, "hh:borderFill[@id='" + id + "']").CloneNode(true);
+                    Attr(fill, "id", id + offset);
+                    Attr(Child(fill, "hh", "topBorder"), "width", offset == 45 ? "0.3 mm" : "0.1 mm");
+                    if (offset == 15) Attr(Child(fill, "hh", "bottomBorder"), "type", "SOLID", "width", "0.1 mm");
+                    if (offset == 45) {
+                        Attr(Child(fill, "hh", "topBorder"), "type", "SOLID", "width", "0.3 mm", "color", outer);
+                        Attr(Child(fill, "hh", "bottomBorder"), "type", "SOLID", "width", "0.5 mm", "color", outer);
+                        Attr(Child(Child(fill, "hc", "fillBrush"), "hc", "winBrush"), "faceColor", "#E6E6E6", "hatchColor", "#000000", "alpha", 0);
+                    }
+                    fills.AppendChild(fill);
+                }
+                Attr(fills, "itemCnt", fills.ChildNodes.Count);
             }
             return Bytes(doc);
         }

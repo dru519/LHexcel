@@ -7,7 +7,7 @@ $payloadRoot = Join-Path $PackageRoot 'payload'
 $registerScript = Join-Path $PSScriptRoot 'Register-NxHost.ps1'
 $x86Dll = Join-Path $payloadRoot 'NxHost32.dll'
 $x64Dll = Join-Path $payloadRoot 'NxHost64.dll'
-$stateRoot = Join-Path $env:LOCALAPPDATA 'LHexcel\NxHost\state\r105'
+$stateRoot = Join-Path $env:LOCALAPPDATA 'LHexcel\NxHost\state\r106'
 $installStatePath = Join-Path $stateRoot 'install-state.json'
 
 function Get-Sha256([string]$Path) {
@@ -26,11 +26,11 @@ $state = $null
 if (-not (Test-Path -LiteralPath $installStatePath -PathType Leaf)) { throw 'NO_ACTIVE_INSTALL_RECEIPT' }
 if (Test-Path -LiteralPath $installStatePath -PathType Leaf) {
     $state = [IO.File]::ReadAllText($installStatePath) | ConvertFrom-Json
-    if ([string]$state.status -ne 'ACTIVE' -or [string]$state.release_id -ne 'r105') { throw 'NO_ACTIVE_INSTALL_RECEIPT' }
+    if ([string]$state.status -ne 'ACTIVE' -or [string]$state.release_id -ne 'r106') { throw 'NO_ACTIVE_INSTALL_RECEIPT' }
     if ([string]$state.status -eq 'ACTIVE' -and [bool]$state.xlstart_installed) {
         $xlstartTarget = [IO.Path]::GetFullPath([string]$state.xlstart_target)
         $productName = -join @([char]0xB0B4, [char]0xC5D1, [char]0xC140)
-        $expectedTarget = [IO.Path]::GetFullPath((Join-Path $env:APPDATA ('Microsoft\Excel\XLSTART\' + $productName + ' v0.01_r105.xlam')))
+        $expectedTarget = [IO.Path]::GetFullPath((Join-Path $env:APPDATA ('Microsoft\Excel\XLSTART\' + $productName + ' v0.01_r106.xlam')))
         if (-not [string]::Equals($xlstartTarget, $expectedTarget, [StringComparison]::OrdinalIgnoreCase)) { throw 'XLSTART_RECEIPT_PATH_REJECTED' }
         if ([bool]$state.xlstart_had_previous) {
             $backup = [IO.Path]::GetFullPath([string]$state.xlstart_backup)
@@ -39,10 +39,10 @@ if (Test-Path -LiteralPath $installStatePath -PathType Leaf) {
                 -not (Test-Path -LiteralPath $backup -PathType Leaf)) { throw 'XLSTART_BACKUP_REJECTED' }
         }
         if (-not (Test-Path -LiteralPath $xlstartTarget -PathType Leaf)) {
-            throw 'XLSTART_CURRENT_FILE_CHANGED: installed r105 XLAM is missing'
+            throw 'XLSTART_CURRENT_FILE_CHANGED: installed r106 XLAM is missing'
         }
         if ((Get-Sha256 $xlstartTarget) -cne [string]$state.installed_product_sha256) {
-            throw 'XLSTART_CURRENT_FILE_CHANGED: installed r105 XLAM no longer matches the receipt'
+            throw 'XLSTART_CURRENT_FILE_CHANGED: installed r106 XLAM no longer matches the receipt'
         }
     }
 }

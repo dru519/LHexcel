@@ -5,7 +5,8 @@ param(
     [string]$Suites = 'performance',
     [string]$CaseName = '',
     [switch]$ObserveBaseline,
-    [switch]$OverridePerformance
+    [switch]$OverridePerformance,
+    [switch]$ForceCopySaveFallback
 )
 $ErrorActionPreference='Stop'
 Set-StrictMode -Version Latest
@@ -27,6 +28,7 @@ function Wait-ProbeExcelReady([object]$Application) {
     throw 'Owned test Excel did not become ready'
 }
 $map=@{
+    'hangul-focus-options'='tests/vba/product/T_HangulFocusOptions.bas'
     'product-about'='tests/vba/product/T_ProductAbout.bas'
     'unit-symbols'='tests/vba/product/T_R102Units.bas'
     'picture-titles'='tests/vba/product/T_R103PictureTitles.bas'
@@ -494,6 +496,21 @@ try {
         }
         $report.evidence_class='native_excel_instrumented_source_override'
     }
+    if($ForceCopySaveFallback){
+        if($selected.Count -ne 1 -or $selected[0] -ne 'r82-file'){throw 'Copy fallback fault is limited to r82-file'}
+        $component=$product.VBProject.VBComponents.Item('NxCopySave');$module=$component.CodeModule
+        try {
+            $text=$module.Lines(1,$module.CountOfLines)
+            $needle='(?im)^\s*source\.Copy Destination:=destination\s*$'
+            if(([regex]::Matches($text,$needle)).Count -ne 1){throw 'Copy fallback injection site changed'}
+            $text=[regex]::Replace($text,$needle,'    Err.Raise 1004, "CopySaveFault", "Forced direct copy failure"')
+            $module.DeleteLines(1,$module.CountOfLines);$module.AddFromString($text)
+            $report.evidence_class='native_excel_copy_save_forced_direct_copy_failure'
+        } finally {Release-ComObject $module;Release-ComObject $component;$module=$null;$component=$null}
+    }
+    if($selected -contains 'r82-file'){
+        Copy-Item -LiteralPath (Join-Path $SourceRoot 'src/dotnet/NxSetup/Assets/brand-48.png') -Destination (Join-Path $EvidenceRoot 'copy-save-picture.png')
+    }
     if($selected -contains 'runner-safety'){
         Add-Probe 'CFakeFeatureCommand' ([IO.File]::ReadAllText((Join-Path $SourceRoot 'tests/vba/CFakeFeatureCommand.cls'),[Text.Encoding]::UTF8)) 2
         Add-Probe 'T_Core' ([IO.File]::ReadAllText((Join-Path $SourceRoot 'tests/vba/T_Core.bas'),[Text.Encoding]::UTF8))
@@ -551,7 +568,7 @@ try {
         $names=@(([string]$excel.Run($macro+$module+'.Names')).Split('|')|Where-Object {$_})
         if(-not $names.Count){throw 'Empty case inventory'}
         if($CaseName){
-            if($selected.Count -ne 1 -or $suite -notin @('compare-consolidate-links','consolidate-list','r94-template','table','output-flows','popup-layout') -or $CaseName -notin $names){throw 'Unknown focused case'}
+            if($selected.Count -ne 1 -or $suite -notin @('r82-file','compare-consolidate-links','consolidate-list','r94-template','table','output-flows','popup-layout') -or $CaseName -notin $names){throw 'Unknown focused case'}
             $names=@($CaseName)
         }
         foreach($name in $names){
@@ -676,7 +693,7 @@ try {
         }
     }
     Add-Type -AssemblyName System.Drawing
-    foreach($path in @(Get-ChildItem -LiteralPath $EvidenceRoot -Filter '*.png' -File)){
+    foreach($path in @(Get-ChildItem -LiteralPath $EvidenceRoot -Filter '*.png' -File | Where-Object { $_.Name -ne 'copy-save-picture.png' })){
         $bitmap=New-Object Drawing.Bitmap($path.FullName)
         try {
             $yellow=0;$dark=0;$samples=0

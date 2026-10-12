@@ -68,7 +68,7 @@ Private Sub NxCopyWorksheetContent(ByVal sourceSheet As Worksheet, ByVal destina
     stage = "used-range"
     Set sourceUsed = sourceSheet.UsedRange
     Set destinationUsed = destinationSheet.Range(sourceUsed.Address)
-    sourceUsed.Copy Destination:=destinationUsed
+    NxCopySaveRange sourceUsed, destinationUsed
     stage = "row-dimensions"
     NxCopyRangeDimensions sourceUsed, destinationUsed, True
     stage = "column-dimensions"
@@ -179,7 +179,7 @@ Public Function NxRunRangeCopySave(ByVal sourceRange As Range, ByVal outputPath 
     If sourceRange Is Nothing Then NxRaiseContractError "Range copy requires a range"
     NxFileRequireNewOutput outputPath, ".xlsx": Set oldBook = ActiveWorkbook: Set oldSheet = ActiveSheet: Set oldSelection = Application.Selection
     tempPath = NxFileTemporaryOutputPath(outputPath, ".xlsx"): Set outputBook = Workbooks.Add(xlWBATWorksheet)
-    sourceRange.Copy Destination:=outputBook.Worksheets(1).Range("A1")
+    NxCopySaveRange sourceRange, outputBook.Worksheets(1).Range("A1")
     NxCopyRangeDimensions sourceRange, outputBook.Worksheets(1).Range("A1"), True
     NxCopyRangeDimensions sourceRange, outputBook.Worksheets(1).Range("A1"), False
     outputBook.SaveAs Filename:=tempPath, FileFormat:=xlOpenXMLWorkbook, CreateBackup:=False
@@ -197,6 +197,32 @@ Restore:
     On Error Resume Next: If Not oldBook Is Nothing Then oldBook.Activate: If Not oldSheet Is Nothing Then oldSheet.Activate: If Not oldSelection Is Nothing Then oldSelection.Select
     On Error GoTo 0
 End Function
+
+Private Sub NxCopySaveRange(ByVal source As Range, ByVal destination As Range)
+    Dim firstFailure As String, initialShapes As Long, index As Long
+    initialShapes = destination.Worksheet.Shapes.Count
+    On Error GoTo ClipboardCopy
+    source.Copy Destination:=destination
+    Exit Sub
+ClipboardCopy:
+    firstFailure = Err.Description
+    Resume CopyWithClipboard
+CopyWithClipboard:
+    On Error GoTo Failed
+    ' Only called for a new, owned output sheet. Remove a partial destination
+    ' before switching Excel's copy path; never alter source conditional rules.
+    destination.Resize(source.Rows.Count, source.Columns.Count).Clear
+    For index = destination.Worksheet.Shapes.Count To initialShapes + 1 Step -1
+        destination.Worksheet.Shapes(index).Delete
+    Next index
+    Application.CutCopyMode = False
+    source.Copy
+    destination.Worksheet.Paste Destination:=destination
+    Application.CutCopyMode = False
+    Exit Sub
+Failed:
+    NxRaiseContractError "사본 복사에 실패했습니다. 직접 복사: " & firstFailure & " / 전체 붙여넣기: " & Err.Description
+End Sub
 
 Private Sub NxCopyRangeDimensions(ByVal source As Range, ByVal destination As Range, ByVal rows As Boolean)
     Dim count As Long, index As Long, runStart As Long, size As Double, previousSize As Double

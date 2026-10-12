@@ -24,6 +24,7 @@ Private mBorderPropertyNames(5 To 12, 0 To 5) As String
 Private mRangeBackup As CNxRangeFormatBackup
 Private mRangeMask As NxCellMutationMask
 Private mRangeCount As Long
+Private mPreserveTableConditions As Boolean
 
 Private Sub Class_Initialize()
     Dim edge As Variant, prefix As String
@@ -55,6 +56,7 @@ Friend Sub Capture(ByVal context As CNxExecutionContext, ByVal approvedPlan As C
     If mCaptured Then NxRaiseContractError "Journal is command-scoped and may be captured once"
     If Not approvedPlan.IsSealed Then NxRaiseContractError "Journal requires the approved sealed plan"
     mPlanIdentity = approvedPlan.PlanIdentity
+    mPreserveTableConditions = (approvedPlan.FeatureId = "NX-DRAW-BUSINESS-TABLE" Or approvedPlan.FeatureId = "NX-DRAW-TITLE-TABLE")
     Set target = context.InternalSelectionRange(selectionAuthority)
     captureLimit = 200000
     For Each effect In approvedPlan.SideEffects
@@ -248,7 +250,7 @@ Private Sub AssertSupportedCell(ByVal cell As Range, ByVal target As Range, ByVa
         End If
         Exit Sub
     End If
-    If cell.FormatConditions.Count > 0 Then NxRaiseContractError "Conditional formatting is outside the cell journal contract"
+    If Not mPreserveTableConditions And cell.FormatConditions.Count > 0 Then NxRaiseContractError "Conditional formatting is outside the cell journal contract"
     Set listObject = Nothing
     On Error Resume Next
     Set listObject = cell.ListObject
@@ -270,7 +272,7 @@ Private Sub AssertSupportedTarget(ByVal target As Range, ByVal mutationMask As N
     Dim errorNumber As Long
     mTargetPreflightPassed = False
     If mutationMask <= 0 Or (CLng(mutationMask) And Not CLng(NxCellAllSupportedMask)) <> 0 Then NxRaiseContractError "Unsupported cell mutation mask"
-    If target.FormatConditions.Count > 0 Then NxRaiseContractError "Conditional formatting is outside the cell journal contract"
+    If Not mPreserveTableConditions And target.FormatConditions.Count > 0 Then NxRaiseContractError "Conditional formatting is outside the cell journal contract"
     For Each table In target.Worksheet.ListObjects
         If Not Intersect(table.Range, target) Is Nothing Then NxRaiseContractError "ListObject is outside the cell journal contract"
     Next table

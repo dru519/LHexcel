@@ -117,6 +117,7 @@ Private Sub cmdPreview_Click()
     NxConsolidationValidateOutput CStr(txtOutputPath.Value)
     Set validInputs = NxConsolidationPlan(InputPaths(), chkAllowPartial.Value, excludedSummary)
     txtPreview.Value = CStr(cboMode.Value) & " · 유효 입력 " & CStr(validInputs.Count) & "개"
+    If chkFileName.Value And cboMode.ListIndex <> 0 Then txtPreview.Value = txtPreview.Value & vbCrLf & "첫 열에 원본 파일명(확장자 포함)을 추가합니다."
     If Len(excludedSummary) > 0 Then txtPreview.Value = txtPreview.Value & vbCrLf & "제외 항목" & vbCrLf & excludedSummary
     txtPreview.Value = txtPreview.Value & vbCrLf & "원본 파일은 읽기 전용으로 처리합니다."
     mPreviewReady = True
@@ -139,6 +140,7 @@ Private Sub cmdExecute_Click()
     options.Add "consolidation_mode", Choose(cboMode.ListIndex + 1, "SHEETS", "ROWS", "BOTH")
     options.Add "skip_headers", CBool(chkSkipHeaders.Value)
     options.Add "create_contents", CBool(chkContents.Value) And cboMode.ListIndex <> 1
+    options.Add "add_file_name", CBool(chkFileName.Value) And cboMode.ListIndex <> 0
     BeginExecution
     Set result = NxFileRun("NX-FILE-CONSOLIDATE", CStr(txtOutputPath.Value), InputPaths(), chkAllowPartial.Value, workflowOptions:=options)
     If result Is Nothing Then NxRaiseContractError "파일 통합 결과를 확인할 수 없습니다."
@@ -190,8 +192,10 @@ Private Sub txtOutputPath_Change(): InvalidatePreview: End Sub
 Private Sub chkAllowPartial_Click(): InvalidatePreview: End Sub
 Private Sub chkSkipHeaders_Click(): InvalidatePreview: End Sub
 Private Sub chkContents_Click(): InvalidatePreview: End Sub
+Private Sub chkFileName_Click(): InvalidatePreview: End Sub
 Private Sub cboMode_Change()
     chkSkipHeaders.Enabled = (cboMode.ListIndex <> 0)
+    chkFileName.Enabled = (cboMode.ListIndex <> 0)
     chkContents.Enabled = (cboMode.ListIndex <> 1)
     InvalidatePreview
 End Sub
@@ -202,6 +206,7 @@ Private Sub SetInputsEnabled(ByVal enabled As Boolean)
     cmdAddFiles.Enabled = enabled: cmdRemoveFile.Enabled = enabled: cmdBrowse.Enabled = enabled
     txtOutputPath.Enabled = enabled: cboMode.Enabled = enabled: chkAllowPartial.Enabled = enabled
     chkSkipHeaders.Enabled = enabled And cboMode.ListIndex <> 0
+    chkFileName.Enabled = enabled And cboMode.ListIndex <> 0
     chkContents.Enabled = enabled And cboMode.ListIndex <> 1
 End Sub
 

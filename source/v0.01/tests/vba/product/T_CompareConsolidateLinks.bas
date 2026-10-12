@@ -2,7 +2,7 @@ Attribute VB_Name = "T_CompareConsolidateLinks"
 Option Explicit
 
 Public Function Names() As String
-    Names = "sheet_links|sheet_append|sheet_many|sheet_equal|sheet_formulas|sheets_contents|both_contents|rows_no_contents|both_partial|mode_controls"
+    Names = "sheet_links|sheet_append|sheet_many|sheet_equal|sheet_formulas|sheets_contents|both_contents|rows_no_contents|both_partial|mode_controls|filename_rows|filename_headers|filename_both"
 End Function
 
 Public Function RunCase(ByVal name As String) As String
@@ -18,8 +18,10 @@ Public Function RunCase(ByVal name As String) As String
         Set panel = New FNxFileConsolidate
         Require panel.cboMode.ListCount = 3, "three output modes"
         Require panel.chkContents.Enabled And Not panel.chkSkipHeaders.Enabled, "sheet controls"
+        Require Not panel.chkFileName.Enabled And Not panel.chkFileName.Value, "filename default off"
         panel.cboMode.ListIndex = 1
         Require Not panel.chkContents.Enabled And panel.chkSkipHeaders.Enabled, "row controls"
+        Require panel.chkFileName.Enabled, "filename row option"
         panel.cboMode.ListIndex = 2
         Require panel.chkContents.Enabled And panel.chkSkipHeaders.Enabled, "both controls"
         GoTo Passed
@@ -102,8 +104,12 @@ Public Function RunCase(ByVal name As String) As String
     mode = "SHEETS"
     If name = "both_contents" Or name = "both_partial" Then mode = "BOTH"
     If name = "rows_no_contents" Then mode = "ROWS"
+    If Left$(name, 9) = "filename_" Then
+        mode = "ROWS"
+        If name = "filename_both" Then mode = "BOTH"
+    End If
     output = root & "\output.xlsx"
-    Set result = NxRunConsolidation(paths, output, name = "both_partial", name = "both_partial", mode, False, True)
+    Set result = NxRunConsolidation(paths, output, name = "both_partial", name = "both_partial", mode, name = "filename_headers", True, Left$(name, 9) = "filename_")
     If name = "both_partial" Then
         Require result.Outcome = NxPartialFailure, result.Recovery
         output = root & "\output_부분결과.xlsx"
@@ -111,6 +117,17 @@ Public Function RunCase(ByVal name As String) As String
         Require result.Outcome = NxSuccess, result.Recovery
     End If
     Set report = Workbooks.Open(output, 0, True)
+    If Left$(name, 9) = "filename_" Then
+        Set detail = report.Worksheets("통합데이터")
+        Require detail.Range("A2").Value2 = "first.xlsx", "first filename"
+        expected = IIf(name = "filename_headers", 3, 4)
+        Require detail.Cells(expected, 1).Value2 = "second.xlsx", "second filename"
+        Require detail.Cells(expected, 3).Value2 = 2, "data shifted without loss"
+        Require Not detail.Range("A2").HasFormula, "filename is literal"
+        If name = "filename_headers" Then Require detail.Range("A1").Value2 = "파일명", "filename header"
+        If name = "filename_both" Then Require report.Worksheets.Count = 4, "both output and contents retained"
+        GoTo Passed
+    End If
     If mode = "ROWS" Then
         Require report.Worksheets.Count = 1, "row output only"
         Require report.Worksheets(1).Hyperlinks.Count = 0, "no row links"

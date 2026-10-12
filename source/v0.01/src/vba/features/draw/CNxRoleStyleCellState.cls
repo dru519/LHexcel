@@ -49,6 +49,11 @@ Public Sub Restore()
     Next edge
 End Sub
 
+Public Sub RestoreTo(ByVal target As Range)
+    Set mCell = target
+    Restore
+End Sub
+
 Private Function TryReadThemeColor(ByVal colorObject As Object, ByRef themeColor As Variant) As Boolean
     On Error GoTo NotThemeBound
     themeColor = colorObject.ThemeColor

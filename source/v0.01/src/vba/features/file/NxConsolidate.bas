@@ -27,7 +27,7 @@ End Function
 Public Function NxRunConsolidation(ByVal inputPaths As Variant, ByVal resultPath As String, _
     Optional ByVal allowPartial As Boolean = False, Optional ByVal secondApproval As Boolean = False, _
     Optional ByVal mode As String = "SHEETS", Optional ByVal skipHeaders As Boolean = False, _
-    Optional ByVal createContents As Boolean = False) As CNxResult
+    Optional ByVal createContents As Boolean = False, Optional ByVal addFileName As Boolean = False) As CNxResult
     Dim resultBook As Workbook, paths As Collection, usedNames As Object, path As Variant
     Dim failureList As String, failure As String, temporaryPath As String, partialPath As String
     Dim created As Long, current As Long, rowCreated As Long
@@ -57,9 +57,9 @@ Public Function NxRunConsolidation(ByVal inputPaths As Variant, ByVal resultPath
         NxFileOperationReport current - 1, "입력 확인: " & CStr(path)
         If NxFileOperationCancelled() Then cancelledByUser = True: Exit For
         If mode = "ROWS" Then
-            failure = NxAppendConsolidationRows(resultBook.Worksheets(1), CStr(path), created, nextRow, expectedColumns, importedCells, skipHeaders)
+            failure = NxAppendConsolidationRows(resultBook.Worksheets(1), CStr(path), created, nextRow, expectedColumns, importedCells, skipHeaders, addFileName)
         ElseIf mode = "BOTH" Then
-            failure = NxAppendConsolidationBoth(resultBook, CStr(path), usedNames, created, rowCreated, nextRow, expectedColumns, importedCells, skipHeaders)
+            failure = NxAppendConsolidationBoth(resultBook, CStr(path), usedNames, created, rowCreated, nextRow, expectedColumns, importedCells, skipHeaders, addFileName)
         Else
             failure = NxAppendConsolidationFile(resultBook, CStr(path), usedNames, created)
         End If
@@ -93,7 +93,7 @@ Public Function NxRunConsolidation(ByVal inputPaths As Variant, ByVal resultPath
         Exit Function
     End If
     If mode <> "SHEETS" And nextRow > 1 And expectedColumns > 0 Then _
-        NxDrawStyleGeneratedTable resultBook, resultBook.Worksheets(1).Cells(1, 1).Resize(nextRow - 1, expectedColumns), IIf(skipHeaders, 1, 0)
+        NxDrawStyleGeneratedTable resultBook, resultBook.Worksheets(1).Cells(1, 1).Resize(nextRow - 1, expectedColumns + IIf(addFileName, 1, 0)), IIf(skipHeaders, 1, 0)
     If createContents And mode <> "ROWS" Then NxConsolidationAddContents resultBook, IIf(mode = "BOTH", 2, 1)
     If Len(failureList) > 0 Then
         If Not allowPartial Or Not secondApproval Then
@@ -162,14 +162,16 @@ Private Function NxConsolidationTemporaryPath(ByVal outputPath As String) As Str
 End Function
 
 Private Function NxAppendConsolidationRows(ByVal target As Worksheet, ByVal inputPath As String, _
-    ByRef created As Long, ByRef nextRow As Long, ByRef expectedColumns As Long, ByRef importedCells As Double, ByVal skipHeaders As Boolean) As String
+    ByRef created As Long, ByRef nextRow As Long, ByRef expectedColumns As Long, ByRef importedCells As Double, ByVal skipHeaders As Boolean, ByVal addFileName As Boolean) As String
     Dim book As Workbook, sheet As Worksheet, source As Range, block As Range, owned As Boolean
     Dim startRow As Long, startCreated As Long, startColumns As Long, startCells As Double
     Dim lastTouchedRow As Long, touchedColumns As Long, offset As Long, rowCount As Long, columnIndex As Long
     Dim detail As String, rollbackFailed As Boolean
     Dim sourceHeaders As Variant, targetHeaders As Variant, sourceHeader As Variant, targetHeader As Variant
+    Dim dataColumn As Long, outputColumns As Long
     On Error GoTo Failed
     startRow = nextRow: startCreated = created: startColumns = expectedColumns: startCells = importedCells
+    dataColumn = 1 + IIf(addFileName, 1, 0)
     Set book = NxSafeWorkbookOpen(inputPath, owned)
     For Each sheet In book.Worksheets
         If sheet.Visible = xlSheetVisible Then
@@ -177,10 +179,12 @@ Private Function NxAppendConsolidationRows(ByVal target As Worksheet, ByVal inpu
             If Not source Is Nothing Then
                 If expectedColumns = 0 Then expectedColumns = source.Columns.Count
                 If source.Columns.Count <> expectedColumns Then NxRaiseContractError "열 수가 다른 시트는 이어붙일 수 없습니다: " & sheet.Name
+                outputColumns = expectedColumns + dataColumn - 1
+                If outputColumns > target.Columns.Count Then NxRaiseContractError "파일명 구분열을 포함한 결과가 Excel 열 한도를 초과합니다."
                 offset = 0
                 If skipHeaders And created > 0 Then
                     sourceHeaders = source.Rows(1).Value2
-                    targetHeaders = target.Cells(1, 1).Resize(1, expectedColumns).Value2
+                    targetHeaders = target.Cells(1, dataColumn).Resize(1, expectedColumns).Value2
                     For columnIndex = 1 To expectedColumns
                         If expectedColumns = 1 Then
                             sourceHeader = sourceHeaders: targetHeader = targetHeaders
@@ -195,16 +199,23 @@ Private Function NxAppendConsolidationRows(ByVal target As Worksheet, ByVal inpu
                 rowCount = source.Rows.Count - offset
                 If rowCount > 0 Then
                     If CDbl(nextRow) + rowCount - 1 > target.Rows.Count Then NxRaiseContractError "이어붙인 결과가 Excel 행 한도를 초과합니다."
-                    If importedCells + CDbl(rowCount) * expectedColumns > 500000 Then NxRaiseContractError "이어붙이기는 전체 500,000셀까지 지원합니다."
+                    If importedCells + CDbl(rowCount) * outputColumns > 500000 Then NxRaiseContractError "이어붙이기는 전체 500,000셀까지 지원합니다."
                     Set block = source.Cells(1 + offset, 1).Resize(rowCount, expectedColumns)
                     ' Track the intended write before assigning, so a partially failed write is removed.
-                    lastTouchedRow = nextRow + rowCount - 1: touchedColumns = expectedColumns
-                    With target.Cells(nextRow, 1).Resize(rowCount, expectedColumns)
+                    lastTouchedRow = nextRow + rowCount - 1: touchedColumns = outputColumns
+                    With target.Cells(nextRow, dataColumn).Resize(rowCount, expectedColumns)
                         .NumberFormat = "@"
                         .Value2 = block.Value2
                     End With
+                    If addFileName Then
+                        With target.Cells(nextRow, 1).Resize(rowCount, 1)
+                            .NumberFormat = "@"
+                            .Value2 = CreateObject("Scripting.FileSystemObject").GetFileName(inputPath)
+                        End With
+                        If skipHeaders And created = 0 Then target.Cells(nextRow, 1).Value2 = "파일명"
+                    End If
                     nextRow = lastTouchedRow + 1
-                    importedCells = importedCells + CDbl(rowCount) * expectedColumns
+                    importedCells = importedCells + CDbl(rowCount) * outputColumns
                     created = created + 1
                 End If
             End If
@@ -307,15 +318,15 @@ End Function
 
 Private Function NxAppendConsolidationBoth(ByVal resultBook As Workbook, ByVal inputPath As String, _
     ByVal usedNames As Object, ByRef created As Long, ByRef rowCreated As Long, _
-    ByRef nextRow As Long, ByRef expectedColumns As Long, ByRef importedCells As Double, ByVal skipHeaders As Boolean) As String
+    ByRef nextRow As Long, ByRef expectedColumns As Long, ByRef importedCells As Double, ByVal skipHeaders As Boolean, ByVal addFileName As Boolean) As String
     Dim startRow As Long, startCreated As Long, startColumns As Long, startCells As Double, issue As String
     startRow = nextRow: startCreated = rowCreated: startColumns = expectedColumns: startCells = importedCells
-    issue = NxAppendConsolidationRows(resultBook.Worksheets(1), inputPath, rowCreated, nextRow, expectedColumns, importedCells, skipHeaders)
+    issue = NxAppendConsolidationRows(resultBook.Worksheets(1), inputPath, rowCreated, nextRow, expectedColumns, importedCells, skipHeaders, addFileName)
     If Len(issue) = 0 Then
         issue = NxAppendConsolidationFile(resultBook, inputPath, usedNames, created, True)
         If Len(issue) > 0 Then
             ' Both outputs must contain the same accepted files, including partial results.
-            If nextRow > startRow Then resultBook.Worksheets(1).Cells(startRow, 1).Resize(nextRow - startRow, expectedColumns).Clear
+            If nextRow > startRow Then resultBook.Worksheets(1).Cells(startRow, 1).Resize(nextRow - startRow, expectedColumns + IIf(addFileName, 1, 0)).Clear
             nextRow = startRow: rowCreated = startCreated: expectedColumns = startColumns: importedCells = startCells
         End If
     End If

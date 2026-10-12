@@ -153,6 +153,7 @@ Public Function InstallRules(ByVal sheet As Worksheet, ByVal target As Range) As
     Dim appliesTo As Range
     Dim rowRule As FormatCondition
     Dim columnRule As FormatCondition
+    Dim edge As Long
     On Error GoTo Failed
     If sheet Is Nothing Then Exit Function
     If target Is Nothing Then Exit Function
@@ -162,6 +163,16 @@ Public Function InstallRules(ByVal sheet As Worksheet, ByVal target As Range) As
     If Not EnsureAddinCacheNames() Then Exit Function
     If Not InstallSheetBridgeNames(sheet) Then Exit Function
     Set appliesTo = PlanAppliesTo(sheet, target)
+    If mSettings.Style = NX_FOCUS_STYLE_OUTER_CELLS Then
+        For edge = 1 To 4
+            Set rowRule = appliesTo.FormatConditions.Add(Type:=xlExpression, Formula1:=OuterCellsFormula(edge))
+            rowRule.Interior.Color = NxFocusConditionalColor(mSettings)
+            rowRule.StopIfTrue = False
+            rowRule.SetLastPriority
+        Next edge
+        InstallRules = (ManagedRuleCount(sheet) = 4)
+        Exit Function
+    End If
     Set rowRule = appliesTo.FormatConditions.Add(Type:=xlExpression, Formula1:=CanonicalFormula(True))
     rowRule.Interior.Color = NxFocusConditionalColor(mSettings)
     rowRule.StopIfTrue = False
@@ -268,6 +279,10 @@ Private Function RulesMatchSettings(ByVal sheet As Worksheet, ByVal target As Ra
     If sheet Is Nothing Then Exit Function
     If target Is Nothing Then Exit Function
     If mSettings Is Nothing Then Exit Function
+    If mSettings.Style = NX_FOCUS_STYLE_OUTER_CELLS Then
+        RulesMatchSettings = OuterCellsRulesMatch(sheet, target, verifiedRange)
+        Exit Function
+    End If
     rowFormula = NormalizeFormula(CanonicalFormula(True))
     columnFormula = NormalizeFormula(CanonicalFormula(False))
     expectedColor = CLng(NxFocusConditionalColor(mSettings))
@@ -338,6 +353,41 @@ Private Function CanonicalFormula(ByVal rowAxis As Boolean) As String
         CanonicalFormula = CanonicalFormula & ",NOT(" & selectedAreaFormula & ")"
     End If
     CanonicalFormula = CanonicalFormula & ")"
+End Function
+
+Private Function OuterCellsFormula(ByVal edge As Long) As String
+    Dim axis As String, marker As String
+    marker = IIf(edge <= 2, NX_FOCUS_RULE_V002_ROW, NX_FOCUS_RULE_V002_COLUMN) & "_EDGE" & CStr(edge)
+    Select Case edge
+        Case 1: axis = "ROW()=" & NX_FOCUS_NAME_V002_TOP & "-1"
+        Case 2: axis = "ROW()=" & NX_FOCUS_NAME_V002_BOTTOM & "+1"
+        Case 3: axis = "COLUMN()=" & NX_FOCUS_NAME_V002_LEFT & "-1"
+        Case 4: axis = "COLUMN()=" & NX_FOCUS_NAME_V002_RIGHT & "+1"
+    End Select
+    If (edge <= 2 And mSettings.Shape = NX_FOCUS_SHAPE_VERTICAL) Or _
+        (edge > 2 And mSettings.Shape = NX_FOCUS_SHAPE_HORIZONTAL) Then axis = "FALSE"
+    OuterCellsFormula = "=AND(N(""" & marker & """)=0," & axis & ")"
+End Function
+
+Private Function OuterCellsRulesMatch(ByVal sheet As Worksheet, ByVal target As Range, ByRef verifiedRange As Range) As Boolean
+    Dim rule As Object, edge As Long, found As Long, matched(1 To 4) As Boolean, overlap As Range
+    For Each rule In sheet.Cells.FormatConditions
+        If IsManagedFormula(ExpressionFormula(rule)) Then
+            found = found + 1
+            Set overlap = Application.Intersect(rule.AppliesTo, target)
+            If overlap Is Nothing Then Exit Function
+            If overlap.CountLarge <> target.CountLarge Then Exit Function
+            For edge = 1 To 4
+                If NormalizeFormula(ExpressionFormula(rule)) = NormalizeFormula(OuterCellsFormula(edge)) Then
+                    If matched(edge) Then Exit Function
+                    If rule.Interior.Color <> NxFocusConditionalColor(mSettings) Or rule.StopIfTrue Then Exit Function
+                    matched(edge) = True
+                End If
+            Next edge
+            If verifiedRange Is Nothing Then Set verifiedRange = rule.AppliesTo
+        End If
+    Next rule
+    OuterCellsRulesMatch = (found = 4 And matched(1) And matched(2) And matched(3) And matched(4))
 End Function
 
 Private Function EnsureAddinCacheNames() As Boolean

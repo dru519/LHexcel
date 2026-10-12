@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "rows": 5,
+  "columns": 2,
+  "column_widths": [18, 12],
+  "row_heights": [22, 22, 20, 20, 20],
+  "cells": [
+    {"row": 1, "column": 1, "text": "항목"},
+    {"row": 1, "column": 2, "text": "금액"},
+    {"row": 2, "column": 1, "text": "구분"},
+    {"row": 2, "column": 2, "text": "원"},
+    {"row": 3, "column": 1, "text": "가"},
+    {"row": 3, "column": 2, "text": "100"},
+    {"row": 4, "column": 1, "text": "나"},
+    {"row": 4, "column": 2, "text": "200"},
+    {"row": 5, "column": 1, "text": "합계"},
+    {"row": 5, "column": 2, "text": "300"}
+  ],
+  "merges": [],
+  "settings": {"font_name": "중고딕", "font_type": "HFT", "font_size_pt": 13, "header_rows": 2, "total_row": true, "table_style": "공문형"}
+}

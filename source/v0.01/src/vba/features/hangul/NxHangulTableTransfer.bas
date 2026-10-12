@@ -5,15 +5,17 @@ Private Const NX_HANGUL_TITLE As String = "내엑셀 - 아래한글 표 전송�
 Private Const NX_HANGUL_MAX_CELLS As Long = 16384
 Private mHangulLastError As String
 Private mHangulLastOutputPath As String
+Private mOptions As FNxHangulSettings
 
 Public Sub NxHangulSendSelection()
-    Dim source As Range
     On Error GoTo Failed
     mHangulLastError = vbNullString
     mHangulLastOutputPath = vbNullString
-    Set source = NxHangulPickSourceRange()
-    If source Is Nothing Then Exit Sub
-    If Not NxHangulTransferRange(source) Then NxRaiseContractError mHangulLastError
+    If Not mOptions Is Nothing Then Unload mOptions
+    Set mOptions = New FNxHangulSettings
+    mOptions.BindSettings NxHangulLoadSettings()
+    mOptions.SetTransferMode
+    mOptions.Show vbModeless
     Exit Sub
 Failed:
     If Len(Err.Description) = 0 Then
@@ -39,14 +41,15 @@ Public Function NxHangulTransferCurrentSelection() As Boolean
     NxHangulTransferCurrentSelection = NxHangulTransferRange(Nothing)
 End Function
 
-Private Function NxHangulTransferRange(ByVal selected As Range) As Boolean
+Public Function NxHangulTransferRange(ByVal selected As Range, Optional ByVal selectedSettings As CNxHangulSettings = Nothing) As Boolean
     Dim source As Range
     Dim settings As CNxHangulSettings
     On Error GoTo Failed
     mHangulLastError = vbNullString
     mHangulLastOutputPath = vbNullString
     Set source = NxHangulResolveSelection(selected)
-    Set settings = NxHangulLoadSettings()
+    Set settings = selectedSettings
+    If settings Is Nothing Then Set settings = NxHangulLoadSettings()
     mHangulLastOutputPath = NxHwpxSendTable(source, settings)
     NxHangulTransferRange = (Len(mHangulLastOutputPath) > 0)
     Exit Function

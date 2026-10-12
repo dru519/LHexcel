@@ -9,11 +9,13 @@ namespace LH.NxHost {
         public bool Show(FocusGeometryResult geometry, FocusPayload payload) {
             if (geometry == null || payload == null || geometry.Owner == IntPtr.Zero) return false;
             EnsureForms();
+            Rectangle[] outer = payload.Style == "outer-cells" ? BuildOuterSegments(geometry, payload.Shape) : null;
             for (int index = 0; index < forms.Length; index++) {
-                bool enabled = SegmentEnabled((FocusSegment)index, payload);
+                bool enabled = outer != null || SegmentEnabled((FocusSegment)index, payload);
+                Rectangle bounds = outer != null ? outer[index] : geometry.Visible[index] ? geometry.Segments[index] : Rectangle.Empty;
                 forms[index].ApplyAppearance(payload.Color, payload.Intensity);
                 forms[index].SetOwner(geometry.Owner);
-                if (enabled && geometry.Visible[index]) forms[index].ShowSegment(geometry.Segments[index]);
+                if (enabled && bounds.Width > 0 && bounds.Height > 0) forms[index].ShowSegment(bounds);
                 else forms[index].HideSegment();
             }
             return true;
@@ -54,6 +56,32 @@ namespace LH.NxHost {
             if (segment == FocusSegment.RowLeft || segment == FocusSegment.RowRight) return payload.Shape == "criss-cross" || payload.Shape == "horizontal";
             if (segment == FocusSegment.ColumnTop || segment == FocusSegment.ColumnBottom) return payload.Shape == "criss-cross" || payload.Shape == "vertical";
             return payload.Selected;
+        }
+
+        internal static Rectangle[] BuildOuterSegments(FocusGeometryResult geometry, string shape) {
+            var result = new Rectangle[8];
+            Rectangle[] bands = geometry.OuterBands;
+            Rectangle selected = geometry.Selection;
+            if (shape == "horizontal") { result[0] = bands[0]; result[1] = bands[1]; return result; }
+            if (shape == "vertical") { result[0] = bands[2]; result[1] = bands[3]; return result; }
+            result[0] = bands[0]; result[1] = bands[1];
+            // Horizontal bands already cover the four corners; avoid double opacity.
+            int topEnd = bands[0].Height > 0 ? bands[0].Top : selected.Top;
+            int bottomStart = bands[1].Height > 0 ? bands[1].Bottom : selected.Bottom;
+            for (int i = 2; i < 4; i++) {
+                Rectangle band = bands[i];
+                if (band.Width <= 0 || band.Height <= 0) continue;
+                int index = 2 + (i - 2) * 3;
+                result[index] = ClipBand(band, band.Left, band.Top, band.Right, topEnd);
+                result[index + 1] = ClipBand(band, band.Left, selected.Top, band.Right, selected.Bottom);
+                result[index + 2] = ClipBand(band, band.Left, bottomStart, band.Right, band.Bottom);
+            }
+            return result;
+        }
+
+        private static Rectangle ClipBand(Rectangle band, int left, int top, int right, int bottom) {
+            if (right <= left || bottom <= top) return Rectangle.Empty;
+            return Rectangle.Intersect(band, Rectangle.FromLTRB(left, top, right, bottom));
         }
 
         internal static string SegmentToken(FocusSegment segment) {

@@ -34,11 +34,11 @@ def find_project_root(start: Path) -> Path:
 
 
 ROOT = find_project_root(Path(__file__).resolve())
-VERSION_LABEL = "v0.01_r105"
+VERSION_LABEL = "v0.01_r106"
 SOURCE_XLAM = ROOT / "01_완성본" / f"내엑셀 {VERSION_LABEL}.xlam"
 DISTRIBUTION_DIR = ROOT / "02_배포본(고도화)"
 DISTRIBUTION_XLAM = DISTRIBUTION_DIR / f"내엑셀 {VERSION_LABEL}_배포본.xlam"
-REPORT_PATH = ROOT / "source" / "v0.01" / "reports" / "r105-distribution-policy-build.json"
+REPORT_PATH = ROOT / "source" / "v0.01" / "reports" / "r106-distribution-policy-build.json"
 
 CORE_NS = {
     "cp": "http://schemas.openxmlformats.org/package/2006/metadata/core-properties",
@@ -246,7 +246,7 @@ End Sub'''
     patched, count = re.subn(pattern, replacement, source, count=1, flags=re.DOTALL)
     if count == 1:
         return patched
-    # The r105 XLAM source may not yet have a document-event procedure.
+    # The r106 XLAM source may not yet have a document-event procedure.
     # Add the guarded entry point to the ThisWorkbook module instead of
     # silently omitting the expiry/birthday policy.
     return source.rstrip() + "\n\n" + replacement + "\n"

@@ -37,7 +37,7 @@ class R57ReleasePackagingTests(unittest.TestCase):
         self.assertNotIn("def remove_existing_distribution_files", source)
         self.assertNotIn("child.unlink()", source)
 
-    def test_enhanced_builder_declares_exact_r105_inventory_and_fail_closed_verification(self) -> None:
+    def test_enhanced_builder_declares_exact_r106_inventory_and_fail_closed_verification(self) -> None:
         source = ENHANCED_BUILDER.read_text(encoding="utf-8")
         for token in (
             "payload/Product.xlam",
@@ -46,7 +46,7 @@ class R57ReleasePackagingTests(unittest.TestCase):
             "payload/NxCore32.dll",
             "payload/NxCore64.dll",
             "payload/SHA256SUMS",
-            "payload/docs/r105-build.md",
+            "payload/docs/r106-build.md",
             "deployment/Install-NxEnhanced.ps1",
             "PACKAGE_SHA256SUMS",
             "refusing existing enhanced destination",
@@ -72,7 +72,7 @@ class R57ReleasePackagingTests(unittest.TestCase):
                 ("NxHost64.dll", b"x64"),
                 ("NxCore32.dll", b"core-x86"),
                 ("NxCore64.dll", b"core-x64"),
-                ("docs/r105-build.md", b"r105\n"),
+                ("docs/r106-build.md", b"r106\n"),
             ):
                 path = complete / name
                 path.parent.mkdir(parents=True, exist_ok=True)

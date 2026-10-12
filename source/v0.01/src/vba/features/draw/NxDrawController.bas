@@ -24,7 +24,7 @@ Public Sub NxDrawApplyTableOptions(ByVal target As Range, ByVal featureId As Str
     Dim total As Range
     Dim errorNumber As Long
     Dim errorDescription As String
-    EnsureDrawingTarget target
+    EnsureDrawingTarget target, True
     If headerRowCount < 0 Or headerRowCount > 5 Or headerRowCount > target.Rows.Count Then _
         NxRaiseContractError "머리글 행 수가 선택 범위와 맞지 않습니다."
     snapshot.Capture target, Not NxRunnerOwnsTableRollback(featureId, target)
@@ -208,7 +208,7 @@ Private Function NxShowDrawingExecutionPlan(ByVal ticket As CNxExecutionTicket, 
     Set NxShowDrawingExecutionPlan = router.ExecuteUserAction(ticket)
 End Function
 
-Private Sub EnsureDrawingTarget(ByVal target As Range)
+Private Sub EnsureDrawingTarget(ByVal target As Range, Optional ByVal preserveConditional As Boolean = False)
     Dim table As ListObject
     If target Is Nothing Or target.Areas.Count <> 1 Then NxRaiseContractError "표/그리기 대상은 연속된 한 범위여야 합니다."
     If target.Worksheet.ProtectContents Or target.Worksheet.ProtectDrawingObjects Then NxRaiseContractError "보호된 시트에는 적용할 수 없습니다."
@@ -216,5 +216,5 @@ Private Sub EnsureDrawingTarget(ByVal target As Range)
     For Each table In target.Worksheet.ListObjects
         If Not Intersect(table.Range, target) Is Nothing Then NxRaiseContractError "Excel 표 객체와 겹치는 범위는 명시적 충돌 확인 후 적용해야 합니다."
     Next table
-    If target.FormatConditions.Count > 0 Then NxRaiseContractError "조건부서식과 충돌할 수 있어 명시적 확인 후 적용해야 합니다."
+    If Not preserveConditional And target.FormatConditions.Count > 0 Then NxRaiseContractError "조건부서식과 충돌할 수 있어 명시적 확인 후 적용해야 합니다."
 End Sub

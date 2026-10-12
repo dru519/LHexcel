@@ -1,10 +1,10 @@
 # XLAM·EXE 설치 안내
 
-[공식 Releases](https://github.com/dru519/LHexcel/releases)에서 원하는 형식 한 가지를 내려받으세요. 두 형식을 함께 활성화하면 기존 추가 기능과 충돌할 수 있습니다. 일반 업무 사용은 무료이며 [LICENSE](LICENSE)를 따릅니다. r105의 사용기한은 2027-12-31까지입니다.
+[공식 Releases](https://github.com/dru519/LHexcel/releases)에서 원하는 형식 한 가지를 내려받으세요. 두 형식을 함께 활성화하면 기존 추가 기능과 충돌할 수 있습니다. 일반 업무 사용은 무료이며 [LICENSE](LICENSE)를 따릅니다. r106의 사용기한은 2027-12-31까지입니다.
 
 ## 단일 XLAM
 
-`LHexcel_v0.01_r105.xlam`은 별도 DLL 설치 없이 사용하는 파일입니다.
+`LHexcel_v0.01_r106.xlam`은 별도 DLL 설치 없이 사용하는 파일입니다.
 
 1. Windows 로컬의 계속 보관할 폴더에 저장하고 Excel에서 작업 중인 문서를 저장하세요.
 2. Excel에서 **파일 → 옵션 → 추가 기능**을 엽니다. 아래의 **관리: Excel 추가 기능 → 이동 → 찾아보기**에서 내려받은 XLAM을 선택하세요.
@@ -16,7 +16,7 @@
 
 ## EXE 설치판
 
-`LHexcel_v0.01_r105_Setup.exe`에는 XLAM과 NxHost/NxCore DLL 네 파일, 설치·제거 도구가 들어 있습니다. 별도 ZIP을 내려받을 필요가 없습니다.
+`LHexcel_v0.01_r106_Setup.exe`에는 XLAM과 NxHost/NxCore DLL 네 파일, 설치·제거 도구가 들어 있습니다. 별도 ZIP을 내려받을 필요가 없습니다.
 
 1. 작업 중인 문서를 저장하고 Excel을 모두 종료하세요.
 2. EXE를 실행하여 설치 화면에서 작업을 선택하고 표시된 대상을 확인한 뒤 진행하세요. 기존 설치가 있으면 업데이트 또는 복구·제거 기능을 사용하세요.
